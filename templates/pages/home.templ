@@ -1,0 +1,57 @@
+package pages
+
+import "saui/templates/layout"
+
+templ Home(csrfToken string) {
+	@layout.Base("Server-Authoritative UI", csrfToken) {
+		<article>
+			<section class="hero">
+				<h1>The server owns state. The browser renders truth.</h1>
+				<p>{ `SAUI is an architectural approach to web development where the server is
+					the exclusive owner of application state and the frontend is a stateless
+					display layer.` }</p>
+				<p>
+					<a href="/why" class="btn">Why this matters</a>
+					<a href="/architecture" class="btn btn--secondary">See the architecture</a>
+				</p>
+			</section>
+			<section class="proposition">
+				<h2>A user interface that displays server state is always correct by definition.</h2>
+				<p>{ `A user interface that maintains its own copy of state is always eventually wrong.` }</p>
+				<p>{ `The synchronisation problem - keeping client state consistent with server state -
+					has generated entire engineering disciplines: state management libraries,
+					cache invalidation strategies, optimistic update patterns, hydration pipelines.` }</p>
+				<p>{ `SAUI eliminates the synchronisation problem by eliminating the second copy of state.` }</p>
+			</section>
+			<section class="nav-cards">
+				<h2>Explore</h2>
+				<ul>
+					<li>
+						<a href="/why">
+							<h3>Why</h3>
+							<p>{ `The diagnosis. What the SPA era got right, and what it universalised by mistake.` }</p>
+						</a>
+					</li>
+					<li>
+						<a href="/architecture">
+							<h3>Architecture</h3>
+							<p>{ `The gateway contract, the two-layer state model, the action pattern.` }</p>
+						</a>
+					</li>
+					<li>
+						<a href="/stack">
+							<h3>Stack</h3>
+							<p>{ `Go, SQLite, htmx, and nothing else. The implementation in detail.` }</p>
+						</a>
+					</li>
+					<li>
+						<a href="/limits">
+							<h3>Limits</h3>
+							<p>{ `Where SAUI is the wrong choice. Stated plainly.` }</p>
+						</a>
+					</li>
+				</ul>
+			</section>
+		</article>
+	}
+}

@@ -1,0 +1,95 @@
+package pages
+
+import "saui/templates/layout"
+
+templ Architecture(csrfToken string) {
+	@layout.Base("Architecture", csrfToken) {
+		<article>
+			<header>
+				<h1>Architecture</h1>
+				<p class="lead">{ `The server owns state. The gateway enforces that contract.
+					The frontend submits intents, not state.` }</p>
+			</header>
+			<section>
+				<h2>The two-layer state model</h2>
+				<p>{ `SAUI separates state into two distinct layers with different lifetimes, different
+					storage, and a strict rule about which layer may influence the other.` }</p>
+				<h3>Durable state: what actually happened</h3>
+				<ul>
+					<li>{ `Stored as an append-only event log in SQLite` }</li>
+					<li>{ `Never mutated; only appended` }</li>
+					<li>{ `Survives server restart` }</li>
+					<li>{ `Auditable by definition: the log is the audit trail` }</li>
+					<li>{ `Source of truth for all projections` }</li>
+				</ul>
+				<h3>Ephemeral state: current session context</h3>
+				<ul>
+					<li>{ `In-memory only, keyed by session ID` }</li>
+					<li>{ `Holds UI context: current page, in-progress flows, flash messages` }</li>
+					<li>{ `Derived from durable state on session creation` }</li>
+					<li>{ `Never used as input to durable state transitions` }</li>
+					<li>{ `Discarded on session end; no persistence required` }</li>
+				</ul>
+				<p>{ `The critical rule: ephemeral state flows one direction only. Durable state can
+					seed ephemeral state. Ephemeral state never influences durable state transitions.` }</p>
+			</section>
+			<section>
+				<h2>The gateway contract</h2>
+				<p>{ `All state access, read or write, passes through a single gateway. No handler,
+					no middleware, no other package reads or writes state directly. This is enforced
+					structurally: the Store type is unexported from the statestore package;
+					only the Gateway is exposed.` }</p>
+				<pre><code>{ `// Reading state - returns a named projection
+gateway.Project(ctx, sessionID, "projection-name")
+
+// Writing state - submits a validated intent
+gateway.Dispatch(ctx, sessionID, action)` }</code></pre>
+				<p>{ `The gateway enforces on every call:` }</p>
+				<ul>
+					<li>{ `Authentication context is valid` }</li>
+					<li>{ `Actor has permission for this action or projection` }</li>
+					<li>{ `Action validates against current state before application` }</li>
+					<li>{ `Every state transition is logged` }</li>
+				</ul>
+			</section>
+			<section>
+				<h2>The action pattern</h2>
+				<p>{ `State changes are expressed as validated intents, not direct mutations.
+					A handler never writes state directly; it submits an action to the gateway.` }</p>
+				<pre><code>{ `type Action interface {
+    Type()     string
+    Validate(ctx, store, sessionID) error
+    Apply(ctx, store, sessionID)    (Event, error)
+}` }</code></pre>
+				<p>{ `The lifecycle of a state change:` }</p>
+				<ol>
+					<li>{ `Handler parses the request and constructs an action` }</li>
+					<li>{ `Gateway calls Validate against current state; rejects if invalid` }</li>
+					<li>{ `Gateway calls Apply; produces a new event` }</li>
+					<li>{ `Event is appended to the durable log` }</li>
+					<li>{ `Gateway returns the updated projection to the handler` }</li>
+					<li>{ `Handler renders the projection as HTML: partial for htmx, full page otherwise` }</li>
+				</ol>
+				<p>{ `No partial application. No silent failure. No client state to reconcile.` }</p>
+			</section>
+			<section>
+				<h2>Progressive enhancement</h2>
+				<p>{ `Every feature is built across four degradation levels. All four must produce
+					correct state; the server owns truth regardless of client capability.` }</p>
+				<dl>
+					<dt>{ `Level 0: No JS, no CSS` }</dt>
+					<dd>{ `Native HTML forms, POST submission, PRG pattern. Must always work.` }</dd>
+					<dt>{ `Level 1: CSS only` }</dt>
+					<dd>{ `Full layout applied. No visual state that depends on JS class toggling.` }</dd>
+					<dt>{ `Level 2: JS present, htmx not yet loaded` }</dt>
+					<dd>{ `Native form submission holds. Full page responses.` }</dd>
+					<dt>{ `Level 3: htmx loaded` }</dt>
+					<dd>{ `Partial DOM updates active. Forms intercepted. hx-boost on navigation.` }</dd>
+					<dt>{ `Level 4: Full baseline JS` }</dt>
+					<dd>{ `SSE connection for real-time projection updates. View Transitions if supported.` }</dd>
+				</dl>
+				<p><a href="/stack">See the Go implementation</a></p>
+			</section>
+		</article>
+	}
+}

@@ -1,0 +1,69 @@
+package pages
+
+import "saui/templates/layout"
+
+templ Stack(csrfToken string) {
+	@layout.Base("Stack", csrfToken) {
+		<article>
+			<header>
+				<h1>Stack</h1>
+				<p class="lead">{ `Go standard library, SQLite, htmx, and templ. No framework. No ORM. No bundler.
+					A single deployable binary.` }</p>
+			</header>
+			<section>
+				<h2>Backend</h2>
+				<h3>Go: standard library first</h3>
+				<p>{ `net/http handles routing and serving. No Gin, no Echo, no Chi.
+					The standard library multiplexer gained method and wildcard routing in Go 1.22,
+					removing the last practical justification for a routing framework in most applications.` }</p>
+				<p>
+					{ `The html/template package provides auto-escaping that prevents XSS by construction.
+					This project uses ` }<code>templ</code>{ ` instead, for compile-time type safety across
+					the many htmx partials. The compiled output is standard Go.` }
+				</p>
+				<h3>SQLite via modernc.org/sqlite</h3>
+				<p>{ `Pure Go SQLite: no cgo, no external shared library. The database is compiled into
+					the binary. Deployment is a single file copy.` }</p>
+				<p>{ `WAL mode is enabled at startup. WAL allows concurrent reads without blocking writes,
+					which is appropriate for a read-heavy content site with occasional state mutations.
+					A single writer is enforced; SQLite concurrency model requires it and the
+					append-only event log is naturally sequential.` }</p>
+				<h3>SSE for real-time</h3>
+				<p>{ `Server-Sent Events over standard net/http. No WebSocket unless a use case genuinely
+					requires bidirectional framing. SSE is unidirectional, trivial to implement,
+					and reconnects automatically. It is sufficient for pushing projection updates to the client.` }</p>
+			</section>
+			<section>
+				<h2>Frontend</h2>
+				<h3>htmx</h3>
+				<p>{ `htmx intercepts form submissions and link clicks, sends them as AJAX requests,
+					and swaps the returned HTML fragment into the DOM. The server decides what HTML to return.
+					The client decides where to put it.` }</p>
+				<p>{ `This is the only JS dependency. It is loaded from a local file with no CDN dependency
+					for functionality, pinned to a specific version and verified with a subresource integrity hash.` }</p>
+				<h3>Vanilla JS: Baseline 2023</h3>
+				<p>{ `No framework. No build step. No bundler. JS files are served directly.
+					ES modules via type="module". JSDoc type annotations for IDE inference without a compilation step.` }</p>
+				<p>{ `Target: modern evergreen browsers. The audience is developers. No polyfills.` }</p>
+				<h3>Vanilla CSS</h3>
+				<p>{ `CSS custom properties as design tokens. Grid and Flexbox for layout.
+					Container queries for component-level responsiveness. No CSS-in-JS.
+					No preprocessor. No utility framework.` }</p>
+			</section>
+			<section>
+				<h2>Deployment</h2>
+				<p>{ `A single Go binary. SQLite database on a persistent volume. Fly.io manages TLS.
+					No external runtime dependencies. No database server. No cache layer.
+					No CDN required for correctness.` }</p>
+				<pre><code>{ `# build
+go build -o saui .
+
+# deploy
+fly deploy` }</code></pre>
+				<p>{ `The entire production stack fits in one process. Operational complexity is proportional
+					to what the application actually requires, not to what the architecture assumes.` }</p>
+				<p><a href="/cases">See the architecture applied to real domains</a></p>
+			</section>
+		</article>
+	}
+}

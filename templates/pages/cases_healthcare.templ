@@ -1,0 +1,70 @@
+package pages
+
+import "saui/templates/layout"
+
+templ CaseHealthcare(csrfToken string) {
+	@layout.Base("Case Study: Healthcare Booking", csrfToken) {
+		<article>
+			<header>
+				<nav aria-label="Breadcrumb">
+					<a href="/cases">Case Studies</a> / Healthcare Booking
+				</nav>
+				<h1>Healthcare booking</h1>
+				<p class="lead">{ `Slot locking and double booking are solved at the architecture level,
+					not patched at the application level.` }</p>
+			</header>
+			<section>
+				<h2>The client-side state model</h2>
+				<p>{ `Healthcare booking SPAs load available slots into client state. The user selects
+					a slot, the UI marks it as selected, and the booking is submitted.
+					The problems:` }</p>
+				<ul>
+					<li>
+						<strong>Double booking.</strong>
+						{ ` Two users see the same slot as available. Both select it. Both submit.
+						The server must handle the race, but the SPA gave both users a UI that
+						promised the slot was available.` }
+					</li>
+					<li>
+						<strong>Slot staleness.</strong>
+						{ ` The slot list loaded minutes ago. Slots booked by others since load
+						are still shown as available. The user selects a slot that no longer exists.` }
+					</li>
+					<li>
+						<strong>Optimistic booking.</strong>
+						{ ` The SPA may mark a slot as booked before server confirmation.
+						If the server rejects (slot taken, payment failed), the UI must unwind
+						a state the user believed was confirmed.` }
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>What moves to the server under SAUI</h2>
+				<ul>
+					<li>{ `Slot availability: computed from current bookings on every projection request` }</li>
+					<li>{ `Slot locking: a SlotLocked event is appended when a user begins booking; released on completion or timeout` }</li>
+					<li>{ `Double booking prevention: the gateway validates slot availability atomically before appending the SlotBooked event` }</li>
+				</ul>
+				<p>{ `The lock-then-book sequence is handled entirely by server-side actions. The client
+					never holds a representation of slot availability; it receives a projection of
+					current truth on each request.` }</p>
+			</section>
+			<section>
+				<h2>What stays on the client</h2>
+				<ul>
+					<li>{ `Calendar navigation UI state (current month view)` }</li>
+					<li>{ `Time zone display preference (UI-only, no business meaning)` }</li>
+					<li>{ `Form focus state` }</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Security and correctness properties gained</h2>
+				<p>{ `Double booking is structurally prevented by the gateway atomic validation.
+					Slot staleness is eliminated; the projection is computed from current bookings,
+					not a cached snapshot. The lock timeout is server-enforced: an abandoned booking
+					flow releases the slot automatically via a scheduled action.` }</p>
+				<p><a href="/cases/saas-dashboard">Next: SaaS dashboards</a></p>
+			</section>
+		</article>
+	}
+}

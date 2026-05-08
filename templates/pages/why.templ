@@ -1,0 +1,90 @@
+package pages
+
+import "saui/templates/layout"
+
+templ Why(csrfToken string) {
+	@layout.Base("Why SAUI", csrfToken) {
+		<article>
+			<header>
+				<h1>Why</h1>
+				<p class="lead">{ `The SPA era solved real problems. The mistake was applying that architecture universally.` }</p>
+			</header>
+			<section>
+				<h2>What SPAs got right</h2>
+				<p>{ `In 2013, Gmail and Google Maps genuinely required client-side state. A mail client
+					that reloaded the page on every action was unusable. A mapping tool that lost your
+					position on every interaction was broken. The SPA pattern solved a real problem
+					for a specific class of application: one where the interaction model is fundamentally
+					stateful and the latency of a server round-trip is the dominant UX constraint.` }</p>
+				<p>{ `That class of application still exists and the SPA pattern remains correct for it.` }</p>
+			</section>
+			<section>
+				<h2>The universalisation mistake</h2>
+				<p>{ `The error was treating the SPA architecture as the correct default for web development,
+					regardless of whether the application shared any of the requirements that justified
+					it. Food ordering apps. Banking dashboards. Healthcare booking systems. CMS tools.
+					Internal admin panels.` }</p>
+				<p>{ `None of these applications require the interaction model of Gmail. All of them were
+					built as if they did.` }</p>
+			</section>
+			<section>
+				<h2>The compounding cost</h2>
+				<p>{ `When client-side state is the default, a synchronisation problem is introduced that
+					did not previously exist: keeping the client copy of state consistent with the
+					server copy. Solving that problem has generated entire engineering disciplines.` }</p>
+				<ul>
+					<li>
+						<strong>State management libraries.</strong>
+						{ ` Redux, Zustand, Jotai, MobX, Recoil. Each exists to manage complexity
+						that originates from the client holding state.` }
+					</li>
+					<li>
+						<strong>Cache invalidation.</strong>
+						{ ` React Query, SWR, Apollo. Libraries dedicated to the problem of knowing
+						when the client data is stale.` }
+					</li>
+					<li>
+						<strong>Optimistic updates.</strong>
+						{ ` Showing the user a predicted outcome before the server confirms it.
+						When the server disagrees, reconciliation is required.` }
+					</li>
+					<li>
+						<strong>Hydration.</strong>
+						{ ` The server renders HTML, the client re-renders the same HTML in JavaScript,
+						then merges the two. A problem that only exists because the client needs to
+						take ownership of the DOM.` }
+					</li>
+					<li>
+						<strong>Build toolchains.</strong>
+						{ ` Webpack, Vite, esbuild, Turbopack. Compilers, bundlers, and tree-shakers
+						for a language that runs natively in the browser.` }
+					</li>
+				</ul>
+				<p>{ `These are not solutions to product problems. They are solutions to the synchronisation
+					problem. They would not exist if the client did not hold state.` }</p>
+			</section>
+			<section>
+				<h2>The security consequence</h2>
+				<p>{ `When state lives on the client, the client can tamper with it. The classic
+					"isAdmin: true" attack is not a developer error. It is a structural consequence
+					of the architecture. If the client holds a representation of the user permissions,
+					the client can modify that representation.` }</p>
+				<p>{ `Server-side validation is often added as a second layer, but the client-side
+					representation persists as an attack surface. Under SAUI, there is no client-side
+					state to tamper with because there is no client-side state.` }</p>
+			</section>
+			<section>
+				<h2>What this is not</h2>
+				<p>{ `This is not an argument that SPAs are bad, that React is wrong, or that JavaScript
+					should be avoided. It is an argument about scope. The SPA pattern is appropriate
+					for applications that share the requirements that justified it. Most applications
+					do not.` }</p>
+				<p>{ `SAUI is the web's original model - server renders truth, browser displays it -
+					re-expressed with modern tooling that removes the historical limitations that made
+					SPAs appealing. Slow servers are fast now. Partial page updates are available
+					without a JS framework. Progressive enhancement is achievable without significant cost.` }</p>
+				<p><a href="/architecture">See how the architecture works</a></p>
+			</section>
+		</article>
+	}
+}

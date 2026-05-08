@@ -1,0 +1,83 @@
+package pages
+
+import "saui/templates/layout"
+
+templ CaseFoodOrdering(csrfToken string) {
+	@layout.Base("Case Study: Food Ordering", csrfToken) {
+		<article>
+			<header>
+				<nav aria-label="Breadcrumb">
+					<a href="/cases">Case Studies</a> / Food Ordering
+				</nav>
+				<h1>Food ordering</h1>
+				<p class="lead">{ `Cart state on the client creates three classes of problem that are
+					structural, not implementation errors.` }</p>
+			</header>
+			<section>
+				<h2>The client-side state model</h2>
+				<p>{ `In most food ordering SPAs, the cart lives in client-side state, typically a
+					Redux store or context. Item additions, quantity changes, and removals update
+					the local cart immediately. The server is informed at checkout.
+					This produces three structural problems:` }</p>
+				<ul>
+					<li>
+						<strong>Price manipulation.</strong>
+						{ ` The client holds item prices. A user can modify the cart price representation
+						before checkout. Server validation at checkout catches this, but the window
+						exists and must be explicitly closed.` }
+					</li>
+					<li>
+						<strong>Availability staleness.</strong>
+						{ ` Items in the client cart may have gone out of stock since the page loaded.
+						The client does not know. The failure surfaces at checkout, the worst possible moment.` }
+					</li>
+					<li>
+						<strong>Cart integrity.</strong>
+						{ ` Multiple tabs, page reloads, and session expiry all create opportunities
+						for client-side cart state to diverge from what the server knows about the order.` }
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>What moves to the server under SAUI</h2>
+				<ul>
+					<li>{ `Cart state: the server owns the cart for the session` }</li>
+					<li>{ `Item pricing: computed from the server current price table on every render` }</li>
+					<li>{ `Availability: checked on every add-to-cart action, not at checkout` }</li>
+					<li>{ `Quantity limits: validated at the gateway before the cart event is appended` }</li>
+				</ul>
+				<p>{ `The client submits an AddToCart action. The gateway validates it: item exists,
+					item is available, quantity is within limits, price is current.
+					If valid, a CartItemAdded event is appended. The handler returns the updated
+					cart projection. If not, the current truth is returned with an error.` }</p>
+			</section>
+			<section>
+				<h2>What stays on the client</h2>
+				<ul>
+					<li>{ `UI animations on cart update (CSS)` }</li>
+					<li>{ `Quantity input focus state` }</li>
+					<li>{ `Menu section scroll position` }</li>
+				</ul>
+				<p>{ `These are legitimate UI-only states. They have no business meaning and no security
+					implication. They live in CSS or minimal JS and are discarded on navigation.` }</p>
+			</section>
+			<section>
+				<h2>Security properties gained</h2>
+				<p>{ `Price manipulation is structurally impossible: the client never holds prices,
+					only a projection of what the server computed. Availability attacks are eliminated;
+					the server validates availability at action time, not at checkout.
+					Cart tampering has no attack surface because there is no client-side cart object to tamper with.` }</p>
+			</section>
+			<section>
+				<h2>Testing surface change</h2>
+				<p>{ `Under the SPA model: tests for cart state management, tests for price display
+					accuracy, tests for checkout flow with stale cart, tests for session recovery.
+					All of these test the synchronisation problem.` }</p>
+				<p>{ `Under SAUI: one test per action validates the business rule. One test per
+					projection validates the read model. The HTML render test is a snapshot.
+					No synchronisation to test.` }</p>
+				<p><a href="/cases/banking">Next: Banking</a></p>
+			</section>
+		</article>
+	}
+}

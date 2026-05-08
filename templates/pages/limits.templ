@@ -1,0 +1,76 @@
+package pages
+
+import "saui/templates/layout"
+
+templ Limits(csrfToken string) {
+	@layout.Base("Limits", csrfToken) {
+		<article>
+			<header>
+				<h1>Limits</h1>
+				<p class="lead">{ `SAUI is the wrong choice for some applications.
+					These are genuine exceptions, not contrived ones.` }</p>
+			</header>
+			<section>
+				<p>{ `Credibility requires honesty. A pattern that claims to be appropriate for every
+					application is not a pattern; it is marketing. SAUI has real limits and stating
+					them plainly is part of the argument, not a concession to it.` }</p>
+			</section>
+			<section>
+				<h2>Real-time collaborative editing</h2>
+				<p>{ `When multiple users concurrently mutate the same document - a shared document editor,
+					a collaborative whiteboard, a live code editor - the server-authoritative model
+					requires conflict resolution that SAUI does not provide out of the box.` }</p>
+				<p>{ `Concurrent writes to the same state require CRDTs (Conflict-free Replicated Data
+					Types) or operational transforms to merge diverging edit histories. These are
+					hard problems and SAUI append-only event log does not solve them.` }</p>
+				<p>{ `For single-user editing with server persistence - a CMS, a form, a document editor
+					used by one person at a time - SAUI is entirely appropriate. The limit is specifically
+					real-time multi-user concurrent mutation of shared state.` }</p>
+			</section>
+			<section>
+				<h2>Canvas and creative tools</h2>
+				<p>{ `Tools like Figma, Photoshop, or a code editor have an interaction model where local
+					state is inherent. Every mouse movement is not a server round-trip. Every keypress
+					does not trigger a projection update. The latency of server authorisation is
+					incompatible with the performance requirement.` }</p>
+				<p>{ `These applications require a local state model with selective server persistence.
+					SAUI round-trip model is not appropriate here.` }</p>
+			</section>
+			<section>
+				<h2>Offline-first PWAs</h2>
+				<p>{ `Applications that must function without a network connection require client-side
+					state with sync-on-reconnect. A service worker can cache projections, but mutations
+					made offline need to be queued and replayed when connectivity is restored.` }</p>
+				<p>{ `SAUI is online-first. The gateway cannot authorise actions it cannot reach.
+					For applications where offline operation is a primary requirement, not a nice-to-have,
+					a client-side state model with server sync is appropriate.` }</p>
+			</section>
+			<section>
+				<h2>Games and simulations</h2>
+				<p>{ `High-frequency local state - game physics, simulation state, real-time rendering -
+					is a performance requirement. Server-authoritative game state exists (it is the
+					standard cheat-prevention model in multiplayer games) but the implementation is
+					specialised and the tooling is not general-purpose web infrastructure.` }</p>
+			</section>
+			<section>
+				<h2>High-frequency financial data</h2>
+				<p>{ `Live tickers and order books can be delivered via SSE or WebSocket projection
+					streams, and SAUI model applies at the architecture level. At scale, however,
+					this becomes an infrastructure problem: fan-out to thousands of connections
+					receiving updates at high frequency requires careful design that goes beyond
+					the pattern described here.` }</p>
+				<p>{ `The SAUI model is sound for this use case. The implementation demands are significant.` }</p>
+			</section>
+			<section>
+				<h2>The honest boundary</h2>
+				<p>{ `If your application is a food ordering site, a banking dashboard, a booking system,
+					a CMS, an admin panel, a SaaS product, or most of what is built for the web -
+					SAUI is appropriate and the complexity of the SPA model is not justified.` }</p>
+				<p>{ `If your application is a real-time collaborative editor, a creative tool, an
+					offline-first mobile web app, or a high-frequency data display - evaluate carefully.
+					SAUI may still apply partially, or may not be the right fit.` }</p>
+				<p><a href="/cases">See the pattern applied to common domains</a></p>
+			</section>
+		</article>
+	}
+}

@@ -1,0 +1,60 @@
+package pages
+
+import "saui/templates/layout"
+
+templ Testing(csrfToken string) {
+	@layout.Base("Testing", csrfToken) {
+		<article>
+			<header>
+				<h1>Testing</h1>
+				<p class="lead">{ `Under SPA architecture, the majority of the test surface exists to verify
+					that client state correctly reflects server state. SAUI eliminates that problem.` }</p>
+			</header>
+			<section>
+				<h2>What SPA tests actually test</h2>
+				<p>{ `In a SPA, the frontend holds a copy of state. Tests are written to verify that
+					this copy is correct: that it updates when the server responds, that it handles
+					errors correctly, that it reflects mutations optimistically before confirmation,
+					and that it reconciles when the optimistic update was wrong.` }</p>
+				<p>{ `This is not testing business logic. This is testing the synchronisation machinery.
+					The business logic lives on the server. The test surface on the client exists
+					entirely to verify that the client correctly mirrors the server.` }</p>
+				<p>{ `When the synchronisation problem is eliminated, that test surface collapses.` }</p>
+			</section>
+			<section>
+				<h2>Frontend tests under SAUI</h2>
+				<p>{ `The frontend is a projection renderer. Its correctness question is simple: given
+					this projection data, does this template render the correct HTML?` }</p>
+				<p>{ `These tests are fast, stable, and require no browser. They have no dependency on
+					business logic. A backend change that preserves the projection contract does not
+					break frontend tests. A frontend redesign that preserves the projection contract
+					does not require backend changes to test.` }</p>
+				<p>{ `The seam between frontend and backend is the projection contract. Version it.` }</p>
+			</section>
+			<section>
+				<h2>Backend tests under SAUI</h2>
+				<p>{ `All business logic lives in the backend. Backend tests cover everything meaningful:` }</p>
+				<ul>
+					<li>{ `Action validation: does this action correctly reject invalid state?` }</li>
+					<li>{ `State transitions: does this action produce the correct event?` }</li>
+					<li>{ `Projection correctness: does this event log produce the correct read model?` }</li>
+					<li>{ `Authorisation: does the gateway correctly enforce access control?` }</li>
+				</ul>
+				<p>{ `These are pure Go tests. Fast. Deterministic. No browser required. No test doubles
+					needed for client-side state. No mocking of the synchronisation layer,
+					because there is no synchronisation layer.` }</p>
+			</section>
+			<section>
+				<h2>Team isolation</h2>
+				<p>{ `Backend teams can change business logic - action implementations, validation rules,
+					event schema - without breaking frontend tests, provided the projection contract
+					is preserved or versioned.` }</p>
+				<p>{ `Frontend teams can redesign the UI - markup, layout, interaction patterns - without
+					triggering backend test failures.` }</p>
+				<p>{ `The teams are genuinely independent. The projection contract is the interface.
+					Both sides can evolve without coordination, as long as they honour that contract.` }</p>
+				<p><a href="/limits">See where SAUI is the wrong choice</a></p>
+			</section>
+		</article>
+	}
+}

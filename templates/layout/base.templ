@@ -1,0 +1,43 @@
+package layout
+
+templ Base(title string, csrfToken string) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>{ title } — SAUI</title>
+			<link rel="stylesheet" href="/static/css/main.css"/>
+			<script
+				src="/static/js/htmx.min.js"
+				integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
+				crossorigin="anonymous"
+				defer
+			></script>
+			<meta name="csrf-token" content={ csrfToken }/>
+		</head>
+		<body>
+			<header>
+				<nav aria-label="Main navigation">
+					<a href="/" aria-current="page">SAUI</a>
+					<ul>
+						<li><a href="/why">Why</a></li>
+						<li><a href="/architecture">Architecture</a></li>
+						<li><a href="/stack">Stack</a></li>
+						<li><a href="/cases">Cases</a></li>
+						<li><a href="/testing">Testing</a></li>
+						<li><a href="/limits">Limits</a></li>
+						<li><a href="/code">Code</a></li>
+					</ul>
+				</nav>
+			</header>
+			<main id="main-content">
+				{ children... }
+			</main>
+			<footer>
+				<p>SAUI — Server-Authoritative UI</p>
+			</footer>
+			<script type="module" src="/static/js/app.js"></script>
+		</body>
+	</html>
+}

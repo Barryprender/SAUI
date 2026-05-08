@@ -1,0 +1,19 @@
+package pages
+
+import "saui/templates/layout"
+
+templ Blog(csrfToken string) {
+	@layout.Base("Blog", csrfToken) {
+		<article>
+			<header>
+				<h1>Blog</h1>
+				<p class="lead">
+					Posts, counterarguments, and responses.
+				</p>
+			</header>
+			<section>
+				<p>No posts yet. Check back soon.</p>
+			</section>
+		</article>
+	}
+}

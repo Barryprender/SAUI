@@ -1,0 +1,49 @@
+package actions
+
+import (
+	"context"
+	"errors"
+	"strings"
+
+	"saui/statestore"
+)
+
+const FeedbackSubmittedType = "feedback.submitted"
+
+const maxFeedbackPerSession = 3
+
+type SubmitFeedback struct {
+	Message string
+}
+
+func (a SubmitFeedback) Type() string { return FeedbackSubmittedType }
+
+func (a SubmitFeedback) Validate(ctx context.Context, s *statestore.Store, sessionID string) error {
+	if strings.TrimSpace(a.Message) == "" {
+		return errors.New("message is required")
+	}
+	if len([]rune(a.Message)) > 2000 {
+		return errors.New("message exceeds 2000 characters")
+	}
+
+	prior, err := s.EventsBySession(ctx, sessionID)
+	if err != nil {
+		return err
+	}
+	count := 0
+	for _, ev := range prior {
+		if ev.Type == FeedbackSubmittedType {
+			count++
+		}
+	}
+	if count >= maxFeedbackPerSession {
+		return errors.New("feedback limit reached for this session")
+	}
+	return nil
+}
+
+func (a SubmitFeedback) Apply(ctx context.Context, s *statestore.Store, sessionID string) (statestore.Event, error) {
+	return s.AppendEvent(ctx, sessionID, FeedbackSubmittedType, map[string]string{
+		"message": strings.TrimSpace(a.Message),
+	})
+}

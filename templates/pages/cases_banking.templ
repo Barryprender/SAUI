@@ -1,0 +1,76 @@
+package pages
+
+import "saui/templates/layout"
+
+templ CaseBanking(csrfToken string) {
+	@layout.Base("Case Study: Banking", csrfToken) {
+		<article>
+			<header>
+				<nav aria-label="Breadcrumb">
+					<a href="/cases">Case Studies</a> / Banking
+				</nav>
+				<h1>Banking</h1>
+				<p class="lead">{ `Balance accuracy, transfer state durability, and audit requirements
+					are structural requirements that client-side state works against.` }</p>
+			</header>
+			<section>
+				<h2>The client-side state model</h2>
+				<p>{ `Banking SPAs typically load account balances into client state on page load and
+					update them optimistically on transfer submission. The problems are structural:` }</p>
+				<ul>
+					<li>
+						<strong>Balance staleness.</strong>
+						{ ` The client holds a balance snapshot. Between load and display, another
+						transaction may have changed the balance. The user sees a stale number.
+						For spending decisions, this matters.` }
+					</li>
+					<li>
+						<strong>Double submission.</strong>
+						{ ` Network failures on transfer submission can leave the client uncertain
+						whether the transfer occurred. Retry logic on the client can produce duplicate
+						transfers if not carefully designed with idempotency keys.` }
+					</li>
+					<li>
+						<strong>Audit surface.</strong>
+						{ ` Client-side state transitions are unlogged. The audit trail lives in the
+						backend but reconstructing it from client events requires the backend to trust
+						client-reported sequences.` }
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>What moves to the server under SAUI</h2>
+				<ul>
+					<li>{ `Account balance: computed from the event log on every projection request` }</li>
+					<li>{ `Transfer validation: funds availability checked at gateway before event append` }</li>
+					<li>{ `Idempotency: transfer actions carry a client-generated idempotency key; the gateway deduplicates` }</li>
+					<li>{ `Audit trail: every state transition is an event; the log is the audit trail by construction` }</li>
+				</ul>
+			</section>
+			<section>
+				<h2>What stays on the client</h2>
+				<ul>
+					<li>{ `Transfer form input state (cleared on successful submission)` }</li>
+					<li>{ `Account list expand/collapse UI state` }</li>
+					<li>{ `Date picker interaction state` }</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Security properties gained</h2>
+				<p>{ `Balance display is always current: computed from the event log on request,
+					not from a cached client value. Transfer validation occurs at the gateway before
+					any event is appended; no optimistic balance update to reconcile. The audit trail
+					is a structural consequence of the append-only log, not a separate logging system
+					that might be bypassed.` }</p>
+			</section>
+			<section>
+				<h2>Regulatory fit</h2>
+				<p>{ `The append-only event log is a natural fit for financial audit requirements.
+					Every state transition is timestamped, session-tagged, and immutable by construction.
+					Regulatory queries such as "show all transfers by this account in this period"
+					are projections over the event log; no separate audit infrastructure required.` }</p>
+				<p><a href="/cases/healthcare">Next: Healthcare booking</a></p>
+			</section>
+		</article>
+	}
+}

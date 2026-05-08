@@ -1,0 +1,65 @@
+package pages
+
+import "saui/templates/layout"
+
+templ CaseDistributed(csrfToken string) {
+	@layout.Base("Case Study: Distributed Systems", csrfToken) {
+		<article>
+			<header>
+				<nav aria-label="Breadcrumb">
+					<a href="/cases">Case Studies</a> / Distributed Systems
+				</nav>
+				<h1>Distributed systems</h1>
+				<p class="lead">{ `SAUI scales to distributed backends. "Server-authoritative" means
+					authoritative per service domain, not a single global database.` }</p>
+			</header>
+			<section>
+				<h2>The misconception</h2>
+				<p>{ `A common objection to SAUI in distributed system contexts is that "centralised state"
+					is a scaling bottleneck. This conflates two different things: the number of state
+					stores and the question of who owns state.` }</p>
+				<p>{ `SAUI does not require a single database. It requires that each service domain owns
+					its state authoritatively. The frontend does not hold state. That constraint is
+					compatible with a large distributed backend.` }</p>
+			</section>
+			<section>
+				<h2>The BFF pattern under SAUI</h2>
+				<pre><code>{ `Frontend (stateless display)
+    |
+BFF - Backend for Frontend
+    (owns session state, aggregates projections)
+    |
+Order Service | Inventory Service | Payment Service | User Service
+(each owns its domain state authoritatively)` }</code></pre>
+				<p>{ `The frontend talks to one service: the BFF. The BFF aggregates projections from
+					domain services and presents a unified projection to the frontend. Distribution
+					complexity lives behind the BFF; the frontend is unaware of it.` }</p>
+				<p>{ `Actions submitted by the frontend go to the BFF. The BFF routes them to the
+					appropriate domain service. The domain service validates and applies the action
+					against its own authoritative state. The BFF collects the result and returns
+					an updated projection.` }</p>
+			</section>
+			<section>
+				<h2>What moves where</h2>
+				<ul>
+					<li>{ `Session and ephemeral state: BFF owns this` }</li>
+					<li>{ `Order state: Order Service owns this` }</li>
+					<li>{ `Inventory state: Inventory Service owns this` }</li>
+					<li>{ `Payment state: Payment Service owns this` }</li>
+					<li>{ `Projection aggregation: BFF composes these into a frontend-appropriate read model` }</li>
+				</ul>
+				<p>{ `Each service state is authoritative within its domain. No service reaches into
+					another service state directly. The projection is computed at the BFF by querying
+					each service read API.` }</p>
+			</section>
+			<section>
+				<h2>What the frontend gains</h2>
+				<p>{ `The frontend is entirely decoupled from the distribution topology. Adding a new
+					microservice, splitting an existing one, or changing inter-service protocols does
+					not affect the frontend. The projection contract is the interface. As long as the
+					BFF honours it, the frontend is unaffected.` }</p>
+				<p><a href="/cases/micro-frontends">Next: Micro frontends</a></p>
+			</section>
+		</article>
+	}
+}

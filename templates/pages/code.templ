@@ -1,0 +1,43 @@
+package pages
+
+import "saui/templates/layout"
+
+templ Code(csrfToken string) {
+	@layout.Base("Code", csrfToken) {
+		<article>
+			<header>
+				<h1>Code</h1>
+				<p class="lead">{ `The reference implementation. This site is the reference implementation.` }</p>
+			</header>
+			<section>
+				<h2>This site</h2>
+				<p>{ `SAUI.dev is built on the stack it documents. The source is available on GitHub.
+					Every architectural claim made on this site is demonstrated by the codebase that serves it.` }</p>
+				<p>
+					<a href="https://github.com/your-org/saui" rel="noopener noreferrer" target="_blank">
+						{ `View source on GitHub` }
+					</a>
+				</p>
+			</section>
+			<section>
+				<h2>Stack</h2>
+				<ul>
+					<li>{ `Go 1.22+ with standard library only for HTTP and templates` }</li>
+					<li>{ `modernc.org/sqlite: pure Go SQLite, no cgo` }</li>
+					<li>{ `github.com/a-h/templ: type-safe HTML templates` }</li>
+					<li>{ `htmx 2.0: partial DOM updates` }</li>
+					<li>{ `Vanilla CSS and JS: no build step` }</li>
+					<li>{ `Fly.io: single binary deployment` }</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Running locally</h2>
+				<pre><code>{ `git clone https://github.com/your-org/saui
+cd saui
+templ generate
+go run .
+# open http://localhost:8080` }</code></pre>
+			</section>
+		</article>
+	}
+}

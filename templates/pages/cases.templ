@@ -1,0 +1,55 @@
+package pages
+
+import "saui/templates/layout"
+
+templ Cases(csrfToken string) {
+	@layout.Base("Case Studies", csrfToken) {
+		<article>
+			<header>
+				<h1>Case Studies</h1>
+				<p class="lead">{ `SAUI applied to real application domains. What moves to the server,
+					what stays on the client, and what is gained.` }</p>
+			</header>
+			<section class="nav-cards">
+				<ul>
+					<li>
+						<a href="/cases/food-ordering">
+							<h2>Food ordering</h2>
+							<p>{ `Cart integrity, price manipulation, availability staleness.` }</p>
+						</a>
+					</li>
+					<li>
+						<a href="/cases/banking">
+							<h2>Banking</h2>
+							<p>{ `Balance accuracy, transfer state durability, audit requirements.` }</p>
+						</a>
+					</li>
+					<li>
+						<a href="/cases/healthcare">
+							<h2>Healthcare booking</h2>
+							<p>{ `Slot locking, double booking elimination.` }</p>
+						</a>
+					</li>
+					<li>
+						<a href="/cases/saas-dashboard">
+							<h2>SaaS dashboards</h2>
+							<p>{ `Filter state, bulk action correctness, unsaved edit durability.` }</p>
+						</a>
+					</li>
+					<li>
+						<a href="/cases/distributed-systems">
+							<h2>Distributed systems</h2>
+							<p>{ `BFF pattern, per-service authority, no shared state bus.` }</p>
+						</a>
+					</li>
+					<li>
+						<a href="/cases/micro-frontends">
+							<h2>Micro frontends</h2>
+							<p>{ `Team isolation, elimination of cross-MFE state contracts.` }</p>
+						</a>
+					</li>
+				</ul>
+			</section>
+		</article>
+	}
+}
