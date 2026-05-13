@@ -3,7 +3,7 @@ package pages
 import "saui/templates/layout"
 
 templ Code(csrfToken string) {
-	@layout.Base("Code", csrfToken) {
+	@layout.Base("Code", csrfToken, "/code") {
 		<article>
 			<header>
 				<h1>Code</h1>
