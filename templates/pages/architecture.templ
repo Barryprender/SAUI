@@ -81,9 +81,54 @@ templ Architecture(csrfToken string) {
 				</svg>
 				<figcaption>{ `The SAUI request lifecycle: intent in, projection out. State lives in one place.` }</figcaption>
 			</figure>
+			<nav class="arch-step-nav" aria-label="Step detail">
+				<a href="#two-layer-state-model"
+					class="arch-step-btn"
+					hx-get="/architecture/step/browser-request"
+					hx-target="#arch-step-detail"
+					hx-swap="innerHTML"
+					hx-push-url="false"
+				>
+					<span class="arch-step-num" aria-hidden="true">{ `1` }</span>
+					{ `Browser` }
+				</a>
+				<a href="#gateway-contract"
+					class="arch-step-btn"
+					hx-get="/architecture/step/gateway"
+					hx-target="#arch-step-detail"
+					hx-swap="innerHTML"
+					hx-push-url="false"
+				>
+					<span class="arch-step-num" aria-hidden="true">{ `2` }</span>
+					{ `Gateway` }
+				</a>
+				<a href="#action-pattern"
+					class="arch-step-btn"
+					hx-get="/architecture/step/event-log"
+					hx-target="#arch-step-detail"
+					hx-swap="innerHTML"
+					hx-push-url="false"
+				>
+					<span class="arch-step-num" aria-hidden="true">{ `3` }</span>
+					{ `Event log` }
+				</a>
+				<a href="#progressive-enhancement"
+					class="arch-step-btn"
+					hx-get="/architecture/step/browser-response"
+					hx-target="#arch-step-detail"
+					hx-swap="innerHTML"
+					hx-push-url="false"
+				>
+					<span class="arch-step-num" aria-hidden="true">{ `4` }</span>
+					{ `Response` }
+				</a>
+			</nav>
+			<div id="arch-step-detail" class="arch-step-detail" aria-live="polite">
+				<p class="arch-step-detail__prompt">{ `Select a step to see the implementation detail.` }</p>
+			</div>
 		</section>
 		<article>
-			<section aria-label="Two-layer state model">
+			<section id="two-layer-state-model" aria-label="Two-layer state model">
 				<h2>The two-layer state model</h2>
 				<p>{ `SAUI separates state into two distinct layers with different lifetimes, different
 					storage, and a strict rule about which layer may influence the other.` }</p>
@@ -114,7 +159,7 @@ templ Architecture(csrfToken string) {
 				<p>{ `The critical rule: ephemeral state flows one direction only. Durable state can
 					seed ephemeral state. Ephemeral state never influences durable state transitions.` }</p>
 			</section>
-			<section aria-label="Gateway contract">
+			<section id="gateway-contract" aria-label="Gateway contract">
 				<h2>The gateway contract</h2>
 				<p>{ `All state access, read or write, passes through a single gateway. No handler,
 					no middleware, no other package reads or writes state directly. This is enforced
@@ -133,7 +178,7 @@ gateway.Dispatch(ctx, sessionID, action)` }</code></pre>
 					<li>{ `Every state transition is logged` }</li>
 				</ul>
 			</section>
-			<section aria-label="Action pattern">
+			<section id="action-pattern" aria-label="Action pattern">
 				<h2>The action pattern</h2>
 				<p>{ `State changes are expressed as validated intents, not direct mutations.
 					A handler never writes state directly; it submits an action to the gateway.` }</p>
@@ -155,7 +200,7 @@ gateway.Dispatch(ctx, sessionID, action)` }</code></pre>
 					<p>{ `No partial application. No silent failure. No client state to reconcile.` }</p>
 				</blockquote>
 			</section>
-			<section aria-label="Progressive enhancement">
+			<section id="progressive-enhancement" aria-label="Progressive enhancement">
 				<h2>Progressive enhancement</h2>
 				<p>{ `Every feature is built across four degradation levels. All four must produce
 					correct state; the server owns truth regardless of client capability.` }</p>
