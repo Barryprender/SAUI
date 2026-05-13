@@ -3,7 +3,7 @@ package pages
 import "saui/templates/layout"
 
 templ Limits(csrfToken string) {
-	@layout.Base("Limits", csrfToken) {
+	@layout.Base("Limits", csrfToken, "/limits") {
 		<article>
 			<header>
 				<h1>Limits</h1>
