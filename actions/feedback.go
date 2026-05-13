@@ -10,7 +10,9 @@ import (
 
 const FeedbackSubmittedType = "feedback.submitted"
 
-const maxFeedbackPerSession = 3
+const MaxFeedbackPerSession = 3
+
+var ErrFeedbackLimitReached = errors.New("feedback limit reached for this session")
 
 type SubmitFeedback struct {
 	Message string
@@ -30,8 +32,8 @@ func (a SubmitFeedback) Validate(ctx context.Context, s *statestore.Store, sessi
 	if err != nil {
 		return err
 	}
-	if count >= maxFeedbackPerSession {
-		return errors.New("feedback limit reached for this session")
+	if count >= MaxFeedbackPerSession {
+		return ErrFeedbackLimitReached
 	}
 	return nil
 }
