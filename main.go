@@ -18,8 +18,10 @@ func main() {
 	logger := slog.New(slog.NewJSONHandler(os.Stdout, nil))
 
 	cfg := config{
-		addr:   env("SAUI_ADDR", ":8080"),
-		dbPath: env("SAUI_DB", "./saui.db"),
+		addr:         env("SAUI_ADDR", ":8080"),
+		dbPath:       env("SAUI_DB", "./saui.db"),
+		secure:       env("SAUI_SECURE", "") == "true",
+		trustedProxy: env("SAUI_TRUSTED_PROXY", ""),
 	}
 
 	store, err := statestore.New(cfg.dbPath, logger)
@@ -34,11 +36,13 @@ func main() {
 
 	mux := http.NewServeMux()
 
-	mux.Handle("GET /static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	mux.Handle("GET /static/", http.StripPrefix("/static/",
+		http.FileServer(noDirFS{http.Dir("static")})))
 
-	session := middleware.Session
+	session := middleware.NewSession(cfg.secure, logger)
+	csrf := middleware.NewCSRF(cfg.secure, logger)
 	page := func(hf http.HandlerFunc) http.Handler {
-		return middleware.Chain(hf, session, middleware.CSRF)
+		return middleware.Chain(hf, session, csrf)
 	}
 
 	mux.Handle("GET /{$}", page(h.Home))
@@ -58,8 +62,12 @@ func main() {
 	mux.Handle("GET /code", page(h.Code))
 
 	srv := &http.Server{
-		Addr:         cfg.addr,
-		Handler:      middleware.Chain(mux, middleware.RateLimit, middleware.RecoverPanic(logger)),
+		Addr: cfg.addr,
+		Handler: middleware.Chain(mux,
+			middleware.SecurityHeaders(cfg.secure),
+			middleware.NewRateLimit(cfg.trustedProxy, logger),
+			middleware.RecoverPanic(logger),
+		),
 		ReadTimeout:  10 * time.Second,
 		WriteTimeout: 30 * time.Second,
 		IdleTimeout:  120 * time.Second,
@@ -87,8 +95,31 @@ func main() {
 }
 
 type config struct {
-	addr   string
-	dbPath string
+	addr         string
+	dbPath       string
+	secure       bool   // set via SAUI_SECURE=true when behind TLS
+	trustedProxy string // set via SAUI_TRUSTED_PROXY=<ip> for X-Real-IP / X-Forwarded-For
+}
+
+// noDirFS wraps an http.FileSystem and returns ErrNotExist for directory requests,
+// preventing directory listing of the static file tree.
+type noDirFS struct{ http.FileSystem }
+
+func (n noDirFS) Open(name string) (http.File, error) {
+	f, err := n.FileSystem.Open(name)
+	if err != nil {
+		return nil, err
+	}
+	s, err := f.Stat()
+	if err != nil {
+		f.Close()
+		return nil, err
+	}
+	if s.IsDir() {
+		f.Close()
+		return nil, os.ErrNotExist
+	}
+	return f, nil
 }
 
 func env(key, fallback string) string {
