@@ -1407,43 +1407,41 @@
 
   /* ── Feedback form ─────────────────────────────────────────── */
 
-  #feedback {
-    margin-block-start: var(--space-3xl);
-    padding-block-start: var(--space-xl);
-    border-block-start: 1px solid var(--c-border);
-  }
+  /* Override centred text from article > section:not([class]) */
+  #feedback { text-align: start; }
 
   #feedback-form {
     display: grid;
-    gap: var(--space-md);
+    gap: var(--sp-4);
     max-inline-size: 52ch;
   }
 
   .feedback-field {
     display: grid;
-    gap: var(--space-xs);
+    gap: var(--sp-2);
   }
 
   .feedback-field label {
     font-size: var(--text-sm);
     font-weight: 600;
     color: var(--c-text-muted);
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
   }
 
   .feedback-field textarea {
     inline-size: 100%;
-    min-block-size: 8rem;
-    padding: var(--space-sm) var(--space-md);
+    min-block-size: 7rem;
+    padding: var(--sp-3) var(--sp-4);
     font: inherit;
     font-size: var(--text-sm);
+    line-height: var(--leading-prose);
     color: var(--c-text);
     background: var(--c-bg);
     border: 1px solid var(--c-border);
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
     resize: vertical;
-    transition: border-color 150ms ease-out, box-shadow 150ms ease-out;
+    transition: border-color var(--t-fast), box-shadow var(--t-fast);
   }
 
   .feedback-field textarea:focus {
@@ -1452,64 +1450,60 @@
     box-shadow: 0 0 0 3px var(--c-accent-subtle);
   }
 
+  .feedback-field textarea::placeholder {
+    color: var(--c-text-muted);
+    opacity: 0.6;
+  }
+
   .feedback-flash {
-    padding: var(--space-sm) var(--space-md);
-    border-radius: 4px;
+    padding: var(--sp-3) var(--sp-4);
+    border-radius: var(--radius-sm);
     font-size: var(--text-sm);
+    line-height: var(--leading-snug);
     border-inline-start: 3px solid transparent;
   }
 
   .feedback-flash--success {
-    background: oklch(from var(--c-accent) 95% 0.04 h);
+    background: var(--c-accent-subtle);
     border-color: var(--c-accent);
-    color: oklch(from var(--c-accent) 30% 0.12 h);
+    color: var(--c-accent);
   }
 
   .feedback-flash--error {
     background: oklch(95% 0.04 25);
     border-color: oklch(55% 0.18 25);
-    color: oklch(30% 0.14 25);
+    color: oklch(35% 0.14 25);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .feedback-flash--error {
+      background: oklch(18% 0.04 25);
+      border-color: oklch(60% 0.18 25);
+      color: oklch(80% 0.10 25);
+    }
   }
 
   .feedback-actions {
     display: flex;
     align-items: center;
-    gap: var(--space-md);
+    gap: var(--sp-4);
   }
 
-  .feedback-actions button[type="submit"] {
-    padding: var(--space-sm) var(--space-lg);
-    background: var(--c-accent);
-    color: oklch(99% 0.005 240);
-    border: none;
-    border-radius: 4px;
-    font: inherit;
-    font-size: var(--text-sm);
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 150ms ease-out, transform 80ms ease-out;
-  }
-
-  .feedback-actions button[type="submit"]:hover {
-    background: var(--c-accent-hover);
-  }
-
-  .feedback-actions button[type="submit"]:active {
-    transform: translateY(1px);
-  }
-
-  .feedback-actions button[type="submit"]:focus-visible {
-    outline: 2px solid var(--c-accent);
-    outline-offset: 3px;
+  /* Dim button while htmx request is in flight */
+  #feedback-form.htmx-request .btn {
+    opacity: 0.55;
+    pointer-events: none;
+    cursor: wait;
   }
 
   .feedback-done {
-    padding: var(--space-md) var(--space-lg);
+    padding: var(--sp-4) var(--sp-5);
     background: var(--c-surface);
-    border: 1px solid var(--c-border);
-    border-radius: 4px;
+    border: var(--border);
+    border-radius: var(--radius-sm);
     font-size: var(--text-sm);
     color: var(--c-text-muted);
+    max-inline-size: 52ch;
   }
 
   .feedback-done p { margin: 0; }
@@ -1519,23 +1513,26 @@
   .arch-step-nav {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-sm);
-    margin-block-start: var(--space-xl);
+    gap: var(--sp-2);
+    margin-block-start: var(--sp-6);
   }
 
   .arch-step-btn {
     display: flex;
     align-items: center;
-    gap: var(--space-xs);
-    padding: var(--space-sm) var(--space-md);
+    gap: var(--sp-2);
+    padding: var(--sp-2) var(--sp-4);
     background: var(--c-surface);
-    border: 1px solid var(--c-border);
-    border-radius: 4px;
+    border: var(--border);
+    border-radius: var(--radius-sm);
     font-size: var(--text-sm);
     font-weight: 500;
     color: var(--c-text-muted);
     text-decoration: none;
-    transition: background 150ms ease-out, border-color 150ms ease-out, color 150ms ease-out;
+    transition:
+      background var(--t-fast),
+      border-color var(--t-fast),
+      color var(--t-fast);
   }
 
   .arch-step-btn:hover {
@@ -1544,100 +1541,100 @@
     color: var(--c-accent);
   }
 
+  .arch-step-btn:focus-visible {
+    outline: 2px solid var(--c-accent);
+    outline-offset: 3px;
+  }
+
   .arch-step-btn[aria-current="true"] {
     background: var(--c-accent);
     border-color: var(--c-accent);
-    color: oklch(99% 0.005 240);
+    color: oklch(98% 0.005 80);
   }
 
   .arch-step-num {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    inline-size: 1.4em;
-    block-size: 1.4em;
+    inline-size: 1.5em;
+    block-size: 1.5em;
     border-radius: 50%;
-    font-size: 0.85em;
+    font-size: 0.8em;
     font-weight: 700;
-    background: oklch(from currentColor 70% 0.04 h / 0.15);
+    background: oklch(46% 0.12 240 / 0.12);
+    color: var(--c-accent);
   }
 
   .arch-step-btn[aria-current="true"] .arch-step-num {
-    background: oklch(100% 0 0 / 0.2);
+    background: oklch(98% 0.005 80 / 0.2);
+    color: oklch(98% 0.005 80);
   }
 
   /* ── Architecture step detail panel ──────────────────────── */
 
   .arch-step-detail {
-    margin-block-start: var(--space-md);
-    min-block-size: 4rem;
+    margin-block-start: var(--sp-4);
+    min-block-size: 3rem;
   }
 
   .arch-step-detail__prompt {
     font-size: var(--text-sm);
     color: var(--c-text-muted);
     font-style: italic;
+    padding-block: var(--sp-4);
   }
 
   .arch-step-detail__inner {
     display: grid;
-    gap: var(--space-md);
-    padding: var(--space-lg);
+    gap: var(--sp-4);
+    padding: var(--sp-5) var(--sp-6);
     background: var(--c-surface);
-    border: 1px solid var(--c-border);
-    border-radius: 6px;
-    animation: step-in 200ms ease-out both;
-  }
-
-  @starting-style {
-    .arch-step-detail__inner {
-      opacity: 0;
-      transform: translateY(6px);
-    }
+    border: var(--border);
+    border-radius: var(--radius-md);
+    animation: step-in 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
   @keyframes step-in {
-    from { opacity: 0; transform: translateY(6px); }
+    from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
   .arch-step-detail__inner h3 {
-    font-size: var(--text-base);
+    font-size: var(--text-lg);
     font-weight: 700;
     margin: 0;
+    color: var(--c-text);
   }
 
-  .arch-step-detail__inner p,
-  .arch-step-detail__inner li {
+  .arch-step-detail__inner > p {
     font-size: var(--text-sm);
-    color: var(--c-text-muted);
+    line-height: var(--leading-prose);
+    color: var(--c-text);
     margin: 0;
-  }
-
-  .arch-step-detail__inner ul,
-  .arch-step-detail__inner ol {
-    padding-inline-start: var(--space-lg);
-    display: grid;
-    gap: var(--space-xs);
   }
 
   .arch-step-detail__inner pre {
     margin: 0;
     font-size: var(--text-xs);
+    line-height: 1.6;
   }
 
   .arch-step-detail__note {
     font-size: var(--text-xs);
+    line-height: var(--leading-snug);
     color: var(--c-text-muted);
-    padding: var(--space-sm) var(--space-md);
+    padding: var(--sp-3) var(--sp-4);
     background: var(--c-accent-subtle);
     border-inline-start: 3px solid var(--c-accent);
-    border-radius: 0 4px 4px 0;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    margin: 0;
   }
 
   @media (prefers-reduced-motion: reduce) {
     .arch-step-detail__inner {
       animation: none;
+      opacity: 1;
+      transform: none;
     }
   }
 }
