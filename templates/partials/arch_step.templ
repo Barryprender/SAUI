@@ -1,0 +1,111 @@
+package partials
+
+templ ArchStep(step string) {
+	switch step {
+	case "browser-request":
+		@archStepBrowserRequest()
+	case "gateway":
+		@archStepGateway()
+	case "event-log":
+		@archStepEventLog()
+	case "browser-response":
+		@archStepBrowserResponse()
+	default:
+		<div class="arch-step-detail__inner">
+			<p>Unknown step.</p>
+		</div>
+	}
+}
+
+templ archStepBrowserRequest() {
+	<div class="arch-step-detail__inner">
+		<h3>{ `Step 1 — Browser submits intent` }</h3>
+		<p>{ `The browser submits a form POST describing what the user wants to do.
+			No client state is serialised. The form carries only the intent
+			and a CSRF token. The client has no knowledge of current application state.` }</p>
+		<pre><code>{ `<!-- L0: native HTML form — works without any JavaScript -->
+<form method="POST" action="/cart/add">
+  <input type="hidden" name="_csrf" value="{{ .CSRFToken }}"/>
+  <input type="hidden" name="item_id" value="42"/>
+  <button type="submit">Add to cart</button>
+</form>
+
+<!-- L3: htmx intercepts, POSTs via AJAX, swaps server response into DOM -->
+<form hx-post="/cart/add"
+      hx-target="#cart-summary"
+      hx-swap="outerHTML">` }</code></pre>
+		<p class="arch-step-detail__note">{ `Progressive enhancement: the form works at every level.
+			htmx adds partial updates without changing the server contract.
+			The server cannot tell whether the request came from htmx or a bare form POST.` }</p>
+	</div>
+}
+
+templ archStepGateway() {
+	<div class="arch-step-detail__inner">
+		<h3>{ `Step 2 — Gateway enforces the contract` }</h3>
+		<p>{ `All state mutations pass through a single gateway. No handler touches
+			the store directly. The gateway authenticates the session, authorises the
+			action, validates it against current state, then applies it.` }</p>
+		<pre><code>{ `// Handler submits an intent — never touches state directly
+err := gateway.Dispatch(ctx, sessionID, AddToCart{
+    ItemID:   42,
+    Quantity: 1,
+})
+
+// The Action interface — validate before any state change
+type Action interface {
+    Type()     string
+    Validate(ctx context.Context, s *Store, sessionID string) error
+    Apply(ctx context.Context, s *Store, sessionID string) (Event, error)
+}` }</code></pre>
+		<p class="arch-step-detail__note">{ `Validate runs before Apply. If validation fails, no event
+			is appended and the current state is returned unchanged.
+			Partial application is structurally impossible.` }</p>
+	</div>
+}
+
+templ archStepEventLog() {
+	<div class="arch-step-detail__inner">
+		<h3>{ `Step 3 — Event appended to the durable log` }</h3>
+		<p>{ `The validated action produces an event. That event is appended to the
+			SQLite event log. Events are never mutated or deleted — only appended.
+			The log is the audit trail by construction.` }</p>
+		<pre><code>{ `-- Append-only. No UPDATE. No DELETE.
+INSERT INTO events (session_id, type, payload, occurred_at)
+VALUES (?, ?, ?, ?)
+
+-- Projection: derive current state from the log
+SELECT type, payload FROM events
+WHERE session_id = ?
+ORDER BY id ASC` }</code></pre>
+		<p class="arch-step-detail__note">{ `The log is the single source of truth.
+			Projections are computed from it on demand — never cached on the client,
+			never stored as mutable state. A server restart loses nothing.` }</p>
+	</div>
+}
+
+templ archStepBrowserResponse() {
+	<div class="arch-step-detail__inner">
+		<h3>{ `Step 4 — Server projects truth, browser renders it` }</h3>
+		<p>{ `The gateway computes a projection from the event log and passes it
+			to the handler. The handler renders it as HTML. For htmx requests,
+			a partial is returned and swapped into the target element.
+			For native form submissions, a full page response is returned.` }</p>
+		<pre><code>{ `// Handler renders the projection — no state held anywhere in between
+func (h *Handler) AddToCart(w http.ResponseWriter, r *http.Request) {
+    err := h.gateway.Dispatch(ctx, sessionID, action)
+    proj, _ := h.gateway.Project(ctx, sessionID, "cart")
+
+    if middleware.IsHXRequest(r) {
+        // htmx swaps this fragment into #cart-summary
+        partials.CartSummary(proj).Render(ctx, w)
+        return
+    }
+    // L0: full page, post-redirect-get
+    http.Redirect(w, r, "/cart", http.StatusSeeOther)
+}` }</code></pre>
+		<p class="arch-step-detail__note">{ `The client receives rendered HTML — not JSON to hydrate,
+			not state to merge. The next request gets a fresh projection.
+			There is no stale client state to reconcile.` }</p>
+	</div>
+}
