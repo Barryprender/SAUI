@@ -24,8 +24,9 @@ func newTestServer(t *testing.T) http.Handler {
 	h := handlers.New(gw, discardLogger())
 
 	mux := http.NewServeMux()
+	logger := discardLogger()
 	page := func(hf http.HandlerFunc) http.Handler {
-		return middleware.Chain(hf, middleware.Session, middleware.CSRF)
+		return middleware.Chain(hf, middleware.NewSession(false, logger), middleware.NewCSRF(false, logger))
 	}
 	mux.Handle("GET /{$}", page(h.Home))
 	mux.Handle("GET /why", page(h.Why))
