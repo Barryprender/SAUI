@@ -3,7 +3,7 @@ package pages
 import "saui/templates/layout"
 
 templ CaseBanking(csrfToken string) {
-	@layout.Base("Case Study: Banking", csrfToken) {
+	@layout.Base("Case Study: Banking", csrfToken, "/cases") {
 		<article>
 			<header>
 				<nav aria-label="Breadcrumb">
