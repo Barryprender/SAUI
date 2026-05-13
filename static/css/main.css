@@ -1162,7 +1162,10 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    article > section[aria-label] {
+    #two-layer-state-model,
+    #gateway-contract,
+    #action-pattern,
+    #progressive-enhancement {
       animation: arch-section-rise linear both;
       animation-timeline: view();
       animation-range: entry 0% entry 45%;
@@ -1380,7 +1383,10 @@
 
       .pe-level__badge { animation: none; opacity: 1; transform: none; }
 
-      article > section[aria-label] { animation: none; opacity: 1; transform: none; }
+      #two-layer-state-model,
+      #gateway-contract,
+      #action-pattern,
+      #progressive-enhancement { animation: none; opacity: 1; transform: none; }
 
       article pre { animation: none; opacity: 1; transform: none; }
 
