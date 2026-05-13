@@ -90,9 +90,9 @@ func FeedbackForm(csrfToken string, flash string, flashType string, remaining in
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var6 string
-		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(`Counterarguments, questions, edge cases. Up to ` + strconv.Itoa(remaining) + ` submission(s) remaining.`)
+		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs("Counterarguments, questions, edge cases. " + strconv.Itoa(remaining) + " remaining.")
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/partials/feedback.templ`, Line: 26, Col: 123}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/partials/feedback.templ`, Line: 26, Col: 103}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {

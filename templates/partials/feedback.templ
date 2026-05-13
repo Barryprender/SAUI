@@ -23,7 +23,7 @@ templ FeedbackForm(csrfToken string, flash string, flashType string, remaining i
 				rows="5"
 				maxlength="2000"
 				required
-				placeholder={ `Counterarguments, questions, edge cases. Up to ` + strconv.Itoa(remaining) + ` submission(s) remaining.` }
+				placeholder={ "Counterarguments, questions, edge cases. " + strconv.Itoa(remaining) + " remaining." }
 			></textarea>
 		</div>
 		<div class="feedback-actions">
