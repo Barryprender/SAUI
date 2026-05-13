@@ -1,0 +1,39 @@
+package partials
+
+import "strconv"
+
+templ FeedbackForm(csrfToken string, flash string, flashType string, remaining int) {
+	<form
+		id="feedback-form"
+		method="POST"
+		action="/feedback"
+		hx-post="/feedback"
+		hx-target="#feedback-form"
+		hx-swap="outerHTML"
+	>
+		<input type="hidden" name="_csrf" value={ csrfToken }/>
+		if flash != "" {
+			<p class={ "feedback-flash feedback-flash--" + flashType }>{ flash }</p>
+		}
+		<div class="feedback-field">
+			<label for="feedback-msg">Message</label>
+			<textarea
+				id="feedback-msg"
+				name="message"
+				rows="5"
+				maxlength="2000"
+				required
+				placeholder={ `Counterarguments, questions, edge cases. Up to ` + strconv.Itoa(remaining) + ` submission(s) remaining.` }
+			></textarea>
+		</div>
+		<div class="feedback-actions">
+			<button type="submit" class="btn">Send</button>
+		</div>
+	</form>
+}
+
+templ FeedbackDone() {
+	<div id="feedback-form" class="feedback-done">
+		<p>{ `That's your 3 for this session. Thanks for engaging.` }</p>
+	</div>
+}
