@@ -61,6 +61,9 @@ func main() {
 	mux.Handle("GET /blog", page(h.Blog))
 	mux.Handle("GET /code", page(h.Code))
 
+	mux.Handle("POST /feedback", page(h.SubmitFeedback))
+	mux.Handle("GET /architecture/step/{step}", http.HandlerFunc(h.ArchStep))
+
 	srv := &http.Server{
 		Addr: cfg.addr,
 		Handler: middleware.Chain(mux,
