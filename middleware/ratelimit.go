@@ -1,7 +1,10 @@
 package middleware
 
 import (
+	"log/slog"
+	"net"
 	"net/http"
+	"strings"
 	"sync"
 	"time"
 )
@@ -10,7 +13,7 @@ type tokenBucket struct {
 	mu       sync.Mutex
 	tokens   float64
 	max      float64
-	refillPS float64 // tokens per second
+	refillPS float64
 	lastSeen time.Time
 }
 
@@ -66,23 +69,44 @@ func (rl *rateLimiter) evict() {
 	}
 }
 
-var globalLimiter = newRateLimiter()
-
-// RateLimit applies a per-IP token bucket (60 req/min burst, 1 req/s refill).
-func RateLimit(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		key := r.RemoteAddr
-		if !globalLimiter.bucket(key).allow() {
-			http.Error(w, "too many requests", http.StatusTooManyRequests)
-			return
-		}
-		next.ServeHTTP(w, r)
-	})
+// NewRateLimit returns a per-IP token bucket rate limiter (60 req burst, 1 req/s refill).
+// trustedProxy: if non-empty, X-Real-IP / X-Forwarded-For headers are trusted only when
+// the direct TCP peer IP matches this value.
+func NewRateLimit(trustedProxy string, logger *slog.Logger) func(http.Handler) http.Handler {
+	rl := newRateLimiter()
+	return func(next http.Handler) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			key := clientIP(r, trustedProxy)
+			if !rl.bucket(key).allow() {
+				logger.Warn("rate limit exceeded", "ip", key, "path", r.URL.Path)
+				http.Error(w, "too many requests", http.StatusTooManyRequests)
+				return
+			}
+			next.ServeHTTP(w, r)
+		})
+	}
 }
 
-func min(a, b float64) float64 {
-	if a < b {
-		return a
+// clientIP extracts the real client IP, honouring proxy headers only when the
+// direct TCP peer matches trustedProxy.
+func clientIP(r *http.Request, trustedProxy string) string {
+	if trustedProxy != "" {
+		peerHost, _, _ := net.SplitHostPort(r.RemoteAddr)
+		if peerHost == trustedProxy {
+			if ip := r.Header.Get("X-Real-IP"); ip != "" {
+				return strings.TrimSpace(ip)
+			}
+			if xff := r.Header.Get("X-Forwarded-For"); xff != "" {
+				if i := strings.Index(xff, ","); i != -1 {
+					return strings.TrimSpace(xff[:i])
+				}
+				return strings.TrimSpace(xff)
+			}
+		}
 	}
-	return b
+	host, _, err := net.SplitHostPort(r.RemoteAddr)
+	if err != nil {
+		return r.RemoteAddr
+	}
+	return host
 }
