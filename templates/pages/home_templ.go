@@ -43,121 +43,160 @@ func Home(csrfToken string) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<article><section class=\"hero\"><h1>The server owns state. The browser renders truth.</h1><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<article class=\"home-hero\"><section class=\"hero\"><svg class=\"hero-bg\" viewBox=\"0 0 1200 600\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMidYMid slice\" aria-hidden=\"true\"><g class=\"hero-lines\"><line x1=\"600\" y1=\"300\" x2=\"420\" y2=\"185\"></line> <line x1=\"600\" y1=\"300\" x2=\"470\" y2=\"405\"></line> <line x1=\"600\" y1=\"300\" x2=\"530\" y2=\"130\"></line> <line x1=\"600\" y1=\"300\" x2=\"680\" y2=\"420\"></line> <line x1=\"600\" y1=\"300\" x2=\"790\" y2=\"200\"></line> <line x1=\"600\" y1=\"300\" x2=\"750\" y2=\"350\"></line> <line x1=\"420\" y1=\"185\" x2=\"230\" y2=\"100\"></line> <line x1=\"420\" y1=\"185\" x2=\"150\" y2=\"310\"></line> <line x1=\"470\" y1=\"405\" x2=\"260\" y2=\"470\"></line> <line x1=\"470\" y1=\"405\" x2=\"520\" y2=\"520\"></line> <line x1=\"530\" y1=\"130\" x2=\"620\" y2=\"60\"></line> <line x1=\"530\" y1=\"130\" x2=\"380\" y2=\"50\"></line> <line x1=\"680\" y1=\"420\" x2=\"750\" y2=\"530\"></line> <line x1=\"680\" y1=\"420\" x2=\"900\" y2=\"450\"></line> <line x1=\"790\" y1=\"200\" x2=\"980\" y2=\"140\"></line> <line x1=\"790\" y1=\"200\" x2=\"1010\" y2=\"270\"></line> <line x1=\"750\" y1=\"350\" x2=\"970\" y2=\"390\"></line> <line x1=\"750\" y1=\"350\" x2=\"1010\" y2=\"270\"></line> <line x1=\"230\" y1=\"100\" x2=\"280\" y2=\"50\"></line> <line x1=\"150\" y1=\"310\" x2=\"90\" y2=\"200\"></line> <line x1=\"980\" y1=\"140\" x2=\"1100\" y2=\"190\"></line> <line x1=\"900\" y1=\"450\" x2=\"1050\" y2=\"490\"></line> <line x1=\"260\" y1=\"470\" x2=\"310\" y2=\"545\"></line> <line x1=\"100\" y1=\"450\" x2=\"150\" y2=\"310\"></line></g> <g class=\"hero-nodes\"><circle cx=\"230\" cy=\"100\" r=\"4\"></circle> <circle cx=\"280\" cy=\"50\" r=\"3.5\"></circle> <circle cx=\"380\" cy=\"50\" r=\"3\"></circle> <circle cx=\"90\" cy=\"200\" r=\"3.5\"></circle> <circle cx=\"150\" cy=\"310\" r=\"4\"></circle> <circle cx=\"100\" cy=\"450\" r=\"3\"></circle> <circle cx=\"260\" cy=\"470\" r=\"4\"></circle> <circle cx=\"310\" cy=\"545\" r=\"3\"></circle> <circle cx=\"520\" cy=\"520\" r=\"3.5\"></circle> <circle cx=\"620\" cy=\"60\" r=\"4\"></circle> <circle cx=\"750\" cy=\"530\" r=\"3.5\"></circle> <circle cx=\"900\" cy=\"450\" r=\"4\"></circle> <circle cx=\"980\" cy=\"140\" r=\"3.5\"></circle> <circle cx=\"1010\" cy=\"270\" r=\"4\"></circle> <circle cx=\"970\" cy=\"390\" r=\"3\"></circle> <circle cx=\"1100\" cy=\"190\" r=\"3.5\"></circle> <circle cx=\"1050\" cy=\"490\" r=\"3\"></circle> <circle cx=\"420\" cy=\"185\" r=\"5.5\"></circle> <circle cx=\"470\" cy=\"405\" r=\"5.5\"></circle> <circle cx=\"530\" cy=\"130\" r=\"5\"></circle> <circle cx=\"680\" cy=\"420\" r=\"5.5\"></circle> <circle cx=\"790\" cy=\"200\" r=\"5\"></circle> <circle cx=\"750\" cy=\"350\" r=\"5.5\"></circle></g> <circle class=\"hero-server\" cx=\"600\" cy=\"300\" r=\"11\"></circle></svg><div class=\"hero__content\"><h1>The server owns state. The browser renders truth.</h1><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(`SAUI is an architectural approach to web development where the server is
-					the exclusive owner of application state and the frontend is a stateless
-					display layer.`)
+						the exclusive owner of application state and the frontend is a stateless
+						display layer.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/home.templ`, Line: 12, Col: 20}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/home.templ`, Line: 67, Col: 21}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</p><p><a href=\"/why\" class=\"btn\">Why this matters</a> <a href=\"/architecture\" class=\"btn btn--secondary\">See the architecture</a></p></section><section class=\"proposition\"><h2>A user interface that displays server state is always correct by definition.</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</p><p><a href=\"/why\" class=\"btn\">Why this matters</a> <a href=\"/architecture\" class=\"btn btn--secondary\">See the architecture</a></p></div></section></article><section class=\"statement\" aria-label=\"Core proposition\"><div class=\"statement__bg\" aria-hidden=\"true\"></div><div class=\"statement__content\"><p class=\"statement__eyebrow\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var4 string
-			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(`A user interface that maintains its own copy of state is always eventually wrong.`)
+			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(`Server-Authoritative UI`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/home.templ`, Line: 20, Col: 92}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/home.templ`, Line: 78, Col: 61}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p><p class=\"statement__quote\"><span class=\"statement__line\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var5 string
-			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(`The synchronisation problem - keeping client state consistent with server state -
-					has generated entire engineering disciplines: state management libraries,
-					cache invalidation strategies, optimistic update patterns, hydration pipelines.`)
+			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(`The server owns state.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/home.templ`, Line: 23, Col: 85}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/home.templ`, Line: 80, Col: 61}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</span> <span class=\"statement__line statement__line--two\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var6 string
-			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(`SAUI eliminates the synchronisation problem by eliminating the second copy of state.`)
+			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(`The browser renders truth.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/home.templ`, Line: 24, Col: 95}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/home.templ`, Line: 81, Col: 86}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p></section><section class=\"nav-cards\"><h2>Explore</h2><ul><li><a href=\"/why\"><h3>Why</h3><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</span></p></div></section><article class=\"home-body\"><section class=\"proposition\"><h2>A user interface that displays server state is always correct by definition.</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var7 string
-			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(`The diagnosis. What the SPA era got right, and what it universalised by mistake.`)
+			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(`A user interface that maintains its own copy of state is always eventually wrong.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/home.templ`, Line: 32, Col: 94}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/home.templ`, Line: 88, Col: 92}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</p></a></li><li><a href=\"/architecture\"><h3>Architecture</h3><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var8 string
-			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(`The gateway contract, the two-layer state model, the action pattern.`)
+			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(`The synchronisation problem - keeping client state consistent with server state -
+					has generated entire engineering disciplines: state management libraries,
+					cache invalidation strategies, optimistic update patterns, hydration pipelines.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/home.templ`, Line: 38, Col: 82}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/home.templ`, Line: 91, Col: 85}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</p></a></li><li><a href=\"/stack\"><h3>Stack</h3><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var9 string
-			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(`Go, SQLite, htmx, and nothing else. The implementation in detail.`)
+			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(`SAUI eliminates the synchronisation problem by eliminating the second copy of state.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/home.templ`, Line: 44, Col: 79}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/home.templ`, Line: 92, Col: 95}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</p></a></li><li><a href=\"/limits\"><h3>Limits</h3><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</p></section><section class=\"nav-cards\"><h2>Explore</h2><ul><li><a href=\"/why\"><h3>Why</h3><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var10 string
-			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(`Where SAUI is the wrong choice. Stated plainly.`)
+			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(`The diagnosis. What the SPA era got right, and what it universalised by mistake.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/home.templ`, Line: 50, Col: 61}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/home.templ`, Line: 100, Col: 94}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</p></a></li></ul></section></article>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</p></a></li><li><a href=\"/architecture\"><h3>Architecture</h3><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var11 string
+			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(`The gateway contract, the two-layer state model, the action pattern.`)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/home.templ`, Line: 106, Col: 82}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</p></a></li><li><a href=\"/stack\"><h3>Stack</h3><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var12 string
+			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(`Go, SQLite, htmx, and nothing else. The implementation in detail.`)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/home.templ`, Line: 112, Col: 79}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</p></a></li><li><a href=\"/limits\"><h3>Limits</h3><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var13 string
+			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(`Where SAUI is the wrong choice. Stated plainly.`)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/home.templ`, Line: 118, Col: 61}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</p></a></li></ul></section></article>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = layout.Base("Server-Authoritative UI", csrfToken).Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layout.Base("Server-Authoritative UI", csrfToken, "/").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
