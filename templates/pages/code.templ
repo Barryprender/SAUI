@@ -1,6 +1,9 @@
 package pages
 
-import "saui/templates/layout"
+import (
+	"saui/templates/layout"
+	"saui/templates/partials"
+)
 
 templ Code(csrfToken string) {
 	@layout.Base("Code", csrfToken, "/code") {
@@ -37,6 +40,12 @@ cd saui
 templ generate
 go run .
 # open http://localhost:8080` }</code></pre>
+			</section>
+			<section id="feedback" aria-label="Feedback">
+				<h2>{ `What do you think?` }</h2>
+				<p>{ `Counterarguments, edge cases, and alternative approaches are welcome.
+					This is an architectural argument, not a product page. Push back.` }</p>
+				@partials.FeedbackForm(csrfToken, "", "", 3)
 			</section>
 		</article>
 	}
