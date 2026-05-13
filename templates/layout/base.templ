@@ -23,6 +23,7 @@ templ Base(title string, csrfToken string, currentPath string) {
 			<meta name="csrf-token" content={ csrfToken }/>
 		</head>
 		<body>
+			<a class="skip-link" href="#main-content">{ `Skip to main content` }</a>
 			<header>
 				<nav aria-label="Main navigation">
 					<a href="/"
