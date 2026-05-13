@@ -337,6 +337,41 @@
     color: var(--c-accent);
   }
 
+  @media (width < 700px) {
+    body > header nav {
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    body > header nav::-webkit-scrollbar { display: none; }
+    body > header nav ul { flex-wrap: nowrap; }
+  }
+
+  /* ----------------------------------------------------------
+     Skip navigation
+     ---------------------------------------------------------- */
+
+  .skip-link {
+    position: absolute;
+    inset-block-start: var(--sp-2);
+    inset-inline-start: var(--sp-2);
+    z-index: 999;
+    padding: var(--sp-2) var(--sp-4);
+    background: var(--c-accent);
+    color: oklch(98% 0.005 80);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    translate: 0 -150%;
+    transition: translate var(--t-fast);
+  }
+
+  .skip-link:focus-visible {
+    translate: 0 0;
+  }
+
   /* ----------------------------------------------------------
      Main
      ---------------------------------------------------------- */
@@ -682,10 +717,15 @@
     border-radius: var(--radius-md);
   }
 
+  .nav-cards li a h2,
   .nav-cards li a h3 {
     font-size: var(--text-lg);
-    color: var(--c-accent);
+    font-family: var(--font-serif);
     font-weight: 600;
+    color: var(--c-accent);
+    text-transform: none;
+    letter-spacing: 0;
+    margin-block-end: 0;
   }
 
   .nav-cards li a p {
@@ -693,6 +733,10 @@
     font-size: var(--text-sm);
     color: var(--c-text-muted);
     line-height: 1.55;
+  }
+
+  article > header + .nav-cards {
+    padding-block-start: var(--sp-5);
   }
 
   /* ----------------------------------------------------------
@@ -736,6 +780,14 @@
   .btn:focus-visible {
     outline: 2px solid var(--c-accent);
     outline-offset: 4px;
+  }
+
+  .btn:disabled,
+  .btn[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    pointer-events: none;
   }
 
   .btn--secondary {
@@ -993,6 +1045,7 @@
     padding: var(--sp-4) var(--sp-5);
     border-radius: var(--radius-md);
     border: var(--border);
+    text-align: start;
   }
 
   .state-layer--durable {
@@ -1515,6 +1568,7 @@
     flex-wrap: wrap;
     gap: var(--sp-2);
     margin-block-start: var(--sp-6);
+    inline-size: min(700px, 100%);
   }
 
   .arch-step-btn {
@@ -1575,6 +1629,7 @@
   .arch-step-detail {
     margin-block-start: var(--sp-4);
     min-block-size: 3rem;
+    inline-size: min(700px, 100%);
   }
 
   .arch-step-detail__prompt {
