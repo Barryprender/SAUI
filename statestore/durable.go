@@ -3,6 +3,7 @@ package statestore
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"time"
 )
 
@@ -44,7 +45,10 @@ func (s *Store) AppendEvent(ctx context.Context, sessionID, eventType string, pa
 	if err != nil {
 		return Event{}, err
 	}
-	id, _ := res.LastInsertId()
+	id, err := res.LastInsertId()
+	if err != nil {
+		return Event{}, fmt.Errorf("last insert id: %w", err)
+	}
 	return Event{ID: id, SessionID: sessionID, Type: eventType, Payload: p, OccurredAt: now}, nil
 }
 
@@ -71,4 +75,14 @@ func (s *Store) EventsBySession(ctx context.Context, sessionID string) ([]Event,
 		events = append(events, e)
 	}
 	return events, rows.Err()
+}
+
+// CountEventsBySessionAndType returns the count of events for a session matching the given type.
+func (s *Store) CountEventsBySessionAndType(ctx context.Context, sessionID, eventType string) (int, error) {
+	var count int
+	err := s.db.QueryRowContext(ctx,
+		`SELECT COUNT(*) FROM events WHERE session_id = ? AND type = ?`,
+		sessionID, eventType,
+	).Scan(&count)
+	return count, err
 }
