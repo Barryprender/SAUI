@@ -26,15 +26,9 @@ func (a SubmitFeedback) Validate(ctx context.Context, s *statestore.Store, sessi
 		return errors.New("message exceeds 2000 characters")
 	}
 
-	prior, err := s.EventsBySession(ctx, sessionID)
+	count, err := s.CountEventsBySessionAndType(ctx, sessionID, FeedbackSubmittedType)
 	if err != nil {
 		return err
-	}
-	count := 0
-	for _, ev := range prior {
-		if ev.Type == FeedbackSubmittedType {
-			count++
-		}
 	}
 	if count >= maxFeedbackPerSession {
 		return errors.New("feedback limit reached for this session")
