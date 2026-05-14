@@ -7,11 +7,14 @@ import (
 
 templ Code(csrfToken string) {
 	@layout.Base("Code", csrfToken, "/code") {
-		<article>
-			<header>
+		<section class="page-hero">
+			<div class="page-hero__content">
+				<p class="page-hero__eyebrow">{ `SAUI · Reference Implementation` }</p>
 				<h1>Code</h1>
 				<p class="lead">{ `The reference implementation. This site is the reference implementation.` }</p>
-			</header>
+			</div>
+		</section>
+		<article>
 			<section>
 				<h2>This site</h2>
 				<p>{ `SAUI.dev is built on the stack it documents. The source is available on GitHub.

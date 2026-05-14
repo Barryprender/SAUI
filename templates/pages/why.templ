@@ -4,11 +4,14 @@ import "saui/templates/layout"
 
 templ Why(csrfToken string) {
 	@layout.Base("Why SAUI", csrfToken, "/why") {
-		<article class="why-page">
-			<header>
+		<section class="page-hero">
+			<div class="page-hero__content">
+				<p class="page-hero__eyebrow">{ `SAUI · The Argument` }</p>
 				<h1>Why</h1>
 				<p class="lead">{ `The SPA era solved real problems. The mistake was applying that architecture universally.` }</p>
-			</header>
+			</div>
+		</section>
+		<article class="why-page">
 			<section>
 				<h2>What SPAs got right</h2>
 				<p>{ `In 2013, Gmail and Google Maps genuinely required client-side state. A mail client

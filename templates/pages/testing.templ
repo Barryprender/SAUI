@@ -4,12 +4,14 @@ import "saui/templates/layout"
 
 templ Testing(csrfToken string) {
 	@layout.Base("Testing", csrfToken, "/testing") {
-		<article>
-			<header>
+		<section class="page-hero">
+			<div class="page-hero__content">
+				<p class="page-hero__eyebrow">{ `SAUI · Test Strategy` }</p>
 				<h1>Testing</h1>
-				<p class="lead">{ `Under SPA architecture, the majority of the test surface exists to verify
-					that client state correctly reflects server state. SAUI eliminates that problem.` }</p>
-			</header>
+				<p class="lead">{ `Under SPA architecture, the majority of the test surface exists to verify that client state correctly reflects server state. SAUI eliminates that problem.` }</p>
+			</div>
+		</section>
+		<article>
 			<section>
 				<h2>What SPA tests actually test</h2>
 				<p>{ `In a SPA, the frontend holds a copy of state. Tests are written to verify that

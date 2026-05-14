@@ -4,12 +4,14 @@ import "saui/templates/layout"
 
 templ Limits(csrfToken string) {
 	@layout.Base("Limits", csrfToken, "/limits") {
-		<article>
-			<header>
+		<section class="page-hero">
+			<div class="page-hero__content">
+				<p class="page-hero__eyebrow">{ `SAUI · Honest Limits` }</p>
 				<h1>Limits</h1>
-				<p class="lead">{ `SAUI is the wrong choice for some applications.
-					These are genuine exceptions, not contrived ones.` }</p>
-			</header>
+				<p class="lead">{ `SAUI is the wrong choice for some applications. These are genuine exceptions, not contrived ones.` }</p>
+			</div>
+		</section>
+		<article>
 			<section>
 				<p>{ `Credibility requires honesty. A pattern that claims to be appropriate for every
 					application is not a pattern; it is marketing. SAUI has real limits and stating

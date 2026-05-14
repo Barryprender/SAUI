@@ -4,13 +4,14 @@ import "saui/templates/layout"
 
 templ Blog(csrfToken string) {
 	@layout.Base("Blog", csrfToken, "/blog") {
-		<article>
-			<header>
+		<section class="page-hero">
+			<div class="page-hero__content">
+				<p class="page-hero__eyebrow">{ `SAUI · Writing` }</p>
 				<h1>Blog</h1>
-				<p class="lead">
-					Posts, counterarguments, and responses.
-				</p>
-			</header>
+				<p class="lead">{ `Posts, counterarguments, and responses.` }</p>
+			</div>
+		</section>
+		<article>
 			<section>
 				<p>No posts yet. Check back soon.</p>
 			</section>
