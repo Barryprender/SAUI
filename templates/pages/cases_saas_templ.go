@@ -69,53 +69,53 @@ func CaseSaaS(csrfToken string) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</nav><p class=\"page-hero__eyebrow\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</nav><h1>SaaS dashboards</h1><p class=\"lead\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var5 string
-			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(`SAUI · Case Study`)
+			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(`Filter state, bulk actions, and unsaved edits are where SPA complexity accumulates fastest. SAUI simplifies each.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 12, Col: 56}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 13, Col: 137}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</p><h1>SaaS dashboards</h1><p class=\"lead\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</p></div></section><article><section><h2>The client-side state model</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var6 string
-			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(`Filter state, bulk actions, and unsaved edits are where SPA complexity accumulates fastest. SAUI simplifies each.`)
+			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(`SaaS dashboards are among the most complex SPA deployments. They accumulate:`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 14, Col: 137}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 19, Col: 87}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p></div></section><article><section><h2>The client-side state model</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p><ul><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var7 string
-			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(`SaaS dashboards are among the most complex SPA deployments. They accumulate:`)
+			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(`Filter and sort state: managed client-side, sometimes synced to URL, sometimes not`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 20, Col: 87}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 21, Col: 95}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</p><ul><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var8 string
-			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(`Filter and sort state: managed client-side, sometimes synced to URL, sometimes not`)
+			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(`Pagination state: page number, page size, cursor; held in multiple places`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 22, Col: 95}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 22, Col: 86}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
@@ -126,9 +126,9 @@ func CaseSaaS(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var9 string
-			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(`Pagination state: page number, page size, cursor; held in multiple places`)
+			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(`Bulk selection state: which rows are checked, across pages`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 23, Col: 86}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 23, Col: 71}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
@@ -139,9 +139,9 @@ func CaseSaaS(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var10 string
-			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(`Bulk selection state: which rows are checked, across pages`)
+			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(`Unsaved edits: inline editing that has not been submitted`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 24, Col: 71}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 24, Col: 70}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
@@ -152,50 +152,50 @@ func CaseSaaS(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var11 string
-			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(`Unsaved edits: inline editing that has not been submitted`)
+			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(`Real-time updates: new records appearing while the user is on page 3 of results`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 25, Col: 70}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 25, Col: 92}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</li></ul><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var12 string
-			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(`Real-time updates: new records appearing while the user is on page 3 of results`)
+			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(`Each of these is a synchronisation problem. Each requires its own state management
+					solution. Together, they produce dashboards that are fragile, slow to build,
+					and expensive to maintain.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 26, Col: 92}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 29, Col: 32}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</li></ul><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</p></section><section><h2>What moves to the server under SAUI</h2><ul><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var13 string
-			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(`Each of these is a synchronisation problem. Each requires its own state management
-					solution. Together, they produce dashboards that are fragile, slow to build,
-					and expensive to maintain.`)
+			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(`Filter and sort state: encoded in the URL, applied server-side, returned as a projection`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 30, Col: 32}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 34, Col: 101}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</p></section><section><h2>What moves to the server under SAUI</h2><ul><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var14 string
-			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(`Filter and sort state: encoded in the URL, applied server-side, returned as a projection`)
+			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(`Pagination: server computes the page; cursor is opaque to the client`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 35, Col: 101}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 35, Col: 81}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
@@ -206,9 +206,9 @@ func CaseSaaS(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var15 string
-			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(`Pagination: server computes the page; cursor is opaque to the client`)
+			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(`Bulk action validation: the gateway validates each selected record before applying the bulk action`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 36, Col: 81}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 36, Col: 111}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 			if templ_7745c5c3_Err != nil {
@@ -219,50 +219,50 @@ func CaseSaaS(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var16 string
-			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(`Bulk action validation: the gateway validates each selected record before applying the bulk action`)
+			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(`Real-time updates: SSE pushes updated projections; the client swaps the target element`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 37, Col: 111}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 37, Col: 99}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</li></ul><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var17 string
-			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(`Real-time updates: SSE pushes updated projections; the client swaps the target element`)
+			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(`Filter state in the URL is bookmarkable, shareable, and survives reload without
+					any client-side state management. The server applies the filters and returns
+					the correct projection.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 38, Col: 99}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 41, Col: 29}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</li></ul><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</p></section><section><h2>What stays on the client</h2><ul><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var18 string
-			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(`Filter state in the URL is bookmarkable, shareable, and survives reload without
-					any client-side state management. The server applies the filters and returns
-					the correct projection.`)
+			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(`Dropdown open/close state for filter controls`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 42, Col: 29}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 46, Col: 58}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</p></section><section><h2>What stays on the client</h2><ul><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var19 string
-			templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(`Dropdown open/close state for filter controls`)
+			templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(`Row hover highlight`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 47, Col: 58}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 47, Col: 32}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
 			if templ_7745c5c3_Err != nil {
@@ -273,81 +273,68 @@ func CaseSaaS(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var20 string
-			templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(`Row hover highlight`)
+			templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(`Column resize drag state (ephemeral, not persisted)`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 48, Col: 32}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 48, Col: 64}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "</li></ul><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var21 string
-			templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(`Column resize drag state (ephemeral, not persisted)`)
+			templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(`Unsaved inline edits are a genuine case for ephemeral client state: the user is
+					mid-edit and the UI should not submit until they confirm. This is legitimate UI-only
+					state. It has no business meaning until submission, at which point it becomes an action.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 49, Col: 64}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 52, Col: 94}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</li></ul><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</p></section><section><h2>Bulk actions</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var22 string
-			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(`Unsaved inline edits are a genuine case for ephemeral client state: the user is
-					mid-edit and the UI should not submit until they confirm. This is legitimate UI-only
-					state. It has no business meaning until submission, at which point it becomes an action.`)
+			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(`Bulk actions are a common source of correctness problems in SPAs. The client holds
+					a selection set. The user triggers a bulk delete. The client sends a list of IDs.
+					Between selection and submission, some records may have changed state: already
+					deleted by another user, locked by a process, no longer accessible.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 53, Col: 94}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 59, Col: 73}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "</p></section><section><h2>Bulk actions</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var23 string
-			templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(`Bulk actions are a common source of correctness problems in SPAs. The client holds
-					a selection set. The user triggers a bulk delete. The client sends a list of IDs.
-					Between selection and submission, some records may have changed state: already
-					deleted by another user, locked by a process, no longer accessible.`)
+			templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(`Under SAUI, the gateway validates each record in the bulk action set before
+					appending any events. If any record fails validation, the entire action is rejected
+					with the current state. No partial application. The client receives a projection
+					of what actually happened.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 60, Col: 73}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 63, Col: 32}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "</p><p>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var24 string
-			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(`Under SAUI, the gateway validates each record in the bulk action set before
-					appending any events. If any record fails validation, the entire action is rejected
-					with the current state. No partial application. The client receives a projection
-					of what actually happened.`)
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_saas.templ`, Line: 64, Col: 32}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "</p><p><a href=\"/cases/distributed-systems\">Next: Distributed systems</a></p></section></article>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "</p><p><a href=\"/cases/distributed-systems\">Next: Distributed systems</a></p></section></article>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = layout.Base("Case Study: SaaS Dashboards", csrfToken, "/cases").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layout.Base("Case Study: SaaS Dashboards", csrfToken, "/cases", "/static/css/cases-saas.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

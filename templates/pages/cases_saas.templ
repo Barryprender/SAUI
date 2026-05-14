@@ -3,13 +3,12 @@ package pages
 import "saui/templates/layout"
 
 templ CaseSaaS(csrfToken string) {
-	@layout.Base("Case Study: SaaS Dashboards", csrfToken, "/cases") {
+	@layout.Base("Case Study: SaaS Dashboards", csrfToken, "/cases", "/static/css/cases-saas.css") {
 		<section class="page-hero">
 			<div class="page-hero__content">
 				<nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
 					<a href="/cases">{ `Case Studies` }</a>{ ` / SaaS Dashboards` }
 				</nav>
-				<p class="page-hero__eyebrow">{ `SAUI · Case Study` }</p>
 				<h1>SaaS dashboards</h1>
 				<p class="lead">{ `Filter state, bulk actions, and unsaved edits are where SPA complexity accumulates fastest. SAUI simplifies each.` }</p>
 			</div>
