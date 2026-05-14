@@ -3,13 +3,12 @@ package pages
 import "saui/templates/layout"
 
 templ CaseMFE(csrfToken string) {
-	@layout.Base("Case Study: Micro Frontends", csrfToken, "/cases") {
+	@layout.Base("Case Study: Micro Frontends", csrfToken, "/cases", "/static/css/cases-mfe.css") {
 		<section class="page-hero">
 			<div class="page-hero__content">
 				<nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
 					<a href="/cases">{ `Case Studies` }</a>{ ` / Micro Frontends` }
 				</nav>
-				<p class="page-hero__eyebrow">{ `SAUI · Case Study` }</p>
 				<h1>Micro frontends</h1>
 				<p class="lead">{ `Micro frontends under SAUI are genuinely independent because there is no shared client state to couple them.` }</p>
 			</div>
