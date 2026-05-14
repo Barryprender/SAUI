@@ -44,7 +44,7 @@ func Base(title string, csrfToken string, currentPath string, pageCSS string) te
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, " — SAUI</title><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap\" rel=\"stylesheet\"><link rel=\"icon\" type=\"image/svg+xml\" href=\"/static/img/favicon.svg\"><link rel=\"stylesheet\" href=\"/static/css/main.css\"><link rel=\"stylesheet\" href=\"/static/css/htmx.css\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, " — SAUI</title><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Fraunces:opsz,wght@9..144,700&display=swap\" rel=\"stylesheet\"><link rel=\"icon\" type=\"image/svg+xml\" href=\"/static/img/favicon.svg\"><link rel=\"stylesheet\" href=\"/static/css/main.css\"><link rel=\"stylesheet\" href=\"/static/css/htmx.css\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -103,7 +103,7 @@ func Base(title string, csrfToken string, currentPath string, pageCSS string) te
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "><svg class=\"site-logo\" aria-hidden=\"true\" focusable=\"false\" width=\"84\" height=\"26\" viewBox=\"0 0 84 26\" xmlns=\"http://www.w3.org/2000/svg\"><!-- Lock icon background --><rect width=\"26\" height=\"26\" rx=\"5\" fill=\"var(--c-accent)\"></rect><!-- Lock body --><rect x=\"3\" y=\"14\" width=\"20\" height=\"10\" rx=\"2.5\" fill=\"oklch(99% 0.004 80)\"></rect><!-- { } bracket shackle --><path d=\"M 7 14 L 7 11 Q 5.5 10,5.5 9 Q 5.5 8,7 7 L 7 5 Q 7 4,9 4 H 17 Q 19 4,19 5 L 19 7 Q 20.5 8,20.5 9 Q 20.5 10,19 11 L 19 14\" fill=\"none\" stroke=\"oklch(99% 0.004 80)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><!-- Keyhole --><circle cx=\"13\" cy=\"19.5\" r=\"2\" fill=\"var(--c-accent)\"></circle><!-- SAUI wordmark --><text x=\"34\" y=\"18\" font-family=\"system-ui,-apple-system,sans-serif\" font-size=\"13\" font-weight=\"700\" letter-spacing=\"2\" fill=\"currentColor\">SAUI</text></svg></a><ul><li><a href=\"/why\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "><svg class=\"site-logo\" aria-hidden=\"true\" focusable=\"false\" width=\"64\" height=\"24\" viewBox=\"0 0 64 24\" xmlns=\"http://www.w3.org/2000/svg\"><text class=\"site-logo__wordmark\" x=\"0\" y=\"19\" fill=\"currentColor\">SAUI</text></svg></a><ul><li><a href=\"/why\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -181,7 +181,7 @@ func Base(title string, csrfToken string, currentPath string, pageCSS string) te
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "</main><footer><p>SAUI — Server-Authoritative UI</p></footer><script type=\"module\" src=\"/static/js/app.js\"></script></body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "</main><footer><p>SAUI — Server-Authoritative UI</p></footer><script type=\"module\" src=\"/static/js/app.js\"></script><!-- impeccable-live-start --><script src=\"http://localhost:8400/live.js\"></script><!-- impeccable-live-end --></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
