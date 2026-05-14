@@ -82,46 +82,42 @@ templ Architecture(csrfToken string) {
 				<figcaption>{ `The SAUI request lifecycle: intent in, projection out. State lives in one place.` }</figcaption>
 			</figure>
 			<nav class="arch-step-nav" aria-label="Step detail">
-				<a href="#two-layer-state-model"
+				<button type="button"
 					class="arch-step-btn"
 					hx-get="/architecture/step/browser-request"
 					hx-target="#arch-step-detail"
 					hx-swap="innerHTML"
-					hx-push-url="false"
 				>
 					<span class="arch-step-num" aria-hidden="true">{ `1` }</span>
 					{ `Browser` }
-				</a>
-				<a href="#gateway-contract"
+				</button>
+				<button type="button"
 					class="arch-step-btn"
 					hx-get="/architecture/step/gateway"
 					hx-target="#arch-step-detail"
 					hx-swap="innerHTML"
-					hx-push-url="false"
 				>
 					<span class="arch-step-num" aria-hidden="true">{ `2` }</span>
 					{ `Gateway` }
-				</a>
-				<a href="#action-pattern"
+				</button>
+				<button type="button"
 					class="arch-step-btn"
 					hx-get="/architecture/step/event-log"
 					hx-target="#arch-step-detail"
 					hx-swap="innerHTML"
-					hx-push-url="false"
 				>
 					<span class="arch-step-num" aria-hidden="true">{ `3` }</span>
 					{ `Event log` }
-				</a>
-				<a href="#progressive-enhancement"
+				</button>
+				<button type="button"
 					class="arch-step-btn"
 					hx-get="/architecture/step/browser-response"
 					hx-target="#arch-step-detail"
 					hx-swap="innerHTML"
-					hx-push-url="false"
 				>
 					<span class="arch-step-num" aria-hidden="true">{ `4` }</span>
 					{ `Response` }
-				</a>
+				</button>
 			</nav>
 			<div id="arch-step-detail" class="arch-step-detail" aria-live="polite">
 				<p class="arch-step-detail__prompt">{ `Select a step to see the implementation detail.` }</p>

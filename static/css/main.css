@@ -1583,6 +1583,7 @@
     font-weight: 500;
     color: var(--c-text-muted);
     text-decoration: none;
+    cursor: pointer;
     transition:
       background var(--t-fast),
       border-color var(--t-fast),
