@@ -838,6 +838,75 @@
   }
 
   /* ----------------------------------------------------------
+     Page hero — shared across all content pages
+     ---------------------------------------------------------- */
+
+  .page-hero {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-block-size: 44vh;
+    padding-block: var(--sp-10);
+    padding-inline: var(--gutter);
+    border-block-end: var(--border);
+  }
+
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% 120%, var(--c-accent-subtle) 0%, transparent 65%),
+      radial-gradient(circle, var(--c-border) 1px, transparent 1px);
+    background-size: 100% 100%, 32px 32px;
+    opacity: 0.8;
+    pointer-events: none;
+  }
+
+  .page-hero__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-4);
+    max-inline-size: var(--prose-width);
+    animation: hero-enter 0.9s cubic-bezier(0.16, 1, 0.3, 1) 80ms both;
+  }
+
+  .page-hero__content h1 { margin: 0; }
+  .page-hero__content .lead { max-inline-size: 52ch; margin: 0; }
+
+  .page-hero__eyebrow {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--c-accent);
+  }
+
+  .page-hero__breadcrumb {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    color: var(--c-text-muted);
+  }
+
+  .page-hero__breadcrumb a {
+    color: var(--c-text-muted);
+    text-decoration: none;
+    transition: color var(--t-fast);
+  }
+
+  .page-hero__breadcrumb a:hover { color: var(--c-accent); }
+
+  /* Nav-cards first child: suppress double border when hero provides separator */
+  article > .nav-cards:first-child { border-block-start: none; }
+
+  /* ----------------------------------------------------------
      Architecture hero
      ---------------------------------------------------------- */
 
@@ -1732,10 +1801,6 @@
   }
 
   /* ── Why page ──────────────────────────────────────────────── */
-
-  .why-page > header {
-    animation: hero-enter 0.9s cubic-bezier(0.16, 1, 0.3, 1) 80ms both;
-  }
 
   /* Hovering a cost list item highlights the library name */
   #compounding-cost li strong {
