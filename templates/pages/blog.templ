@@ -3,10 +3,9 @@ package pages
 import "saui/templates/layout"
 
 templ Blog(csrfToken string) {
-	@layout.Base("Blog", csrfToken, "/blog") {
+	@layout.Base("Blog", csrfToken, "/blog", "/static/css/blog.css") {
 		<section class="page-hero">
 			<div class="page-hero__content">
-				<p class="page-hero__eyebrow">{ `SAUI · Writing` }</p>
 				<h1>Blog</h1>
 				<p class="lead">{ `Posts, counterarguments, and responses.` }</p>
 			</div>
