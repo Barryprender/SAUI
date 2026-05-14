@@ -3,10 +3,9 @@ package pages
 import "saui/templates/layout"
 
 templ Stack(csrfToken string) {
-	@layout.Base("Stack", csrfToken, "/stack") {
+	@layout.Base("Stack", csrfToken, "/stack", "/static/css/stack.css") {
 		<section class="page-hero">
 			<div class="page-hero__content">
-				<p class="page-hero__eyebrow">{ `SAUI · The Implementation` }</p>
 				<h1>Stack</h1>
 				<p class="lead">{ `Go standard library, SQLite, htmx, and templ. No framework. No ORM. No bundler. A single deployable binary.` }</p>
 			</div>
