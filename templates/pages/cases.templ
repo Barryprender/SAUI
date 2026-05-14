@@ -3,10 +3,9 @@ package pages
 import "saui/templates/layout"
 
 templ Cases(csrfToken string) {
-	@layout.Base("Case Studies", csrfToken, "/cases") {
+	@layout.Base("Case Studies", csrfToken, "/cases", "/static/css/cases.css") {
 		<section class="page-hero">
 			<div class="page-hero__content">
-				<p class="page-hero__eyebrow">{ `SAUI · Applications` }</p>
 				<h1>Case Studies</h1>
 				<p class="lead">{ `SAUI applied to real application domains. What moves to the server, what stays on the client, and what is gained.` }</p>
 			</div>
