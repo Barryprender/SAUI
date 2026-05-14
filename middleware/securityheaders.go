@@ -1,25 +1,37 @@
 package middleware
 
-import "net/http"
+import (
+	"net/http"
+	"os"
+)
 
-const contentSecurityPolicy = "default-src 'self'; " +
-	"script-src 'self'; " +
-	"style-src 'self' https://fonts.googleapis.com; " +
-	"font-src https://fonts.gstatic.com; " +
-	"img-src 'self' data:; " +
-	"connect-src 'self'; " +
-	"object-src 'none'; " +
-	"form-action 'self'; " +
-	"base-uri 'self'; " +
-	"frame-ancestors 'none'"
+func buildCSP() string {
+	scriptSrc := "'self'"
+	connectSrc := "'self'"
+	if os.Getenv("APP_ENV") == "development" {
+		scriptSrc += " http://localhost:8400"
+		connectSrc += " http://localhost:8400"
+	}
+	return "default-src 'self'; " +
+		"script-src " + scriptSrc + "; " +
+		"style-src 'self' https://fonts.googleapis.com; " +
+		"font-src https://fonts.gstatic.com; " +
+		"img-src 'self' data:; " +
+		"connect-src " + connectSrc + "; " +
+		"object-src 'none'; " +
+		"form-action 'self'; " +
+		"base-uri 'self'; " +
+		"frame-ancestors 'none'"
+}
 
 // SecurityHeaders sets security response headers on every response.
 // Pass tls=true when behind HTTPS or a TLS-terminating proxy to enable HSTS.
 func SecurityHeaders(tls bool) func(http.Handler) http.Handler {
+	csp := buildCSP()
 	return func(next http.Handler) http.Handler {
 		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			h := w.Header()
-			h.Set("Content-Security-Policy", contentSecurityPolicy)
+			h.Set("Content-Security-Policy", csp)
 			h.Set("X-Frame-Options", "DENY")
 			h.Set("X-Content-Type-Options", "nosniff")
 			h.Set("Referrer-Policy", "strict-origin-when-cross-origin")
