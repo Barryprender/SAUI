@@ -3,10 +3,9 @@ package pages
 import "saui/templates/layout"
 
 templ Why(csrfToken string) {
-	@layout.Base("Why SAUI", csrfToken, "/why") {
+	@layout.Base("Why SAUI", csrfToken, "/why", "/static/css/why.css") {
 		<section class="page-hero">
 			<div class="page-hero__content">
-				<p class="page-hero__eyebrow">{ `SAUI · The Argument` }</p>
 				<h1>Why</h1>
 				<p class="lead">{ `The SPA era solved real problems. The mistake was applying that architecture universally.` }</p>
 			</div>
