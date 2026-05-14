@@ -10,10 +10,10 @@ document.body.addEventListener('htmx:configRequest', (e) => {
 document.body.addEventListener('htmx:afterSwap', (e) => {
   if (e.target.id !== 'arch-step-detail') return;
   document.querySelectorAll('.arch-step-btn').forEach((btn) => {
-    btn.removeAttribute('aria-current');
+    btn.setAttribute('aria-pressed', 'false');
   });
   const trigger = e.detail.requestConfig?.elt;
   if (trigger?.classList.contains('arch-step-btn')) {
-    trigger.setAttribute('aria-current', 'true');
+    trigger.setAttribute('aria-pressed', 'true');
   }
 });
