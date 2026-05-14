@@ -4,7 +4,7 @@ import "saui/templates/layout"
 
 templ Why(csrfToken string) {
 	@layout.Base("Why SAUI", csrfToken, "/why") {
-		<article>
+		<article class="why-page">
 			<header>
 				<h1>Why</h1>
 				<p class="lead">{ `The SPA era solved real problems. The mistake was applying that architecture universally.` }</p>
@@ -27,7 +27,7 @@ templ Why(csrfToken string) {
 				<p>{ `None of these applications require the interaction model of Gmail. All of them were
 					built as if they did.` }</p>
 			</section>
-			<section>
+			<section id="compounding-cost">
 				<h2>The compounding cost</h2>
 				<p>{ `When client-side state is the default, a synchronisation problem is introduced that
 					did not previously exist: keeping the client copy of state consistent with the
