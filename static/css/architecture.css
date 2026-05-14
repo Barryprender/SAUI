@@ -74,15 +74,6 @@
     max-inline-size: 44ch;
   }
 
-  .arch-hero__eyebrow {
-    font-family: var(--font-sans);
-    font-size: var(--text-xs);
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--c-accent);
-  }
-
   .arch-hero__scroll {
     position: absolute;
     inset-block-end: var(--sp-6);
@@ -453,6 +444,10 @@
   .arch-step-btn:focus-visible {
     outline: 2px solid var(--c-accent);
     outline-offset: 3px;
+  }
+
+  .arch-step-btn[aria-pressed="true"]:focus-visible {
+    outline-color: oklch(98% 0.005 80);
   }
 
   .arch-step-btn[aria-pressed="true"] {
