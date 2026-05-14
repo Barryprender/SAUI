@@ -3,10 +3,9 @@ package pages
 import "saui/templates/layout"
 
 templ Testing(csrfToken string) {
-	@layout.Base("Testing", csrfToken, "/testing") {
+	@layout.Base("Testing", csrfToken, "/testing", "/static/css/testing.css") {
 		<section class="page-hero">
 			<div class="page-hero__content">
-				<p class="page-hero__eyebrow">{ `SAUI · Test Strategy` }</p>
 				<h1>Testing</h1>
 				<p class="lead">{ `Under SPA architecture, the majority of the test surface exists to verify that client state correctly reflects server state. SAUI eliminates that problem.` }</p>
 			</div>

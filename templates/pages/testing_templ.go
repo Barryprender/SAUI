@@ -43,43 +43,45 @@ func Testing(csrfToken string) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"page-hero\"><div class=\"page-hero__content\"><p class=\"page-hero__eyebrow\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"page-hero\"><div class=\"page-hero__content\"><h1>Testing</h1><p class=\"lead\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
-			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(`SAUI · Test Strategy`)
+			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(`Under SPA architecture, the majority of the test surface exists to verify that client state correctly reflects server state. SAUI eliminates that problem.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 9, Col: 59}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 10, Col: 178}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</p><h1>Testing</h1><p class=\"lead\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</p></div></section><article><section><h2>What SPA tests actually test</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var4 string
-			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(`Under SPA architecture, the majority of the test surface exists to verify that client state correctly reflects server state. SAUI eliminates that problem.`)
+			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(`In a SPA, the frontend holds a copy of state. Tests are written to verify that
+					this copy is correct: that it updates when the server responds, that it handles
+					errors correctly, that it reflects mutations optimistically before confirmation,
+					and that it reconciles when the optimistic update was wrong.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 11, Col: 178}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 19, Col: 66}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p></div></section><article><section><h2>What SPA tests actually test</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var5 string
-			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(`In a SPA, the frontend holds a copy of state. Tests are written to verify that
-					this copy is correct: that it updates when the server responds, that it handles
-					errors correctly, that it reflects mutations optimistically before confirmation,
-					and that it reconciles when the optimistic update was wrong.`)
+			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(`This is not testing business logic. This is testing the synchronisation machinery.
+					The business logic lives on the server. The test surface on the client exists
+					entirely to verify that the client correctly mirrors the server.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 20, Col: 66}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 22, Col: 70}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -90,38 +92,39 @@ func Testing(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var6 string
-			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(`This is not testing business logic. This is testing the synchronisation machinery.
-					The business logic lives on the server. The test surface on the client exists
-					entirely to verify that the client correctly mirrors the server.`)
+			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(`When the synchronisation problem is eliminated, that test surface collapses.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 23, Col: 70}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 23, Col: 87}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p></section><section><h2>Frontend tests under SAUI</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var7 string
-			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(`When the synchronisation problem is eliminated, that test surface collapses.`)
+			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(`The frontend is a projection renderer. Its correctness question is simple: given
+					this projection data, does this template render the correct HTML?`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 24, Col: 87}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 28, Col: 71}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</p></section><section><h2>Frontend tests under SAUI</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var8 string
-			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(`The frontend is a projection renderer. Its correctness question is simple: given
-					this projection data, does this template render the correct HTML?`)
+			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(`These tests are fast, stable, and require no browser. They have no dependency on
+					business logic. A backend change that preserves the projection contract does not
+					break frontend tests. A frontend redesign that preserves the projection contract
+					does not require backend changes to test.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 29, Col: 71}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 32, Col: 47}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
@@ -132,51 +135,48 @@ func Testing(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var9 string
-			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(`These tests are fast, stable, and require no browser. They have no dependency on
-					business logic. A backend change that preserves the projection contract does not
-					break frontend tests. A frontend redesign that preserves the projection contract
-					does not require backend changes to test.`)
+			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(`The seam between frontend and backend is the projection contract. Version it.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 33, Col: 47}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 33, Col: 88}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</p></section><section><h2>Backend tests under SAUI</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var10 string
-			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(`The seam between frontend and backend is the projection contract. Version it.`)
+			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(`All business logic lives in the backend. Backend tests cover everything meaningful:`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 34, Col: 88}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 37, Col: 94}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</p></section><section><h2>Backend tests under SAUI</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</p><ul><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var11 string
-			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(`All business logic lives in the backend. Backend tests cover everything meaningful:`)
+			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(`Action validation: does this action correctly reject invalid state?`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 38, Col: 94}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 39, Col: 80}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</p><ul><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var12 string
-			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(`Action validation: does this action correctly reject invalid state?`)
+			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(`State transitions: does this action produce the correct event?`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 40, Col: 80}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 40, Col: 75}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -187,9 +187,9 @@ func Testing(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var13 string
-			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(`State transitions: does this action produce the correct event?`)
+			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(`Projection correctness: does this event log produce the correct read model?`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 41, Col: 75}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 41, Col: 88}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 			if templ_7745c5c3_Err != nil {
@@ -200,52 +200,53 @@ func Testing(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var14 string
-			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(`Projection correctness: does this event log produce the correct read model?`)
+			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(`Authorisation: does the gateway correctly enforce access control?`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 42, Col: 88}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 42, Col: 78}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</li></ul><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var15 string
-			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(`Authorisation: does the gateway correctly enforce access control?`)
+			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(`These are pure Go tests. Fast. Deterministic. No browser required. No test doubles
+					needed for client-side state. No mocking of the synchronisation layer,
+					because there is no synchronisation layer.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 43, Col: 78}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 46, Col: 48}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</li></ul><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</p></section><section><h2>Team isolation</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var16 string
-			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(`These are pure Go tests. Fast. Deterministic. No browser required. No test doubles
-					needed for client-side state. No mocking of the synchronisation layer,
-					because there is no synchronisation layer.`)
+			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(`Backend teams can change business logic - action implementations, validation rules,
+					event schema - without breaking frontend tests, provided the projection contract
+					is preserved or versioned.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 47, Col: 48}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 52, Col: 32}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</p></section><section><h2>Team isolation</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var17 string
-			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(`Backend teams can change business logic - action implementations, validation rules,
-					event schema - without breaking frontend tests, provided the projection contract
-					is preserved or versioned.`)
+			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(`Frontend teams can redesign the UI - markup, layout, interaction patterns - without
+					triggering backend test failures.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 53, Col: 32}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 54, Col: 39}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 			if templ_7745c5c3_Err != nil {
@@ -256,36 +257,22 @@ func Testing(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var18 string
-			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(`Frontend teams can redesign the UI - markup, layout, interaction patterns - without
-					triggering backend test failures.`)
+			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(`The teams are genuinely independent. The projection contract is the interface.
+					Both sides can evolve without coordination, as long as they honour that contract.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 55, Col: 39}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 56, Col: 87}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</p><p>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var19 string
-			templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(`The teams are genuinely independent. The projection contract is the interface.
-					Both sides can evolve without coordination, as long as they honour that contract.`)
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 57, Col: 87}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "</p><p><a href=\"/limits\">See where SAUI is the wrong choice</a></p></section></article>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</p><p><a href=\"/limits\">See where SAUI is the wrong choice</a></p></section></article>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = layout.Base("Testing", csrfToken, "/testing").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layout.Base("Testing", csrfToken, "/testing", "/static/css/testing.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
