@@ -4,15 +4,17 @@ import "saui/templates/layout"
 
 templ CaseDistributed(csrfToken string) {
 	@layout.Base("Case Study: Distributed Systems", csrfToken, "/cases") {
-		<article>
-			<header>
-				<nav aria-label="Breadcrumb">
-					<a href="/cases">Case Studies</a> / Distributed Systems
+		<section class="page-hero">
+			<div class="page-hero__content">
+				<nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+					<a href="/cases">{ `Case Studies` }</a>{ ` / Distributed Systems` }
 				</nav>
+				<p class="page-hero__eyebrow">{ `SAUI · Case Study` }</p>
 				<h1>Distributed systems</h1>
-				<p class="lead">{ `SAUI scales to distributed backends. "Server-authoritative" means
-					authoritative per service domain, not a single global database.` }</p>
-			</header>
+				<p class="lead">{ `SAUI scales to distributed backends. "Server-authoritative" means authoritative per service domain, not a single global database.` }</p>
+			</div>
+		</section>
+		<article>
 			<section>
 				<h2>The misconception</h2>
 				<p>{ `A common objection to SAUI in distributed system contexts is that "centralised state"

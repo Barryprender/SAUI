@@ -4,15 +4,17 @@ import "saui/templates/layout"
 
 templ CaseSaaS(csrfToken string) {
 	@layout.Base("Case Study: SaaS Dashboards", csrfToken, "/cases") {
-		<article>
-			<header>
-				<nav aria-label="Breadcrumb">
-					<a href="/cases">Case Studies</a> / SaaS Dashboards
+		<section class="page-hero">
+			<div class="page-hero__content">
+				<nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+					<a href="/cases">{ `Case Studies` }</a>{ ` / SaaS Dashboards` }
 				</nav>
+				<p class="page-hero__eyebrow">{ `SAUI · Case Study` }</p>
 				<h1>SaaS dashboards</h1>
-				<p class="lead">{ `Filter state, bulk actions, and unsaved edits are where SPA complexity
-					accumulates fastest. SAUI simplifies each.` }</p>
-			</header>
+				<p class="lead">{ `Filter state, bulk actions, and unsaved edits are where SPA complexity accumulates fastest. SAUI simplifies each.` }</p>
+			</div>
+		</section>
+		<article>
 			<section>
 				<h2>The client-side state model</h2>
 				<p>{ `SaaS dashboards are among the most complex SPA deployments. They accumulate:` }</p>

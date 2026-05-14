@@ -4,15 +4,17 @@ import "saui/templates/layout"
 
 templ CaseBanking(csrfToken string) {
 	@layout.Base("Case Study: Banking", csrfToken, "/cases") {
-		<article>
-			<header>
-				<nav aria-label="Breadcrumb">
-					<a href="/cases">Case Studies</a> / Banking
+		<section class="page-hero">
+			<div class="page-hero__content">
+				<nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+					<a href="/cases">{ `Case Studies` }</a>{ ` / Banking` }
 				</nav>
+				<p class="page-hero__eyebrow">{ `SAUI · Case Study` }</p>
 				<h1>Banking</h1>
-				<p class="lead">{ `Balance accuracy, transfer state durability, and audit requirements
-					are structural requirements that client-side state works against.` }</p>
-			</header>
+				<p class="lead">{ `Balance accuracy, transfer state durability, and audit requirements are structural requirements that client-side state works against.` }</p>
+			</div>
+		</section>
+		<article>
 			<section>
 				<h2>The client-side state model</h2>
 				<p>{ `Banking SPAs typically load account balances into client state on page load and

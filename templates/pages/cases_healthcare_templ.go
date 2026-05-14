@@ -43,141 +43,138 @@ func CaseHealthcare(csrfToken string) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<article><header><nav aria-label=\"Breadcrumb\"><a href=\"/cases\">Case Studies</a> / Healthcare Booking</nav><h1>Healthcare booking</h1><p class=\"lead\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"page-hero\"><div class=\"page-hero__content\"><nav class=\"page-hero__breadcrumb\" aria-label=\"Breadcrumb\"><a href=\"/cases\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
-			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(`Slot locking and double booking are solved at the architecture level,
-					not patched at the application level.`)
+			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(`Case Studies`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 14, Col: 43}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 10, Col: 38}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</p></header><section><h2>The client-side state model</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</a>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var4 string
-			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(`Healthcare booking SPAs load available slots into client state. The user selects
-					a slot, the UI marks it as selected, and the booking is submitted.
-					The problems:`)
+			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(` / Healthcare Booking`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 20, Col: 19}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 10, Col: 69}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p><ul><li><strong>Double booking.</strong> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</nav><p class=\"page-hero__eyebrow\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var5 string
-			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(` Two users see the same slot as available. Both select it. Both submit.
-						The server must handle the race, but the SPA gave both users a UI that
-						promised the slot was available.`)
+			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(`SAUI · Case Study`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 26, Col: 39}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 12, Col: 56}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</li><li><strong>Slot staleness.</strong> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</p><h1>Healthcare booking</h1><p class=\"lead\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var6 string
-			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(` The slot list loaded minutes ago. Slots booked by others since load
-						are still shown as available. The user selects a slot that no longer exists.`)
+			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(`Slot locking and double booking are solved at the architecture level, not patched at the application level.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 31, Col: 83}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 14, Col: 131}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</li><li><strong>Optimistic booking.</strong> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p></div></section><article><section><h2>The client-side state model</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var7 string
-			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(` The SPA may mark a slot as booked before server confirmation.
-						If the server rejects (slot taken, payment failed), the UI must unwind
-						a state the user believed was confirmed.`)
+			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(`Healthcare booking SPAs load available slots into client state. The user selects
+					a slot, the UI marks it as selected, and the booking is submitted.
+					The problems:`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 37, Col: 47}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 22, Col: 19}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</li></ul></section><section><h2>What moves to the server under SAUI</h2><ul><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</p><ul><li><strong>Double booking.</strong> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var8 string
-			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(`Slot availability: computed from current bookings on every projection request`)
+			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(` Two users see the same slot as available. Both select it. Both submit.
+						The server must handle the race, but the SPA gave both users a UI that
+						promised the slot was available.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 44, Col: 90}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 28, Col: 39}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</li><li><strong>Slot staleness.</strong> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var9 string
-			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(`Slot locking: a SlotLocked event is appended when a user begins booking; released on completion or timeout`)
+			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(` The slot list loaded minutes ago. Slots booked by others since load
+						are still shown as available. The user selects a slot that no longer exists.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 45, Col: 119}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 33, Col: 83}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</li><li><strong>Optimistic booking.</strong> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var10 string
-			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(`Double booking prevention: the gateway validates slot availability atomically before appending the SlotBooked event`)
+			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(` The SPA may mark a slot as booked before server confirmation.
+						If the server rejects (slot taken, payment failed), the UI must unwind
+						a state the user believed was confirmed.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 46, Col: 128}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 39, Col: 47}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</li></ul><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</li></ul></section><section><h2>What moves to the server under SAUI</h2><ul><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var11 string
-			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(`The lock-then-book sequence is handled entirely by server-side actions. The client
-					never holds a representation of slot availability; it receives a projection of
-					current truth on each request.`)
+			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(`Slot availability: computed from current bookings on every projection request`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 50, Col: 36}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 46, Col: 90}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</p></section><section><h2>What stays on the client</h2><ul><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var12 string
-			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(`Calendar navigation UI state (current month view)`)
+			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(`Slot locking: a SlotLocked event is appended when a user begins booking; released on completion or timeout`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 55, Col: 62}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 47, Col: 119}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -188,44 +185,85 @@ func CaseHealthcare(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var13 string
-			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(`Time zone display preference (UI-only, no business meaning)`)
+			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(`Double booking prevention: the gateway validates slot availability atomically before appending the SlotBooked event`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 56, Col: 72}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 48, Col: 128}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</li></ul><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var14 string
-			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(`Form focus state`)
+			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(`The lock-then-book sequence is handled entirely by server-side actions. The client
+					never holds a representation of slot availability; it receives a projection of
+					current truth on each request.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 57, Col: 29}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 52, Col: 36}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</li></ul></section><section><h2>Security and correctness properties gained</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</p></section><section><h2>What stays on the client</h2><ul><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var15 string
-			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(`Double booking is structurally prevented by the gateway atomic validation.
-					Slot staleness is eliminated; the projection is computed from current bookings,
-					not a cached snapshot. The lock timeout is server-enforced: an abandoned booking
-					flow releases the slot automatically via a scheduled action.`)
+			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(`Calendar navigation UI state (current month view)`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 65, Col: 66}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 57, Col: 62}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</p><p><a href=\"/cases/saas-dashboard\">Next: SaaS dashboards</a></p></section></article>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</li><li>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var16 string
+			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(`Time zone display preference (UI-only, no business meaning)`)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 58, Col: 72}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</li><li>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var17 string
+			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(`Form focus state`)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 59, Col: 29}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</li></ul></section><section><h2>Security and correctness properties gained</h2><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var18 string
+			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(`Double booking is structurally prevented by the gateway atomic validation.
+					Slot staleness is eliminated; the projection is computed from current bookings,
+					not a cached snapshot. The lock timeout is server-enforced: an abandoned booking
+					flow releases the slot automatically via a scheduled action.`)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_healthcare.templ`, Line: 67, Col: 66}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</p><p><a href=\"/cases/saas-dashboard\">Next: SaaS dashboards</a></p></section></article>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

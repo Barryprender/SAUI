@@ -43,139 +43,138 @@ func CaseBanking(csrfToken string) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<article><header><nav aria-label=\"Breadcrumb\"><a href=\"/cases\">Case Studies</a> / Banking</nav><h1>Banking</h1><p class=\"lead\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"page-hero\"><div class=\"page-hero__content\"><nav class=\"page-hero__breadcrumb\" aria-label=\"Breadcrumb\"><a href=\"/cases\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
-			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(`Balance accuracy, transfer state durability, and audit requirements
-					are structural requirements that client-side state works against.`)
+			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(`Case Studies`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 14, Col: 71}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 10, Col: 38}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</p></header><section><h2>The client-side state model</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</a>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var4 string
-			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(`Banking SPAs typically load account balances into client state on page load and
-					update them optimistically on transfer submission. The problems are structural:`)
+			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(` / Banking`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 19, Col: 85}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 10, Col: 58}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p><ul><li><strong>Balance staleness.</strong> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</nav><p class=\"page-hero__eyebrow\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var5 string
-			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(` The client holds a balance snapshot. Between load and display, another
-						transaction may have changed the balance. The user sees a stale number.
-						For spending decisions, this matters.`)
+			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(`SAUI · Case Study`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 25, Col: 44}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 12, Col: 56}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</li><li><strong>Double submission.</strong> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</p><h1>Banking</h1><p class=\"lead\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var6 string
-			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(` Network failures on transfer submission can leave the client uncertain
-						whether the transfer occurred. Retry logic on the client can produce duplicate
-						transfers if not carefully designed with idempotency keys.`)
+			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(`Balance accuracy, transfer state durability, and audit requirements are structural requirements that client-side state works against.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 31, Col: 65}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 14, Col: 157}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</li><li><strong>Audit surface.</strong> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p></div></section><article><section><h2>The client-side state model</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var7 string
-			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(` Client-side state transitions are unlogged. The audit trail lives in the
-						backend but reconstructing it from client events requires the backend to trust
-						client-reported sequences.`)
+			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(`Banking SPAs typically load account balances into client state on page load and
+					update them optimistically on transfer submission. The problems are structural:`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 37, Col: 33}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 21, Col: 85}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</li></ul></section><section><h2>What moves to the server under SAUI</h2><ul><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</p><ul><li><strong>Balance staleness.</strong> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var8 string
-			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(`Account balance: computed from the event log on every projection request`)
+			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(` The client holds a balance snapshot. Between load and display, another
+						transaction may have changed the balance. The user sees a stale number.
+						For spending decisions, this matters.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 44, Col: 85}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 27, Col: 44}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</li><li><strong>Double submission.</strong> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var9 string
-			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(`Transfer validation: funds availability checked at gateway before event append`)
+			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(` Network failures on transfer submission can leave the client uncertain
+						whether the transfer occurred. Retry logic on the client can produce duplicate
+						transfers if not carefully designed with idempotency keys.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 45, Col: 91}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 33, Col: 65}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</li><li><strong>Audit surface.</strong> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var10 string
-			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(`Idempotency: transfer actions carry a client-generated idempotency key; the gateway deduplicates`)
+			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(` Client-side state transitions are unlogged. The audit trail lives in the
+						backend but reconstructing it from client events requires the backend to trust
+						client-reported sequences.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 46, Col: 109}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 39, Col: 33}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</li></ul></section><section><h2>What moves to the server under SAUI</h2><ul><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var11 string
-			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(`Audit trail: every state transition is an event; the log is the audit trail by construction`)
+			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(`Account balance: computed from the event log on every projection request`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 47, Col: 104}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 46, Col: 85}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</li></ul></section><section><h2>What stays on the client</h2><ul><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var12 string
-			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(`Transfer form input state (cleared on successful submission)`)
+			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(`Transfer validation: funds availability checked at gateway before event append`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 53, Col: 73}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 47, Col: 91}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -186,9 +185,9 @@ func CaseBanking(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var13 string
-			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(`Account list expand/collapse UI state`)
+			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(`Idempotency: transfer actions carry a client-generated idempotency key; the gateway deduplicates`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 54, Col: 50}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 48, Col: 109}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 			if templ_7745c5c3_Err != nil {
@@ -199,48 +198,87 @@ func CaseBanking(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var14 string
-			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(`Date picker interaction state`)
+			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(`Audit trail: every state transition is an event; the log is the audit trail by construction`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 55, Col: 42}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 49, Col: 104}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</li></ul></section><section><h2>Security properties gained</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</li></ul></section><section><h2>What stays on the client</h2><ul><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var15 string
-			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(`Balance display is always current: computed from the event log on request,
-					not from a cached client value. Transfer validation occurs at the gateway before
-					any event is appended; no optimistic balance update to reconcile. The audit trail
-					is a structural consequence of the append-only log, not a separate logging system
-					that might be bypassed.`)
+			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(`Transfer form input state (cleared on successful submission)`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 64, Col: 29}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 55, Col: 73}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</p></section><section><h2>Regulatory fit</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var16 string
-			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(`The append-only event log is a natural fit for financial audit requirements.
-					Every state transition is timestamped, session-tagged, and immutable by construction.
-					Regulatory queries such as "show all transfers by this account in this period"
-					are projections over the event log; no separate audit infrastructure required.`)
+			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(`Account list expand/collapse UI state`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 71, Col: 84}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 56, Col: 50}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</p><p><a href=\"/cases/healthcare\">Next: Healthcare booking</a></p></section></article>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</li><li>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var17 string
+			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(`Date picker interaction state`)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 57, Col: 42}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</li></ul></section><section><h2>Security properties gained</h2><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var18 string
+			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(`Balance display is always current: computed from the event log on request,
+					not from a cached client value. Transfer validation occurs at the gateway before
+					any event is appended; no optimistic balance update to reconcile. The audit trail
+					is a structural consequence of the append-only log, not a separate logging system
+					that might be bypassed.`)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 66, Col: 29}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</p></section><section><h2>Regulatory fit</h2><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var19 string
+			templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(`The append-only event log is a natural fit for financial audit requirements.
+					Every state transition is timestamped, session-tagged, and immutable by construction.
+					Regulatory queries such as "show all transfers by this account in this period"
+					are projections over the event log; no separate audit infrastructure required.`)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_banking.templ`, Line: 73, Col: 84}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "</p><p><a href=\"/cases/healthcare\">Next: Healthcare booking</a></p></section></article>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

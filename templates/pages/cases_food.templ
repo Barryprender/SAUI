@@ -4,15 +4,17 @@ import "saui/templates/layout"
 
 templ CaseFoodOrdering(csrfToken string) {
 	@layout.Base("Case Study: Food Ordering", csrfToken, "/cases") {
-		<article>
-			<header>
-				<nav aria-label="Breadcrumb">
-					<a href="/cases">Case Studies</a> / Food Ordering
+		<section class="page-hero">
+			<div class="page-hero__content">
+				<nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+					<a href="/cases">{ `Case Studies` }</a>{ ` / Food Ordering` }
 				</nav>
+				<p class="page-hero__eyebrow">{ `SAUI · Case Study` }</p>
 				<h1>Food ordering</h1>
-				<p class="lead">{ `Cart state on the client creates three classes of problem that are
-					structural, not implementation errors.` }</p>
-			</header>
+				<p class="lead">{ `Cart state on the client creates three classes of problem that are structural, not implementation errors.` }</p>
+			</div>
+		</section>
+		<article>
 			<section>
 				<h2>The client-side state model</h2>
 				<p>{ `In most food ordering SPAs, the cart lives in client-side state, typically a

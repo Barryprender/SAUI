@@ -4,12 +4,14 @@ import "saui/templates/layout"
 
 templ Cases(csrfToken string) {
 	@layout.Base("Case Studies", csrfToken, "/cases") {
-		<article>
-			<header>
+		<section class="page-hero">
+			<div class="page-hero__content">
+				<p class="page-hero__eyebrow">{ `SAUI · Applications` }</p>
 				<h1>Case Studies</h1>
-				<p class="lead">{ `SAUI applied to real application domains. What moves to the server,
-					what stays on the client, and what is gained.` }</p>
-			</header>
+				<p class="lead">{ `SAUI applied to real application domains. What moves to the server, what stays on the client, and what is gained.` }</p>
+			</div>
+		</section>
+		<article>
 			<section class="nav-cards">
 				<ul>
 					<li>

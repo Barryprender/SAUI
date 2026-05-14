@@ -43,79 +43,68 @@ func CaseDistributed(csrfToken string) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<article><header><nav aria-label=\"Breadcrumb\"><a href=\"/cases\">Case Studies</a> / Distributed Systems</nav><h1>Distributed systems</h1><p class=\"lead\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"page-hero\"><div class=\"page-hero__content\"><nav class=\"page-hero__breadcrumb\" aria-label=\"Breadcrumb\"><a href=\"/cases\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
-			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(`SAUI scales to distributed backends. "Server-authoritative" means
-					authoritative per service domain, not a single global database.`)
+			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(`Case Studies`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 14, Col: 69}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 10, Col: 38}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</p></header><section><h2>The misconception</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</a>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var4 string
-			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(`A common objection to SAUI in distributed system contexts is that "centralised state"
-					is a scaling bottleneck. This conflates two different things: the number of state
-					stores and the question of who owns state.`)
+			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(` / Distributed Systems`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 20, Col: 48}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 10, Col: 70}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</nav><p class=\"page-hero__eyebrow\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var5 string
-			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(`SAUI does not require a single database. It requires that each service domain owns
-					its state authoritatively. The frontend does not hold state. That constraint is
-					compatible with a large distributed backend.`)
+			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(`SAUI · Case Study`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 23, Col: 50}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 12, Col: 56}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</p></section><section><h2>The BFF pattern under SAUI</h2><pre><code>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</p><h1>Distributed systems</h1><p class=\"lead\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var6 string
-			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(`Frontend (stateless display)
-    |
-BFF - Backend for Frontend
-    (owns session state, aggregates projections)
-    |
-Order Service | Inventory Service | Payment Service | User Service
-(each owns its domain state authoritatively)`)
+			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(`SAUI scales to distributed backends. "Server-authoritative" means authoritative per service domain, not a single global database.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 33, Col: 45}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 14, Col: 153}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</code></pre><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p></div></section><article><section><h2>The misconception</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var7 string
-			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(`The frontend talks to one service: the BFF. The BFF aggregates projections from
-					domain services and presents a unified projection to the frontend. Distribution
-					complexity lives behind the BFF; the frontend is unaware of it.`)
+			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(`A common objection to SAUI in distributed system contexts is that "centralised state"
+					is a scaling bottleneck. This conflates two different things: the number of state
+					stores and the question of who owns state.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 36, Col: 69}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 22, Col: 48}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
@@ -126,64 +115,74 @@ Order Service | Inventory Service | Payment Service | User Service
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var8 string
-			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(`Actions submitted by the frontend go to the BFF. The BFF routes them to the
-					appropriate domain service. The domain service validates and applies the action
-					against its own authoritative state. The BFF collects the result and returns
-					an updated projection.`)
+			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(`SAUI does not require a single database. It requires that each service domain owns
+					its state authoritatively. The frontend does not hold state. That constraint is
+					compatible with a large distributed backend.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 40, Col: 28}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 25, Col: 50}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</p></section><section><h2>What moves where</h2><ul><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</p></section><section><h2>The BFF pattern under SAUI</h2><pre><code>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var9 string
-			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(`Session and ephemeral state: BFF owns this`)
+			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(`Frontend (stateless display)
+    |
+BFF - Backend for Frontend
+    (owns session state, aggregates projections)
+    |
+Order Service | Inventory Service | Payment Service | User Service
+(each owns its domain state authoritatively)`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 45, Col: 55}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 35, Col: 45}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</code></pre><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var10 string
-			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(`Order state: Order Service owns this`)
+			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(`The frontend talks to one service: the BFF. The BFF aggregates projections from
+					domain services and presents a unified projection to the frontend. Distribution
+					complexity lives behind the BFF; the frontend is unaware of it.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 46, Col: 49}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 38, Col: 69}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var11 string
-			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(`Inventory state: Inventory Service owns this`)
+			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(`Actions submitted by the frontend go to the BFF. The BFF routes them to the
+					appropriate domain service. The domain service validates and applies the action
+					against its own authoritative state. The BFF collects the result and returns
+					an updated projection.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 47, Col: 57}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 42, Col: 28}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</p></section><section><h2>What moves where</h2><ul><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var12 string
-			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(`Payment state: Payment Service owns this`)
+			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(`Session and ephemeral state: BFF owns this`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 48, Col: 53}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 47, Col: 55}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -194,46 +193,85 @@ Order Service | Inventory Service | Payment Service | User Service
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var13 string
-			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(`Projection aggregation: BFF composes these into a frontend-appropriate read model`)
+			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(`Order state: Order Service owns this`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 49, Col: 94}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 48, Col: 49}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</li></ul><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var14 string
-			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(`Each service state is authoritative within its domain. No service reaches into
-					another service state directly. The projection is computed at the BFF by querying
-					each service read API.`)
+			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(`Inventory state: Inventory Service owns this`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 53, Col: 28}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 49, Col: 57}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</p></section><section><h2>What the frontend gains</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var15 string
-			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(`The frontend is entirely decoupled from the distribution topology. Adding a new
-					microservice, splitting an existing one, or changing inter-service protocols does
-					not affect the frontend. The projection contract is the interface. As long as the
-					BFF honours it, the frontend is unaffected.`)
+			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(`Payment state: Payment Service owns this`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 60, Col: 49}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 50, Col: 53}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</p><p><a href=\"/cases/micro-frontends\">Next: Micro frontends</a></p></section></article>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</li><li>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var16 string
+			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(`Projection aggregation: BFF composes these into a frontend-appropriate read model`)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 51, Col: 94}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</li></ul><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var17 string
+			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(`Each service state is authoritative within its domain. No service reaches into
+					another service state directly. The projection is computed at the BFF by querying
+					each service read API.`)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 55, Col: 28}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</p></section><section><h2>What the frontend gains</h2><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var18 string
+			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(`The frontend is entirely decoupled from the distribution topology. Adding a new
+					microservice, splitting an existing one, or changing inter-service protocols does
+					not affect the frontend. The projection contract is the interface. As long as the
+					BFF honours it, the frontend is unaffected.`)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_distributed.templ`, Line: 62, Col: 49}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</p><p><a href=\"/cases/micro-frontends\">Next: Micro frontends</a></p></section></article>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
