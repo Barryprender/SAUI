@@ -13,7 +13,7 @@ templ FeedbackForm(csrfToken string, flash string, flashType string, remaining i
 	>
 		<input type="hidden" name="_csrf" value={ csrfToken }/>
 		if flash != "" {
-			<p class={ "feedback-flash feedback-flash--" + flashType }>{ flash }</p>
+			<p role="alert" class={ "feedback-flash feedback-flash--" + flashType }>{ flash }</p>
 		}
 		<div class="feedback-field">
 			<label for="feedback-msg">Message</label>
