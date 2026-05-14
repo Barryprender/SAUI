@@ -414,21 +414,6 @@
     padding-block-end: var(--sp-10);
   }
 
-  /* Page title block */
-  article > header {
-    padding-block-start: var(--sp-9);
-    padding-block-end: var(--sp-7);
-    border-block-end: var(--border);
-    margin-block-end: var(--sp-8);
-    max-inline-size: var(--prose-width);
-    margin-inline: auto;
-    text-align: center;
-  }
-
-  article > header h1 {
-    margin-block-end: var(--sp-4);
-  }
-
   .lead {
     font-size: var(--text-lg);
     color: var(--c-text-muted);
@@ -560,10 +545,6 @@
     line-height: 1.55;
   }
 
-  article > header + .nav-cards {
-    padding-block-start: var(--sp-5);
-  }
-
   /* ----------------------------------------------------------
      Buttons
      ---------------------------------------------------------- */
@@ -688,15 +669,6 @@
 
   .page-hero__content h1 { margin: 0; }
   .page-hero__content .lead { max-inline-size: 52ch; margin: 0; }
-
-  .page-hero__eyebrow {
-    font-family: var(--font-sans);
-    font-size: var(--text-xs);
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--c-accent);
-  }
 
   .page-hero__breadcrumb {
     font-family: var(--font-sans);
