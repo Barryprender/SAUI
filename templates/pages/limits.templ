@@ -3,10 +3,9 @@ package pages
 import "saui/templates/layout"
 
 templ Limits(csrfToken string) {
-	@layout.Base("Limits", csrfToken, "/limits") {
+	@layout.Base("Limits", csrfToken, "/limits", "/static/css/limits.css") {
 		<section class="page-hero">
 			<div class="page-hero__content">
-				<p class="page-hero__eyebrow">{ `SAUI · Honest Limits` }</p>
 				<h1>Limits</h1>
 				<p class="lead">{ `SAUI is the wrong choice for some applications. These are genuine exceptions, not contrived ones.` }</p>
 			</div>
