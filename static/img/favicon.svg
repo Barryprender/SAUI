@@ -1,37 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <style>
-    .bg  { fill: oklch(46% 0.120 240); }
-    .body { fill: oklch(99% 0.004 80); }
-    .shackle { fill: none; stroke: oklch(99% 0.004 80); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-    .hole { fill: oklch(46% 0.120 240); }
+    .bg   { fill: oklch(46% 0.120 240); }
+    .mark { font-family: Georgia, 'Times New Roman', serif; font-size: 22px; font-weight: 700; fill: oklch(98% 0.005 80); }
     @media (prefers-color-scheme: dark) {
-      .bg   { fill: oklch(66% 0.130 240); }
-      .hole { fill: oklch(66% 0.130 240); }
+      .bg { fill: oklch(66% 0.130 240); }
     }
   </style>
-
-  <!-- Background -->
   <rect class="bg" width="32" height="32" rx="6"/>
-
-  <!-- Lock body -->
-  <rect class="body" x="5" y="16" width="22" height="13" rx="3"/>
-
-  <!-- { } bracket shackle: each leg bows outward then notches inward — the { } profile -->
-  <path class="shackle" d="
-    M 10 16
-    L 10 13
-    Q 8 12, 8 11
-    Q 8 10, 10 9
-    L 10 7
-    Q 10 5, 13 5
-    H 19
-    Q 22 5, 22 7
-    L 22 9
-    Q 24 10, 24 11
-    Q 24 12, 22 13
-    L 22 16
-  "/>
-
-  <!-- Keyhole — accent circle punched through the white body -->
-  <circle class="hole" cx="16" cy="22" r="2.5"/>
+  <text class="mark" x="16" y="23" text-anchor="middle">S</text>
 </svg>
