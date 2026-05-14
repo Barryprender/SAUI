@@ -3,13 +3,12 @@ package pages
 import "saui/templates/layout"
 
 templ CaseHealthcare(csrfToken string) {
-	@layout.Base("Case Study: Healthcare Booking", csrfToken, "/cases") {
+	@layout.Base("Case Study: Healthcare Booking", csrfToken, "/cases", "/static/css/cases-healthcare.css") {
 		<section class="page-hero">
 			<div class="page-hero__content">
 				<nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
 					<a href="/cases">{ `Case Studies` }</a>{ ` / Healthcare Booking` }
 				</nav>
-				<p class="page-hero__eyebrow">{ `SAUI · Case Study` }</p>
 				<h1>Healthcare booking</h1>
 				<p class="lead">{ `Slot locking and double booking are solved at the architecture level, not patched at the application level.` }</p>
 			</div>
