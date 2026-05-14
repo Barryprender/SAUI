@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-15T00:00:00Z",
+  "title": "Design System: SAUI",
+  "extensions": {
+    "colorMeta": {
+      "warm-paper":      { "role": "neutral",   "displayName": "Warm Paper",       "canonical": "oklch(97% 0.008 80)",   "tonalRamp": ["oklch(15% 0.004 80)","oklch(25% 0.005 80)","oklch(38% 0.006 80)","oklch(52% 0.007 80)","oklch(66% 0.008 80)","oklch(80% 0.009 80)","oklch(90% 0.009 80)","oklch(97% 0.008 80)"] },
+      "warm-surface":    { "role": "neutral",   "displayName": "Warm Surface",      "canonical": "oklch(93% 0.010 80)",   "tonalRamp": ["oklch(15% 0.004 80)","oklch(25% 0.005 80)","oklch(38% 0.006 80)","oklch(52% 0.007 80)","oklch(66% 0.008 80)","oklch(80% 0.009 80)","oklch(90% 0.009 80)","oklch(93% 0.010 80)"] },
+      "warm-border":     { "role": "neutral",   "displayName": "Warm Border",       "canonical": "oklch(87% 0.015 80)",   "tonalRamp": ["oklch(14% 0.005 80)","oklch(24% 0.007 80)","oklch(36% 0.009 80)","oklch(50% 0.011 80)","oklch(64% 0.012 80)","oklch(76% 0.013 80)","oklch(87% 0.015 80)","oklch(94% 0.012 80)"] },
+      "near-black":      { "role": "neutral",   "displayName": "Near Black",        "canonical": "oklch(14% 0.000 0)",    "tonalRamp": ["oklch(5% 0.000 0)","oklch(14% 0.000 0)","oklch(25% 0.000 0)","oklch(38% 0.000 0)","oklch(52% 0.000 0)","oklch(66% 0.000 0)","oklch(80% 0.000 0)","oklch(94% 0.000 0)"] },
+      "muted-text":      { "role": "neutral",   "displayName": "Muted Text",        "canonical": "oklch(50% 0.010 80)",   "tonalRamp": ["oklch(15% 0.004 80)","oklch(25% 0.005 80)","oklch(35% 0.007 80)","oklch(50% 0.010 80)","oklch(64% 0.010 80)","oklch(76% 0.010 80)","oklch(87% 0.009 80)","oklch(95% 0.008 80)"] },
+      "ink-blue":        { "role": "primary",   "displayName": "Ink Blue",          "canonical": "oklch(46% 0.120 240)",  "tonalRamp": ["oklch(15% 0.050 240)","oklch(22% 0.070 240)","oklch(30% 0.090 240)","oklch(38% 0.108 240)","oklch(46% 0.120 240)","oklch(58% 0.125 240)","oklch(74% 0.110 240)","oklch(90% 0.055 240)"] },
+      "ink-blue-deep":   { "role": "primary",   "displayName": "Ink Blue Deep",     "canonical": "oklch(40% 0.140 240)",  "tonalRamp": ["oklch(12% 0.060 240)","oklch(20% 0.085 240)","oklch(28% 0.110 240)","oklch(36% 0.132 240)","oklch(40% 0.140 240)","oklch(52% 0.140 240)","oklch(68% 0.120 240)","oklch(86% 0.065 240)"] },
+      "ink-blue-subtle": { "role": "primary",   "displayName": "Ink Blue Subtle",   "canonical": "oklch(94% 0.040 240)",  "tonalRamp": ["oklch(15% 0.015 240)","oklch(25% 0.020 240)","oklch(38% 0.025 240)","oklch(52% 0.030 240)","oklch(68% 0.035 240)","oklch(80% 0.038 240)","oklch(88% 0.040 240)","oklch(94% 0.040 240)"] },
+      "code-dark":       { "role": "neutral",   "displayName": "Deep Slate",        "canonical": "oklch(17% 0.020 240)",  "tonalRamp": ["oklch(8% 0.012 240)","oklch(13% 0.016 240)","oklch(17% 0.020 240)","oklch(24% 0.025 240)","oklch(34% 0.028 240)","oklch(48% 0.030 240)","oklch(66% 0.025 240)","oklch(85% 0.015 240)"] },
+      "code-light":      { "role": "neutral",   "displayName": "Code Light",        "canonical": "oklch(88% 0.030 200)",  "tonalRamp": ["oklch(15% 0.012 200)","oklch(26% 0.016 200)","oklch(40% 0.020 200)","oklch(54% 0.024 200)","oklch(68% 0.027 200)","oklch(78% 0.029 200)","oklch(88% 0.030 200)","oklch(95% 0.020 200)"] },
+      "statement-void":  { "role": "neutral",   "displayName": "Statement Void",    "canonical": "oklch(10% 0.030 245)",  "tonalRamp": ["oklch(5% 0.015 245)","oklch(10% 0.030 245)","oklch(18% 0.040 245)","oklch(28% 0.050 245)","oklch(40% 0.055 245)","oklch(55% 0.055 245)","oklch(72% 0.045 245)","oklch(88% 0.025 245)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Page titles and hero h1s only. Never section headings." },
+      "headline": { "displayName": "Headline", "purpose": "Section h2s and major content divisions." },
+      "title":    { "displayName": "Title",    "purpose": "h3s and content card headings." },
+      "body":     { "displayName": "Body",     "purpose": "All running prose. Maximum line length 68ch." },
+      "label":    { "displayName": "Label",    "purpose": "Nav labels, eyebrows, form field labels, section markers." }
+    },
+    "shadows": [
+      { "name": "card-hover", "value": "0 4px 16px -4px color-mix(in oklch, oklch(46% 0.120 240) 20%, transparent)", "purpose": "Nav card hover state only. Confirms interactive affordance. Not present at rest." }
+    ],
+    "motion": [
+      { "name": "t-fast", "value": "150ms cubic-bezier(0.25, 1, 0.5, 1)", "purpose": "Color and border transitions. State feedback." },
+      { "name": "t-base", "value": "250ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Structural transitions. Larger element movement." },
+      { "name": "hero-enter", "value": "opacity 0→1, translateY 18px→0, 900ms cubic-bezier(0.16, 1, 0.3, 1) 80ms", "purpose": "Page hero content entry. Once per page load." }
+    ],
+    "breakpoints": [
+      { "name": "mobile-nav", "value": "700px", "purpose": "Nav switches to overflow-scroll." },
+      { "name": "tablet",     "value": "768px", "purpose": "Grid columns collapse to full-width." },
+      { "name": "diagram",    "value": "600px", "purpose": "Architecture diagram hides side annotations." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The sole primary action color in the system. Used for hero CTAs and form submissions.",
+      "html": "<button class=\"ds-btn-primary\">Get started</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background-color: oklch(46% 0.120 240); color: oklch(98% 0.005 80); font-family: system-ui, -apple-system, sans-serif; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.01em; text-decoration: none; border: 2px solid oklch(46% 0.120 240); border-radius: 6px; cursor: pointer; white-space: nowrap; transition: background-color 150ms cubic-bezier(0.25,1,0.5,1), border-color 150ms cubic-bezier(0.25,1,0.5,1), transform 150ms cubic-bezier(0.25,1,0.5,1); } .ds-btn-primary:hover { background-color: oklch(40% 0.140 240); border-color: oklch(40% 0.140 240); transform: translateY(-1px); } .ds-btn-primary:active { transform: translateY(0); } .ds-btn-primary:focus-visible { outline: 2px solid oklch(46% 0.120 240); outline-offset: 4px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Ghost variant for secondary actions alongside a primary button.",
+      "html": "<button class=\"ds-btn-secondary\">Learn more</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background-color: transparent; color: oklch(46% 0.120 240); font-family: system-ui, -apple-system, sans-serif; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.01em; text-decoration: none; border: 2px solid oklch(46% 0.120 240); border-radius: 6px; cursor: pointer; white-space: nowrap; transition: background-color 150ms cubic-bezier(0.25,1,0.5,1), transform 150ms cubic-bezier(0.25,1,0.5,1); } .ds-btn-secondary:hover { background-color: oklch(94% 0.040 240); transform: translateY(-1px); } .ds-btn-secondary:active { transform: translateY(0); } .ds-btn-secondary:focus-visible { outline: 2px solid oklch(46% 0.120 240); outline-offset: 4px; }"
+    },
+    {
+      "name": "Nav Card",
+      "kind": "card",
+      "refersTo": "nav-card",
+      "description": "Wayfinding cards linking to site sections. Flat at rest; lifts and accents on hover.",
+      "html": "<a href=\"#\" class=\"ds-nav-card\"><h3 class=\"ds-nav-card__title\">Architecture</h3><p class=\"ds-nav-card__body\">How the gateway enforces the state contract.</p></a>",
+      "css": ".ds-nav-card { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.5rem; background-color: oklch(93% 0.010 80); border: 1px solid oklch(87% 0.015 80); border-radius: 6px; text-decoration: none; color: oklch(14% 0.000 0); transition: border-color 150ms cubic-bezier(0.25,1,0.5,1), box-shadow 150ms cubic-bezier(0.25,1,0.5,1), transform 150ms cubic-bezier(0.25,1,0.5,1); } .ds-nav-card:hover { border-color: oklch(46% 0.120 240); box-shadow: 0 4px 16px -4px color-mix(in oklch, oklch(46% 0.120 240) 20%, transparent); transform: translateY(-2px); } .ds-nav-card:active { transform: translateY(0); } .ds-nav-card:focus-visible { outline: 2px solid oklch(46% 0.120 240); outline-offset: 3px; } .ds-nav-card__title { font-family: 'Lora', Georgia, serif; font-size: 1.15rem; font-weight: 600; color: oklch(46% 0.120 240); line-height: 1.35; } .ds-nav-card__body { font-family: system-ui, -apple-system, sans-serif; font-size: 0.875rem; color: oklch(50% 0.010 80); line-height: 1.55; margin: 0; }"
+    },
+    {
+      "name": "Textarea / Input",
+      "kind": "input",
+      "refersTo": null,
+      "description": "Form field. Minimal at rest; Ink Blue focus ring on interaction.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-field__label\" for=\"ds-input\">Your argument</label><textarea class=\"ds-field__input\" id=\"ds-input\" rows=\"4\" placeholder=\"State your counterargument...\"></textarea></div>",
+      "css": ".ds-field { display: grid; gap: 0.5rem; } .ds-field__label { font-family: system-ui, -apple-system, sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: oklch(50% 0.010 80); } .ds-field__input { width: 100%; min-height: 7rem; padding: 0.75rem 1rem; font-family: system-ui, -apple-system, sans-serif; font-size: 0.875rem; line-height: 1.72; color: oklch(14% 0.000 0); background: oklch(97% 0.008 80); border: 1px solid oklch(87% 0.015 80); border-radius: 3px; resize: vertical; transition: border-color 150ms cubic-bezier(0.25,1,0.5,1), box-shadow 150ms cubic-bezier(0.25,1,0.5,1); } .ds-field__input:focus { outline: none; border-color: oklch(46% 0.120 240); box-shadow: 0 0 0 3px oklch(94% 0.040 240); } .ds-field__input::placeholder { color: oklch(50% 0.010 80); opacity: 0.6; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Sticky site header with wordmark and page links.",
+      "html": "<header class=\"ds-nav\"><nav><a href=\"#\" class=\"ds-nav__brand\">SAUI</a><ul class=\"ds-nav__links\"><li><a href=\"#\" class=\"ds-nav__link\" aria-current=\"page\">Architecture</a></li><li><a href=\"#\" class=\"ds-nav__link\">Stack</a></li><li><a href=\"#\" class=\"ds-nav__link\">Why</a></li></ul></nav></header>",
+      "css": ".ds-nav { position: sticky; top: 0; background-color: oklch(97% 0.008 80); border-bottom: 1px solid oklch(87% 0.015 80); height: 64px; display: flex; align-items: center; } .ds-nav nav { width: 100%; padding-inline: clamp(1.25rem, 5vw, 3.5rem); display: flex; align-items: center; justify-content: space-between; gap: 2rem; } .ds-nav__brand { font-family: system-ui, -apple-system, sans-serif; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: oklch(14% 0.000 0); text-decoration: none; transition: color 150ms cubic-bezier(0.25,1,0.5,1); } .ds-nav__brand:hover { color: oklch(46% 0.120 240); } .ds-nav__links { list-style: none; padding: 0; margin: 0; display: flex; align-items: center; gap: 0.5rem 1.5rem; } .ds-nav__link { font-family: system-ui, -apple-system, sans-serif; font-size: 0.875rem; color: oklch(50% 0.010 80); text-decoration: none; transition: color 150ms cubic-bezier(0.25,1,0.5,1); display: inline-flex; align-items: center; min-height: 44px; padding-inline: 0.25rem; } .ds-nav__link:hover, .ds-nav__link[aria-current='page'] { color: oklch(46% 0.120 240); }"
+    },
+    {
+      "name": "Code Block",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Preformatted code in the dark register. Visual centrepiece on content pages alongside the architecture diagram.",
+      "html": "<pre class=\"ds-code\"><code>gateway.Dispatch(ctx, sessionID, action)</code></pre>",
+      "css": ".ds-code { background-color: oklch(17% 0.020 240); color: oklch(88% 0.030 200); font-family: ui-monospace, 'Cascadia Code', 'Fira Code', monospace; font-size: 0.875rem; line-height: 1.65; padding: 1.5rem 2rem; border-radius: 6px; overflow-x: auto; } .ds-code code { background: none; border: none; padding: 0; font-size: inherit; color: inherit; }"
+    },
+    {
+      "name": "Feedback Flash",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Inline success/error message after form submission. Full border, no side stripe.",
+      "html": "<p class=\"ds-flash ds-flash--success\" role=\"alert\">Feedback received.</p>",
+      "css": ".ds-flash { padding: 0.75rem 1rem; border-radius: 3px; font-family: system-ui, -apple-system, sans-serif; font-size: 0.875rem; line-height: 1.35; border: 1px solid oklch(87% 0.015 80); } .ds-flash--success { background: oklch(94% 0.040 240); border-color: color-mix(in oklch, oklch(46% 0.120 240) 40%, oklch(87% 0.015 80)); color: oklch(46% 0.120 240); } .ds-flash--error { background: oklch(95% 0.04 25); border-color: oklch(55% 0.18 25); color: oklch(35% 0.14 25); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Technical Manual",
+    "overview": "Not the corporate kind. The spiral-bound kind that lived on an engineer's desk for a decade: marked up in pencil, pages softened with use, cover slightly faded. Typeset with care because the content demanded respect, not because someone was trying to impress. Serious and functional, with the warmth of analogue production beneath the precision.\n\nThat tension — serious but with a memory of simpler, more deliberate things — runs through every design decision. Serif headings carry authority and a quiet nostalgia for physical documents. Near-white backgrounds have a faint warmth, like paper rather than backlit glass. The Ink Blue accent is the color of a technical pen annotation: purposeful, deliberate, never decorative.\n\nThis system explicitly rejects the vocabulary of modern SaaS marketing and the ready-made feel of dashboard UI kits. It should look authored, not assembled.",
+    "keyCharacteristics": [
+      "Serif headings (Lora), system-ui body: reference text paired with operational text",
+      "Warm amber-tinted neutrals throughout: paper, not screen",
+      "Ink Blue held to approximately 10% of any surface — its rarity is its authority",
+      "Flat surfaces at rest; depth through tonal layering only, not shadow",
+      "Motion vocabulary limited to scroll-entry reveals, hover lifts, and one architectural animation"
+    ],
+    "rules": [
+      { "name": "The Ink Reserve Rule", "body": "Ink Blue appears on approximately 10% of any screen. Spreading it across decorative elements erases its authority. If Ink Blue is everywhere, it is nowhere.", "section": "colors" },
+      { "name": "The Warm Surface Rule", "body": "No surface is pure gray or pure white. Every background, border, and text neutral carries a faint warm tint toward hue 80 (amber). oklch(X% 0 0) and #808080 are prohibited.", "section": "colors" },
+      { "name": "The Two-Register Rule", "body": "Lora for reading; system-ui for operating. Headings, body copy, blockquotes, and captions use the serif. Nav items, labels, buttons, and form elements use the sans. Never invert this.", "section": "typography" },
+      { "name": "The Weight Contract", "body": "Lora has exactly two weights in use: 400 and 600. Weight 500 is excluded — it produces visually indistinct hierarchy in Lora's design.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "No component carries a resting shadow. A shadow at rest means something is trying to look important. Flat surfaces let the content do that work.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use Lora for all headings, display text, blockquotes, and captions. Use system-ui for all operational text.",
+      "Do apply Ink Blue exclusively to interactive affordances: links, primary buttons, focus rings, active states, hover borders.",
+      "Do use the three-step tonal layering system (page 97% → surface 93% → border 87%) to communicate depth.",
+      "Do gate scroll-driven animations inside @supports (animation-timeline: scroll()). Content must be readable without them.",
+      "Do implement all interactive states: default, hover, focus-visible, active, disabled. Focus rings always 2px solid Ink Blue.",
+      "Do tint every neutral. Backgrounds and borders carry hue ~80 (warm); code surfaces carry hue ~240 (cool)."
+    ],
+    "donts": [
+      "Don't use gradient text (background-clip: text on a gradient). Prohibited.",
+      "Don't use side-stripe borders (border-left or border-right wider than 1px as a colored accent). Use full borders or background tints.",
+      "Don't add a resting shadow to any component. The Flat-By-Default Rule is non-negotiable.",
+      "Don't use glassmorphism anywhere.",
+      "Don't use Ink Blue as a background on non-button surfaces.",
+      "Don't produce the vocabulary of SaaS marketing: no hero metrics, no neon AI color schemes, no gradient accents.",
+      "Don't let this look like it came out of a UI kit. No identical icon-heading-text card grids. No ready-made component feel.",
+      "Don't use modal dialogs as a first response."
+    ]
+  }
+}
