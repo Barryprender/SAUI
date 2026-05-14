@@ -6,10 +6,9 @@ import (
 )
 
 templ Code(csrfToken string) {
-	@layout.Base("Code", csrfToken, "/code") {
+	@layout.Base("Code", csrfToken, "/code", "/static/css/code.css") {
 		<section class="page-hero">
 			<div class="page-hero__content">
-				<p class="page-hero__eyebrow">{ `SAUI · Reference Implementation` }</p>
 				<h1>Code</h1>
 				<p class="lead">{ `The reference implementation. This site is the reference implementation.` }</p>
 			</div>
