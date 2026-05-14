@@ -1,0 +1,699 @@
+/* ============================================================
+   SAUI — architecture.css  (Architecture page)
+   ============================================================ */
+
+@property --glow-spread {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
+@layer component {
+
+  /* ----------------------------------------------------------
+     Callout / aside
+     ---------------------------------------------------------- */
+
+  .callout {
+    background-color: var(--c-accent-subtle);
+    border: var(--border);
+    border-color: color-mix(in oklch, var(--c-accent) 40%, var(--c-border));
+    padding: var(--sp-4) var(--sp-5);
+    border-radius: var(--radius-md);
+    margin-block: var(--sp-6);
+  }
+
+  .callout p {
+    font-size: var(--text-sm);
+  }
+
+  /* ----------------------------------------------------------
+     Architecture hero
+     ---------------------------------------------------------- */
+
+  .arch-hero {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-block-size: calc(100dvh - var(--nav-height));
+    padding-block: var(--sp-10);
+    border-block-end: var(--border);
+  }
+
+  .arch-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse 70% 55% at 50% 50%, var(--c-accent-subtle) 0%, transparent 65%),
+      radial-gradient(circle, var(--c-border) 1.5px, transparent 1.5px);
+    background-size: 100% 100%, 40px 40px;
+    opacity: 0.8;
+    pointer-events: none;
+  }
+
+  .arch-hero__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-4);
+    animation: hero-enter 0.9s cubic-bezier(0.16, 1, 0.3, 1) 80ms both;
+  }
+
+  .arch-hero__content h1 {
+    max-inline-size: 18ch;
+  }
+
+  .arch-hero__content .lead {
+    max-inline-size: 44ch;
+  }
+
+  .arch-hero__eyebrow {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--c-accent);
+  }
+
+  .arch-hero__scroll {
+    position: absolute;
+    inset-block-end: var(--sp-6);
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+    font-size: var(--text-xl);
+    color: var(--c-text-muted);
+    animation: scroll-bob 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+    user-select: none;
+  }
+
+  @keyframes scroll-bob {
+    0%, 100% { transform: translateX(-50%) translateY(0);   opacity: 0.4; }
+    50%       { transform: translateX(-50%) translateY(8px); opacity: 0.9; }
+  }
+
+  /* ----------------------------------------------------------
+     Architecture diagram section
+     ---------------------------------------------------------- */
+
+  .arch-diagram-section {
+    padding-block: var(--sp-9);
+    padding-inline: var(--gutter);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-block-end: var(--border);
+  }
+
+  .arch-diagram {
+    inline-size: min(900px, 100%);
+    view-timeline-name: --diagram-tl;
+    view-timeline-axis: block;
+  }
+
+  .arch-diagram svg {
+    inline-size: 100%;
+    block-size: auto;
+    overflow: visible;
+  }
+
+  .arch-diagram figcaption {
+    margin-block-start: var(--sp-5);
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    color: var(--c-text-muted);
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+
+  /* SVG node boxes */
+  .dia-node rect {
+    fill: var(--c-surface);
+    stroke: var(--c-border);
+    stroke-width: 1.5;
+  }
+
+  .dia-node--gateway rect {
+    fill: var(--c-accent);
+    stroke: none;
+  }
+
+  .dia-node--store rect {
+    fill: var(--c-surface);
+    stroke: var(--c-accent);
+    stroke-width: 2;
+  }
+
+  /* SVG node text */
+  .dia-node__title {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    font-weight: 600;
+    fill: var(--c-text);
+    text-anchor: middle;
+    dominant-baseline: auto;
+  }
+
+  .dia-node__title--light { fill: oklch(98% 0.003 80); }
+
+  .dia-node__sub {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    fill: var(--c-text-muted);
+    text-anchor: middle;
+    dominant-baseline: auto;
+  }
+
+  .dia-node__sub--light { fill: oklch(80% 0.030 240); }
+
+  /* SVG connecting lines */
+  .dia-line {
+    stroke: var(--c-accent);
+    stroke-width: 3;
+    fill: none;
+  }
+
+  .dia-arrowhead { fill: var(--c-accent); }
+
+  .dia-line__label {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    fill: var(--c-text-muted);
+    dominant-baseline: middle;
+  }
+
+  /* Lines are 100px — updated dasharray */
+  .dia-line--1 { stroke-dasharray: 100; stroke-dashoffset: 100; }
+  .dia-line--2 { stroke-dasharray: 100; stroke-dashoffset: 100; }
+  .dia-line--3 { stroke-dasharray: 100; stroke-dashoffset: 100; }
+
+  /* SVG side annotations */
+  .dia-annot__tick {
+    stroke: var(--c-border);
+    stroke-width: 1;
+  }
+
+  .dia-annot__label {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    fill: var(--c-text);
+    dominant-baseline: auto;
+  }
+
+  .dia-annot__label--end { text-anchor: end; }
+
+  .dia-annot__body {
+    font-family: var(--font-sans);
+    font-size: 10.5px;
+    fill: var(--c-text-muted);
+    dominant-baseline: auto;
+  }
+
+  .dia-annot__body--end { text-anchor: end; }
+
+  @media (width < 600px) {
+    .dia-annot { display: none; }
+  }
+
+  /* ----------------------------------------------------------
+     Gateway: perpetual glow pulse
+     ---------------------------------------------------------- */
+
+  @keyframes gateway-glow-pulse {
+    0%, 100% { filter: drop-shadow(0 0 5px color-mix(in oklch, var(--c-accent) 45%, transparent)); }
+    50%       { filter: drop-shadow(0 0 22px color-mix(in oklch, var(--c-accent) 75%, transparent)); }
+  }
+
+  .dia-gateway-bg {
+    animation: gateway-glow-pulse 3s ease-in-out infinite;
+    will-change: filter;
+  }
+
+  /* ----------------------------------------------------------
+     Gateway: security scan line
+     ---------------------------------------------------------- */
+
+  @keyframes scan-sweep {
+    0%   { transform: translateX(-24px); opacity: 0; }
+    8%   { opacity: 0.9; }
+    88%  { opacity: 0.7; }
+    100% { transform: translateX(320px); opacity: 0; }
+  }
+
+  .dia-node--gateway .dia-gateway-scan {
+    fill: oklch(98% 0.003 80 / 0.22);
+    animation: scan-sweep 2.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+    pointer-events: none;
+  }
+
+  /* ----------------------------------------------------------
+     Data packets traveling along arrows
+     ---------------------------------------------------------- */
+
+  @keyframes packet-travel {
+    0%   { offset-distance: 0%;   opacity: 0; }
+    8%   { opacity: 1; }
+    88%  { opacity: 1; }
+    100% { offset-distance: 100%; opacity: 0; }
+  }
+
+  .dia-packet {
+    fill: var(--c-accent);
+    filter: drop-shadow(0 0 4px var(--c-accent));
+  }
+
+  .dia-packet--1 {
+    offset-path: path("M 430 120 L 430 220");
+    animation: packet-travel 3.6s ease-in-out infinite 0s;
+  }
+
+  .dia-packet--2 {
+    offset-path: path("M 430 324 L 430 424");
+    animation: packet-travel 3.6s ease-in-out infinite 1s;
+  }
+
+  .dia-packet--3 {
+    offset-path: path("M 430 528 L 430 628");
+    animation: packet-travel 3.6s ease-in-out infinite 2s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dia-gateway-bg   { animation: none; filter: none; }
+    .dia-gateway-scan { display: none; }
+    .dia-packet       { display: none; }
+  }
+
+  /* ----------------------------------------------------------
+     State comparison two-column layout
+     ---------------------------------------------------------- */
+
+  .state-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-5);
+    margin-block: var(--sp-6);
+  }
+
+  @media (width < 640px) {
+    .state-comparison { grid-template-columns: 1fr; }
+  }
+
+  .state-layer {
+    padding: var(--sp-4) var(--sp-5);
+    border-radius: var(--radius-md);
+    border: var(--border);
+    text-align: start;
+  }
+
+  .state-layer--durable {
+    border-color: var(--c-accent);
+    background-color: var(--c-accent-subtle);
+  }
+
+  .state-layer--ephemeral {
+    background-color: var(--c-surface);
+  }
+
+  .state-layer h3 {
+    font-size: var(--text-base);
+    font-weight: 600;
+    margin-block-end: var(--sp-1);
+  }
+
+  .state-layer__sub {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    color: var(--c-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    margin-block-end: var(--sp-4);
+  }
+
+  .state-layer ul {
+    padding-inline-start: var(--sp-4);
+    font-size: var(--text-sm);
+    font-family: var(--font-sans);
+    color: var(--c-text-muted);
+    line-height: 1.55;
+  }
+
+  .state-layer li + li { margin-block-start: var(--sp-2); }
+
+  /* ----------------------------------------------------------
+     Progressive enhancement levels
+     ---------------------------------------------------------- */
+
+  .pe-levels {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-block-start: var(--border);
+    border-inline-start: var(--border);
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    overflow: hidden;
+    margin-block: var(--sp-5);
+  }
+
+  .pe-level {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-4);
+    align-items: baseline;
+    padding: var(--sp-4) var(--sp-5);
+    border-block-end: var(--border);
+    border-inline-end: var(--border);
+  }
+
+  .pe-level dt {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--c-text);
+    display: flex;
+    align-items: baseline;
+    gap: var(--sp-3);
+    padding-block-start: 0;
+  }
+
+  .pe-level dd {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    color: var(--c-text-muted);
+    line-height: 1.55;
+  }
+
+  .pe-level__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: 2.2em;
+    padding-inline: 0.35em;
+    block-size: 1.7em;
+    background-color: var(--c-accent);
+    color: oklch(98% 0.003 80);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+    letter-spacing: 0.04em;
+  }
+
+  @media (width < 520px) {
+    .pe-level { grid-template-columns: 1fr; }
+  }
+
+  /* ----------------------------------------------------------
+     Architecture step nav
+     ---------------------------------------------------------- */
+
+  .arch-step-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--sp-2);
+    margin-block-start: var(--sp-6);
+    inline-size: min(900px, 100%);
+  }
+
+  .arch-step-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-2) var(--sp-4);
+    min-block-size: 44px;
+    background: var(--c-surface);
+    border: var(--border);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--c-text-muted);
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      background var(--t-fast),
+      border-color var(--t-fast),
+      color var(--t-fast);
+  }
+
+  .arch-step-btn:hover {
+    background: var(--c-accent-subtle);
+    border-color: var(--c-accent);
+    color: var(--c-accent);
+  }
+
+  .arch-step-btn:focus-visible {
+    outline: 2px solid var(--c-accent);
+    outline-offset: 3px;
+  }
+
+  .arch-step-btn[aria-pressed="true"] {
+    background: var(--c-accent);
+    border-color: var(--c-accent);
+    color: oklch(98% 0.005 80);
+  }
+
+  .arch-step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 1.5em;
+    block-size: 1.5em;
+    border-radius: 50%;
+    font-size: 0.8em;
+    font-weight: 700;
+    background: oklch(46% 0.12 240 / 0.12);
+    color: var(--c-accent);
+  }
+
+  .arch-step-btn[aria-pressed="true"] .arch-step-num {
+    background: oklch(98% 0.005 80 / 0.2);
+    color: oklch(98% 0.005 80);
+  }
+
+  /* ----------------------------------------------------------
+     Architecture step detail panel
+     ---------------------------------------------------------- */
+
+  .arch-step-detail {
+    margin-block-start: var(--sp-4);
+    min-block-size: 3rem;
+    inline-size: min(900px, 100%);
+  }
+
+  .arch-step-detail__prompt {
+    font-size: var(--text-sm);
+    color: var(--c-text-muted);
+    font-style: italic;
+    padding-block: var(--sp-4);
+  }
+
+  .arch-step-detail__inner {
+    display: grid;
+    gap: var(--sp-4);
+    padding: var(--sp-5) var(--sp-6);
+    background: var(--c-surface);
+    border: var(--border);
+    border-radius: var(--radius-md);
+    animation: step-in 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes step-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .arch-step-detail__inner h3 {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin: 0;
+    color: var(--c-text);
+  }
+
+  .arch-step-detail__inner > p {
+    font-size: var(--text-sm);
+    line-height: var(--leading-prose);
+    color: var(--c-text);
+    margin: 0;
+  }
+
+  .arch-step-detail__inner pre {
+    margin: 0;
+    font-size: var(--text-xs);
+    line-height: 1.6;
+  }
+
+  .arch-step-detail__note {
+    font-size: var(--text-xs);
+    line-height: var(--leading-snug);
+    color: var(--c-text-muted);
+    padding: var(--sp-3) var(--sp-4);
+    background: var(--c-accent-subtle);
+    border-radius: var(--radius-sm);
+    margin: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .arch-step-detail__inner { animation: none; opacity: 1; transform: none; }
+  }
+
+  /* ----------------------------------------------------------
+     Scroll-driven choreography
+     ---------------------------------------------------------- */
+
+  @supports (animation-timeline: scroll()) {
+
+    @keyframes dia-node-appear {
+      from { opacity: 0; transform: scale(0.94); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes dia-line-draw {
+      from { stroke-dashoffset: 100; }
+      to   { stroke-dashoffset: 0; }
+    }
+
+    @keyframes annot-appear {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes dia-label-appear {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .dia-node--browser:first-of-type,
+    .dia-node--browser:last-of-type,
+    .dia-node--gateway,
+    .dia-node--store {
+      animation: dia-node-appear linear both;
+      animation-timeline: --diagram-tl;
+    }
+
+    .dia-node.dia-node--browser:first-of-type { animation-range: entry 0%  entry 18%; }
+    .dia-line--1                               { animation: dia-line-draw linear both; animation-timeline: --diagram-tl; animation-range: entry 14% entry 32%; }
+    .dia-node--gateway                         { animation-range: entry 28% entry 46%; }
+    .dia-line--2                               { animation: dia-line-draw linear both; animation-timeline: --diagram-tl; animation-range: entry 42% entry 60%; }
+    .dia-node--store                           { animation-range: entry 56% entry 74%; }
+    .dia-line--3                               { animation: dia-line-draw linear both; animation-timeline: --diagram-tl; animation-range: entry 70% entry 88%; }
+    .dia-node.dia-node--browser:last-of-type   { animation-range: entry 84% entry 100%; }
+
+    .dia-line__label {
+      animation: dia-label-appear linear both;
+      animation-timeline: --diagram-tl;
+    }
+
+    .dia-line--1 + .dia-line__label { animation-range: entry 28% entry 38%; }
+    .dia-line--2 + .dia-line__label { animation-range: entry 58% entry 68%; }
+    .dia-line--3 + .dia-line__label { animation-range: entry 86% entry 96%; }
+
+    .dia-annot {
+      animation: annot-appear linear both;
+      animation-timeline: --diagram-tl;
+    }
+
+    .dia-annot--n1 { animation-range: entry 4%  entry 22%; }
+    .dia-annot--n2 { animation-range: entry 32% entry 50%; }
+    .dia-annot--n3 { animation-range: entry 60% entry 78%; }
+    .dia-annot--n4 { animation-range: entry 86% entry 100%; }
+
+    @keyframes arch-section-rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    #two-layer-state-model,
+    #gateway-contract,
+    #action-pattern,
+    #progressive-enhancement {
+      animation: arch-section-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 45%;
+    }
+
+    @keyframes slide-from-left {
+      from { opacity: 0; transform: translateX(-32px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes slide-from-right {
+      from { opacity: 0; transform: translateX(32px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .state-layer--durable {
+      animation: slide-from-left linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+
+    .state-layer--ephemeral {
+      animation: slide-from-right linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+
+    @keyframes callout-glow {
+      0%   { --glow-spread: 0px; }
+      50%  { --glow-spread: 12px; }
+      100% { --glow-spread: 0px; }
+    }
+
+    .callout {
+      box-shadow: 0 0 var(--glow-spread) color-mix(in oklch, var(--c-accent) 35%, transparent);
+      animation: callout-glow linear both;
+      animation-timeline: view();
+      animation-range: entry 5% entry 75%;
+    }
+
+    @keyframes badge-pop {
+      from { opacity: 0; transform: scale(0.65); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .pe-levels {
+      view-timeline-name: --pe-tl;
+      view-timeline-axis: block;
+    }
+
+    .pe-level__badge {
+      animation: badge-pop linear both;
+      animation-timeline: --pe-tl;
+    }
+
+    .pe-level:nth-child(1) .pe-level__badge { animation-range: entry 0%  entry 18%; }
+    .pe-level:nth-child(2) .pe-level__badge { animation-range: entry 14% entry 32%; }
+    .pe-level:nth-child(3) .pe-level__badge { animation-range: entry 28% entry 46%; }
+    .pe-level:nth-child(4) .pe-level__badge { animation-range: entry 42% entry 60%; }
+    .pe-level:nth-child(5) .pe-level__badge { animation-range: entry 56% entry 74%; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .state-layer--durable,
+      .state-layer--ephemeral { animation: none; opacity: 1; transform: none; }
+
+      .callout { animation: none; box-shadow: none; }
+
+      .pe-level__badge { animation: none; opacity: 1; transform: none; }
+
+      #two-layer-state-model,
+      #gateway-contract,
+      #action-pattern,
+      #progressive-enhancement { animation: none; opacity: 1; transform: none; }
+
+      .dia-node,
+      .dia-line,
+      .dia-line__label { animation: none; opacity: 1; stroke-dashoffset: 0; }
+
+      .dia-annot { animation: none; opacity: 1; }
+    }
+  }
+}
