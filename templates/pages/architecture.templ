@@ -4,13 +4,12 @@ import "saui/templates/layout"
 
 templ Architecture(csrfToken string) {
 	@layout.Base("Architecture", csrfToken, "/architecture", "/static/css/architecture.css") {
-		<section class="arch-hero">
-			<div class="arch-hero__content">
+		<section class="page-hero">
+			<div class="page-hero__content">
 				<h1>Architecture</h1>
 				<p class="lead">{ `The server owns state. The gateway enforces that contract.
 					The frontend submits intents, not state.` }</p>
 			</div>
-			<span class="arch-hero__scroll" aria-hidden="true">↓</span>
 		</section>
 		<section class="arch-diagram-section" aria-label="Request lifecycle diagram">
 			<figure class="arch-diagram">
