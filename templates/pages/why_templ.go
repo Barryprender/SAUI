@@ -268,12 +268,12 @@ func Why(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var18 string
-			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(`SAUI is the web's original model - server renders truth, browser displays it -
+			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(`SAUI is the web's original model (server renders truth, browser displays it)
 					re-expressed with modern tooling that removes the historical limitations that made
 					SPAs appealing. Slow servers are fast now. Partial page updates are available
-					without a JS framework. Progressive enhancement is achievable without significant cost.`)
+					without a JS framework. Progressive enhancement is achievable without a build step.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 87, Col: 93}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 87, Col: 89}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 			if templ_7745c5c3_Err != nil {
