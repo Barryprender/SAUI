@@ -24,11 +24,38 @@ templ Stack(csrfToken string) {
 				</p>
 				<h3>SQLite via modernc.org/sqlite</h3>
 				<p>{ `Pure Go SQLite: no cgo, no external shared library. The database is compiled into
-					the binary. Deployment is a single file copy.` }</p>
+					the binary. Deployment is a single file copy. SQLite is the reference implementation
+					choice. It is not a requirement of the SAUI pattern.` }</p>
 				<p>{ `WAL mode is enabled at startup. WAL allows concurrent reads without blocking writes,
 					which is appropriate for a read-heavy content site with occasional state mutations.
-					A single writer is enforced; SQLite concurrency model requires it and the
+					A single writer is enforced; the SQLite concurrency model requires it and the
 					append-only event log is naturally sequential.` }</p>
+				<h3>What SAUI requires from a persistence layer</h3>
+				<p>{ `Three things. An append-only event log: events are inserted, never updated or deleted.
+					Sequential projection reads: SELECT ... ORDER BY id ASC to derive current state from
+					the log. Serialised writes: concurrent mutations must be ordered so no two events
+					are applied simultaneously to the same session.` }</p>
+				<p>{ `SQLite satisfies the third by construction. Any database satisfies it explicitly.
+					The event log schema, the Action interface, and all projection queries are plain SQL
+					and are database-agnostic.` }</p>
+				<h3>Adapting to Postgres</h3>
+				<p>{ `Replace modernc.org/sqlite with pgx. Remove WAL setup. In the gateway Dispatch
+					method, acquire a Postgres advisory lock before the action is applied and release
+					it after the event is appended. Everything else is unchanged.` }</p>
+				<pre><code>{ `-- Serialise writes per session; released automatically on transaction commit
+SELECT pg_advisory_xact_lock(hashtext($1));  -- $1 = session_id
+
+-- Event log schema: same structure, database-native types
+CREATE TABLE events (
+    id          BIGSERIAL    PRIMARY KEY,
+    session_id  TEXT         NOT NULL,
+    type        TEXT         NOT NULL,
+    payload     JSONB        NOT NULL,
+    occurred_at TIMESTAMPTZ  NOT NULL DEFAULT now()
+);` }</code></pre>
+				<p>{ `MySQL and MariaDB use GET_LOCK() for the same purpose. The lock scope
+					changes; the gateway contract does not. Any database that supports
+					row-level locking or advisory locks can satisfy the SAUI write model.` }</p>
 				<h3>SSE for real-time</h3>
 				<p>{ `Server-Sent Events over standard net/http. No WebSocket unless a use case genuinely
 					requires bidirectional framing. SSE is unidirectional, trivial to implement,
