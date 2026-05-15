@@ -23,7 +23,7 @@ templ Limits(csrfToken string) {
 					requires conflict resolution that SAUI does not provide out of the box.` }</p>
 				<p>{ `Concurrent writes to the same state require CRDTs (Conflict-free Replicated Data
 					Types) or operational transforms to merge diverging edit histories. These are
-					hard problems and SAUI append-only event log does not solve them.` }</p>
+					hard problems and the SAUI append-only event log does not solve them.` }</p>
 				<p>{ `For single-user editing with server persistence - a CMS, a form, a document editor
 					used by one person at a time - SAUI is entirely appropriate. The limit is specifically
 					real-time multi-user concurrent mutation of shared state.` }</p>
@@ -35,7 +35,7 @@ templ Limits(csrfToken string) {
 					does not trigger a projection update. The latency of server authorisation is
 					incompatible with the performance requirement.` }</p>
 				<p>{ `These applications require a local state model with selective server persistence.
-					SAUI round-trip model is not appropriate here.` }</p>
+					the SAUI round-trip model is not appropriate here.` }</p>
 			</section>
 			<section>
 				<h2>Offline-first PWAs</h2>
@@ -56,7 +56,7 @@ templ Limits(csrfToken string) {
 			<section>
 				<h2>High-frequency financial data</h2>
 				<p>{ `Live tickers and order books can be delivered via SSE or WebSocket projection
-					streams, and SAUI model applies at the architecture level. At scale, however,
+					streams, and the SAUI model applies at the architecture level. At scale, however,
 					this becomes an infrastructure problem: fan-out to thousands of connections
 					receiving updates at high frequency requires careful design that goes beyond
 					the pattern described here.` }</p>

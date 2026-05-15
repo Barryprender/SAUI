@@ -93,9 +93,9 @@ func Limits(csrfToken string) templ.Component {
 			var templ_7745c5c3_Var6 string
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(`Concurrent writes to the same state require CRDTs (Conflict-free Replicated Data
 					Types) or operational transforms to merge diverging edit histories. These are
-					hard problems and SAUI append-only event log does not solve them.`)
+					hard problems and the SAUI append-only event log does not solve them.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 26, Col: 71}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 26, Col: 75}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -138,9 +138,9 @@ func Limits(csrfToken string) templ.Component {
 			}
 			var templ_7745c5c3_Var9 string
 			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(`These applications require a local state model with selective server persistence.
-					SAUI round-trip model is not appropriate here.`)
+					the SAUI round-trip model is not appropriate here.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 38, Col: 52}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 38, Col: 56}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
@@ -198,7 +198,7 @@ func Limits(csrfToken string) templ.Component {
 			}
 			var templ_7745c5c3_Var13 string
 			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(`Live tickers and order books can be delivered via SSE or WebSocket projection
-					streams, and SAUI model applies at the architecture level. At scale, however,
+					streams, and the SAUI model applies at the architecture level. At scale, however,
 					this becomes an infrastructure problem: fan-out to thousands of connections
 					receiving updates at high frequency requires careful design that goes beyond
 					the pattern described here.`)
