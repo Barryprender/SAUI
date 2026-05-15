@@ -62,9 +62,7 @@ templ Home(csrfToken string) {
 				</svg>
 				<div class="hero__content">
 					<h1>The server owns state. The browser renders truth.</h1>
-					<p>{ `SAUI is an architectural approach to web development where the server is
-						the exclusive owner of application state and the frontend is a stateless
-						display layer.` }</p>
+					<p>{ `The server is the single source of truth. The browser is a stateless view of it.` }</p>
 					<p>
 						<a href="/why" class="btn">Why this matters</a>
 						<a href="/architecture" class="btn btn--secondary">See the architecture</a>
@@ -86,36 +84,44 @@ templ Home(csrfToken string) {
 			<section class="proposition">
 				<h2>A user interface that displays server state is always correct by definition.</h2>
 				<p>{ `A user interface that maintains its own copy of state is always eventually wrong.` }</p>
-				<p>{ `The synchronisation problem - keeping client state consistent with server state -
+				<p>{ `The synchronisation problem (keeping client state consistent with server state)
 					has generated entire engineering disciplines: state management libraries,
 					cache invalidation strategies, optimistic update patterns, hydration pipelines.` }</p>
 				<p>{ `SAUI eliminates the synchronisation problem by eliminating the second copy of state.` }</p>
 			</section>
-			<section class="nav-cards">
+			<section class="nav-cards nav-cards--toc">
 				<h2>Explore</h2>
 				<ul>
 					<li>
 						<a href="/why">
+							<span class="nav-card__num" aria-hidden="true">01</span>
 							<h3>Why</h3>
 							<p>{ `The diagnosis. What the SPA era got right, and what it universalised by mistake.` }</p>
+							<span class="nav-card__arrow" aria-hidden="true">↗</span>
 						</a>
 					</li>
 					<li>
 						<a href="/architecture">
+							<span class="nav-card__num" aria-hidden="true">02</span>
 							<h3>Architecture</h3>
 							<p>{ `The gateway contract, the two-layer state model, the action pattern.` }</p>
+							<span class="nav-card__arrow" aria-hidden="true">↗</span>
 						</a>
 					</li>
 					<li>
 						<a href="/stack">
+							<span class="nav-card__num" aria-hidden="true">03</span>
 							<h3>Stack</h3>
 							<p>{ `Go, SQLite, htmx, and nothing else. The implementation in detail.` }</p>
+							<span class="nav-card__arrow" aria-hidden="true">↗</span>
 						</a>
 					</li>
 					<li>
 						<a href="/limits">
+							<span class="nav-card__num" aria-hidden="true">04</span>
 							<h3>Limits</h3>
 							<p>{ `Where SAUI is the wrong choice. Stated plainly.` }</p>
+							<span class="nav-card__arrow" aria-hidden="true">↗</span>
 						</a>
 					</li>
 				</ul>
