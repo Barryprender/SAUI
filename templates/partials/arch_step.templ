@@ -19,7 +19,7 @@ templ ArchStep(step string) {
 
 templ archStepBrowserRequest() {
 	<div class="arch-step-detail__inner">
-		<h3>{ `Step 1 — Browser submits intent` }</h3>
+		<h3>{ `Step 1: Browser submits intent` }</h3>
 		<p>{ `The browser submits a form POST describing what the user wants to do.
 			No client state is serialised. The form carries only the intent
 			and a CSRF token. The client has no knowledge of current application state.` }</p>
@@ -42,7 +42,7 @@ templ archStepBrowserRequest() {
 
 templ archStepGateway() {
 	<div class="arch-step-detail__inner">
-		<h3>{ `Step 2 — Gateway enforces the contract` }</h3>
+		<h3>{ `Step 2: Gateway enforces the contract` }</h3>
 		<p>{ `All state mutations pass through a single gateway. No handler touches
 			the store directly. The gateway authenticates the session, authorises the
 			action, validates it against current state, then applies it.` }</p>
@@ -66,7 +66,7 @@ type Action interface {
 
 templ archStepEventLog() {
 	<div class="arch-step-detail__inner">
-		<h3>{ `Step 3 — Event appended to the durable log` }</h3>
+		<h3>{ `Step 3: Event appended to the durable log` }</h3>
 		<p>{ `The validated action produces an event. That event is appended to the
 			SQLite event log. Events are never mutated or deleted — only appended.
 			The log is the audit trail by construction.` }</p>
@@ -86,7 +86,7 @@ ORDER BY id ASC` }</code></pre>
 
 templ archStepBrowserResponse() {
 	<div class="arch-step-detail__inner">
-		<h3>{ `Step 4 — Server projects truth, browser renders it` }</h3>
+		<h3>{ `Step 4: Server projects truth, browser renders it` }</h3>
 		<p>{ `The gateway computes a projection from the event log and passes it
 			to the handler. The handler renders it as HTML. For htmx requests,
 			a partial is returned and swapped into the target element.

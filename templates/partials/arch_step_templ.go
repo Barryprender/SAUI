@@ -86,9 +86,9 @@ func archStepBrowserRequest() templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var3 string
-		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(`Step 1 — Browser submits intent`)
+		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(`Step 1: Browser submits intent`)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/partials/arch_step.templ`, Line: 22, Col: 43}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/partials/arch_step.templ`, Line: 22, Col: 40}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
@@ -181,9 +181,9 @@ func archStepGateway() templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var8 string
-		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(`Step 2 — Gateway enforces the contract`)
+		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(`Step 2: Gateway enforces the contract`)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/partials/arch_step.templ`, Line: 45, Col: 50}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/partials/arch_step.templ`, Line: 45, Col: 47}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 		if templ_7745c5c3_Err != nil {
@@ -277,9 +277,9 @@ func archStepEventLog() templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var13 string
-		templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(`Step 3 — Event appended to the durable log`)
+		templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(`Step 3: Event appended to the durable log`)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/partials/arch_step.templ`, Line: 69, Col: 54}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/partials/arch_step.templ`, Line: 69, Col: 51}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 		if templ_7745c5c3_Err != nil {
@@ -369,9 +369,9 @@ func archStepBrowserResponse() templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var18 string
-		templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(`Step 4 — Server projects truth, browser renders it`)
+		templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(`Step 4: Server projects truth, browser renders it`)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/partials/arch_step.templ`, Line: 89, Col: 62}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/partials/arch_step.templ`, Line: 89, Col: 59}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 		if templ_7745c5c3_Err != nil {
