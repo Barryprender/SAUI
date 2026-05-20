@@ -459,7 +459,7 @@
     font-size: var(--text-2xl);
   }
 
-  article > section:not([class]) h3 {
+  article > section:not([class]) h3, article > section:not([class]) h4 {
     font-size: var(--text-xl);
     margin-block-start: var(--sp-6);
     margin-block-end: var(--sp-3);
