@@ -11,9 +11,9 @@
   .cases-index {
     list-style: none;
     padding: 0;
-    padding-block-start: var(--sp-9);
+    padding-block-start: var(--sp-7);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     column-gap: var(--sp-8);
   }
 
@@ -85,10 +85,10 @@
     border-radius: var(--radius-sm);
   }
 
-  @media (width < 700px) {
+  @media (width >= 700px) {
     .cases-index {
-      grid-template-columns: 1fr;
-      padding-block-start: var(--sp-7);
+      grid-template-columns: 1fr 1fr;
+      padding-block-start: var(--sp-9);
     }
   }
 
