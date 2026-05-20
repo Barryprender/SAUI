@@ -2,5 +2,6 @@
   "port": 8400,
   "files": ["templates/layout/base.templ"],
   "insertBefore": "</body>",
-  "commentSyntax": "html"
+  "commentSyntax": "html",
+  "cspChecked": true
 }
