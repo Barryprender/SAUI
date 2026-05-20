@@ -330,7 +330,7 @@
 
   .pe-level {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: var(--sp-4);
     align-items: baseline;
     padding: var(--sp-4) var(--sp-5);
@@ -373,8 +373,8 @@
     letter-spacing: 0.04em;
   }
 
-  @media (width < 520px) {
-    .pe-level { grid-template-columns: 1fr; }
+  @media (width >= 520px) {
+    .pe-level { grid-template-columns: 1fr 1fr; }
   }
 
   /* ----------------------------------------------------------
