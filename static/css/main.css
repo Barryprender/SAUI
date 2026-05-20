@@ -143,8 +143,7 @@
     font-size: var(--text-base);
     line-height: var(--leading-prose);
     min-block-size: 100dvh;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
+    display: block;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -199,9 +198,13 @@
   li { margin-block-start: var(--sp-2); }
 
   /* Description lists */
-  dl { display: grid; grid-template-columns: auto 1fr; gap: var(--sp-2) var(--sp-5); }
+  dl { display: grid; grid-template-columns: 1fr; gap: var(--sp-2) var(--sp-5); }
   dt { font-weight: 600; font-family: var(--font-sans); font-size: var(--text-sm); padding-block-start: 0.15em; }
   dd { color: var(--c-text-muted); }
+
+  @media (width >= 480px) {
+    dl { grid-template-columns: auto 1fr; }
+  }
 
   /* ----------------------------------------------------------
      Code
@@ -292,7 +295,12 @@
     align-items: center;
     justify-content: space-between;
     gap: var(--sp-6);
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
+
+  body > header nav::-webkit-scrollbar { display: none; }
 
   /* Brand */
   body > header nav > a {
@@ -334,7 +342,7 @@
     padding: 0;
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: var(--sp-2) var(--sp-5);
   }
 
@@ -358,16 +366,6 @@
   body > header nav ul a[aria-current="page"] {
     color: var(--c-accent);
     background-size: calc(100% - 2 * var(--sp-1)) 1px;
-  }
-
-  @media (width < 700px) {
-    body > header nav {
-      overflow-x: auto;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-    body > header nav::-webkit-scrollbar { display: none; }
-    body > header nav ul { flex-wrap: nowrap; }
   }
 
   /* ----------------------------------------------------------
@@ -430,7 +428,11 @@
     max-inline-size: calc(var(--max-width) + 2 * var(--gutter));
     margin-inline: auto;
     padding-inline: var(--gutter);
-    padding-block-end: var(--sp-10);
+    padding-block-end: var(--sp-7);
+  }
+
+  @media (width >= 700px) {
+    article { padding-block-end: var(--sp-10); }
   }
 
   .lead {
@@ -451,7 +453,11 @@
 
   article > section:not([class]):first-child {
     border-block-start: none;
-    padding-block-start: var(--sp-9);
+    padding-block-start: var(--sp-7);
+  }
+
+  @media (width >= 700px) {
+    article > section:not([class]):first-child { padding-block-start: var(--sp-9); }
   }
 
   article > section:not([class]) h2 {
@@ -490,8 +496,12 @@
      ---------------------------------------------------------- */
 
   .nav-cards {
-    padding-block: var(--sp-9);
+    padding-block: var(--sp-6);
     border-block-start: var(--border);
+  }
+
+  @media (width >= 700px) {
+    .nav-cards { padding-block: var(--sp-9); }
   }
 
   .nav-cards h2 {
@@ -636,14 +646,14 @@
     gap: clamp(1rem, 2vw, 1.5rem);
   }
 
-  .col-4  { grid-column: span 4; }
-  .col-6  { grid-column: span 6; }
-  .col-8  { grid-column: span 8; }
-  .col-10 { grid-column: span 10; }
-  .col-12 { grid-column: span 12; }
+  .col-4, .col-6, .col-8, .col-10, .col-12 { grid-column: span 12; }
 
-  @media (width < 768px) {
-    .col-4, .col-6, .col-8, .col-10, .col-12 { grid-column: span 12; }
+  @media (width >= 768px) {
+    .col-4  { grid-column: span 4; }
+    .col-6  { grid-column: span 6; }
+    .col-8  { grid-column: span 8; }
+    .col-10 { grid-column: span 10; }
+    .col-12 { grid-column: span 12; }
   }
 
   /* ----------------------------------------------------------
@@ -657,8 +667,8 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-block-size: 44vh;
-    padding-block: var(--sp-10);
+    min-block-size: 30vh;
+    padding-block: var(--sp-7);
     padding-inline: var(--gutter);
     border-block-end: var(--border);
   }
@@ -702,6 +712,13 @@
   }
 
   .page-hero__breadcrumb a:hover { color: var(--c-accent); }
+
+  @media (width >= 600px) {
+    .page-hero {
+      padding-block: var(--sp-10);
+      min-block-size: 44vh;
+    }
+  }
 
   /* Nav-cards first child: suppress double border when hero provides separator */
   article > .nav-cards:first-child { border-block-start: none; }
