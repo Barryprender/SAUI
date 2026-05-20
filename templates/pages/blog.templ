@@ -13,9 +13,21 @@ templ Blog(csrfToken string) {
 		<article>
 			<ol class="blog-listing">
 				<li class="blog-listing__post">
-					<time class="blog-listing__date" datetime="2026-05-20">{ `20 May 2026` }</time>
-					<h2><a href="/blog/server-response-time">{ `Server response time: twenty years of change` }</a></h2>
-					<p>{ `The premise that justified client-side state was server latency. In 2026, the latency is gone. The premise is not.` }</p>
+					<a class="blog-listing__thumb" href="/blog/server-response-time" tabindex="-1" aria-hidden="true">
+						<img
+							src="/static/img/blog-server-response-time.jpg"
+							alt=""
+							width="320"
+							height="180"
+							loading="lazy"
+							decoding="async"
+						/>
+					</a>
+					<div class="blog-listing__body">
+						<time class="blog-listing__date" datetime="2026-05-20">{ `20 May 2026` }</time>
+						<h2><a href="/blog/server-response-time">{ `Server response time: twenty years of change` }</a></h2>
+						<p>{ `The premise that justified client-side state was server latency. In 2026, the latency is gone. The premise is not.` }</p>
+					</div>
 				</li>
 			</ol>
 		</article>

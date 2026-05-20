@@ -56,14 +56,14 @@ func Blog(csrfToken string) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</p></div></section><article><ol class=\"blog-listing\"><li class=\"blog-listing__post\"><time class=\"blog-listing__date\" datetime=\"2026-05-20\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</p></div></section><article><ol class=\"blog-listing\"><li class=\"blog-listing__post\"><a class=\"blog-listing__thumb\" href=\"/blog/server-response-time\" tabindex=\"-1\" aria-hidden=\"true\"><img src=\"/static/img/blog-server-response-time.jpg\" alt=\"\" width=\"320\" height=\"180\" loading=\"lazy\" decoding=\"async\"></a><div class=\"blog-listing__body\"><time class=\"blog-listing__date\" datetime=\"2026-05-20\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var4 string
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(`20 May 2026`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 16, Col: 75}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 27, Col: 76}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
@@ -76,7 +76,7 @@ func Blog(csrfToken string) templ.Component {
 			var templ_7745c5c3_Var5 string
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(`Server response time: twenty years of change`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 17, Col: 94}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 28, Col: 95}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -89,13 +89,13 @@ func Blog(csrfToken string) templ.Component {
 			var templ_7745c5c3_Var6 string
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(`The premise that justified client-side state was server latency. In 2026, the latency is gone. The premise is not.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 18, Col: 126}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 29, Col: 127}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p></li></ol></article>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p></div></li></ol></article>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
