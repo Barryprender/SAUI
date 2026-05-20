@@ -247,39 +247,141 @@ func Why(csrfToken string) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</p></section><section><h2>What this is not</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</p></section><section id=\"security-record\"><h2>The security record</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var17 string
-			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(`This is not an argument that SPAs are bad, that React is wrong, or that JavaScript
-					should be avoided. It is an argument about scope. The SPA pattern is appropriate
-					for applications that share the requirements that justified it. Most applications
-					do not.`)
+			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(`Between 2024 and 2026, the major frontend frameworks produced a consistent
+					pattern of critical vulnerabilities. Each traces back to the same architectural
+					layers that client-side state requires.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 83, Col: 13}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 82, Col: 45}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</p><ul><li><strong>Middleware bypass.</strong> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var18 string
-			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(`SAUI is the web's original model (server renders truth, browser displays it)
-					re-expressed with modern tooling that removes the historical limitations that made
-					SPAs appealing. Slow servers are fast now. Partial page updates are available
-					without a JS framework. Progressive enhancement is achievable without a build step.`)
+			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(` Next.js middleware is the standard pattern for route protection: authentication,
+						authorisation, CSP headers. In March 2025, a single HTTP header bypassed it entirely.
+						CVE-2025-29927, CVSS 9.1, gave unauthenticated access to every protected route.
+						The vulnerability existed because the Edge Runtime separates security logic from
+						route handlers by design. The pattern the framework promoted was the attack surface.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 87, Col: 89}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 90, Col: 91}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</p><p><a href=\"/architecture\">See how the architecture works</a></p></section></article>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</li><li><strong>Serialisation as attack surface.</strong> ")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var19 string
+			templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(` React Server Components introduced a custom binary protocol for streaming
+						server-rendered output. Parsed server-side without sufficient validation, it produced
+						CVE-2025-55182: unauthenticated remote code execution via a single malformed request.
+						CVSS 10.0. Exploited within hours of disclosure. LexisNexis failed to patch for
+						three months and lost 3.9 million records and 53 plaintext cloud credentials.`)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 98, Col: 84}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "</li><li><strong>The hydration boundary.</strong> ")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var20 string
+			templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(` Server state serialised into inline HTML so the client can reconstruct it is a
+						persistent XSS vector. React Query (CVE-2024-24558), React Router (CVE-2025-43865),
+						Angular (CVE-2026-32635), and Nuxt (CVE-2024-34343) all demonstrated this.
+						Angular's automatic sanitisation, considered the strongest of any major framework,
+						was bypassed when its i18n and security subsystems interacted.`)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 106, Col: 69}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "</li><li><strong>Supply chain.</strong> ")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var21 string
+			templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(` The Shai-Hulud self-replicating npm worm compromised packages across React,
+						Angular, and Vue ecosystems from September 2025 through 2026. Axios, 70 million
+						weekly downloads, was compromised by a North Korean state actor for three hours in
+						March 2026. Polyfill.io, loaded by 384,000 sites, was sold to a threat actor.
+						The average framework application carries 1,000 to 2,000 transitive npm dependencies.
+						Each is a potential vector.`)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 115, Col: 34}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</li></ul><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var22 string
+			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(`Under SAUI, these attack classes do not apply by construction. There is no
+					hydration boundary: the server renders HTML and sends it. There is no middleware
+					security gate: authorisation runs inside the request handler. There is no custom
+					serialisation protocol. There are no npm dependencies: htmx is a single vendored
+					file and the rest of the stack is Go standard library. These are not mitigations.
+					They are the result of not having the architectural layers that produced the vulnerabilities.`)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 123, Col: 99}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "</p></section><section><h2>What this is not</h2><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var23 string
+			templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(`This is not an argument that SPAs are bad, that React is wrong, or that JavaScript
+					should be avoided. It is an argument about scope. The SPA pattern is appropriate
+					for applications that share the requirements that justified it. Most applications
+					do not.`)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 130, Col: 13}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "</p><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var24 string
+			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(`SAUI is the web's original model (server renders truth, browser displays it)
+					re-expressed with modern tooling that removes the historical limitations that made
+					SPAs appealing. Slow servers are fast now. Partial page updates are available
+					without a JS framework. Progressive enhancement is achievable without a build step.`)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 134, Col: 89}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "</p><p><a href=\"/architecture\">See how the architecture works</a></p></section></article>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

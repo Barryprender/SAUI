@@ -7,8 +7,8 @@ templ Architecture(csrfToken string) {
 		<section class="page-hero">
 			<div class="page-hero__content">
 				<h1>Architecture</h1>
-				<p class="lead">{ `The server owns state. The gateway enforces that contract.
-					The frontend submits intents, not state.` }</p>
+				<p class="lead">{ `The server owns state. The browser holds none.
+					Security is not a layer applied on top — it is a consequence of where state lives.` }</p>
 			</div>
 		</section>
 		<section class="arch-diagram-section" aria-label="Request lifecycle diagram">
@@ -86,7 +86,7 @@ templ Architecture(csrfToken string) {
 						<text class="dia-annot__body dia-annot__body--end" x="236" y="693">{ `durable truth rendered` }</text>
 					</g>
 				</svg>
-				<figcaption>{ `The SAUI request lifecycle: intent in, projection out. State lives in one place.` }</figcaption>
+				<figcaption>{ `Intent in, projection out. State lives on the server. The browser holds nothing between requests.` }</figcaption>
 			</figure>
 			<nav class="arch-step-nav" aria-label="Step detail">
 				<button type="button"
@@ -137,53 +137,68 @@ templ Architecture(csrfToken string) {
 		<article>
 			<section id="two-layer-state-model" aria-label="Two-layer state model">
 				<h2>The two-layer state model</h2>
-				<p>{ `SAUI separates state into two distinct layers with different lifetimes, different
-					storage, and a strict rule about which layer may influence the other.` }</p>
-				<div class="state-comparison">
-					<div class="state-layer state-layer--durable">
-						<h3>Durable state</h3>
-						<p class="state-layer__sub">{ `what actually happened` }</p>
-						<ul>
-							<li>{ `Stored as an append-only event log in SQLite` }</li>
-							<li>{ `Never mutated; only appended` }</li>
-							<li>{ `Survives server restart` }</li>
-							<li>{ `Auditable by definition: the log is the audit trail` }</li>
-							<li>{ `Source of truth for all projections` }</li>
+				<p>{ `State is separated into two layers with different lifetimes, different storage, and
+					a strict one-way rule about which may influence the other. The rule is enforced
+					structurally, not by convention.` }</p>
+				<div class="state-model">
+					<div class="state-model__layer state-model__layer--durable">
+						<p class="state-model__header">
+							<span class="state-model__label">{ `Durable state` }</span>
+							<span class="state-model__sep" aria-hidden="true">{ `·` }</span>
+							<span class="state-model__sub">{ `what actually happened` }</span>
+						</p>
+						<ul class="state-model__list">
+							<li>{ `Append-only event log: events are inserted, never modified` }</li>
+							<li>{ `Past events cannot be altered by any code path` }</li>
+							<li>{ `Auditable by construction: the log is the audit trail` }</li>
+							<li>{ `All writes require gateway authorisation` }</li>
+							<li>{ `Survives server restart; loss-free by design` }</li>
 						</ul>
 					</div>
-					<div class="state-layer state-layer--ephemeral">
-						<h3>Ephemeral state</h3>
-						<p class="state-layer__sub">{ `current session context` }</p>
-						<ul>
+					<div class="state-model__flow">
+						<span class="state-model__flow-label" aria-label="one-way only">{ `one-way only` }</span>
+						<span class="state-model__flow-arrow" aria-hidden="true">{ `↓` }</span>
+					</div>
+					<div class="state-model__layer state-model__layer--ephemeral">
+						<p class="state-model__header">
+							<span class="state-model__label">{ `Ephemeral state` }</span>
+							<span class="state-model__sep" aria-hidden="true">{ `·` }</span>
+							<span class="state-model__sub">{ `current session context` }</span>
+						</p>
+						<ul class="state-model__list">
 							<li>{ `In-memory only, keyed by session ID` }</li>
-							<li>{ `Holds UI context: current page, in-progress flows, flash messages` }</li>
-							<li>{ `Derived from durable state on session creation` }</li>
+							<li>{ `Holds UI context: current view, in-progress flows, flash messages` }</li>
+							<li>{ `Derived from durable state, never the reverse` }</li>
 							<li>{ `Never used as input to durable state transitions` }</li>
-							<li>{ `Discarded on session end; no persistence required` }</li>
+							<li>{ `Discarded on session end; nothing persists to the client` }</li>
 						</ul>
 					</div>
 				</div>
-				<p>{ `The critical rule: ephemeral state flows one direction only. Durable state can
-					seed ephemeral state. Ephemeral state never influences durable state transitions.` }</p>
+				<p>{ `Ephemeral state flows one direction only. Durable state seeds ephemeral state.
+					Ephemeral state never influences durable state transitions. This rule makes
+					client-side state manipulation structurally impossible: there is no client state
+					to manipulate.` }</p>
 			</section>
 			<section id="gateway-contract" aria-label="Gateway contract">
 				<h2>The gateway contract</h2>
-				<p>{ `All state access, read or write, passes through a single gateway. No handler,
-					no middleware, no other package reads or writes state directly. This is enforced
-					structurally: the Store type is unexported from the statestore package;
-					only the Gateway is exposed.` }</p>
-				<pre><code>{ `// Reading state - returns a named projection
+				<p>{ `The gateway is the security boundary of the system. All state access — read or
+					write — passes through it. No handler, no middleware, no other package touches
+					state directly. This is not a convention: the Store type is unexported from the
+					state package; only the Gateway is exposed. There is no path around it.` }</p>
+				<pre><code>{ `// Reading state — returns a named projection
 gateway.Project(ctx, sessionID, "projection-name")
 
-// Writing state - submits a validated intent
+// Writing state — submits a validated intent
 gateway.Dispatch(ctx, sessionID, action)` }</code></pre>
-				<p>{ `The gateway enforces on every call:` }</p>
+				<p>{ `Every call through the gateway enforces the same contract:` }</p>
 				<ul>
-					<li>{ `Authentication context is valid` }</li>
-					<li>{ `Actor has permission for this action or projection` }</li>
-					<li>{ `Action validates against current state before application` }</li>
-					<li>{ `Every state transition is logged` }</li>
+					<li>{ `Session is authenticated` }</li>
+					<li>{ `Actor is authorised for this action or projection` }</li>
+					<li>{ `Action is valid against current state before any change is applied` }</li>
+					<li>{ `Every transition is appended to the audit log` }</li>
 				</ul>
+				<p>{ `Authorisation is not middleware. It runs inside the gateway, inside every request.
+					There is no separate runtime layer that can be bypassed with a crafted header.` }</p>
 			</section>
 			<section id="action-pattern" aria-label="Action pattern">
 				<h2>The action pattern</h2>
@@ -205,6 +220,47 @@ gateway.Dispatch(ctx, sessionID, action)` }</code></pre>
 				</ol>
 				<blockquote class="callout">
 					<p>{ `No partial application. No silent failure. No client state to reconcile.` }</p>
+				</blockquote>
+			</section>
+			<section id="security-by-construction" aria-label="Security by construction">
+				<h2>Security by construction</h2>
+				<p>{ `Security in most systems is applied as a layer: middleware checks, validation
+					libraries, WAF rules, security headers. Each layer can be misconfigured, bypassed,
+					or forgotten. SAUI takes a different position: the architecture excludes entire
+					vulnerability classes structurally, before any application code runs.` }</p>
+				<ul>
+					<li>
+						<strong>{ `No client state.` }</strong>
+						{ ` State manipulation — the classic "isAdmin: true" attack — requires client-held
+						state to manipulate. The browser holds none. The attack class does not apply.` }
+					</li>
+					<li>
+						<strong>{ `No hydration boundary.` }</strong>
+						{ ` Server state is never serialised into inline HTML for client reconstruction.
+						The hydration XSS attack class requires this boundary. It does not exist here.` }
+					</li>
+					<li>
+						<strong>{ `No middleware security gate.` }</strong>
+						{ ` Authorisation runs inside the gateway, inside every request handler.
+						There is no separate runtime layer to bypass. The middleware bypass pattern
+						that produced CVE-2025-29927 (CVSS 9.1) in Next.js cannot occur.` }
+					</li>
+					<li>
+						<strong>{ `Append-only event log.` }</strong>
+						{ ` Past events cannot be altered by any code path. An attacker with database
+						access cannot rewrite history. The audit trail is a structural property,
+						not a policy.` }
+					</li>
+					<li>
+						<strong>{ `No npm dependency graph.` }</strong>
+						{ ` htmx is a single vendored file. The rest of the stack is Go standard library.
+						There are no transitive package dependencies and therefore no supply chain
+						attack surface.` }
+					</li>
+				</ul>
+				<blockquote class="callout">
+					<p>{ `These are not mitigations. They are the consequence of an architecture
+						where the dangerous patterns cannot exist.` }</p>
 				</blockquote>
 			</section>
 			<section id="progressive-enhancement" aria-label="Progressive enhancement">

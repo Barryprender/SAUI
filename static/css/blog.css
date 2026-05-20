@@ -3,4 +3,27 @@
    ============================================================ */
 
 @layer component {
+
+  .blog-empty {
+    padding-block: var(--sp-10);
+    text-align: center;
+    border-block-start: var(--border);
+    max-inline-size: var(--prose-width);
+    margin-inline: auto;
+  }
+
+  .blog-empty__msg {
+    font-family: var(--font-serif);
+    font-size: var(--text-xl);
+    font-style: italic;
+    color: var(--c-text-muted);
+    margin-block-end: var(--sp-3);
+  }
+
+  .blog-empty__sub {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    color: var(--c-text-muted);
+    opacity: 0.7;
+  }
 }

@@ -11,8 +11,9 @@ templ Blog(csrfToken string) {
 			</div>
 		</section>
 		<article>
-			<section>
-				<p>No posts yet.</p>
+			<section class="blog-empty">
+				<p class="blog-empty__msg">{ `No posts yet.` }</p>
+				<p class="blog-empty__sub">{ `Posts, counterarguments, and responses will appear here.` }</p>
 			</section>
 		</article>
 	}

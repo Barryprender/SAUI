@@ -4,12 +4,14 @@
 
 @layer component {
 
-  /* Hovering a cost list item highlights the library name */
-  #compounding-cost li strong {
+  /* Hovering a cost or security list item highlights the strong label */
+  #compounding-cost li strong,
+  #security-record li strong {
     transition: color var(--t-fast);
   }
 
-  #compounding-cost li:hover strong {
+  #compounding-cost li:hover strong,
+  #security-record li:hover strong {
     color: var(--c-accent);
   }
 
@@ -58,9 +60,25 @@
     #compounding-cost li:nth-child(4) { animation-range: entry 45% entry 75%; }
     #compounding-cost li:nth-child(5) { animation-range: entry 60% entry 90%; }
 
+    #security-record ul {
+      view-timeline-name: --security-list;
+      view-timeline-axis: block;
+    }
+
+    #security-record li {
+      animation: cost-item-enter linear both;
+      animation-timeline: --security-list;
+    }
+
+    #security-record li:nth-child(1) { animation-range: entry 0%  entry 30%; }
+    #security-record li:nth-child(2) { animation-range: entry 15% entry 45%; }
+    #security-record li:nth-child(3) { animation-range: entry 30% entry 60%; }
+    #security-record li:nth-child(4) { animation-range: entry 45% entry 75%; }
+
     @media (prefers-reduced-motion: reduce) {
       .why-page section h2 { animation: none; opacity: 1; transform: none; }
       #compounding-cost li { animation: none; opacity: 1; transform: none; }
+      #security-record li { animation: none; opacity: 1; transform: none; }
     }
   }
 }

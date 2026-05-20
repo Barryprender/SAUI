@@ -30,7 +30,7 @@ templ Stack(csrfToken string) {
 					which is appropriate for a read-heavy content site with occasional state mutations.
 					A single writer is enforced; the SQLite concurrency model requires it and the
 					append-only event log is naturally sequential.` }</p>
-				<h3>What SAUI requires from a persistence layer</h3>
+				<h4>What SAUI requires from a persistence layer</h4>
 				<p>{ `Three things. An append-only event log: events are inserted, never updated or deleted.
 					Sequential projection reads: SELECT ... ORDER BY id ASC to derive current state from
 					the log. Serialised writes: concurrent mutations must be ordered so no two events
@@ -38,7 +38,7 @@ templ Stack(csrfToken string) {
 				<p>{ `SQLite satisfies the third by construction. Any database satisfies it explicitly.
 					The event log schema, the Action interface, and all projection queries are plain SQL
 					and are database-agnostic.` }</p>
-				<h3>Adapting to Postgres</h3>
+				<h4>Adapting to Postgres</h4>
 				<p>{ `Replace modernc.org/sqlite with pgx. Remove WAL setup. In the gateway Dispatch
 					method, acquire a Postgres advisory lock before the action is applied and release
 					it after the event is appended. Everything else is unchanged.` }</p>

@@ -3,4 +3,125 @@
    ============================================================ */
 
 @layer component {
+
+  /* ----------------------------------------------------------
+     Cases index — two-column reference list
+     ---------------------------------------------------------- */
+
+  .cases-index {
+    list-style: none;
+    padding: 0;
+    padding-block-start: var(--sp-9);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--sp-8);
+  }
+
+  .cases-index > li > a {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr 1.5rem;
+    column-gap: var(--sp-5);
+    align-items: start;
+    padding-block: var(--sp-6);
+    border-block-start: var(--border);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .cases-index__num {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-text-muted);
+    padding-block-start: 0.35em;
+    transition: color var(--t-fast);
+  }
+
+  .cases-index__body { min-inline-size: 0; }
+
+  .cases-index h2 {
+    font-family: var(--font-serif);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--c-text);
+    margin-block-end: var(--sp-2);
+    transition: color var(--t-fast);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .cases-index p {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    color: var(--c-text-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .cases-index__arrow {
+    font-size: var(--text-sm);
+    color: var(--c-border);
+    align-self: start;
+    padding-block-start: 0.3em;
+    line-height: 1;
+    transition: color var(--t-fast), transform var(--t-fast);
+  }
+
+  .cases-index > li > a:hover .cases-index__num,
+  .cases-index > li > a:hover h2 {
+    color: var(--c-accent);
+  }
+
+  .cases-index > li > a:hover .cases-index__arrow {
+    color: var(--c-accent);
+    transform: translate(3px, -3px);
+  }
+
+  .cases-index > li > a:focus-visible {
+    outline: 2px solid var(--c-accent);
+    outline-offset: 4px;
+    border-radius: var(--radius-sm);
+  }
+
+  @media (width < 700px) {
+    .cases-index {
+      grid-template-columns: 1fr;
+      padding-block-start: var(--sp-7);
+    }
+  }
+
+  /* ----------------------------------------------------------
+     Scroll-driven staggered entry
+     ---------------------------------------------------------- */
+
+  @supports (animation-timeline: scroll()) {
+
+    @keyframes case-entry-rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .cases-index {
+      view-timeline-name: --cases-tl;
+      view-timeline-axis: block;
+    }
+
+    .cases-index > li {
+      animation: case-entry-rise linear both;
+      animation-timeline: --cases-tl;
+    }
+
+    .cases-index > li:nth-child(1) { animation-range: entry 0%  entry 32%; }
+    .cases-index > li:nth-child(2) { animation-range: entry 8%  entry 40%; }
+    .cases-index > li:nth-child(3) { animation-range: entry 24% entry 56%; }
+    .cases-index > li:nth-child(4) { animation-range: entry 32% entry 64%; }
+    .cases-index > li:nth-child(5) { animation-range: entry 50% entry 82%; }
+    .cases-index > li:nth-child(6) { animation-range: entry 58% entry 90%; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cases-index > li { animation: none; opacity: 1; transform: none; }
+    }
+  }
 }

@@ -65,7 +65,7 @@ func Stack(csrfToken string) templ.Component {
 					The standard library multiplexer gained method and wildcard routing in Go 1.22,
 					removing the last practical justification for a routing framework in most applications.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 19, Col: 94}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 19, Col: 93}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
@@ -79,7 +79,7 @@ func Stack(csrfToken string) templ.Component {
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(`The html/template package provides auto-escaping that prevents XSS by construction.
 					This project uses `)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 22, Col: 25}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 22, Col: 24}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -93,7 +93,7 @@ func Stack(csrfToken string) templ.Component {
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(` instead, for compile-time type safety across
 					the many htmx partials. The compiled output is standard Go.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 23, Col: 66}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 23, Col: 65}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -108,7 +108,7 @@ func Stack(csrfToken string) templ.Component {
 					the binary. Deployment is a single file copy. SQLite is the reference implementation
 					choice. It is not a requirement of the SAUI pattern.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 28, Col: 59}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 28, Col: 58}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
@@ -124,13 +124,13 @@ func Stack(csrfToken string) templ.Component {
 					A single writer is enforced; the SQLite concurrency model requires it and the
 					append-only event log is naturally sequential.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 32, Col: 53}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 32, Col: 52}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</p><h3>What SAUI requires from a persistence layer</h3><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</p><h4>What SAUI requires from a persistence layer</h4><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -140,7 +140,7 @@ func Stack(csrfToken string) templ.Component {
 					the log. Serialised writes: concurrent mutations must be ordered so no two events
 					are applied simultaneously to the same session.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 37, Col: 54}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 37, Col: 53}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
@@ -155,13 +155,13 @@ func Stack(csrfToken string) templ.Component {
 					The event log schema, the Action interface, and all projection queries are plain SQL
 					and are database-agnostic.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 40, Col: 33}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 40, Col: 32}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</p><h3>Adapting to Postgres</h3><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</p><h4>Adapting to Postgres</h4><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -170,7 +170,7 @@ func Stack(csrfToken string) templ.Component {
 					method, acquire a Postgres advisory lock before the action is applied and release
 					it after the event is appended. Everything else is unchanged.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 44, Col: 68}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 44, Col: 67}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
@@ -193,7 +193,7 @@ CREATE TABLE events (
     occurred_at TIMESTAMPTZ  NOT NULL DEFAULT now()
 );`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 55, Col: 4}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 55, Col: 3}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -208,7 +208,7 @@ CREATE TABLE events (
 					changes; the gateway contract does not. Any database that supports
 					row-level locking or advisory locks can satisfy the SAUI write model.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 58, Col: 76}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 58, Col: 75}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 			if templ_7745c5c3_Err != nil {
@@ -223,7 +223,7 @@ CREATE TABLE events (
 					requires bidirectional framing. SSE is unidirectional, trivial to implement,
 					and reconnects automatically. It is sufficient for pushing projection updates to the client.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 62, Col: 99}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 62, Col: 98}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
@@ -238,7 +238,7 @@ CREATE TABLE events (
 					and swaps the returned HTML fragment into the DOM. The server decides what HTML to return.
 					The client decides where to put it.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 69, Col: 42}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 69, Col: 41}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 			if templ_7745c5c3_Err != nil {
@@ -252,7 +252,7 @@ CREATE TABLE events (
 			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(`This is the only JS dependency. It is loaded from a local file with no CDN dependency
 					for functionality, pinned to a specific version and verified with a subresource integrity hash.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 71, Col: 102}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 71, Col: 101}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 			if templ_7745c5c3_Err != nil {
@@ -266,7 +266,7 @@ CREATE TABLE events (
 			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(`No framework. No build step. No bundler. JS files are served directly.
 					ES modules via type="module". JSDoc type annotations for IDE inference without a compilation step.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 74, Col: 105}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 74, Col: 104}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 			if templ_7745c5c3_Err != nil {
@@ -294,7 +294,7 @@ CREATE TABLE events (
 					Container queries for component-level responsiveness. No CSS-in-JS.
 					No preprocessor. No utility framework.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 79, Col: 45}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 79, Col: 44}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
 			if templ_7745c5c3_Err != nil {
@@ -309,7 +309,7 @@ CREATE TABLE events (
 					No external runtime dependencies. No database server. No cache layer.
 					No CDN required for correctness.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 85, Col: 39}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 85, Col: 38}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
 			if templ_7745c5c3_Err != nil {
@@ -326,7 +326,7 @@ go build -o saui .
 # deploy
 fly deploy`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 90, Col: 12}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 90, Col: 11}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
 			if templ_7745c5c3_Err != nil {
@@ -340,7 +340,7 @@ fly deploy`)
 			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(`The entire production stack fits in one process. Operational complexity is proportional
 					to what the application actually requires, not to what the architecture assumes.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 92, Col: 87}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 92, Col: 86}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
 			if templ_7745c5c3_Err != nil {

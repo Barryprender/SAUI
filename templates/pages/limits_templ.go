@@ -138,7 +138,7 @@ func Limits(csrfToken string) templ.Component {
 			}
 			var templ_7745c5c3_Var9 string
 			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(`These applications require a local state model with selective server persistence.
-					the SAUI round-trip model is not appropriate here.`)
+					The SAUI round-trip model is not appropriate here.`)
 			if templ_7745c5c3_Err != nil {
 				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 38, Col: 56}
 			}

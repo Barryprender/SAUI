@@ -220,60 +220,98 @@
   }
 
   /* ----------------------------------------------------------
-     State comparison two-column layout
+     State model — stacked rows with one-way flow indicator
      ---------------------------------------------------------- */
 
-  .state-comparison {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--sp-5);
+  .state-model {
+    display: flex;
+    flex-direction: column;
     margin-block: var(--sp-6);
   }
 
-  @media (width < 640px) {
-    .state-comparison { grid-template-columns: 1fr; }
+  .state-model__layer {
+    padding-block: var(--sp-5);
+    border-block-start: var(--border);
   }
 
-  .state-layer {
-    padding: var(--sp-4) var(--sp-5);
-    border-radius: var(--radius-md);
-    border: var(--border);
-    text-align: start;
+  .state-model__layer--durable {
+    border-block-start-color: var(--c-accent);
+    border-block-start-width: 2px;
   }
 
-  .state-layer--durable {
-    border-color: var(--c-accent);
-    background-color: var(--c-accent-subtle);
+  .state-model__header {
+    display: flex;
+    align-items: baseline;
+    gap: var(--sp-3);
+    margin-block-end: var(--sp-4);
   }
 
-  .state-layer--ephemeral {
-    background-color: var(--c-surface);
+  .state-model__label {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--c-text);
   }
 
-  .state-layer h3 {
-    font-size: var(--text-base);
-    font-weight: 600;
-    margin-block-end: var(--sp-1);
+  .state-model__sep {
+    color: var(--c-border);
   }
 
-  .state-layer__sub {
+  .state-model__sub {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    color: var(--c-text-muted);
+  }
+
+  .state-model__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    color: var(--c-text-muted);
+    line-height: 1.55;
+  }
+
+  .state-model__list li::before {
+    content: "·";
+    color: var(--c-accent);
+    margin-inline-end: var(--sp-2);
+  }
+
+  .state-model__flow {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    padding-block: var(--sp-3);
+  }
+
+  .state-model__flow::before,
+  .state-model__flow::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--c-border);
+  }
+
+  .state-model__flow-label {
     font-family: var(--font-sans);
     font-size: var(--text-xs);
     color: var(--c-text-muted);
     text-transform: uppercase;
     letter-spacing: 0.10em;
-    margin-block-end: var(--sp-4);
+    white-space: nowrap;
   }
 
-  .state-layer ul {
-    padding-inline-start: var(--sp-4);
-    font-size: var(--text-sm);
-    font-family: var(--font-sans);
-    color: var(--c-text-muted);
-    line-height: 1.55;
+  .state-model__flow-arrow {
+    color: var(--c-accent);
+    font-size: var(--text-base);
+    line-height: 1;
   }
-
-  .state-layer li + li { margin-block-start: var(--sp-2); }
 
   /* ----------------------------------------------------------
      Progressive enhancement levels
@@ -546,32 +584,29 @@
     #two-layer-state-model,
     #gateway-contract,
     #action-pattern,
+    #security-by-construction,
     #progressive-enhancement {
       animation: arch-section-rise linear both;
       animation-timeline: view();
       animation-range: entry 0% entry 45%;
     }
 
-    @keyframes slide-from-left {
-      from { opacity: 0; transform: translateX(-32px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
-
-    @keyframes slide-from-right {
-      from { opacity: 0; transform: translateX(32px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
-
-    .state-layer--durable {
-      animation: slide-from-left linear both;
+    .state-model__layer--durable {
+      animation: arch-section-rise linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 55%;
+      animation-range: entry 0% entry 40%;
     }
 
-    .state-layer--ephemeral {
-      animation: slide-from-right linear both;
+    .state-model__flow {
+      animation: arch-section-rise linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 55%;
+      animation-range: entry 10% entry 50%;
+    }
+
+    .state-model__layer--ephemeral {
+      animation: arch-section-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 20% entry 60%;
     }
 
     @keyframes callout-glow {
@@ -609,8 +644,9 @@
     .pe-level:nth-child(5) .pe-level__badge { animation-range: entry 56% entry 74%; }
 
     @media (prefers-reduced-motion: reduce) {
-      .state-layer--durable,
-      .state-layer--ephemeral { animation: none; opacity: 1; transform: none; }
+      .state-model__layer--durable,
+      .state-model__flow,
+      .state-model__layer--ephemeral { animation: none; opacity: 1; transform: none; }
 
       .callout { animation: none; box-shadow: none; }
 
@@ -619,6 +655,7 @@
       #two-layer-state-model,
       #gateway-contract,
       #action-pattern,
+      #security-by-construction,
       #progressive-enhancement { animation: none; opacity: 1; transform: none; }
 
       .dia-node,

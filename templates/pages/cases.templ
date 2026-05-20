@@ -11,46 +11,68 @@ templ Cases(csrfToken string) {
 			</div>
 		</section>
 		<article>
-			<section class="nav-cards">
-				<ul>
-					<li>
-						<a href="/cases/food-ordering">
-							<h2>Food ordering</h2>
-							<p>{ `Cart integrity, price manipulation, availability staleness.` }</p>
-						</a>
-					</li>
-					<li>
-						<a href="/cases/banking">
-							<h2>Banking</h2>
-							<p>{ `Balance accuracy, transfer state durability, audit requirements.` }</p>
-						</a>
-					</li>
-					<li>
-						<a href="/cases/healthcare">
-							<h2>Healthcare booking</h2>
-							<p>{ `Slot locking, double booking elimination.` }</p>
-						</a>
-					</li>
-					<li>
-						<a href="/cases/saas-dashboard">
-							<h2>SaaS dashboards</h2>
-							<p>{ `Filter state, bulk action correctness, unsaved edit durability.` }</p>
-						</a>
-					</li>
-					<li>
-						<a href="/cases/distributed-systems">
-							<h2>Distributed systems</h2>
-							<p>{ `BFF pattern, per-service authority, no shared state bus.` }</p>
-						</a>
-					</li>
-					<li>
-						<a href="/cases/micro-frontends">
-							<h2>Micro frontends</h2>
-							<p>{ `Team isolation, elimination of cross-MFE state contracts.` }</p>
-						</a>
-					</li>
-				</ul>
-			</section>
+			<ol class="cases-index">
+				<li>
+					<a href="/cases/food-ordering">
+						<span class="cases-index__num" aria-hidden="true">{ `01` }</span>
+						<div class="cases-index__body">
+							<h2>{ `Food ordering` }</h2>
+							<p>{ `Cart integrity · Price manipulation · Availability staleness` }</p>
+						</div>
+						<span class="cases-index__arrow" aria-hidden="true">{ `→` }</span>
+					</a>
+				</li>
+				<li>
+					<a href="/cases/banking">
+						<span class="cases-index__num" aria-hidden="true">{ `02` }</span>
+						<div class="cases-index__body">
+							<h2>{ `Banking` }</h2>
+							<p>{ `Balance accuracy · Transfer durability · Audit requirements` }</p>
+						</div>
+						<span class="cases-index__arrow" aria-hidden="true">{ `→` }</span>
+					</a>
+				</li>
+				<li>
+					<a href="/cases/healthcare">
+						<span class="cases-index__num" aria-hidden="true">{ `03` }</span>
+						<div class="cases-index__body">
+							<h2>{ `Healthcare booking` }</h2>
+							<p>{ `Slot locking · Double-booking elimination` }</p>
+						</div>
+						<span class="cases-index__arrow" aria-hidden="true">{ `→` }</span>
+					</a>
+				</li>
+				<li>
+					<a href="/cases/saas-dashboard">
+						<span class="cases-index__num" aria-hidden="true">{ `04` }</span>
+						<div class="cases-index__body">
+							<h2>{ `SaaS dashboards` }</h2>
+							<p>{ `Filter state · Bulk action correctness · Unsaved edit durability` }</p>
+						</div>
+						<span class="cases-index__arrow" aria-hidden="true">{ `→` }</span>
+					</a>
+				</li>
+				<li>
+					<a href="/cases/distributed-systems">
+						<span class="cases-index__num" aria-hidden="true">{ `05` }</span>
+						<div class="cases-index__body">
+							<h2>{ `Distributed systems` }</h2>
+							<p>{ `BFF pattern · Per-service authority · No shared state bus` }</p>
+						</div>
+						<span class="cases-index__arrow" aria-hidden="true">{ `→` }</span>
+					</a>
+				</li>
+				<li>
+					<a href="/cases/micro-frontends">
+						<span class="cases-index__num" aria-hidden="true">{ `06` }</span>
+						<div class="cases-index__body">
+							<h2>{ `Micro frontends` }</h2>
+							<p>{ `Team isolation · Cross-MFE state elimination` }</p>
+						</div>
+						<span class="cases-index__arrow" aria-hidden="true">{ `→` }</span>
+					</a>
+				</li>
+			</ol>
 		</article>
 	}
 }
