@@ -1,29 +1,110 @@
 /* ============================================================
-   SAUI — blog.css  (Blog page)
+   SAUI — blog.css  (Blog listing + post pages)
    ============================================================ */
 
 @layer component {
 
-  .blog-empty {
-    padding-block: var(--sp-10);
-    text-align: center;
-    border-block-start: var(--border);
+  /* ----------------------------------------------------------
+     Blog listing
+     ---------------------------------------------------------- */
+
+  .blog-listing {
+    list-style: none;
+    padding: 0;
+    padding-block-start: var(--sp-9);
     max-inline-size: var(--prose-width);
     margin-inline: auto;
   }
 
-  .blog-empty__msg {
-    font-family: var(--font-serif);
-    font-size: var(--text-xl);
-    font-style: italic;
+  .blog-listing__post {
+    padding-block: var(--sp-7);
+    border-block-start: var(--border);
+  }
+
+  .blog-listing__date {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: var(--c-text-muted);
     margin-block-end: var(--sp-3);
   }
 
-  .blog-empty__sub {
+  .blog-listing h2 {
+    font-size: var(--text-2xl);
+    margin-block-end: var(--sp-3);
+    text-transform: none;
+    letter-spacing: -0.01em;
+  }
+
+  .blog-listing h2 a {
+    text-decoration: none;
+    color: var(--c-text);
+    transition: color var(--t-fast);
+  }
+
+  .blog-listing h2 a:hover { color: var(--c-accent); }
+
+  .blog-listing h2 a:focus-visible {
+    outline: 2px solid var(--c-accent);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+
+  .blog-listing p {
     font-family: var(--font-sans);
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
     color: var(--c-text-muted);
-    opacity: 0.7;
+    line-height: var(--leading-snug);
+    max-inline-size: 56ch;
+    margin: 0;
+  }
+
+  /* ----------------------------------------------------------
+     Blog post
+     ---------------------------------------------------------- */
+
+  .blog-post {
+    max-inline-size: calc(var(--prose-width) + 2 * var(--gutter));
+  }
+
+  .blog-post__header {
+    padding-block: var(--sp-6);
+    border-block-end: var(--border);
+    max-inline-size: var(--prose-width);
+    margin-inline: auto;
+  }
+
+  .blog-post__header time {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-text-muted);
+  }
+
+  /* ----------------------------------------------------------
+     Scroll-driven entry
+     ---------------------------------------------------------- */
+
+  @supports (animation-timeline: scroll()) {
+
+    @keyframes blog-post-section-rise {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .blog-post section {
+      animation: blog-post-section-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .blog-post section { animation: none; opacity: 1; transform: none; }
+    }
   }
 }

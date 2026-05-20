@@ -59,6 +59,7 @@ func main() {
 	mux.Handle("GET /testing", page(h.Testing))
 	mux.Handle("GET /limits", page(h.Limits))
 	mux.Handle("GET /blog", page(h.Blog))
+	mux.Handle("GET /blog/server-response-time", page(h.BlogPostServerResponseTime))
 	mux.Handle("GET /code", page(h.Code))
 
 	mux.Handle("POST /feedback", page(h.SubmitFeedback))

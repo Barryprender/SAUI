@@ -95,6 +95,12 @@ func (h *Handler) Blog(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func (h *Handler) BlogPostServerResponseTime(w http.ResponseWriter, r *http.Request) {
+	if err := pages.BlogPostServerResponseTime(middleware.CSRFToken(r)).Render(r.Context(), w); err != nil {
+		h.logger.Error("render blog post", "err", err)
+	}
+}
+
 func (h *Handler) Code(w http.ResponseWriter, r *http.Request) {
 	if err := pages.Code(middleware.CSRFToken(r)).Render(r.Context(), w); err != nil {
 		h.logger.Error("render code", "err", err)

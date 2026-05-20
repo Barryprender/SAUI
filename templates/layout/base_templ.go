@@ -173,7 +173,17 @@ func Base(title string, csrfToken string, currentPath string, pageCSS string) te
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, ">Code</a></li></ul></nav></header><main id=\"main-content\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, ">Code</a></li><li><a href=\"/blog\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		if strings.HasPrefix(currentPath, "/blog") {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, " aria-current=\"page\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, ">Blog</a></li></ul></nav></header><main id=\"main-content\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -181,7 +191,7 @@ func Base(title string, csrfToken string, currentPath string, pageCSS string) te
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "</main><footer><p>SAUI — Server-Authoritative UI</p></footer><script type=\"module\" src=\"/static/js/app.js\"></script><!-- impeccable-live-start --><script src=\"http://localhost:8400/live.js\"></script><!-- impeccable-live-end --></body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "</main><footer><p>SAUI — Server-Authoritative UI</p></footer><script type=\"module\" src=\"/static/js/app.js\"></script><!-- impeccable-live-start --><script src=\"http://localhost:8400/live.js\"></script><!-- impeccable-live-end --></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

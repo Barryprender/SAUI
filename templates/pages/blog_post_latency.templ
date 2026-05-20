@@ -1,0 +1,156 @@
+package pages
+
+import "saui/templates/layout"
+
+templ BlogPostServerResponseTime(csrfToken string) {
+	@layout.Base("Server response time: twenty years of change", csrfToken, "/blog/server-response-time", "/static/css/blog.css") {
+		<section class="page-hero">
+			<div class="page-hero__content">
+				<nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+					<a href="/blog">{ `Blog` }</a>{ ` / Post` }
+				</nav>
+				<h1>{ `Server response time: twenty years of change` }</h1>
+				<p class="lead">{ `The premise that justified client-side state was server latency.
+					In 2026, the latency is gone. The premise is not.` }</p>
+			</div>
+		</section>
+		<article class="blog-post">
+			<header class="blog-post__header">
+				<time datetime="2026-05-20">{ `20 May 2026` }</time>
+			</header>
+			<section>
+				<p>{ `In 2004, Gmail demonstrated something genuinely new: a web application that responded
+					to user actions without reloading the page. It felt fast because it was. The trick was
+					not a faster server. It was bypassing the server entirely for most interactions by holding
+					application state in the browser.` }</p>
+				<p>{ `That architectural decision was correct for Gmail in 2004. Gmail was a mail client
+					that had to feel like a desktop application. Server round-trips at the time took
+					200 to 800 milliseconds on a good day. Holding state on the client eliminated the wait.` }</p>
+				<p>{ `What followed was the generalisation of that decision to nearly every web application
+					built after 2013: food ordering apps, banking dashboards, booking systems, admin panels.
+					Applications that do not share Gmail's interaction requirements inherited Gmail's
+					architecture anyway, along with its synchronisation problem.` }</p>
+				<p>{ `The generalisation was wrong. The reason it was wrong is that the infrastructure
+					constraint that justified the original decision no longer exists.` }</p>
+			</section>
+			<section>
+				<h2>{ `What the stack looked like in 2005` }</h2>
+				<p>{ `A typical dynamic web application in 2005 ran on a shared hosting provider:
+					Apache 2.0, PHP 5, MySQL 4 or 5, all on the same physical machine,
+					reading from and writing to a spinning magnetic disk.` }</p>
+				<p>{ `Spinning disks had seek times of 5 to 10 milliseconds per operation.
+					A database query that required two or three I/O operations before returning
+					results took 15 to 30 milliseconds on the storage layer alone.
+					PHP processed the result, rendered a template, and wrote the response.
+					Total server processing for a modest page: 200 to 800 milliseconds,
+					more on a loaded shared host.` }</p>
+				<p>{ `Every user interaction that required server state required the user to
+					wait for that full round-trip. At 400 milliseconds round-trip, page reloads
+					were perceptibly slow. The SPA pattern solved this by eliminating the
+					round-trip for most interactions. State lived in the browser.
+					The server was consulted only when necessary.` }</p>
+				<p>{ `This was a reasonable engineering trade-off given the constraints of 2005.
+					The constraints of 2005 are not the constraints of 2026.` }</p>
+			</section>
+			<section>
+				<h2>{ `Twenty years of infrastructure change` }</h2>
+				<p>{ `Every layer of the server-side stack has changed substantially.` }</p>
+				<p>{ `Storage. NVMe SSDs have seek times measured in microseconds, not milliseconds.
+					A query that required 20 milliseconds of disk I/O in 2005 takes
+					0.1 to 0.5 milliseconds on modern storage. For read-heavy workloads with warm caches
+					(which describes most CRUD applications), queries that previously hit disk now return
+					entirely from RAM.` }</p>
+				<p>{ `Runtime performance. PHP 5 processed 200 to 400 requests per second
+					on commodity hardware. Go, designed specifically for server-side concurrency,
+					handles 50,000 to 200,000 requests per second on the same class of hardware.
+					The computational work of parsing a request, running a query, and rendering
+					a response takes microseconds, not milliseconds.` }</p>
+				<p>{ `Infrastructure. Shared hosting on a single machine gave way to virtualised
+					cloud compute, multi-region deployments, and edge infrastructure. The application
+					that ran in one datacenter in 2005 now runs in a region closest to the user.
+					Geographic latency, which is ultimately constrained by the speed of light,
+					is now the dominant factor. Server processing time is not.` }</p>
+			</section>
+			<section>
+				<h2>{ `The numbers in 2026` }</h2>
+				<p>{ `A Go server processing a simple CRUD request against SQLite in WAL mode,
+					with a warm page cache, produces the following approximate breakdown:` }</p>
+				<ul>
+					<li>{ `Request parsing and routing: under 0.1ms` }</li>
+					<li>{ `Session authentication from memory: under 0.05ms` }</li>
+					<li>{ `SQLite query (indexed, warm cache): 0.1 to 0.5ms` }</li>
+					<li>{ `Template render (compiled Go): 0.1 to 0.3ms` }</li>
+					<li>{ `Response serialisation and write: under 0.1ms` }</li>
+				</ul>
+				<p>{ `Total server processing: 1 to 5 milliseconds. Adding a typical network
+					round-trip from a user to a well-placed regional server: 15 to 80 milliseconds total.` }</p>
+				<p>{ `For comparison: a React component tree re-rendering on a mid-range Android
+					device takes 16 to 60 milliseconds. State reconciliation, virtual DOM diffing,
+					and event handling add further cost. The client-side update that was supposed
+					to be fast is not measurably faster than a server round-trip on real hardware.
+					On low-end devices, it is slower.` }</p>
+			</section>
+			<section>
+				<h2>{ `Human perception thresholds` }</h2>
+				<p>{ `Jakob Nielsen's response time research, first published in 1993 and
+					consistent with subsequent work, identifies three thresholds:` }</p>
+				<ul>
+					<li>{ `Below 100ms: the response feels instantaneous. The user perceives no delay.` }</li>
+					<li>{ `100 to 1000ms: the delay is noticeable but does not interrupt the user's flow.` }</li>
+					<li>{ `Above 1000ms: the user's attention shifts. Feedback is required to hold it.` }</li>
+				</ul>
+				<p>{ `A server-authoritative CRUD interaction at 20 to 80ms total round-trip
+					lands below the 100ms threshold. It feels instantaneous. The argument
+					that server round-trips are too slow for a responsive interface requires
+					the round-trip to exceed 100ms. Most CRUD applications on modern infrastructure
+					do not produce that latency.` }</p>
+			</section>
+			<section>
+				<h2>{ `What this means for how we build` }</h2>
+				<p>{ `The applications that were forced into client-side state management by
+					infrastructure constraints in 2005 can now be built correctly.` }</p>
+				<p>{ `Correctly means: the server owns state. The browser renders a projection
+					of it. Every user action goes to the server, is validated against current state,
+					is appended to an audit log, and returns an updated view. The browser holds
+					nothing between requests.` }</p>
+				<p>{ `This is not a nostalgic return to 2001-era web development.
+					The tooling is different: htmx partial DOM updates replace full page reloads.
+					Compiled templates (templ, similar tools) render in microseconds.
+					Append-only event logs provide durability and auditability by construction.
+					Edge deployment places the server close to the user.` }</p>
+				<p>{ `The result is an application with no synchronisation problem,
+					no client-side attack surface, no npm dependency graph, and a response time
+					indistinguishable from a SPA for the interaction classes most CRUD applications
+					actually require. Not because server-side rendering is slow and we are
+					accepting the trade-off. Because it is not slow.` }</p>
+				<blockquote class="callout">
+					<p>{ `The infrastructure constraint that justified the SPA pattern for most
+						applications expired somewhere around 2015. The pattern outlived it
+						by a decade.` }</p>
+				</blockquote>
+			</section>
+			<section>
+				<h2>{ `The constraint that remains` }</h2>
+				<p>{ `One constraint from the original SPA analysis does remain: geographic latency.
+					The speed of light imposes a minimum round-trip time of roughly 1ms per 100km
+					of fibre distance. A user in London connecting to a server in Sydney will
+					experience 250 to 350ms of latency regardless of how fast the server processes
+					the request.` }</p>
+				<p>{ `This is a solved problem for applications that require it: edge deployment
+					puts a server close to every user. Fly.io, Cloudflare Workers, and similar
+					platforms deploy server-side logic globally. The geographic latency constraint
+					is now an infrastructure decision, not an architectural one.` }</p>
+				<p>{ `The applications that genuinely require sub-10ms client-side response
+					(collaborative document editors, creative tools, games) have always been
+					outside the scope of the server-authoritative pattern. That scope is
+					unchanged. What has changed is the scope of applications for which
+					the server is fast enough.` }</p>
+				<p>{ `For food ordering, banking, healthcare, SaaS dashboards, internal tools,
+					booking systems, and the majority of what is built for the web: the server is
+					fast enough. It has been for at least a decade. The architectural consequences
+					of that fact are still being absorbed.` }</p>
+				<p><a href="/why">{ `Read the full argument` }</a></p>
+			</section>
+		</article>
+	}
+}

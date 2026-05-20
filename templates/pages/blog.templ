@@ -11,10 +11,13 @@ templ Blog(csrfToken string) {
 			</div>
 		</section>
 		<article>
-			<section class="blog-empty">
-				<p class="blog-empty__msg">{ `No posts yet.` }</p>
-				<p class="blog-empty__sub">{ `Posts, counterarguments, and responses will appear here.` }</p>
-			</section>
+			<ol class="blog-listing">
+				<li class="blog-listing__post">
+					<time class="blog-listing__date" datetime="2026-05-20">{ `20 May 2026` }</time>
+					<h2><a href="/blog/server-response-time">{ `Server response time: twenty years of change` }</a></h2>
+					<p>{ `The premise that justified client-side state was server latency. In 2026, the latency is gone. The premise is not.` }</p>
+				</li>
+			</ol>
 		</article>
 	}
 }

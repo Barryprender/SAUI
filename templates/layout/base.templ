@@ -93,6 +93,13 @@ templ Base(title string, csrfToken string, currentPath string, pageCSS string) {
 								}
 							>Code</a>
 						</li>
+						<li>
+							<a href="/blog"
+								if strings.HasPrefix(currentPath, "/blog") {
+									aria-current="page"
+								}
+							>Blog</a>
+						</li>
 					</ul>
 				</nav>
 			</header>
