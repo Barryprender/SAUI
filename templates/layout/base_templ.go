@@ -191,7 +191,7 @@ func Base(title string, csrfToken string, currentPath string, pageCSS string) te
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "</main><footer><p>SAUI — Server-Authoritative UI</p></footer><script type=\"module\" src=\"/static/js/app.js\"></script><!-- impeccable-live-start --><script src=\"http://localhost:8400/live.js\"></script><!-- impeccable-live-end --></body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "</main><footer><p>SAUI — Server-Authoritative UI</p></footer><script type=\"module\" src=\"/static/js/app.js\"></script></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
