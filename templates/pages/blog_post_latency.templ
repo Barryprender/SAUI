@@ -4,20 +4,28 @@ import "saui/templates/layout"
 
 templ BlogPostServerResponseTime(csrfToken string) {
 	@layout.Base("Server response time: twenty years of change", csrfToken, "/blog/server-response-time", "/static/css/blog.css") {
-		<section class="page-hero">
-			<div class="page-hero__content">
+		<div class="blog-post-hero">
+			<div class="blog-post-hero__image">
+				<img
+					src="/static/img/blog-server-response-time.jpg"
+					alt="{ `Vintage Macintosh monitor and keyboard, beige plastic yellowed with age — computing from the era when every server round-trip was perceptible.` }"
+					loading="eager"
+					decoding="async"
+					width="1600"
+					height="900"
+				/>
+			</div>
+			<div class="blog-post-hero__header">
 				<nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
 					<a href="/blog">{ `Blog` }</a>{ ` / Post` }
 				</nav>
 				<h1>{ `Server response time: twenty years of change` }</h1>
 				<p class="lead">{ `The premise that justified client-side state was server latency.
 					In 2026, the latency is gone. The premise is not.` }</p>
+				<time class="blog-post-hero__date" datetime="2026-05-20">{ `20 May 2026` }</time>
 			</div>
-		</section>
+		</div>
 		<article class="blog-post">
-			<header class="blog-post__header">
-				<time datetime="2026-05-20">{ `20 May 2026` }</time>
-			</header>
 			<section>
 				<p>{ `In 2004, Gmail demonstrated something genuinely new: a web application that responded
 					to user actions without reloading the page. It felt fast because it was. The trick was

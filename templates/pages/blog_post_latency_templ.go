@@ -43,14 +43,14 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"page-hero\"><div class=\"page-hero__content\"><nav class=\"page-hero__breadcrumb\" aria-label=\"Breadcrumb\"><a href=\"/blog\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"blog-post-hero\"><div class=\"blog-post-hero__image\"><img src=\"/static/img/blog-server-response-time.jpg\" alt=\"{ `Vintage Macintosh monitor and keyboard, beige plastic yellowed with age — computing from the era when every server round-trip was perceptible.` }\" loading=\"eager\" decoding=\"async\" width=\"1600\" height=\"900\"></div><div class=\"blog-post-hero__header\"><nav class=\"page-hero__breadcrumb\" aria-label=\"Breadcrumb\"><a href=\"/blog\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(`Blog`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 10, Col: 29}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 20, Col: 29}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
@@ -63,7 +63,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			var templ_7745c5c3_Var4 string
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(` / Post`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 10, Col: 46}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 20, Col: 46}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
@@ -76,7 +76,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			var templ_7745c5c3_Var5 string
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(`Server response time: twenty years of change`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 12, Col: 56}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 22, Col: 56}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -90,26 +90,26 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(`The premise that justified client-side state was server latency.
 					In 2026, the latency is gone. The premise is not.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 14, Col: 55}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 24, Col: 55}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p></div></section><article class=\"blog-post\"><header class=\"blog-post__header\"><time datetime=\"2026-05-20\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p><time class=\"blog-post-hero__date\" datetime=\"2026-05-20\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var7 string
 			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(`20 May 2026`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 19, Col: 47}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 25, Col: 76}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</time></header><section><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</time></div></div><article class=\"blog-post\"><section><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -119,7 +119,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 					not a faster server. It was bypassing the server entirely for most interactions by holding
 					application state in the browser.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 25, Col: 39}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 33, Col: 39}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
@@ -134,7 +134,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 					that had to feel like a desktop application. Server round-trips at the time took
 					200 to 800 milliseconds on a good day. Holding state on the client eliminated the wait.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 28, Col: 93}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 36, Col: 93}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
@@ -150,7 +150,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 					Applications that do not share Gmail's interaction requirements inherited Gmail's
 					architecture anyway, along with its synchronisation problem.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 32, Col: 66}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 40, Col: 66}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
@@ -164,7 +164,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(`The generalisation was wrong. The reason it was wrong is that the infrastructure
 					constraint that justified the original decision no longer exists.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 34, Col: 71}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 42, Col: 71}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
@@ -177,7 +177,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			var templ_7745c5c3_Var12 string
 			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(`What the stack looked like in 2005`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 37, Col: 46}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 45, Col: 46}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -192,7 +192,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 					Apache 2.0, PHP 5, MySQL 4 or 5, all on the same physical machine,
 					reading from and writing to a spinning magnetic disk.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 40, Col: 59}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 48, Col: 59}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 			if templ_7745c5c3_Err != nil {
@@ -210,7 +210,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 					Total server processing for a modest page: 200 to 800 milliseconds,
 					more on a loaded shared host.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 46, Col: 35}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 54, Col: 35}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
@@ -227,7 +227,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 					round-trip for most interactions. State lived in the browser.
 					The server was consulted only when necessary.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 51, Col: 51}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 59, Col: 51}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 			if templ_7745c5c3_Err != nil {
@@ -241,7 +241,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(`This was a reasonable engineering trade-off given the constraints of 2005.
 					The constraints of 2005 are not the constraints of 2026.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 53, Col: 62}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 61, Col: 62}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 			if templ_7745c5c3_Err != nil {
@@ -254,7 +254,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			var templ_7745c5c3_Var17 string
 			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(`Twenty years of infrastructure change`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 56, Col: 49}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 64, Col: 49}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 			if templ_7745c5c3_Err != nil {
@@ -267,7 +267,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			var templ_7745c5c3_Var18 string
 			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(`Every layer of the server-side stack has changed substantially.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 57, Col: 74}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 65, Col: 74}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 			if templ_7745c5c3_Err != nil {
@@ -284,7 +284,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 					(which describes most CRUD applications), queries that previously hit disk now return
 					entirely from RAM.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 62, Col: 24}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 70, Col: 24}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
 			if templ_7745c5c3_Err != nil {
@@ -301,7 +301,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 					The computational work of parsing a request, running a query, and rendering
 					a response takes microseconds, not milliseconds.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 67, Col: 54}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 75, Col: 54}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
 			if templ_7745c5c3_Err != nil {
@@ -318,7 +318,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 					Geographic latency, which is ultimately constrained by the speed of light,
 					is now the dominant factor. Server processing time is not.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 72, Col: 64}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 80, Col: 64}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
 			if templ_7745c5c3_Err != nil {
@@ -331,7 +331,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			var templ_7745c5c3_Var22 string
 			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(`The numbers in 2026`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 75, Col: 31}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 83, Col: 31}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
 			if templ_7745c5c3_Err != nil {
@@ -345,7 +345,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(`A Go server processing a simple CRUD request against SQLite in WAL mode,
 					with a warm page cache, produces the following approximate breakdown:`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 77, Col: 75}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 85, Col: 75}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
 			if templ_7745c5c3_Err != nil {
@@ -358,7 +358,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			var templ_7745c5c3_Var24 string
 			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(`Request parsing and routing: under 0.1ms`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 79, Col: 53}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 87, Col: 53}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
 			if templ_7745c5c3_Err != nil {
@@ -371,7 +371,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			var templ_7745c5c3_Var25 string
 			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(`Session authentication from memory: under 0.05ms`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 80, Col: 61}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 88, Col: 61}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var25))
 			if templ_7745c5c3_Err != nil {
@@ -384,7 +384,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			var templ_7745c5c3_Var26 string
 			templ_7745c5c3_Var26, templ_7745c5c3_Err = templ.JoinStringErrs(`SQLite query (indexed, warm cache): 0.1 to 0.5ms`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 81, Col: 61}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 89, Col: 61}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var26))
 			if templ_7745c5c3_Err != nil {
@@ -397,7 +397,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			var templ_7745c5c3_Var27 string
 			templ_7745c5c3_Var27, templ_7745c5c3_Err = templ.JoinStringErrs(`Template render (compiled Go): 0.1 to 0.3ms`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 82, Col: 56}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 90, Col: 56}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var27))
 			if templ_7745c5c3_Err != nil {
@@ -410,7 +410,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			var templ_7745c5c3_Var28 string
 			templ_7745c5c3_Var28, templ_7745c5c3_Err = templ.JoinStringErrs(`Response serialisation and write: under 0.1ms`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 83, Col: 58}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 91, Col: 58}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var28))
 			if templ_7745c5c3_Err != nil {
@@ -424,7 +424,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			templ_7745c5c3_Var29, templ_7745c5c3_Err = templ.JoinStringErrs(`Total server processing: 1 to 5 milliseconds. Adding a typical network
 					round-trip from a user to a well-placed regional server: 15 to 80 milliseconds total.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 86, Col: 91}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 94, Col: 91}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var29))
 			if templ_7745c5c3_Err != nil {
@@ -441,7 +441,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 					to be fast is not measurably faster than a server round-trip on real hardware.
 					On low-end devices, it is slower.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 91, Col: 39}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 99, Col: 39}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var30))
 			if templ_7745c5c3_Err != nil {
@@ -454,7 +454,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			var templ_7745c5c3_Var31 string
 			templ_7745c5c3_Var31, templ_7745c5c3_Err = templ.JoinStringErrs(`Human perception thresholds`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 94, Col: 39}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 102, Col: 39}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var31))
 			if templ_7745c5c3_Err != nil {
@@ -468,7 +468,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			templ_7745c5c3_Var32, templ_7745c5c3_Err = templ.JoinStringErrs(`Jakob Nielsen's response time research, first published in 1993 and
 					consistent with subsequent work, identifies three thresholds:`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 96, Col: 67}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 104, Col: 67}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var32))
 			if templ_7745c5c3_Err != nil {
@@ -481,7 +481,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			var templ_7745c5c3_Var33 string
 			templ_7745c5c3_Var33, templ_7745c5c3_Err = templ.JoinStringErrs(`Below 100ms: the response feels instantaneous. The user perceives no delay.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 98, Col: 88}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 106, Col: 88}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var33))
 			if templ_7745c5c3_Err != nil {
@@ -494,7 +494,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			var templ_7745c5c3_Var34 string
 			templ_7745c5c3_Var34, templ_7745c5c3_Err = templ.JoinStringErrs(`100 to 1000ms: the delay is noticeable but does not interrupt the user's flow.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 99, Col: 91}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 107, Col: 91}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var34))
 			if templ_7745c5c3_Err != nil {
@@ -507,7 +507,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			var templ_7745c5c3_Var35 string
 			templ_7745c5c3_Var35, templ_7745c5c3_Err = templ.JoinStringErrs(`Above 1000ms: the user's attention shifts. Feedback is required to hold it.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 100, Col: 88}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 108, Col: 88}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var35))
 			if templ_7745c5c3_Err != nil {
@@ -524,7 +524,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 					the round-trip to exceed 100ms. Most CRUD applications on modern infrastructure
 					do not produce that latency.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 106, Col: 34}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 114, Col: 34}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var36))
 			if templ_7745c5c3_Err != nil {
@@ -537,7 +537,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			var templ_7745c5c3_Var37 string
 			templ_7745c5c3_Var37, templ_7745c5c3_Err = templ.JoinStringErrs(`What this means for how we build`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 109, Col: 44}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 117, Col: 44}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var37))
 			if templ_7745c5c3_Err != nil {
@@ -551,7 +551,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			templ_7745c5c3_Var38, templ_7745c5c3_Err = templ.JoinStringErrs(`The applications that were forced into client-side state management by
 					infrastructure constraints in 2005 can now be built correctly.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 111, Col: 68}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 119, Col: 68}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var38))
 			if templ_7745c5c3_Err != nil {
@@ -567,7 +567,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 					is appended to an audit log, and returns an updated view. The browser holds
 					nothing between requests.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 115, Col: 31}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 123, Col: 31}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var39))
 			if templ_7745c5c3_Err != nil {
@@ -584,7 +584,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 					Append-only event logs provide durability and auditability by construction.
 					Edge deployment places the server close to the user.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 120, Col: 58}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 128, Col: 58}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var40))
 			if templ_7745c5c3_Err != nil {
@@ -601,7 +601,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 					actually require. Not because server-side rendering is slow and we are
 					accepting the trade-off. Because it is not slow.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 125, Col: 54}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 133, Col: 54}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var41))
 			if templ_7745c5c3_Err != nil {
@@ -616,7 +616,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 						applications expired somewhere around 2015. The pattern outlived it
 						by a decade.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 129, Col: 19}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 137, Col: 19}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var42))
 			if templ_7745c5c3_Err != nil {
@@ -629,7 +629,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			var templ_7745c5c3_Var43 string
 			templ_7745c5c3_Var43, templ_7745c5c3_Err = templ.JoinStringErrs(`The constraint that remains`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 133, Col: 39}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 141, Col: 39}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var43))
 			if templ_7745c5c3_Err != nil {
@@ -646,7 +646,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 					experience 250 to 350ms of latency regardless of how fast the server processes
 					the request.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 138, Col: 18}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 146, Col: 18}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var44))
 			if templ_7745c5c3_Err != nil {
@@ -662,7 +662,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 					platforms deploy server-side logic globally. The geographic latency constraint
 					is now an infrastructure decision, not an architectural one.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 142, Col: 66}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 150, Col: 66}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var45))
 			if templ_7745c5c3_Err != nil {
@@ -679,7 +679,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 					unchanged. What has changed is the scope of applications for which
 					the server is fast enough.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 147, Col: 32}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 155, Col: 32}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var46))
 			if templ_7745c5c3_Err != nil {
@@ -695,7 +695,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 					fast enough. It has been for at least a decade. The architectural consequences
 					of that fact are still being absorbed.`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 151, Col: 44}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 159, Col: 44}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var47))
 			if templ_7745c5c3_Err != nil {
@@ -708,7 +708,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			var templ_7745c5c3_Var48 string
 			templ_7745c5c3_Var48, templ_7745c5c3_Err = templ.JoinStringErrs(`Read the full argument`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 152, Col: 48}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 160, Col: 48}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var48))
 			if templ_7745c5c3_Err != nil {
