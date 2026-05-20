@@ -76,6 +76,48 @@ templ Why(csrfToken string) {
 					state to tamper with because there is no client-side state.` }</p>
 			</section>
 			<section>
+				<h2>The security record</h2>
+				<p>{ `The theoretical risk has a documented record. Between 2024 and 2026, the major
+					frontend frameworks accumulated a consistent pattern of critical vulnerabilities,
+					each traceable to the same architectural decisions that introduced client state
+					and the infrastructure required to manage it.` }</p>
+				<p>{ `Next.js middleware is the standard pattern for protecting routes: authentication,
+					authorisation, and CSP headers all run there. In March 2025, a single HTTP header
+					(x-middleware-subrequest) bypassed it entirely. CVE-2025-29927, rated 9.1 critical,
+					gave unauthenticated access to every route the middleware was supposed to protect.
+					The vulnerability existed because the Edge Runtime separates security logic from
+					route handlers by design. The pattern the framework promoted was the attack surface.` }</p>
+				<p>{ `React Server Components introduced a custom binary serialisation protocol for
+					streaming server-rendered output. That protocol, parsed server-side without
+					sufficient input validation, produced CVE-2025-55182: unauthenticated remote code
+					execution via a single malformed HTTP request. Maximum CVSS score of 10.0.
+					State-linked threat actors exploited it within hours of disclosure. LexisNexis
+					failed to patch for three months and lost 3.9 million records, 53 plaintext
+					cloud credentials, and federal personnel data.` }</p>
+				<p>{ `The hydration boundary is a persistent XSS vector across every framework that
+					uses it. Server state must be serialised into inline HTML so the client can
+					reconstruct it. Data crossing that boundary without aggressive escaping produces
+					exploitable XSS. React Query (CVE-2024-24558), React Router (CVE-2025-43865),
+					Angular (CVE-2026-32635), and Nuxt (CVE-2024-34343) all demonstrated this.
+					Angular's automatic template sanitisation, widely considered the strongest of
+					any major framework, was bypassed when its i18n and security subsystems interacted.` }</p>
+				<p>{ `Supply chain attacks completed the picture. The Shai-Hulud self-replicating npm
+					worm, active from September 2025 through 2026, compromised packages across all
+					three major framework ecosystems: React, Angular (ngx-bootstrap, ngx-toastr),
+					and Vue (AntV). The Axios package, 70 million weekly downloads, was compromised
+					by a North Korean state actor for three hours in March 2026. Polyfill.io, a CDN
+					loaded by 384,000 sites, was sold to a threat actor who served malicious JavaScript
+					conditionally to avoid detection. The average framework application carries
+					1,000 to 2,000 transitive npm dependencies. Each is a potential vector.` }</p>
+				<p>{ `Under SAUI, these attack classes do not apply. There is no hydration boundary
+					because there is no client state to hydrate. There is no middleware security gate
+					because authorisation runs inside the request handler, not in a separate runtime.
+					There is no custom serialisation protocol because the server renders HTML directly.
+					There are no npm dependencies because htmx ships as a single vendored file and
+					the remainder of the stack is Go standard library. These are not mitigations.
+					They are the result of not having the architectural layers that produced the vulnerabilities.` }</p>
+			</section>
+			<section>
 				<h2>What this is not</h2>
 				<p>{ `This is not an argument that SPAs are bad, that React is wrong, or that JavaScript
 					should be avoided. It is an argument about scope. The SPA pattern is appropriate
