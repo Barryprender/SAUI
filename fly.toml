@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for saui-cool-moonbeam-7375 on 2026-05-20T19:51:28+02:00
+# fly.toml app configuration file for saui
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'saui-cool-moonbeam-7375'
+app = 'saui'
 primary_region = 'lhr'
 
 [build]
