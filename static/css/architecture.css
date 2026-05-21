@@ -149,6 +149,12 @@
 
   @media (width < 600px) {
     .dia-annot { display: none; }
+    .arch-diagram-section { padding-block: var(--sp-6); }
+    .arch-diagram { overflow: hidden; }
+    .arch-diagram svg {
+      inline-size: 250%;
+      margin-inline-start: -75%;
+    }
   }
 
   /* ----------------------------------------------------------
