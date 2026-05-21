@@ -2,13 +2,33 @@ package layout
 
 import "strings"
 
-templ Base(title string, csrfToken string, currentPath string, pageCSS string) {
+templ Base(title string, description string, csrfToken string, currentPath string, pageCSS string) {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
 			<meta charset="UTF-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 			<title>{ title } — SAUI</title>
+			<meta name="description" content={ description }/>
+			<meta name="robots" content="index, follow"/>
+			<meta name="author" content="SAUI"/>
+			<meta name="keywords" content="server-authoritative UI, SAUI, server-side rendering, htmx, Go, SQLite, web architecture, secure web applications"/>
+			<meta name="theme-color" content="#1a2d4a"/>
+			<meta name="application-name" content="SAUI"/>
+			<link rel="canonical" href={ "https://saui.fly.dev" + currentPath }/>
+			<meta property="og:type" content="website"/>
+			<meta property="og:site_name" content="SAUI"/>
+			<meta property="og:title" content={ title + " — SAUI" }/>
+			<meta property="og:description" content={ description }/>
+			<meta property="og:url" content={ "https://saui.fly.dev" + currentPath }/>
+			<meta property="og:locale" content="en_US"/>
+			<meta name="twitter:card" content="summary"/>
+			<meta name="twitter:site" content="@saui_dev"/>
+			<meta name="twitter:title" content={ title + " — SAUI" }/>
+			<meta name="twitter:description" content={ description }/>
+			<script type="application/ld+json">
+				{"@context":"https://schema.org","@type":"WebSite","name":"SAUI","url":"https://saui.fly.dev","description":"Server-Authoritative UI — a framework for secure, predictable web applications where the server owns all state.","potentialAction":{"@type":"SearchAction","target":"https://saui.fly.dev/search?q={search_term_string}","query-input":"required name=search_term_string"}}
+			</script>
 			<link rel="preconnect" href="https://fonts.googleapis.com"/>
 			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 			<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Fraunces:opsz,wght@9..144,700&display=swap" rel="stylesheet"/>
