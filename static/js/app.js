@@ -6,6 +6,44 @@ document.body.addEventListener('htmx:configRequest', (e) => {
   }
 });
 
+// Mobile nav overlay
+const mobileNav = document.getElementById('mobile-nav');
+const navToggle = document.querySelector('.nav-toggle');
+
+if (mobileNav && navToggle) {
+  const navClose = mobileNav.querySelector('.mobile-nav__close');
+
+  const openNav = () => {
+    mobileNav.showModal();
+    navToggle.setAttribute('aria-expanded', 'true');
+  };
+
+  const closeNav = () => {
+    mobileNav.classList.add('is-closing');
+    mobileNav.addEventListener('transitionend', () => {
+      mobileNav.close();
+      mobileNav.classList.remove('is-closing');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.focus();
+    }, { once: true });
+  };
+
+  navToggle.addEventListener('click', openNav);
+  navClose?.addEventListener('click', closeNav);
+
+  mobileNav.addEventListener('cancel', (e) => {
+    e.preventDefault();
+    closeNav();
+  });
+
+  window.addEventListener('resize', () => {
+    if (mobileNav.open && window.matchMedia('(width >= 800px)').matches) {
+      mobileNav.close();
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
 // Zoom arch diagram into the node column on mobile by swapping viewBox.
 const archSvg = document.querySelector('.arch-diagram svg');
 if (archSvg) {
