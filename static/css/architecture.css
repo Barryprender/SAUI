@@ -153,7 +153,7 @@
     .arch-diagram { overflow: hidden; }
     .arch-diagram svg {
       inline-size: 250%;
-      margin-inline-start: -75%;
+      transform: translateX(-30%);
     }
   }
 
