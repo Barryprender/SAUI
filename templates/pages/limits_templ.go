@@ -258,7 +258,7 @@ func Limits(csrfToken string) templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = layout.Base("Limits", csrfToken, "/limits", "/static/css/limits.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layout.Base("Limits", "Where SAUI works and where it does not. Latency-sensitive UIs, offline-first apps, and the honest tradeoffs you need to know.", csrfToken, "/limits", "/static/css/limits.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

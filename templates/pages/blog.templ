@@ -3,7 +3,7 @@ package pages
 import "saui/templates/layout"
 
 templ Blog(csrfToken string) {
-	@layout.Base("Blog", csrfToken, "/blog", "/static/css/blog.css") {
+	@layout.Base("Blog", "The SAUI blog: writing on server-authoritative UI, web architecture, security, and the history of how the web got here.", csrfToken, "/blog", "/static/css/blog.css") {
 		<section class="page-hero">
 			<div class="page-hero__content">
 				<h1>Blog</h1>

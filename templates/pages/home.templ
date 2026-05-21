@@ -3,7 +3,7 @@ package pages
 import "saui/templates/layout"
 
 templ Home(csrfToken string) {
-	@layout.Base("Server-Authoritative UI", csrfToken, "/", "/static/css/home.css") {
+	@layout.Base("Server-Authoritative UI", "SAUI is a web architecture where the server owns all state. No client-side state management. Security and correctness as structural properties, not layers added on top.", csrfToken, "/", "/static/css/home.css") {
 		<article class="home-hero">
 			<section class="hero">
 				<svg class="hero-bg" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">

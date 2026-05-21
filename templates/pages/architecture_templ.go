@@ -1238,7 +1238,7 @@ gateway.Dispatch(ctx, sessionID, action)`)
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = layout.Base("Architecture", csrfToken, "/architecture", "/static/css/architecture.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layout.Base("Architecture", "The SAUI request lifecycle: browser submits intent, gateway authenticates and applies, event log records truth, server projects HTML back to the browser.", csrfToken, "/architecture", "/static/css/architecture.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

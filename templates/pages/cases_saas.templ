@@ -3,7 +3,7 @@ package pages
 import "saui/templates/layout"
 
 templ CaseSaaS(csrfToken string) {
-	@layout.Base("Case Study: SaaS Dashboards", csrfToken, "/cases", "/static/css/cases-saas.css") {
+	@layout.Base("Case Study: SaaS Dashboards", "SAUI for multi-tenant SaaS: server-authoritative state eliminates cross-tenant state leaks and removes client-side synchronisation complexity.", csrfToken, "/cases/saas-dashboard", "/static/css/cases-saas.css") {
 		<section class="page-hero">
 			<div class="page-hero__content">
 				<nav class="page-hero__breadcrumb" aria-label="Breadcrumb">

@@ -249,7 +249,7 @@ func CaseMFE(csrfToken string) templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = layout.Base("Case Study: Micro Frontends", csrfToken, "/cases", "/static/css/cases-mfe.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layout.Base("Case Study: Micro Frontends", "SAUI and micro-frontends: server-authoritative state unifies independently deployed frontend modules without cross-team state sharing protocols.", csrfToken, "/cases/micro-frontends", "/static/css/cases-mfe.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -256,7 +256,7 @@ func CaseHealthcare(csrfToken string) templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = layout.Base("Case Study: Healthcare Booking", csrfToken, "/cases", "/static/css/cases-healthcare.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layout.Base("Case Study: Healthcare Booking", "SAUI in healthcare: compliant patient state management with server-projected UI, no PHI stored in the browser between requests.", csrfToken, "/cases/healthcare", "/static/css/cases-healthcare.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

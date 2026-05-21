@@ -3,7 +3,7 @@ package pages
 import "saui/templates/layout"
 
 templ Why(csrfToken string) {
-	@layout.Base("Why SAUI", csrfToken, "/why", "/static/css/why.css") {
+	@layout.Base("Why SAUI", "Why server-authoritative UI? Security by construction, predictable behaviour, and no client-side state to defend or synchronise.", csrfToken, "/why", "/static/css/why.css") {
 		<section class="page-hero">
 			<div class="page-hero__content">
 				<h1>Why</h1>

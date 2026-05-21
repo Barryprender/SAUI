@@ -3,7 +3,7 @@ package pages
 import "saui/templates/layout"
 
 templ Architecture(csrfToken string) {
-	@layout.Base("Architecture", csrfToken, "/architecture", "/static/css/architecture.css") {
+	@layout.Base("Architecture", "The SAUI request lifecycle: browser submits intent, gateway authenticates and applies, event log records truth, server projects HTML back to the browser.", csrfToken, "/architecture", "/static/css/architecture.css") {
 		<section class="page-hero">
 			<div class="page-hero__content">
 				<h1>Architecture</h1>

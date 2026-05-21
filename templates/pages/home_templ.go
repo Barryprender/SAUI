@@ -194,7 +194,7 @@ func Home(csrfToken string) templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = layout.Base("Server-Authoritative UI", csrfToken, "/", "/static/css/home.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layout.Base("Server-Authoritative UI", "SAUI is a web architecture where the server owns all state. No client-side state management. Security and correctness as structural properties, not layers added on top.", csrfToken, "/", "/static/css/home.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

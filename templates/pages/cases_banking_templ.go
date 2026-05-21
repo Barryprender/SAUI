@@ -271,7 +271,7 @@ func CaseBanking(csrfToken string) templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = layout.Base("Case Study: Banking", csrfToken, "/cases", "/static/css/cases-banking.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layout.Base("Case Study: Banking", "SAUI in banking: server-authoritative state makes financial operations auditable by construction, with no client-side balance or transaction logic.", csrfToken, "/cases/banking", "/static/css/cases-banking.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

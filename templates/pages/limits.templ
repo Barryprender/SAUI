@@ -3,7 +3,7 @@ package pages
 import "saui/templates/layout"
 
 templ Limits(csrfToken string) {
-	@layout.Base("Limits", csrfToken, "/limits", "/static/css/limits.css") {
+	@layout.Base("Limits", "Where SAUI works and where it does not. Latency-sensitive UIs, offline-first apps, and the honest tradeoffs you need to know.", csrfToken, "/limits", "/static/css/limits.css") {
 		<section class="page-hero">
 			<div class="page-hero__content">
 				<h1>Limits</h1>

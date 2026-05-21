@@ -222,7 +222,7 @@ go run .
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = layout.Base("Code", csrfToken, "/code", "/static/css/code.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layout.Base("Code", "The SAUI reference implementation in Go. Read the source, understand the architecture, and apply the pattern to your own projects.", csrfToken, "/code", "/static/css/code.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

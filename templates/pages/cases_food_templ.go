@@ -314,7 +314,7 @@ func CaseFoodOrdering(csrfToken string) templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = layout.Base("Case Study: Food Ordering", csrfToken, "/cases", "/static/css/cases-food.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layout.Base("Case Study: Food Ordering", "How SAUI handles a food ordering system: server-owned order state, real-time updates via HTML projection, and no client-side cart logic.", csrfToken, "/cases/food-ordering", "/static/css/cases-food.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

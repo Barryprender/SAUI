@@ -3,7 +3,7 @@ package pages
 import "saui/templates/layout"
 
 templ BlogPostServerResponseTime(csrfToken string) {
-	@layout.Base("Server response time: twenty years of change", csrfToken, "/blog/server-response-time", "/static/css/blog.css") {
+	@layout.Base("Server response time: twenty years of change", "A brief history of server response time: from static file servers to server-authoritative UI, and why latency shapes architecture decisions.", csrfToken, "/blog/server-response-time", "/static/css/blog.css") {
 		<div class="blog-post-hero">
 			<div class="blog-post-hero__image">
 				<img

@@ -334,7 +334,7 @@ func CaseSaaS(csrfToken string) templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = layout.Base("Case Study: SaaS Dashboards", csrfToken, "/cases", "/static/css/cases-saas.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layout.Base("Case Study: SaaS Dashboards", "SAUI for multi-tenant SaaS: server-authoritative state eliminates cross-tenant state leaks and removes client-side synchronisation complexity.", csrfToken, "/cases/saas-dashboard", "/static/css/cases-saas.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

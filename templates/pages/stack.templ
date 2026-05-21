@@ -3,7 +3,7 @@ package pages
 import "saui/templates/layout"
 
 templ Stack(csrfToken string) {
-	@layout.Base("Stack", csrfToken, "/stack", "/static/css/stack.css") {
+	@layout.Base("Stack", "The SAUI technology stack: Go, SQLite, htmx, and templ. No JavaScript framework, no ORM, no message queue. Boring technology, reliable results.", csrfToken, "/stack", "/static/css/stack.css") {
 		<section class="page-hero">
 			<div class="page-hero__content">
 				<h1>Stack</h1>

@@ -3,7 +3,7 @@ package pages
 import "saui/templates/layout"
 
 templ Testing(csrfToken string) {
-	@layout.Base("Testing", csrfToken, "/testing", "/static/css/testing.css") {
+	@layout.Base("Testing", "Testing SAUI applications: integration tests against real state stores, not mocks. No mock-to-production divergence, no false confidence.", csrfToken, "/testing", "/static/css/testing.css") {
 		<section class="page-hero">
 			<div class="page-hero__content">
 				<h1>Testing</h1>

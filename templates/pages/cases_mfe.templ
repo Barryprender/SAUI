@@ -3,7 +3,7 @@ package pages
 import "saui/templates/layout"
 
 templ CaseMFE(csrfToken string) {
-	@layout.Base("Case Study: Micro Frontends", csrfToken, "/cases", "/static/css/cases-mfe.css") {
+	@layout.Base("Case Study: Micro Frontends", "SAUI and micro-frontends: server-authoritative state unifies independently deployed frontend modules without cross-team state sharing protocols.", csrfToken, "/cases/micro-frontends", "/static/css/cases-mfe.css") {
 		<section class="page-hero">
 			<div class="page-hero__content">
 				<nav class="page-hero__breadcrumb" aria-label="Breadcrumb">

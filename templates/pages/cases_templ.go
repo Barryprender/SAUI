@@ -374,7 +374,7 @@ func Cases(csrfToken string) templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = layout.Base("Case Studies", csrfToken, "/cases", "/static/css/cases.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layout.Base("Case Studies", "SAUI applied to real domains: food ordering, banking, healthcare, SaaS dashboards, distributed systems, and micro-frontends.", csrfToken, "/cases", "/static/css/cases.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

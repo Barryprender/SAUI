@@ -101,7 +101,7 @@ func Blog(csrfToken string) templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = layout.Base("Blog", csrfToken, "/blog", "/static/css/blog.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layout.Base("Blog", "The SAUI blog: writing on server-authoritative UI, web architecture, security, and the history of how the web got here.", csrfToken, "/blog", "/static/css/blog.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -720,7 +720,7 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = layout.Base("Server response time: twenty years of change", csrfToken, "/blog/server-response-time", "/static/css/blog.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layout.Base("Server response time: twenty years of change", "A brief history of server response time: from static file servers to server-authoritative UI, and why latency shapes architecture decisions.", csrfToken, "/blog/server-response-time", "/static/css/blog.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
