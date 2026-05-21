@@ -6,6 +6,15 @@ document.body.addEventListener('htmx:configRequest', (e) => {
   }
 });
 
+// Zoom arch diagram into the node column on mobile by swapping viewBox.
+const archSvg = document.querySelector('.arch-diagram svg');
+if (archSvg) {
+  const mq = window.matchMedia('(width < 600px)');
+  const apply = (e) => archSvg.setAttribute('viewBox', e.matches ? '250 0 360 760' : '0 0 860 760');
+  mq.addEventListener('change', apply);
+  apply(mq);
+}
+
 // Mark the active step button after the arch step detail panel updates.
 document.body.addEventListener('htmx:afterSwap', (e) => {
   if (e.target.id !== 'arch-step-detail') return;
