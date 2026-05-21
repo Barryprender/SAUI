@@ -8,9 +8,12 @@ package pages
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-import "saui/templates/layout"
+import (
+	"saui/locale"
+	"saui/templates/layout"
+)
 
-func Why(csrfToken string) templ.Component {
+func Why(csrfToken string, lang locale.Lang) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -43,60 +46,68 @@ func Why(csrfToken string) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"page-hero\"><div class=\"page-hero__content\"><h1>Why</h1><p class=\"lead\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"page-hero\"><div class=\"page-hero__content\"><h1>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
-			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(`The SPA era solved real problems. The mistake was applying that architecture universally.`)
+			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Why", "Por qué"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 10, Col: 113}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 22, Col: 35}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</p></div></section><article class=\"why-page\"><section><h2>What SPAs got right</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</h1><p class=\"lead\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var4 string
-			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(`In 2013, Gmail and Google Maps genuinely required client-side state. A mail client
-					that reloaded the page on every action was unusable. A mapping tool that lost your
-					position on every interaction was broken. The SPA pattern solved a real problem
-					for a specific class of application: one where the interaction model is fundamentally
-					stateful and the latency of a server round-trip is the dominant UX constraint.`)
+			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				"The SPA era solved real problems. The mistake was applying that architecture universally.",
+				"La era SPA resolvió problemas reales. El error fue aplicar esa arquitectura universalmente.",
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 20, Col: 84}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 26, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p></div></section><article class=\"why-page\"><section><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var5 string
-			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(`That class of application still exists and the SPA pattern remains correct for it.`)
+			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("What SPAs got right", "Qué acertaron las SPA"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 21, Col: 93}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 31, Col: 65}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</p></section><section><h2>The universalisation mistake</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var6 string
-			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(`The error was treating the SPA architecture as the correct default for web development,
-					regardless of whether the application shared any of the requirements that justified
-					it. Food ordering apps. Banking dashboards. Healthcare booking systems. CMS tools.
-					Internal admin panels.`)
+			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`In 2013, Gmail and Google Maps genuinely required client-side state. A mail client
+					that reloaded the page on every action was unusable. A mapping tool that lost your
+					position on every interaction was broken. The SPA pattern solved a real problem
+					for a specific class of application: one where the interaction model is fundamentally
+					stateful and the latency of a server round-trip is the dominant UX constraint.`,
+				`En 2013, Gmail y Google Maps realmente requerían estado en el cliente. Un cliente de correo
+					que recargaba la página en cada acción era inutilizable. Una herramienta de mapas que perdía
+					tu posición en cada interacción estaba rota. El patrón SPA resolvió un problema real
+					para una clase específica de aplicación: aquella donde el modelo de interacción es
+					fundamentalmente con estado y la latencia de un viaje de ida y vuelta al servidor es
+					la restricción dominante de la experiencia de usuario.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 28, Col: 28}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 44, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -107,287 +118,643 @@ func Why(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var7 string
-			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(`None of these applications require the interaction model of Gmail. All of them were
-					built as if they did.`)
+			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				"That class of application still exists and the SPA pattern remains correct for it.",
+				"Esa clase de aplicación sigue existiendo y el patrón SPA sigue siendo correcto para ella.",
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 30, Col: 27}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 48, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</p></section><section id=\"compounding-cost\"><h2>The compounding cost</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</p></section><section><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var8 string
-			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(`When client-side state is the default, a synchronisation problem is introduced that
-					did not previously exist: keeping the client copy of state consistent with the
-					server copy. Solving that problem has generated entire engineering disciplines.`)
+			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The universalisation mistake", "El error de la universalización"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 36, Col: 85}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 51, Col: 84}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</p><ul><li><strong>State management libraries.</strong> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var9 string
-			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(` Redux, Zustand, Jotai, MobX, Recoil. Each exists to manage complexity
-						that originates from the client holding state.`)
+			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`The error was treating the SPA architecture as the correct default for web development,
+					regardless of whether the application shared any of the requirements that justified
+					it. Food ordering apps. Banking dashboards. Healthcare booking systems. CMS tools.
+					Internal admin panels.`,
+				`El error fue tratar la arquitectura SPA como el valor predeterminado correcto para el
+					desarrollo web, independientemente de si la aplicación compartía alguno de los requisitos
+					que la justificaban. Aplicaciones de pedido de comida. Paneles de banca.
+					Sistemas de reserva sanitaria. Herramientas CMS. Paneles de administración internos.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 41, Col: 53}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 61, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</li><li><strong>Cache invalidation.</strong> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var10 string
-			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(` React Query, SWR, Apollo. Libraries dedicated to the problem of knowing
-						when the client data is stale.`)
+			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				"None of these applications require the interaction model of Gmail. All of them were built as if they did.",
+				"Ninguna de estas aplicaciones requiere el modelo de interacción de Gmail. Todas fueron construidas como si lo hicieran.",
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 46, Col: 37}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 65, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</li><li><strong>Optimistic updates.</strong> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</p></section><section id=\"compounding-cost\"><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var11 string
-			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(` Showing the user a predicted outcome before the server confirms it.
-						When the server disagrees, reconciliation is required.`)
+			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The compounding cost", "El coste acumulado"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 51, Col: 61}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 68, Col: 62}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</li><li><strong>Hydration.</strong> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var12 string
-			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(` The server renders HTML, the client re-renders the same HTML in JavaScript,
-						then merges the two. A problem that only exists because the client needs to
-						take ownership of the DOM.`)
+			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`When client-side state is the default, a synchronisation problem is introduced that
+					did not previously exist: keeping the client copy of state consistent with the
+					server copy. Solving that problem has generated entire engineering disciplines.`,
+				`Cuando el estado del lado del cliente es el valor predeterminado, se introduce un problema
+					de sincronización que antes no existía: mantener la copia del estado del cliente consistente
+					con la copia del servidor. Resolver ese problema ha generado disciplinas de ingeniería enteras.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 57, Col: 33}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 76, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</li><li><strong>Build toolchains.</strong> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</p><ul><li><strong>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var13 string
-			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(` Webpack, Vite, esbuild, Turbopack. Compilers, bundlers, and tree-shakers
-						for a language that runs natively in the browser.`)
+			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("State management libraries.", "Bibliotecas de gestión de estado."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 62, Col: 56}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 79, Col: 91}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</li></ul><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</strong> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var14 string
-			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(`These are not solutions to product problems. They are solutions to the synchronisation
-					problem. They would not exist if the client did not hold state.`)
+			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				` Redux, Zustand, Jotai, MobX, Recoil. Each exists to manage complexity
+							that originates from the client holding state.`,
+				` Redux, Zustand, Jotai, MobX, Recoil. Cada una existe para gestionar la complejidad
+							que se origina al mantener estado en el cliente.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 66, Col: 69}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 85, Col: 7}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</p></section><section><h2>The security consequence</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</li><li><strong>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var15 string
-			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(`When state lives on the client, the client can tamper with it. The classic
-					"isAdmin: true" attack is not a developer error. It is a structural consequence
-					of the architecture. If the client holds a representation of the user permissions,
-					the client can modify that representation.`)
+			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Cache invalidation.", "Invalidación de caché."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 73, Col: 48}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 88, Col: 73}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</strong> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var16 string
-			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(`Server-side validation is often added as a second layer, but the client-side
-					representation persists as an attack surface. Under SAUI, there is no client-side
-					state to tamper with because there is no client-side state.`)
+			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				` React Query, SWR, Apollo. Libraries dedicated to the problem of knowing
+							when the client data is stale.`,
+				` React Query, SWR, Apollo. Bibliotecas dedicadas al problema de saber
+							cuándo los datos del cliente están obsoletos.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 76, Col: 65}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 94, Col: 7}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</p></section><section id=\"security-record\"><h2>The security record</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</li><li><strong>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var17 string
-			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(`Between 2024 and 2026, the major frontend frameworks produced a consistent
-					pattern of critical vulnerabilities. Each traces back to the same architectural
-					layers that client-side state requires.`)
+			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Optimistic updates.", "Actualizaciones optimistas."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 82, Col: 45}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 97, Col: 76}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</p><ul><li><strong>Middleware bypass.</strong> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</strong> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var18 string
-			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(` Next.js middleware is the standard pattern for route protection: authentication,
-						authorisation, CSP headers. In March 2025, a single HTTP header bypassed it entirely.
-						CVE-2025-29927, CVSS 9.1, gave unauthenticated access to every protected route.
-						The vulnerability existed because the Edge Runtime separates security logic from
-						route handlers by design. The pattern the framework promoted was the attack surface.`)
+			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				` Showing the user a predicted outcome before the server confirms it.
+							When the server disagrees, reconciliation is required.`,
+				` Mostrar al usuario un resultado previsto antes de que el servidor lo confirme.
+							Cuando el servidor no está de acuerdo, se requiere reconciliación.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 90, Col: 91}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 103, Col: 7}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</li><li><strong>Serialisation as attack surface.</strong> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</li><li><strong>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var19 string
-			templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(` React Server Components introduced a custom binary protocol for streaming
-						server-rendered output. Parsed server-side without sufficient validation, it produced
-						CVE-2025-55182: unauthenticated remote code execution via a single malformed request.
-						CVSS 10.0. Exploited within hours of disclosure. LexisNexis failed to patch for
-						three months and lost 3.9 million records and 53 plaintext cloud credentials.`)
+			templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Hydration.", "Hidratación."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 98, Col: 84}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 106, Col: 53}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "</li><li><strong>The hydration boundary.</strong> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "</strong> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var20 string
-			templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(` Server state serialised into inline HTML so the client can reconstruct it is a
-						persistent XSS vector. React Query (CVE-2024-24558), React Router (CVE-2025-43865),
-						Angular (CVE-2026-32635), and Nuxt (CVE-2024-34343) all demonstrated this.
-						Angular's automatic sanitisation, considered the strongest of any major framework,
-						was bypassed when its i18n and security subsystems interacted.`)
+			templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				` The server renders HTML, the client re-renders the same HTML in JavaScript,
+							then merges the two. A problem that only exists because the client needs to
+							take ownership of the DOM.`,
+				` El servidor renderiza HTML, el cliente re-renderiza el mismo HTML en JavaScript
+							y luego fusiona los dos. Un problema que solo existe porque el cliente necesita
+							tomar propiedad del DOM.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 106, Col: 69}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 114, Col: 7}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "</li><li><strong>Supply chain.</strong> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "</li><li><strong>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var21 string
-			templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(` The Shai-Hulud self-replicating npm worm compromised packages across React,
-						Angular, and Vue ecosystems from September 2025 through 2026. Axios, 70 million
-						weekly downloads, was compromised by a North Korean state actor for three hours in
-						March 2026. Polyfill.io, loaded by 384,000 sites, was sold to a threat actor.
-						The average framework application carries 1,000 to 2,000 transitive npm dependencies.
-						Each is a potential vector.`)
+			templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Build toolchains.", "Cadenas de herramientas de compilación."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 115, Col: 34}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 117, Col: 87}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</li></ul><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</strong> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var22 string
-			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(`Under SAUI, these attack classes do not apply by construction. There is no
-					hydration boundary: the server renders HTML and sends it. There is no middleware
-					security gate: authorisation runs inside the request handler. There is no custom
-					serialisation protocol. There are no npm dependencies: htmx is a single vendored
-					file and the rest of the stack is Go standard library. These are not mitigations.
-					They are the result of not having the architectural layers that produced the vulnerabilities.`)
+			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				` Webpack, Vite, esbuild, Turbopack. Compilers, bundlers, and tree-shakers
+							for a language that runs natively in the browser.`,
+				` Webpack, Vite, esbuild, Turbopack. Compiladores, empaquetadores y eliminadores
+							de árboles para un lenguaje que se ejecuta de forma nativa en el navegador.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 123, Col: 99}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 123, Col: 7}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "</p></section><section><h2>What this is not</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "</li></ul><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var23 string
-			templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(`This is not an argument that SPAs are bad, that React is wrong, or that JavaScript
-					should be avoided. It is an argument about scope. The SPA pattern is appropriate
-					for applications that share the requirements that justified it. Most applications
-					do not.`)
+			templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				"These are not solutions to product problems. They are solutions to the synchronisation problem. They would not exist if the client did not hold state.",
+				"Estas no son soluciones a problemas de producto. Son soluciones al problema de sincronización. No existirían si el cliente no mantuviera estado.",
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 130, Col: 13}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 129, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "</p></section><section><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var24 string
-			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(`SAUI is the web's original model (server renders truth, browser displays it)
-					re-expressed with modern tooling that removes the historical limitations that made
-					SPAs appealing. Slow servers are fast now. Partial page updates are available
-					without a JS framework. Progressive enhancement is achievable without a build step.`)
+			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The security consequence", "La consecuencia de seguridad"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 134, Col: 89}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 132, Col: 76}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "</p><p><a href=\"/architecture\">See how the architecture works</a></p></section></article>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "</h2><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var25 string
+			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`When state lives on the client, the client can tamper with it. The classic
+					"isAdmin: true" attack is not a developer error. It is a structural consequence
+					of the architecture. If the client holds a representation of the user permissions,
+					the client can modify that representation.`,
+				`Cuando el estado vive en el cliente, el cliente puede manipularlo. El clásico
+					ataque "isAdmin: true" no es un error del desarrollador. Es una consecuencia estructural
+					de la arquitectura. Si el cliente mantiene una representación de los permisos del usuario,
+					el cliente puede modificar esa representación.`,
+			))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 142, Col: 5}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var25))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "</p><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var26 string
+			templ_7745c5c3_Var26, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`Server-side validation is often added as a second layer, but the client-side
+					representation persists as an attack surface. Under SAUI, there is no client-side
+					state to tamper with because there is no client-side state.`,
+				`La validación del lado del servidor se añade a menudo como segunda capa, pero la
+					representación del lado del cliente persiste como superficie de ataque. Bajo SAUI,
+					no hay estado del lado del cliente que manipular porque no hay estado del lado del cliente.`,
+			))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 150, Col: 5}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var26))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "</p></section><section id=\"security-record\"><h2>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var27 string
+			templ_7745c5c3_Var27, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The security record", "El historial de seguridad"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 153, Col: 68}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var27))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "</h2><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var28 string
+			templ_7745c5c3_Var28, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`Between 2024 and 2026, the major frontend frameworks produced a consistent
+					pattern of critical vulnerabilities. Each traces back to the same architectural
+					layers that client-side state requires.`,
+				`Entre 2024 y 2026, los principales frameworks frontend produjeron un patrón consistente
+					de vulnerabilidades críticas. Cada una se remonta a las mismas capas arquitectónicas
+					que requiere el estado del lado del cliente.`,
+			))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 161, Col: 5}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var28))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "</p><ul><li><strong>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var29 string
+			templ_7745c5c3_Var29, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Middleware bypass.", "Evasión de middleware."))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 164, Col: 71}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var29))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 28, "</strong> ")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var30 string
+			templ_7745c5c3_Var30, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				` Next.js middleware is the standard pattern for route protection: authentication,
+							authorisation, CSP headers. In March 2025, a single HTTP header bypassed it entirely.
+							CVE-2025-29927, CVSS 9.1, gave unauthenticated access to every protected route.
+							The vulnerability existed because the Edge Runtime separates security logic from
+							route handlers by design. The pattern the framework promoted was the attack surface.`,
+				` El middleware de Next.js es el patrón estándar para la protección de rutas:
+							autenticación, autorización, cabeceras CSP. En marzo de 2025, una única cabecera
+							HTTP lo eludió completamente. CVE-2025-29927, CVSS 9.1, dio acceso no autenticado
+							a todas las rutas protegidas. La vulnerabilidad existía porque el Edge Runtime
+							separa la lógica de seguridad de los manejadores de ruta por diseño. El patrón
+							que el framework promovía era la superficie de ataque.`,
+			))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 177, Col: 7}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var30))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 29, "</li><li><strong>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var31 string
+			templ_7745c5c3_Var31, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Serialisation as attack surface.", "Serialización como superficie de ataque."))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 180, Col: 103}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var31))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 30, "</strong> ")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var32 string
+			templ_7745c5c3_Var32, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				` React Server Components introduced a custom binary protocol for streaming
+							server-rendered output. Parsed server-side without sufficient validation, it produced
+							CVE-2025-55182: unauthenticated remote code execution via a single malformed request.
+							CVSS 10.0. Exploited within hours of disclosure. LexisNexis failed to patch for
+							three months and lost 3.9 million records and 53 plaintext cloud credentials.`,
+				` React Server Components introdujo un protocolo binario personalizado para transmitir
+							la salida renderizada por el servidor. Analizado en el lado del servidor sin suficiente
+							validación, produjo CVE-2025-55182: ejecución remota de código no autenticada mediante
+							una única petición malformada. CVSS 10.0. Explotado a las pocas horas de su divulgación.
+							LexisNexis no parchó durante tres meses y perdió 3,9 millones de registros
+							y 53 credenciales en texto plano.`,
+			))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 193, Col: 7}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var32))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 31, "</li><li><strong>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var33 string
+			templ_7745c5c3_Var33, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The hydration boundary.", "El límite de hidratación."))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 196, Col: 80}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var33))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 32, "</strong> ")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var34 string
+			templ_7745c5c3_Var34, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				` Server state serialised into inline HTML so the client can reconstruct it is a
+							persistent XSS vector. React Query (CVE-2024-24558), React Router (CVE-2025-43865),
+							Angular (CVE-2026-32635), and Nuxt (CVE-2024-34343) all demonstrated this.
+							Angular's automatic sanitisation, considered the strongest of any major framework,
+							was bypassed when its i18n and security subsystems interacted.`,
+				` El estado del servidor serializado en HTML en línea para que el cliente pueda
+							reconstruirlo es un vector de XSS persistente. React Query (CVE-2024-24558),
+							React Router (CVE-2025-43865), Angular (CVE-2026-32635) y Nuxt (CVE-2024-34343)
+							lo demostraron. La sanitización automática de Angular, considerada la más robusta
+							de cualquier framework importante, fue eludida cuando sus subsistemas de i18n
+							y seguridad interactuaron.`,
+			))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 209, Col: 7}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var34))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 33, "</li><li><strong>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var35 string
+			templ_7745c5c3_Var35, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Supply chain.", "Cadena de suministro."))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 212, Col: 64}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var35))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 34, "</strong> ")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var36 string
+			templ_7745c5c3_Var36, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				` The Shai-Hulud self-replicating npm worm compromised packages across React,
+							Angular, and Vue ecosystems from September 2025 through 2026. Axios, 70 million
+							weekly downloads, was compromised by a North Korean state actor for three hours in
+							March 2026. Polyfill.io, loaded by 384,000 sites, was sold to a threat actor.
+							The average framework application carries 1,000 to 2,000 transitive npm dependencies.
+							Each is a potential vector.`,
+				` El gusano npm autorreplicante Shai-Hulud comprometió paquetes en los ecosistemas
+							React, Angular y Vue desde septiembre de 2025 hasta 2026. Axios, con 70 millones
+							de descargas semanales, fue comprometido por un actor estatal norcoreano durante
+							tres horas en marzo de 2026. Polyfill.io, cargado por 384.000 sitios, fue vendido
+							a un actor de amenazas. La aplicación promedio de framework lleva entre 1.000
+							y 2.000 dependencias npm transitivas. Cada una es un vector potencial.`,
+			))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 226, Col: 7}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var36))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 35, "</li></ul><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var37 string
+			templ_7745c5c3_Var37, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`Under SAUI, these attack classes do not apply by construction. There is no
+					hydration boundary: the server renders HTML and sends it. There is no middleware
+					security gate: authorisation runs inside the request handler. There is no custom
+					serialisation protocol. There are no npm dependencies: htmx is a single vendored
+					file and the rest of the stack is Go standard library. These are not mitigations.
+					They are the result of not having the architectural layers that produced the vulnerabilities.`,
+				`Bajo SAUI, estas clases de ataque no se aplican por construcción. No existe límite
+					de hidratación: el servidor renderiza HTML y lo envía. No hay puerta de seguridad
+					de middleware: la autorización se ejecuta dentro del manejador de solicitudes.
+					No hay protocolo de serialización personalizado. No hay dependencias npm: htmx es
+					un único archivo gestionado y el resto de la pila es la biblioteca estándar de Go.
+					Estas no son mitigaciones. Son el resultado de no tener las capas arquitectónicas
+					que produjeron las vulnerabilidades.`,
+			))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 243, Col: 5}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var37))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 36, "</p></section><section><h2>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var38 string
+			templ_7745c5c3_Var38, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("What this is not", "Qué no es esto"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 246, Col: 55}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var38))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 37, "</h2><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var39 string
+			templ_7745c5c3_Var39, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`This is not an argument that SPAs are bad, that React is wrong, or that JavaScript
+					should be avoided. It is an argument about scope. The SPA pattern is appropriate
+					for applications that share the requirements that justified it. Most applications
+					do not.`,
+				`Este no es un argumento de que las SPA son malas, que React está equivocado o que
+					JavaScript debe evitarse. Es un argumento sobre el alcance. El patrón SPA es apropiado
+					para aplicaciones que comparten los requisitos que lo justificaron. La mayoría
+					de las aplicaciones no lo hacen.`,
+			))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 256, Col: 5}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var39))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 38, "</p><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var40 string
+			templ_7745c5c3_Var40, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`SAUI is the web's original model (server renders truth, browser displays it)
+					re-expressed with modern tooling that removes the historical limitations that made
+					SPAs appealing. Slow servers are fast now. Partial page updates are available
+					without a JS framework. Progressive enhancement is achievable without a build step.`,
+				`SAUI es el modelo original de la web (el servidor renderiza la verdad, el navegador
+					la muestra) reexpresado con herramientas modernas que eliminan las limitaciones
+					históricas que hicieron atractivas las SPA. Los servidores lentos son rápidos ahora.
+					Las actualizaciones parciales de página están disponibles sin un framework JS.
+					La mejora progresiva es alcanzable sin un paso de compilación.`,
+			))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 267, Col: 5}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var40))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 39, "</p><p><a href=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var41 templ.SafeURL
+			templ_7745c5c3_Var41, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/architecture"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 268, Col: 59}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var41))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 40, "\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var42 string
+			templ_7745c5c3_Var42, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("See how the architecture works", "Ver cómo funciona la arquitectura"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 268, Col: 142}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var42))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 41, "</a></p></section></article>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = layout.Base("Why SAUI", "Why server-authoritative UI? Security by construction, predictable behaviour, and no client-side state to defend or synchronise.", csrfToken, "/why", "/static/css/why.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layout.Base(
+			lang.T("Why SAUI", "Por qué SAUI"),
+			lang.T(
+				"Why server-authoritative UI? Security by construction, predictable behaviour, and no client-side state to defend or synchronise.",
+				"¿Por qué una interfaz autorizada por el servidor? Seguridad por construcción, comportamiento predecible y sin estado en el cliente que defender o sincronizar.",
+			),
+			csrfToken,
+			lang.Prefix()+"/why",
+			"/static/css/why.css",
+			lang,
+		).Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

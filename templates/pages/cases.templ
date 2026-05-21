@@ -1,73 +1,107 @@
 package pages
 
-import "saui/templates/layout"
+import (
+	"saui/locale"
+	"saui/templates/layout"
+)
 
-templ Cases(csrfToken string) {
-	@layout.Base("Case Studies", "SAUI applied to real domains: food ordering, banking, healthcare, SaaS dashboards, distributed systems, and micro-frontends.", csrfToken, "/cases", "/static/css/cases.css") {
+templ Cases(csrfToken string, lang locale.Lang) {
+	@layout.Base(
+		lang.T("Case Studies", "Casos de estudio"),
+		lang.T(
+			"SAUI applied to real domains: food ordering, banking, healthcare, SaaS dashboards, distributed systems, and micro-frontends.",
+			"SAUI aplicado a dominios reales: pedido de comida, banca, sanidad, paneles SaaS, sistemas distribuidos y micro-frontends.",
+		),
+		csrfToken,
+		lang.Prefix()+"/cases",
+		"/static/css/cases.css",
+		lang,
+	) {
 		<section class="page-hero">
 			<div class="page-hero__content">
-				<h1>Case Studies</h1>
-				<p class="lead">{ `SAUI applied to real application domains. What moves to the server, what stays on the client, and what is gained.` }</p>
+				<h1>{ lang.T("Case Studies", "Casos de estudio") }</h1>
+				<p class="lead">{ lang.T(
+					"SAUI applied to real application domains. What moves to the server, what stays on the client, and what is gained.",
+					"SAUI aplicado a dominios de aplicación reales. Qué se mueve al servidor, qué permanece en el cliente y qué se gana.",
+				) }</p>
 			</div>
 		</section>
 		<article>
 			<ol class="cases-index">
 				<li>
-					<a href="/cases/food-ordering">
+					<a href={ templ.URL(lang.Prefix() + "/cases/food-ordering") }>
 						<span class="cases-index__num" aria-hidden="true">{ `01` }</span>
 						<div class="cases-index__body">
-							<h2>{ `Food ordering` }</h2>
-							<p>{ `Cart integrity · Price manipulation · Availability staleness` }</p>
+							<h2>{ lang.T("Food ordering", "Pedido de comida") }</h2>
+							<p>{ lang.T(
+								"Cart integrity · Price manipulation · Availability staleness",
+								"Integridad del carrito · Manipulación de precios · Desactualización de disponibilidad",
+							) }</p>
 						</div>
 						<span class="cases-index__arrow" aria-hidden="true">{ `→` }</span>
 					</a>
 				</li>
 				<li>
-					<a href="/cases/banking">
+					<a href={ templ.URL(lang.Prefix() + "/cases/banking") }>
 						<span class="cases-index__num" aria-hidden="true">{ `02` }</span>
 						<div class="cases-index__body">
-							<h2>{ `Banking` }</h2>
-							<p>{ `Balance accuracy · Transfer durability · Audit requirements` }</p>
+							<h2>{ lang.T("Banking", "Banca") }</h2>
+							<p>{ lang.T(
+								"Balance accuracy · Transfer durability · Audit requirements",
+								"Exactitud del saldo · Durabilidad de transferencias · Requisitos de auditoría",
+							) }</p>
 						</div>
 						<span class="cases-index__arrow" aria-hidden="true">{ `→` }</span>
 					</a>
 				</li>
 				<li>
-					<a href="/cases/healthcare">
+					<a href={ templ.URL(lang.Prefix() + "/cases/healthcare") }>
 						<span class="cases-index__num" aria-hidden="true">{ `03` }</span>
 						<div class="cases-index__body">
-							<h2>{ `Healthcare booking` }</h2>
-							<p>{ `Slot locking · Double-booking elimination` }</p>
+							<h2>{ lang.T("Healthcare booking", "Reserva sanitaria") }</h2>
+							<p>{ lang.T(
+								"Slot locking · Double-booking elimination",
+								"Bloqueo de franjas · Eliminación de reservas duplicadas",
+							) }</p>
 						</div>
 						<span class="cases-index__arrow" aria-hidden="true">{ `→` }</span>
 					</a>
 				</li>
 				<li>
-					<a href="/cases/saas-dashboard">
+					<a href={ templ.URL(lang.Prefix() + "/cases/saas-dashboard") }>
 						<span class="cases-index__num" aria-hidden="true">{ `04` }</span>
 						<div class="cases-index__body">
-							<h2>{ `SaaS dashboards` }</h2>
-							<p>{ `Filter state · Bulk action correctness · Unsaved edit durability` }</p>
+							<h2>{ lang.T("SaaS dashboards", "Paneles SaaS") }</h2>
+							<p>{ lang.T(
+								"Filter state · Bulk action correctness · Unsaved edit durability",
+								"Estado de filtros · Corrección de acciones masivas · Durabilidad de ediciones no guardadas",
+							) }</p>
 						</div>
 						<span class="cases-index__arrow" aria-hidden="true">{ `→` }</span>
 					</a>
 				</li>
 				<li>
-					<a href="/cases/distributed-systems">
+					<a href={ templ.URL(lang.Prefix() + "/cases/distributed-systems") }>
 						<span class="cases-index__num" aria-hidden="true">{ `05` }</span>
 						<div class="cases-index__body">
-							<h2>{ `Distributed systems` }</h2>
-							<p>{ `BFF pattern · Per-service authority · No shared state bus` }</p>
+							<h2>{ lang.T("Distributed systems", "Sistemas distribuidos") }</h2>
+							<p>{ lang.T(
+								"BFF pattern · Per-service authority · No shared state bus",
+								"Patrón BFF · Autoridad por servicio · Sin bus de estado compartido",
+							) }</p>
 						</div>
 						<span class="cases-index__arrow" aria-hidden="true">{ `→` }</span>
 					</a>
 				</li>
 				<li>
-					<a href="/cases/micro-frontends">
+					<a href={ templ.URL(lang.Prefix() + "/cases/micro-frontends") }>
 						<span class="cases-index__num" aria-hidden="true">{ `06` }</span>
 						<div class="cases-index__body">
-							<h2>{ `Micro frontends` }</h2>
-							<p>{ `Team isolation · Cross-MFE state elimination` }</p>
+							<h2>{ lang.T("Micro frontends", "Micro frontends") }</h2>
+							<p>{ lang.T(
+								"Team isolation · Cross-MFE state elimination",
+								"Aislamiento de equipos · Eliminación del estado entre MFE",
+							) }</p>
 						</div>
 						<span class="cases-index__arrow" aria-hidden="true">{ `→` }</span>
 					</a>

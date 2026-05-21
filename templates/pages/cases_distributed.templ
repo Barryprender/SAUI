@@ -1,30 +1,56 @@
 package pages
 
-import "saui/templates/layout"
+import (
+	"saui/locale"
+	"saui/templates/layout"
+)
 
-templ CaseDistributed(csrfToken string) {
-	@layout.Base("Case Study: Distributed Systems", "SAUI in distributed systems: a single authoritative state store removes the hardest coordination problems between services and clients.", csrfToken, "/cases/distributed-systems", "/static/css/cases-distributed.css") {
+templ CaseDistributed(csrfToken string, lang locale.Lang) {
+	@layout.Base(
+		lang.T("Case Study: Distributed Systems", "Caso de estudio: Sistemas distribuidos"),
+		lang.T(
+			"SAUI in distributed systems: a single authoritative state store removes the hardest coordination problems between services and clients.",
+			"SAUI en sistemas distribuidos: un único almacén de estado autoritativo elimina los problemas de coordinación más difíciles entre servicios y clientes.",
+		),
+		csrfToken,
+		lang.Prefix()+"/cases/distributed-systems",
+		"/static/css/cases-distributed.css",
+		lang,
+	) {
 		<section class="page-hero">
 			<div class="page-hero__content">
-				<nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
-					<a href="/cases">{ `Case Studies` }</a>{ ` / Distributed Systems` }
+				<nav class="page-hero__breadcrumb" aria-label={ lang.T("Breadcrumb", "Ruta de navegación") }>
+					<a href={ templ.URL(lang.Prefix() + "/cases") }>{ lang.T("Case Studies", "Casos de estudio") }</a>{ lang.T(` / Distributed Systems`, ` / Sistemas distribuidos`) }
 				</nav>
-				<h1>Distributed systems</h1>
-				<p class="lead">{ `SAUI scales to distributed backends. "Server-authoritative" means authoritative per service domain, not a single global database.` }</p>
+				<h1>{ lang.T("Distributed systems", "Sistemas distribuidos") }</h1>
+				<p class="lead">{ lang.T(
+					`SAUI scales to distributed backends. "Server-authoritative" means authoritative per service domain, not a single global database.`,
+					`SAUI escala a backends distribuidos. "Autorizado por el servidor" significa autoritativo por dominio de servicio, no una única base de datos global.`,
+				) }</p>
 			</div>
 		</section>
 		<article>
 			<section>
-				<h2>The misconception</h2>
-				<p>{ `A common objection to SAUI in distributed system contexts is that "centralised state"
+				<h2>{ lang.T("The misconception", "El malentendido") }</h2>
+				<p>{ lang.T(
+					`A common objection to SAUI in distributed system contexts is that "centralised state"
 					is a scaling bottleneck. This conflates two different things: the number of state
-					stores and the question of who owns state.` }</p>
-				<p>{ `SAUI does not require a single database. It requires that each service domain owns
+					stores and the question of who owns state.`,
+					`Una objeción común a SAUI en contextos de sistemas distribuidos es que el "estado
+					centralizado" es un cuello de botella de escalado. Esto confunde dos cosas diferentes:
+					el número de almacenes de estado y la pregunta de quién posee el estado.`,
+				) }</p>
+				<p>{ lang.T(
+					`SAUI does not require a single database. It requires that each service domain owns
 					its state authoritatively. The frontend does not hold state. That constraint is
-					compatible with a large distributed backend.` }</p>
+					compatible with a large distributed backend.`,
+					`SAUI no requiere una única base de datos. Requiere que cada dominio de servicio posea
+					su estado de forma autoritativa. El frontend no mantiene estado. Esa restricción
+					es compatible con un gran backend distribuido.`,
+				) }</p>
 			</section>
 			<section>
-				<h2>The BFF pattern under SAUI</h2>
+				<h2>{ lang.T("The BFF pattern under SAUI", "El patrón BFF bajo SAUI") }</h2>
 				<pre><code>{ `Frontend (stateless display)
     |
 BFF - Backend for Frontend
@@ -32,34 +58,55 @@ BFF - Backend for Frontend
     |
 Order Service | Inventory Service | Payment Service | User Service
 (each owns its domain state authoritatively)` }</code></pre>
-				<p>{ `The frontend talks to one service: the BFF. The BFF aggregates projections from
+				<p>{ lang.T(
+					`The frontend talks to one service: the BFF. The BFF aggregates projections from
 					domain services and presents a unified projection to the frontend. Distribution
-					complexity lives behind the BFF; the frontend is unaware of it.` }</p>
-				<p>{ `Actions submitted by the frontend go to the BFF. The BFF routes them to the
+					complexity lives behind the BFF; the frontend is unaware of it.`,
+					`El frontend habla con un servicio: el BFF. El BFF agrega proyecciones de los servicios
+					de dominio y presenta una proyección unificada al frontend. La complejidad de distribución
+					vive detrás del BFF; el frontend no es consciente de ella.`,
+				) }</p>
+				<p>{ lang.T(
+					`Actions submitted by the frontend go to the BFF. The BFF routes them to the
 					appropriate domain service. The domain service validates and applies the action
 					against its own authoritative state. The BFF collects the result and returns
-					an updated projection.` }</p>
+					an updated projection.`,
+					`Las acciones enviadas por el frontend van al BFF. El BFF las enruta al servicio
+					de dominio apropiado. El servicio de dominio valida y aplica la acción contra su
+					propio estado autoritativo. El BFF recoge el resultado y devuelve una proyección actualizada.`,
+				) }</p>
 			</section>
 			<section>
-				<h2>What moves where</h2>
+				<h2>{ lang.T("What moves where", "Qué se mueve a dónde") }</h2>
 				<ul>
-					<li>{ `Session and ephemeral state: BFF owns this` }</li>
-					<li>{ `Order state: Order Service owns this` }</li>
-					<li>{ `Inventory state: Inventory Service owns this` }</li>
-					<li>{ `Payment state: Payment Service owns this` }</li>
-					<li>{ `Projection aggregation: BFF composes these into a frontend-appropriate read model` }</li>
+					<li>{ lang.T("Session and ephemeral state: BFF owns this", "Estado de sesión y efímero: el BFF posee esto") }</li>
+					<li>{ lang.T("Order state: Order Service owns this", "Estado de pedidos: el servicio de pedidos posee esto") }</li>
+					<li>{ lang.T("Inventory state: Inventory Service owns this", "Estado de inventario: el servicio de inventario posee esto") }</li>
+					<li>{ lang.T("Payment state: Payment Service owns this", "Estado de pagos: el servicio de pagos posee esto") }</li>
+					<li>{ lang.T("Projection aggregation: BFF composes these into a frontend-appropriate read model", "Agregación de proyecciones: el BFF las compone en un modelo de lectura apropiado para el frontend") }</li>
 				</ul>
-				<p>{ `Each service state is authoritative within its domain. No service reaches into
+				<p>{ lang.T(
+					`Each service state is authoritative within its domain. No service reaches into
 					another service state directly. The projection is computed at the BFF by querying
-					each service read API.` }</p>
+					each service read API.`,
+					`El estado de cada servicio es autoritativo dentro de su dominio. Ningún servicio
+					accede directamente al estado de otro servicio. La proyección se calcula en el BFF
+					consultando la API de lectura de cada servicio.`,
+				) }</p>
 			</section>
 			<section>
-				<h2>What the frontend gains</h2>
-				<p>{ `The frontend is entirely decoupled from the distribution topology. Adding a new
+				<h2>{ lang.T("What the frontend gains", "Qué gana el frontend") }</h2>
+				<p>{ lang.T(
+					`The frontend is entirely decoupled from the distribution topology. Adding a new
 					microservice, splitting an existing one, or changing inter-service protocols does
 					not affect the frontend. The projection contract is the interface. As long as the
-					BFF honours it, the frontend is unaffected.` }</p>
-				<p><a href="/cases/micro-frontends">Next: Micro frontends</a></p>
+					BFF honours it, the frontend is unaffected.`,
+					`El frontend está completamente desacoplado de la topología de distribución. Agregar
+					un nuevo microservicio, dividir uno existente o cambiar los protocolos entre servicios
+					no afecta al frontend. El contrato de proyección es la interfaz. Mientras el BFF
+					lo respete, el frontend no se ve afectado.`,
+				) }</p>
+				<p><a href={ templ.URL(lang.Prefix() + "/cases/micro-frontends") }>{ lang.T("Next: Micro frontends", "Siguiente: Micro frontends") }</a></p>
 			</section>
 		</article>
 	}

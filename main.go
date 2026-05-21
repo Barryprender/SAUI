@@ -69,6 +69,23 @@ func main() {
 	mux.Handle("GET /blog/server-response-time", page(h.BlogPostServerResponseTime))
 	mux.Handle("GET /code", page(h.Code))
 
+	mux.Handle("GET /es/{$}", page(h.HomeES))
+	mux.Handle("GET /es/why", page(h.WhyES))
+	mux.Handle("GET /es/architecture", page(h.ArchitectureES))
+	mux.Handle("GET /es/stack", page(h.StackES))
+	mux.Handle("GET /es/cases", page(h.CasesES))
+	mux.Handle("GET /es/cases/food-ordering", page(h.CaseFoodOrderingES))
+	mux.Handle("GET /es/cases/banking", page(h.CaseBankingES))
+	mux.Handle("GET /es/cases/healthcare", page(h.CaseHealthcareES))
+	mux.Handle("GET /es/cases/saas-dashboard", page(h.CaseSaaSES))
+	mux.Handle("GET /es/cases/distributed-systems", page(h.CaseDistributedES))
+	mux.Handle("GET /es/cases/micro-frontends", page(h.CaseMFEES))
+	mux.Handle("GET /es/testing", page(h.TestingES))
+	mux.Handle("GET /es/limits", page(h.LimitsES))
+	mux.Handle("GET /es/blog", page(h.BlogES))
+	mux.Handle("GET /es/blog/server-response-time", page(h.BlogPostServerResponseTimeES))
+	mux.Handle("GET /es/code", page(h.CodeES))
+
 	mux.Handle("POST /feedback", page(h.SubmitFeedback))
 	mux.Handle("GET /architecture/step/{step}", http.HandlerFunc(h.ArchStep))
 

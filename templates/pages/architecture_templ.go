@@ -8,9 +8,12 @@ package pages
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-import "saui/templates/layout"
+import (
+	"saui/locale"
+	"saui/templates/layout"
+)
 
-func Architecture(csrfToken string) templ.Component {
+func Architecture(csrfToken string, lang locale.Lang) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -43,327 +46,334 @@ func Architecture(csrfToken string) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"page-hero\"><div class=\"page-hero__content\"><h1>Architecture</h1><p class=\"lead\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"page-hero\"><div class=\"page-hero__content\"><h1>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
-			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(`The server owns state. The browser holds none.
-					Security is not a layer applied on top — it is a consequence of where state lives.`)
+			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Architecture", "Arquitectura"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 11, Col: 90}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 22, Col: 48}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</p></div></section><section class=\"arch-diagram-section\" aria-label=\"Request lifecycle diagram\"><figure class=\"arch-diagram\"><svg viewBox=\"0 0 860 760\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\"><defs><marker id=\"dia-arrow\" markerWidth=\"12\" markerHeight=\"9\" refX=\"11\" refY=\"4.5\" orient=\"auto\"><polygon points=\"0 0, 12 4.5, 0 9\" class=\"dia-arrowhead\"></polygon></marker> <clipPath id=\"gateway-clip\"><rect x=\"270\" y=\"224\" width=\"320\" height=\"100\"></rect></clipPath></defs><!-- Node 1: Browser (request) --><g class=\"dia-node dia-node--browser\"><rect x=\"270\" y=\"20\" width=\"320\" height=\"100\" rx=\"8\"></rect> <text class=\"dia-node__title\" x=\"430\" y=\"58\">Browser</text> <text class=\"dia-node__sub\" x=\"430\" y=\"82\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</h1><p class=\"lead\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var4 string
-			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(`submits intent`)
+			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`The server owns state. The browser holds none.
+					Security is not a layer applied on top — it is a consequence of where state lives.`,
+				`El servidor posee el estado. El navegador no retiene nada.
+					La seguridad no es una capa añadida encima: es una consecuencia de dónde vive el estado.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 29, Col: 67}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 28, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</text></g><!-- Annotation: right of Node 1 --><g class=\"dia-annot dia-annot--n1\"><line class=\"dia-annot__tick\" x1=\"590\" y1=\"70\" x2=\"618\" y2=\"70\"></line> <text class=\"dia-annot__label\" x=\"626\" y=\"64\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p></div></section><section class=\"arch-diagram-section\" aria-label=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var5 string
-			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(`User submits intent`)
+			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Request lifecycle diagram", "Diagrama del ciclo de vida de una solicitud"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 34, Col: 75}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 31, Col: 135}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</text> <text class=\"dia-annot__body\" x=\"626\" y=\"81\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\"><figure class=\"arch-diagram\"><svg viewBox=\"0 0 860 760\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\"><defs><marker id=\"dia-arrow\" markerWidth=\"12\" markerHeight=\"9\" refX=\"11\" refY=\"4.5\" orient=\"auto\"><polygon points=\"0 0, 12 4.5, 0 9\" class=\"dia-arrowhead\"></polygon></marker> <clipPath id=\"gateway-clip\"><rect x=\"270\" y=\"224\" width=\"320\" height=\"100\"></rect></clipPath></defs><!-- Node 1: Browser (request) --><g class=\"dia-node dia-node--browser\"><rect x=\"270\" y=\"20\" width=\"320\" height=\"100\" rx=\"8\"></rect> <text class=\"dia-node__title\" x=\"430\" y=\"58\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var6 string
-			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(`form POST · htmx · full-page`)
+			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Browser", "Navegador"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 35, Col: 85}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 45, Col: 83}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</text></g><!-- Arrow 1 --><line class=\"dia-line dia-line--1\" x1=\"430\" y1=\"120\" x2=\"430\" y2=\"220\" marker-end=\"url(#dia-arrow)\"></line> <text class=\"dia-line__label\" x=\"442\" y=\"175\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</text> <text class=\"dia-node__sub\" x=\"430\" y=\"82\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var7 string
-			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(`POST intent`)
+			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("submits intent", "envía intención"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 39, Col: 66}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 46, Col: 96}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</text> <circle class=\"dia-packet dia-packet--1\" r=\"5\"></circle><!-- Node 2: Gateway --><g class=\"dia-node dia-node--gateway\"><rect class=\"dia-gateway-bg\" x=\"270\" y=\"224\" width=\"320\" height=\"100\" rx=\"8\"></rect> <g clip-path=\"url(#gateway-clip)\"><rect class=\"dia-gateway-scan\" x=\"270\" y=\"224\" width=\"24\" height=\"100\"></rect></g> <text class=\"dia-node__title dia-node__title--light\" x=\"430\" y=\"262\">Gateway</text> <text class=\"dia-node__sub dia-node__sub--light\" x=\"430\" y=\"286\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</text></g><!-- Annotation: right of Node 1 --><g class=\"dia-annot dia-annot--n1\"><line class=\"dia-annot__tick\" x1=\"590\" y1=\"70\" x2=\"618\" y2=\"70\"></line> <text class=\"dia-annot__label\" x=\"626\" y=\"64\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var8 string
-			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(`auth · validate · apply`)
+			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("User submits intent", "El usuario envía intención"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 48, Col: 100}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 51, Col: 115}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</text></g><!-- Annotation: left of Node 2 --><g class=\"dia-annot dia-annot--n2\"><line class=\"dia-annot__tick\" x1=\"270\" y1=\"274\" x2=\"242\" y2=\"274\"></line> <text class=\"dia-annot__label dia-annot__label--end\" x=\"236\" y=\"268\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</text> <text class=\"dia-annot__body\" x=\"626\" y=\"81\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var9 string
-			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(`Authenticate · Authorize`)
+			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("form POST · htmx · full-page", "form POST · htmx · página completa"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 53, Col: 104}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 52, Col: 134}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</text> <text class=\"dia-annot__body dia-annot__body--end\" x=\"236\" y=\"285\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</text></g><!-- Arrow 1 --><line class=\"dia-line dia-line--1\" x1=\"430\" y1=\"120\" x2=\"430\" y2=\"220\" marker-end=\"url(#dia-arrow)\"></line> <text class=\"dia-line__label\" x=\"442\" y=\"175\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var10 string
-			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(`validate · rate-limit · log`)
+			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("POST intent", "POST intención"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 54, Col: 106}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 56, Col: 93}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</text></g><!-- Arrow 2 --><line class=\"dia-line dia-line--2\" x1=\"430\" y1=\"324\" x2=\"430\" y2=\"424\" marker-end=\"url(#dia-arrow)\"></line> <text class=\"dia-line__label\" x=\"442\" y=\"379\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</text> <circle class=\"dia-packet dia-packet--1\" r=\"5\"></circle><!-- Node 2: Gateway --><g class=\"dia-node dia-node--gateway\"><rect class=\"dia-gateway-bg\" x=\"270\" y=\"224\" width=\"320\" height=\"100\" rx=\"8\"></rect> <g clip-path=\"url(#gateway-clip)\"><rect class=\"dia-gateway-scan\" x=\"270\" y=\"224\" width=\"24\" height=\"100\"></rect></g> <text class=\"dia-node__title dia-node__title--light\" x=\"430\" y=\"262\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var11 string
-			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(`append event`)
+			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Gateway", "Pasarela"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 58, Col: 67}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 64, Col: 106}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</text> <circle class=\"dia-packet dia-packet--2\" r=\"5\"></circle><!-- Node 3: Event Log --><g class=\"dia-node dia-node--store\"><rect x=\"270\" y=\"428\" width=\"320\" height=\"100\" rx=\"8\"></rect> <text class=\"dia-node__title\" x=\"430\" y=\"466\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</text> <text class=\"dia-node__sub dia-node__sub--light\" x=\"430\" y=\"286\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var12 string
-			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(`Event Log`)
+			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("auth · validate · apply", "auth · validar · aplicar"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 63, Col: 65}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 65, Col: 138}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</text> <text class=\"dia-node__sub\" x=\"430\" y=\"490\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</text></g><!-- Annotation: left of Node 2 --><g class=\"dia-annot dia-annot--n2\"><line class=\"dia-annot__tick\" x1=\"270\" y1=\"274\" x2=\"242\" y2=\"274\"></line> <text class=\"dia-annot__label dia-annot__label--end\" x=\"236\" y=\"268\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var13 string
-			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(`SQLite · append-only`)
+			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Authenticate · Authorize", "Autenticar · Autorizar"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 64, Col: 75}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 70, Col: 139}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</text></g><!-- Annotation: right of Node 3 --><g class=\"dia-annot dia-annot--n3\"><line class=\"dia-annot__tick\" x1=\"590\" y1=\"478\" x2=\"618\" y2=\"478\"></line> <text class=\"dia-annot__label\" x=\"626\" y=\"472\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</text> <text class=\"dia-annot__body dia-annot__body--end\" x=\"236\" y=\"285\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var14 string
-			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(`Append-only event log`)
+			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("validate · rate-limit · log", "validar · limitar tasa · registrar"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 69, Col: 78}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 71, Col: 154}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</text> <text class=\"dia-annot__body\" x=\"626\" y=\"489\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</text></g><!-- Arrow 2 --><line class=\"dia-line dia-line--2\" x1=\"430\" y1=\"324\" x2=\"430\" y2=\"424\" marker-end=\"url(#dia-arrow)\"></line> <text class=\"dia-line__label\" x=\"442\" y=\"379\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var15 string
-			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(`never mutated · auditable`)
+			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("append event", "añadir evento"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 70, Col: 82}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 75, Col: 93}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</text></g><!-- Arrow 3 --><line class=\"dia-line dia-line--3\" x1=\"430\" y1=\"528\" x2=\"430\" y2=\"628\" marker-end=\"url(#dia-arrow)\"></line> <text class=\"dia-line__label\" x=\"442\" y=\"583\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</text> <circle class=\"dia-packet dia-packet--2\" r=\"5\"></circle><!-- Node 3: Event Log --><g class=\"dia-node dia-node--store\"><rect x=\"270\" y=\"428\" width=\"320\" height=\"100\" rx=\"8\"></rect> <text class=\"dia-node__title\" x=\"430\" y=\"466\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var16 string
-			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(`HTML projection`)
+			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Event Log", "Registro de Eventos"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 74, Col: 70}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 80, Col: 96}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</text> <circle class=\"dia-packet dia-packet--3\" r=\"5\"></circle><!-- Node 4: Browser (response) --><g class=\"dia-node dia-node--browser\"><rect x=\"270\" y=\"632\" width=\"320\" height=\"100\" rx=\"8\"></rect> <text class=\"dia-node__title\" x=\"430\" y=\"670\">Browser</text> <text class=\"dia-node__sub\" x=\"430\" y=\"694\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</text> <text class=\"dia-node__sub\" x=\"430\" y=\"490\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var17 string
-			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(`renders truth`)
+			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("SQLite · append-only", "SQLite · solo-adjuntar"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 80, Col: 67}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 81, Col: 110}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</text></g><!-- Annotation: left of Node 4 --><g class=\"dia-annot dia-annot--n4\"><line class=\"dia-annot__tick\" x1=\"270\" y1=\"682\" x2=\"242\" y2=\"682\"></line> <text class=\"dia-annot__label dia-annot__label--end\" x=\"236\" y=\"676\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</text></g><!-- Annotation: right of Node 3 --><g class=\"dia-annot dia-annot--n3\"><line class=\"dia-annot__tick\" x1=\"590\" y1=\"478\" x2=\"618\" y2=\"478\"></line> <text class=\"dia-annot__label\" x=\"626\" y=\"472\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var18 string
-			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(`Server-projected HTML`)
+			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Append-only event log", "Registro de eventos solo-adjuntar"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 85, Col: 100}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 86, Col: 123}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</text> <text class=\"dia-annot__body dia-annot__body--end\" x=\"236\" y=\"693\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</text> <text class=\"dia-annot__body\" x=\"626\" y=\"489\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var19 string
-			templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(`durable truth rendered`)
+			templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("never mutated · auditable", "nunca mutado · auditable"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 86, Col: 99}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 87, Col: 119}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "</text></g></svg><figcaption>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "</text></g><!-- Arrow 3 --><line class=\"dia-line dia-line--3\" x1=\"430\" y1=\"528\" x2=\"430\" y2=\"628\" marker-end=\"url(#dia-arrow)\"></line> <text class=\"dia-line__label\" x=\"442\" y=\"583\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var20 string
-			templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(`Intent in, projection out. State lives on the server. The browser holds nothing between requests.`)
+			templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("HTML projection", "proyección HTML"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 89, Col: 117}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 91, Col: 98}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "</figcaption></figure><nav class=\"arch-step-nav\" aria-label=\"Step detail\"><button type=\"button\" class=\"arch-step-btn\" aria-pressed=\"false\" hx-get=\"/architecture/step/browser-request\" hx-target=\"#arch-step-detail\" hx-swap=\"innerHTML\"><span class=\"arch-step-num\" aria-hidden=\"true\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "</text> <circle class=\"dia-packet dia-packet--3\" r=\"5\"></circle><!-- Node 4: Browser (response) --><g class=\"dia-node dia-node--browser\"><rect x=\"270\" y=\"632\" width=\"320\" height=\"100\" rx=\"8\"></rect> <text class=\"dia-node__title\" x=\"430\" y=\"670\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var21 string
-			templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(`1`)
+			templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Browser", "Navegador"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 99, Col: 57}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 96, Col: 84}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</span> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</text> <text class=\"dia-node__sub\" x=\"430\" y=\"694\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var22 string
-			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(`Browser`)
+			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("renders truth", "renderiza la verdad"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 100, Col: 16}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 97, Col: 98}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "</button> <button type=\"button\" class=\"arch-step-btn\" aria-pressed=\"false\" hx-get=\"/architecture/step/gateway\" hx-target=\"#arch-step-detail\" hx-swap=\"innerHTML\"><span class=\"arch-step-num\" aria-hidden=\"true\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "</text></g><!-- Annotation: left of Node 4 --><g class=\"dia-annot dia-annot--n4\"><line class=\"dia-annot__tick\" x1=\"270\" y1=\"682\" x2=\"242\" y2=\"682\"></line> <text class=\"dia-annot__label dia-annot__label--end\" x=\"236\" y=\"676\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var23 string
-			templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(`2`)
+			templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Server-projected HTML", "HTML proyectado por el servidor"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 109, Col: 57}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 102, Col: 143}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "</span> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "</text> <text class=\"dia-annot__body dia-annot__body--end\" x=\"236\" y=\"693\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var24 string
-			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(`Gateway`)
+			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("durable truth rendered", "verdad durable renderizada"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 110, Col: 16}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 103, Col: 137}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "</button> <button type=\"button\" class=\"arch-step-btn\" aria-pressed=\"false\" hx-get=\"/architecture/step/event-log\" hx-target=\"#arch-step-detail\" hx-swap=\"innerHTML\"><span class=\"arch-step-num\" aria-hidden=\"true\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "</text></g></svg><figcaption>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var25 string
-			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(`3`)
+			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				"Intent in, projection out. State lives on the server. The browser holds nothing between requests.",
+				"Intención de entrada, proyección de salida. El estado vive en el servidor. El navegador no retiene nada entre solicitudes.",
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 119, Col: 57}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 109, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var25))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "</span> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "</figcaption></figure><nav class=\"arch-step-nav\" aria-label=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var26 string
-			templ_7745c5c3_Var26, templ_7745c5c3_Err = templ.JoinStringErrs(`Event log`)
+			templ_7745c5c3_Var26, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Step detail", "Detalle del paso"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 120, Col: 18}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 111, Col: 84}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var26))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "</button> <button type=\"button\" class=\"arch-step-btn\" aria-pressed=\"false\" hx-get=\"/architecture/step/browser-response\" hx-target=\"#arch-step-detail\" hx-swap=\"innerHTML\"><span class=\"arch-step-num\" aria-hidden=\"true\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "\"><button type=\"button\" class=\"arch-step-btn\" aria-pressed=\"false\" hx-get=\"/architecture/step/browser-request\" hx-target=\"#arch-step-detail\" hx-swap=\"innerHTML\"><span class=\"arch-step-num\" aria-hidden=\"true\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var27 string
-			templ_7745c5c3_Var27, templ_7745c5c3_Err = templ.JoinStringErrs(`4`)
+			templ_7745c5c3_Var27, templ_7745c5c3_Err = templ.JoinStringErrs(`1`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 129, Col: 57}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 119, Col: 57}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var27))
 			if templ_7745c5c3_Err != nil {
@@ -374,219 +384,224 @@ func Architecture(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var28 string
-			templ_7745c5c3_Var28, templ_7745c5c3_Err = templ.JoinStringErrs(`Response`)
+			templ_7745c5c3_Var28, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Browser", "Navegador"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 130, Col: 17}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 120, Col: 37}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var28))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "</button></nav><div id=\"arch-step-detail\" class=\"arch-step-detail\" aria-live=\"polite\"><p class=\"arch-step-detail__prompt\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "</button> <button type=\"button\" class=\"arch-step-btn\" aria-pressed=\"false\" hx-get=\"/architecture/step/gateway\" hx-target=\"#arch-step-detail\" hx-swap=\"innerHTML\"><span class=\"arch-step-num\" aria-hidden=\"true\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var29 string
-			templ_7745c5c3_Var29, templ_7745c5c3_Err = templ.JoinStringErrs(`Select a step to see the implementation detail.`)
+			templ_7745c5c3_Var29, templ_7745c5c3_Err = templ.JoinStringErrs(`2`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 134, Col: 91}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 129, Col: 57}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var29))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 28, "</p></div></section><article><section id=\"two-layer-state-model\" aria-label=\"Two-layer state model\"><h2>The two-layer state model</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 28, "</span> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var30 string
-			templ_7745c5c3_Var30, templ_7745c5c3_Err = templ.JoinStringErrs(`State is separated into two layers with different lifetimes, different storage, and
-					a strict one-way rule about which may influence the other. The rule is enforced
-					structurally, not by convention.`)
+			templ_7745c5c3_Var30, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Gateway", "Pasarela"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 142, Col: 38}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 130, Col: 36}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var30))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 29, "</p><div class=\"state-model\"><div class=\"state-model__layer state-model__layer--durable\"><p class=\"state-model__header\"><span class=\"state-model__label\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 29, "</button> <button type=\"button\" class=\"arch-step-btn\" aria-pressed=\"false\" hx-get=\"/architecture/step/event-log\" hx-target=\"#arch-step-detail\" hx-swap=\"innerHTML\"><span class=\"arch-step-num\" aria-hidden=\"true\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var31 string
-			templ_7745c5c3_Var31, templ_7745c5c3_Err = templ.JoinStringErrs(`Durable state`)
+			templ_7745c5c3_Var31, templ_7745c5c3_Err = templ.JoinStringErrs(`3`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 146, Col: 57}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 139, Col: 57}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var31))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 30, "</span> <span class=\"state-model__sep\" aria-hidden=\"true\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 30, "</span> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var32 string
-			templ_7745c5c3_Var32, templ_7745c5c3_Err = templ.JoinStringErrs(`·`)
+			templ_7745c5c3_Var32, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Event log", "Registro de eventos"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 147, Col: 63}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 140, Col: 49}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var32))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 31, "</span> <span class=\"state-model__sub\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 31, "</button> <button type=\"button\" class=\"arch-step-btn\" aria-pressed=\"false\" hx-get=\"/architecture/step/browser-response\" hx-target=\"#arch-step-detail\" hx-swap=\"innerHTML\"><span class=\"arch-step-num\" aria-hidden=\"true\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var33 string
-			templ_7745c5c3_Var33, templ_7745c5c3_Err = templ.JoinStringErrs(`what actually happened`)
+			templ_7745c5c3_Var33, templ_7745c5c3_Err = templ.JoinStringErrs(`4`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 148, Col: 64}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 149, Col: 57}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var33))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 32, "</span></p><ul class=\"state-model__list\"><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 32, "</span> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var34 string
-			templ_7745c5c3_Var34, templ_7745c5c3_Err = templ.JoinStringErrs(`Append-only event log: events are inserted, never modified`)
+			templ_7745c5c3_Var34, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Response", "Respuesta"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 151, Col: 73}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 150, Col: 38}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var34))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 33, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 33, "</button></nav><div id=\"arch-step-detail\" class=\"arch-step-detail\" aria-live=\"polite\"><p class=\"arch-step-detail__prompt\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var35 string
-			templ_7745c5c3_Var35, templ_7745c5c3_Err = templ.JoinStringErrs(`Past events cannot be altered by any code path`)
+			templ_7745c5c3_Var35, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Select a step to see the implementation detail.", "Seleccione un paso para ver el detalle de implementación."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 152, Col: 61}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 154, Col: 161}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var35))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 34, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 34, "</p></div></section><article><section id=\"two-layer-state-model\" aria-label=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var36 string
-			templ_7745c5c3_Var36, templ_7745c5c3_Err = templ.JoinStringErrs(`Auditable by construction: the log is the audit trail`)
+			templ_7745c5c3_Var36, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Two-layer state model", "Modelo de estado de dos capas"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 153, Col: 68}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 158, Col: 116}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var36))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 35, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 35, "\"><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var37 string
-			templ_7745c5c3_Var37, templ_7745c5c3_Err = templ.JoinStringErrs(`All writes require gateway authorisation`)
+			templ_7745c5c3_Var37, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The two-layer state model", "El modelo de estado de dos capas"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 154, Col: 55}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 159, Col: 81}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var37))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 36, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 36, "</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var38 string
-			templ_7745c5c3_Var38, templ_7745c5c3_Err = templ.JoinStringErrs(`Survives server restart; loss-free by design`)
+			templ_7745c5c3_Var38, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`State is separated into two layers with different lifetimes, different storage, and
+					a strict one-way rule about which may influence the other. The rule is enforced
+					structurally, not by convention.`,
+				`El estado se separa en dos capas con diferentes duraciones de vida, almacenamiento diferente y
+					una regla estricta de sentido único sobre cuál puede influir en la otra. La regla
+					se aplica estructuralmente, no por convención.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 155, Col: 59}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 167, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var38))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 37, "</li></ul></div><div class=\"state-model__flow\"><span class=\"state-model__flow-label\" aria-label=\"one-way only\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 37, "</p><div class=\"state-model\"><div class=\"state-model__layer state-model__layer--durable\"><p class=\"state-model__header\"><span class=\"state-model__label\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var39 string
-			templ_7745c5c3_Var39, templ_7745c5c3_Err = templ.JoinStringErrs(`one-way only`)
+			templ_7745c5c3_Var39, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Durable state", "Estado durable"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 159, Col: 86}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 171, Col: 83}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var39))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 38, "</span> <span class=\"state-model__flow-arrow\" aria-hidden=\"true\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 38, "</span> <span class=\"state-model__sep\" aria-hidden=\"true\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var40 string
-			templ_7745c5c3_Var40, templ_7745c5c3_Err = templ.JoinStringErrs(`↓`)
+			templ_7745c5c3_Var40, templ_7745c5c3_Err = templ.JoinStringErrs(`·`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 160, Col: 70}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 172, Col: 63}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var40))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 39, "</span></div><div class=\"state-model__layer state-model__layer--ephemeral\"><p class=\"state-model__header\"><span class=\"state-model__label\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 39, "</span> <span class=\"state-model__sub\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var41 string
-			templ_7745c5c3_Var41, templ_7745c5c3_Err = templ.JoinStringErrs(`Ephemeral state`)
+			templ_7745c5c3_Var41, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("what actually happened", "lo que realmente ocurrió"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 164, Col: 59}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 173, Col: 101}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var41))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 40, "</span> <span class=\"state-model__sep\" aria-hidden=\"true\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 40, "</span></p><ul class=\"state-model__list\"><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var42 string
-			templ_7745c5c3_Var42, templ_7745c5c3_Err = templ.JoinStringErrs(`·`)
+			templ_7745c5c3_Var42, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Append-only event log: events are inserted, never modified", "Registro de eventos solo-adjuntar: los eventos se insertan, nunca se modifican"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 165, Col: 63}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 176, Col: 163}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var42))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 41, "</span> <span class=\"state-model__sub\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 41, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var43 string
-			templ_7745c5c3_Var43, templ_7745c5c3_Err = templ.JoinStringErrs(`current session context`)
+			templ_7745c5c3_Var43, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Past events cannot be altered by any code path", "Los eventos pasados no pueden ser alterados por ninguna ruta de código"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 166, Col: 65}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 177, Col: 144}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var43))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 42, "</span></p><ul class=\"state-model__list\"><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 42, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var44 string
-			templ_7745c5c3_Var44, templ_7745c5c3_Err = templ.JoinStringErrs(`In-memory only, keyed by session ID`)
+			templ_7745c5c3_Var44, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Auditable by construction: the log is the audit trail", "Auditable por construcción: el registro es la pista de auditoría"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 169, Col: 50}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 178, Col: 146}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var44))
 			if templ_7745c5c3_Err != nil {
@@ -597,9 +612,9 @@ func Architecture(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var45 string
-			templ_7745c5c3_Var45, templ_7745c5c3_Err = templ.JoinStringErrs(`Holds UI context: current view, in-progress flows, flash messages`)
+			templ_7745c5c3_Var45, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("All writes require gateway authorisation", "Todas las escrituras requieren autorización de la pasarela"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 170, Col: 80}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 179, Col: 126}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var45))
 			if templ_7745c5c3_Err != nil {
@@ -610,110 +625,100 @@ func Architecture(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var46 string
-			templ_7745c5c3_Var46, templ_7745c5c3_Err = templ.JoinStringErrs(`Derived from durable state, never the reverse`)
+			templ_7745c5c3_Var46, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Survives server restart; loss-free by design", "Sobrevive al reinicio del servidor; sin pérdidas por diseño"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 171, Col: 60}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 180, Col: 132}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var46))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 45, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 45, "</li></ul></div><div class=\"state-model__flow\"><span class=\"state-model__flow-label\" aria-label=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var47 string
-			templ_7745c5c3_Var47, templ_7745c5c3_Err = templ.JoinStringErrs(`Never used as input to durable state transitions`)
+			templ_7745c5c3_Var47, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("one-way only", "solo en un sentido"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 172, Col: 63}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 184, Col: 101}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var47))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 46, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 46, "\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var48 string
-			templ_7745c5c3_Var48, templ_7745c5c3_Err = templ.JoinStringErrs(`Discarded on session end; nothing persists to the client`)
+			templ_7745c5c3_Var48, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("one-way only", "solo en un sentido"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 173, Col: 71}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 184, Col: 150}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var48))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 47, "</li></ul></div></div><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 47, "</span> <span class=\"state-model__flow-arrow\" aria-hidden=\"true\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var49 string
-			templ_7745c5c3_Var49, templ_7745c5c3_Err = templ.JoinStringErrs(`Ephemeral state flows one direction only. Durable state seeds ephemeral state.
-					Ephemeral state never influences durable state transitions. This rule makes
-					client-side state manipulation structurally impossible: there is no client state
-					to manipulate.`)
+			templ_7745c5c3_Var49, templ_7745c5c3_Err = templ.JoinStringErrs(`↓`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 180, Col: 20}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 185, Col: 70}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var49))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 48, "</p></section><section id=\"gateway-contract\" aria-label=\"Gateway contract\"><h2>The gateway contract</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 48, "</span></div><div class=\"state-model__layer state-model__layer--ephemeral\"><p class=\"state-model__header\"><span class=\"state-model__label\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var50 string
-			templ_7745c5c3_Var50, templ_7745c5c3_Err = templ.JoinStringErrs(`The gateway is the security boundary of the system. All state access — read or
-					write — passes through it. No handler, no middleware, no other package touches
-					state directly. This is not a convention: the Store type is unexported from the
-					state package; only the Gateway is exposed. There is no path around it.`)
+			templ_7745c5c3_Var50, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Ephemeral state", "Estado efímero"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 187, Col: 77}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 189, Col: 86}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var50))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 49, "</p><pre><code>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 49, "</span> <span class=\"state-model__sep\" aria-hidden=\"true\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var51 string
-			templ_7745c5c3_Var51, templ_7745c5c3_Err = templ.JoinStringErrs(`// Reading state — returns a named projection
-gateway.Project(ctx, sessionID, "projection-name")
-
-// Writing state — submits a validated intent
-gateway.Dispatch(ctx, sessionID, action)`)
+			templ_7745c5c3_Var51, templ_7745c5c3_Err = templ.JoinStringErrs(`·`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 192, Col: 41}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 190, Col: 63}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var51))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 50, "</code></pre><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 50, "</span> <span class=\"state-model__sub\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var52 string
-			templ_7745c5c3_Var52, templ_7745c5c3_Err = templ.JoinStringErrs(`Every call through the gateway enforces the same contract:`)
+			templ_7745c5c3_Var52, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("current session context", "contexto de sesión actual"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 193, Col: 69}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 191, Col: 103}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var52))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 51, "</p><ul><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 51, "</span></p><ul class=\"state-model__list\"><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var53 string
-			templ_7745c5c3_Var53, templ_7745c5c3_Err = templ.JoinStringErrs(`Session is authenticated`)
+			templ_7745c5c3_Var53, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("In-memory only, keyed by session ID", "Solo en memoria, indexado por ID de sesión"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 195, Col: 37}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 194, Col: 105}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var53))
 			if templ_7745c5c3_Err != nil {
@@ -724,9 +729,9 @@ gateway.Dispatch(ctx, sessionID, action)`)
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var54 string
-			templ_7745c5c3_Var54, templ_7745c5c3_Err = templ.JoinStringErrs(`Actor is authorised for this action or projection`)
+			templ_7745c5c3_Var54, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Holds UI context: current view, in-progress flows, flash messages", "Mantiene contexto de UI: vista actual, flujos en curso, mensajes flash"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 196, Col: 62}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 195, Col: 162}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var54))
 			if templ_7745c5c3_Err != nil {
@@ -737,9 +742,9 @@ gateway.Dispatch(ctx, sessionID, action)`)
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var55 string
-			templ_7745c5c3_Var55, templ_7745c5c3_Err = templ.JoinStringErrs(`Action is valid against current state before any change is applied`)
+			templ_7745c5c3_Var55, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Derived from durable state, never the reverse", "Derivado del estado durable, nunca al revés"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 197, Col: 79}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 196, Col: 116}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var55))
 			if templ_7745c5c3_Err != nil {
@@ -750,119 +755,135 @@ gateway.Dispatch(ctx, sessionID, action)`)
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var56 string
-			templ_7745c5c3_Var56, templ_7745c5c3_Err = templ.JoinStringErrs(`Every transition is appended to the audit log`)
+			templ_7745c5c3_Var56, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Never used as input to durable state transitions", "Nunca se usa como entrada para transiciones de estado durable"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 198, Col: 58}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 197, Col: 136}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var56))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 55, "</li></ul><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 55, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var57 string
-			templ_7745c5c3_Var57, templ_7745c5c3_Err = templ.JoinStringErrs(`Authorisation is not middleware. It runs inside the gateway, inside every request.
-					There is no separate runtime layer that can be bypassed with a crafted header.`)
+			templ_7745c5c3_Var57, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Discarded on session end; nothing persists to the client", "Descartado al finalizar la sesión; nada persiste en el cliente"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 201, Col: 84}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 198, Col: 146}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var57))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 56, "</p></section><section id=\"action-pattern\" aria-label=\"Action pattern\"><h2>The action pattern</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 56, "</li></ul></div></div><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var58 string
-			templ_7745c5c3_Var58, templ_7745c5c3_Err = templ.JoinStringErrs(`State changes are expressed as validated intents, not direct mutations.
-					A handler never writes state directly; it submits an action to the gateway.`)
+			templ_7745c5c3_Var58, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`Ephemeral state flows one direction only. Durable state seeds ephemeral state.
+					Ephemeral state never influences durable state transitions. This rule makes
+					client-side state manipulation structurally impossible: there is no client state
+					to manipulate.`,
+				`El estado efímero fluye en un solo sentido. El estado durable alimenta el estado efímero.
+					El estado efímero nunca influye en las transiciones de estado durable. Esta regla hace
+					que la manipulación del estado del lado del cliente sea estructuralmente imposible:
+					no hay estado del cliente que manipular.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 206, Col: 81}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 211, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var58))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 57, "</p><pre><code>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 57, "</p></section><section id=\"gateway-contract\" aria-label=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var59 string
-			templ_7745c5c3_Var59, templ_7745c5c3_Err = templ.JoinStringErrs(`type Action interface {
-    Type()     string
-    Validate(ctx, store, sessionID) error
-    Apply(ctx, store, sessionID)    (Event, error)
-}`)
+			templ_7745c5c3_Var59, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Gateway contract", "Contrato de la pasarela"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 211, Col: 2}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 213, Col: 100}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var59))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 58, "</code></pre><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 58, "\"><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var60 string
-			templ_7745c5c3_Var60, templ_7745c5c3_Err = templ.JoinStringErrs(`The lifecycle of a state change:`)
+			templ_7745c5c3_Var60, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The gateway contract", "El contrato de la pasarela"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 212, Col: 43}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 214, Col: 70}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var60))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 59, "</p><ol><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 59, "</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var61 string
-			templ_7745c5c3_Var61, templ_7745c5c3_Err = templ.JoinStringErrs(`Handler parses the request and constructs an action`)
+			templ_7745c5c3_Var61, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`The gateway is the security boundary of the system. All state access — read or
+					write — passes through it. No handler, no middleware, no other package touches
+					state directly. This is not a convention: the Store type is unexported from the
+					state package; only the Gateway is exposed. There is no path around it.`,
+				`La pasarela es el límite de seguridad del sistema. Todo acceso al estado, lectura
+					o escritura, pasa por ella. Ningún manejador, ningún middleware, ningún otro paquete
+					toca el estado directamente. Esto no es una convención: el tipo Store no se exporta
+					desde el paquete de estado; solo se expone la pasarela. No hay forma de evitarla.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 214, Col: 64}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 224, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var61))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 60, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 60, "</p><pre><code>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var62 string
-			templ_7745c5c3_Var62, templ_7745c5c3_Err = templ.JoinStringErrs(`Gateway calls Validate against current state; rejects if invalid`)
+			templ_7745c5c3_Var62, templ_7745c5c3_Err = templ.JoinStringErrs(`// Reading state — returns a named projection
+gateway.Project(ctx, sessionID, "projection-name")
+
+// Writing state — submits a validated intent
+gateway.Dispatch(ctx, sessionID, action)`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 215, Col: 77}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 229, Col: 41}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var62))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 61, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 61, "</code></pre><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var63 string
-			templ_7745c5c3_Var63, templ_7745c5c3_Err = templ.JoinStringErrs(`Gateway calls Apply; produces a new event`)
+			templ_7745c5c3_Var63, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Every call through the gateway enforces the same contract:", "Cada llamada a través de la pasarela aplica el mismo contrato:"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 216, Col: 54}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 230, Col: 144}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var63))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 62, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 62, "</p><ul><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var64 string
-			templ_7745c5c3_Var64, templ_7745c5c3_Err = templ.JoinStringErrs(`Event is appended to the durable log`)
+			templ_7745c5c3_Var64, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Session is authenticated", "La sesión está autenticada"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 217, Col: 49}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 232, Col: 77}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var64))
 			if templ_7745c5c3_Err != nil {
@@ -873,9 +894,9 @@ gateway.Dispatch(ctx, sessionID, action)`)
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var65 string
-			templ_7745c5c3_Var65, templ_7745c5c3_Err = templ.JoinStringErrs(`Gateway returns the updated projection to the handler`)
+			templ_7745c5c3_Var65, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Actor is authorised for this action or projection", "El actor está autorizado para esta acción o proyección"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 218, Col: 66}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 233, Col: 131}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var65))
 			if templ_7745c5c3_Err != nil {
@@ -886,359 +907,657 @@ gateway.Dispatch(ctx, sessionID, action)`)
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var66 string
-			templ_7745c5c3_Var66, templ_7745c5c3_Err = templ.JoinStringErrs(`Handler renders the projection as HTML: partial for htmx, full page otherwise`)
+			templ_7745c5c3_Var66, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Action is valid against current state before any change is applied", "La acción es válida contra el estado actual antes de aplicar cualquier cambio"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 219, Col: 90}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 234, Col: 170}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var66))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 65, "</li></ol><blockquote class=\"callout\"><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 65, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var67 string
-			templ_7745c5c3_Var67, templ_7745c5c3_Err = templ.JoinStringErrs(`No partial application. No silent failure. No client state to reconcile.`)
+			templ_7745c5c3_Var67, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Every transition is appended to the audit log", "Cada transición se añade al registro de auditoría"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 222, Col: 84}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 235, Col: 122}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var67))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 66, "</p></blockquote></section><section id=\"security-by-construction\" aria-label=\"Security by construction\"><h2>Security by construction</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 66, "</li></ul><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var68 string
-			templ_7745c5c3_Var68, templ_7745c5c3_Err = templ.JoinStringErrs(`Security in most systems is applied as a layer: middleware checks, validation
-					libraries, WAF rules, security headers. Each layer can be misconfigured, bypassed,
-					or forgotten. SAUI takes a different position: the architecture excludes entire
-					vulnerability classes structurally, before any application code runs.`)
+			templ_7745c5c3_Var68, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`Authorisation is not middleware. It runs inside the gateway, inside every request.
+					There is no separate runtime layer that can be bypassed with a crafted header.`,
+				`La autorización no es middleware. Se ejecuta dentro de la pasarela, dentro de cada solicitud.
+					No hay una capa de tiempo de ejecución separada que pueda ser eludida con una cabecera manipulada.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 230, Col: 75}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 242, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var68))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 67, "</p><ul><li><strong>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 67, "</p></section><section id=\"action-pattern\" aria-label=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var69 string
-			templ_7745c5c3_Var69, templ_7745c5c3_Err = templ.JoinStringErrs(`No client state.`)
+			templ_7745c5c3_Var69, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Action pattern", "Patrón de acción"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 233, Col: 34}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 244, Col: 91}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var69))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 68, "</strong> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 68, "\"><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var70 string
-			templ_7745c5c3_Var70, templ_7745c5c3_Err = templ.JoinStringErrs(` State manipulation — the classic "isAdmin: true" attack — requires client-held
-						state to manipulate. The browser holds none. The attack class does not apply.`)
+			templ_7745c5c3_Var70, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The action pattern", "El patrón de acción"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 235, Col: 84}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 245, Col: 63}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var70))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 69, "</li><li><strong>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 69, "</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var71 string
-			templ_7745c5c3_Var71, templ_7745c5c3_Err = templ.JoinStringErrs(`No hydration boundary.`)
+			templ_7745c5c3_Var71, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`State changes are expressed as validated intents, not direct mutations.
+					A handler never writes state directly; it submits an action to the gateway.`,
+				`Los cambios de estado se expresan como intenciones validadas, no como mutaciones directas.
+					Un manejador nunca escribe el estado directamente; envía una acción a la pasarela.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 238, Col: 40}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 251, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var71))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 70, "</strong> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 70, "</p><pre><code>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var72 string
-			templ_7745c5c3_Var72, templ_7745c5c3_Err = templ.JoinStringErrs(` Server state is never serialised into inline HTML for client reconstruction.
-						The hydration XSS attack class requires this boundary. It does not exist here.`)
+			templ_7745c5c3_Var72, templ_7745c5c3_Err = templ.JoinStringErrs(`type Action interface {
+    Type()     string
+    Validate(ctx, store, sessionID) error
+    Apply(ctx, store, sessionID)    (Event, error)
+}`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 240, Col: 85}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 256, Col: 2}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var72))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 71, "</li><li><strong>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 71, "</code></pre><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var73 string
-			templ_7745c5c3_Var73, templ_7745c5c3_Err = templ.JoinStringErrs(`No middleware security gate.`)
+			templ_7745c5c3_Var73, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The lifecycle of a state change:", "El ciclo de vida de un cambio de estado:"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 243, Col: 46}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 257, Col: 95}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var73))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 72, "</strong> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 72, "</p><ol><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var74 string
-			templ_7745c5c3_Var74, templ_7745c5c3_Err = templ.JoinStringErrs(` Authorisation runs inside the gateway, inside every request handler.
-						There is no separate runtime layer to bypass. The middleware bypass pattern
-						that produced CVE-2025-29927 (CVSS 9.1) in Next.js cannot occur.`)
+			templ_7745c5c3_Var74, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Handler parses the request and constructs an action", "El manejador analiza la solicitud y construye una acción"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 246, Col: 71}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 259, Col: 133}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var74))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 73, "</li><li><strong>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 73, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var75 string
-			templ_7745c5c3_Var75, templ_7745c5c3_Err = templ.JoinStringErrs(`Append-only event log.`)
+			templ_7745c5c3_Var75, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Gateway calls Validate against current state; rejects if invalid", "La pasarela llama a Validate contra el estado actual; rechaza si es inválido"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 249, Col: 40}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 260, Col: 166}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var75))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 74, "</strong> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 74, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var76 string
-			templ_7745c5c3_Var76, templ_7745c5c3_Err = templ.JoinStringErrs(` Past events cannot be altered by any code path. An attacker with database
-						access cannot rewrite history. The audit trail is a structural property,
-						not a policy.`)
+			templ_7745c5c3_Var76, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Gateway calls Apply; produces a new event", "La pasarela llama a Apply; produce un nuevo evento"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 252, Col: 20}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 261, Col: 116}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var76))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 75, "</li><li><strong>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 75, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var77 string
-			templ_7745c5c3_Var77, templ_7745c5c3_Err = templ.JoinStringErrs(`No npm dependency graph.`)
+			templ_7745c5c3_Var77, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Event is appended to the durable log", "El evento se añade al registro durable"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 255, Col: 42}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 262, Col: 100}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var77))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 76, "</strong> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 76, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var78 string
-			templ_7745c5c3_Var78, templ_7745c5c3_Err = templ.JoinStringErrs(` htmx is a single vendored file. The rest of the stack is Go standard library.
-						There are no transitive package dependencies and therefore no supply chain
-						attack surface.`)
+			templ_7745c5c3_Var78, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Gateway returns the updated projection to the handler", "La pasarela devuelve la proyección actualizada al manejador"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 258, Col: 22}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 263, Col: 138}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var78))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 77, "</li></ul><blockquote class=\"callout\"><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 77, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var79 string
-			templ_7745c5c3_Var79, templ_7745c5c3_Err = templ.JoinStringErrs(`These are not mitigations. They are the consequence of an architecture
-						where the dangerous patterns cannot exist.`)
+			templ_7745c5c3_Var79, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Handler renders the projection as HTML: partial for htmx, full page otherwise", "El manejador renderiza la proyección como HTML: parcial para htmx, página completa en caso contrario"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 263, Col: 49}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 264, Col: 204}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var79))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 78, "</p></blockquote></section><section id=\"progressive-enhancement\" aria-label=\"Progressive enhancement\"><h2>Progressive enhancement</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 78, "</li></ol><blockquote class=\"callout\"><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var80 string
-			templ_7745c5c3_Var80, templ_7745c5c3_Err = templ.JoinStringErrs(`Every feature is built across four degradation levels. All four must produce
-					correct state; the server owns truth regardless of client capability.`)
+			templ_7745c5c3_Var80, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				"No partial application. No silent failure. No client state to reconcile.",
+				"Sin aplicación parcial. Sin fallos silenciosos. Sin estado del cliente que reconciliar.",
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 269, Col: 75}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 270, Col: 6}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var80))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 79, "</p><dl class=\"pe-levels\"><div class=\"pe-level\"><dt><span class=\"pe-level__badge\">L0</span>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 79, "</p></blockquote></section><section id=\"security-by-construction\" aria-label=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var81 string
-			templ_7745c5c3_Var81, templ_7745c5c3_Err = templ.JoinStringErrs(`No JS, no CSS`)
+			templ_7745c5c3_Var81, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Security by construction", "Seguridad por construcción"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 272, Col: 66}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 273, Col: 120}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var81))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 80, "</dt><dd>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 80, "\"><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var82 string
-			templ_7745c5c3_Var82, templ_7745c5c3_Err = templ.JoinStringErrs(`Native HTML forms, POST submission, PRG pattern. Must always work.`)
+			templ_7745c5c3_Var82, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Security by construction", "Seguridad por construcción"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 273, Col: 80}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 274, Col: 75}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var82))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 81, "</dd></div><div class=\"pe-level\"><dt><span class=\"pe-level__badge\">L1</span>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 81, "</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var83 string
-			templ_7745c5c3_Var83, templ_7745c5c3_Err = templ.JoinStringErrs(`CSS only`)
+			templ_7745c5c3_Var83, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`Security in most systems is applied as a layer: middleware checks, validation
+					libraries, WAF rules, security headers. Each layer can be misconfigured, bypassed,
+					or forgotten. SAUI takes a different position: the architecture excludes entire
+					vulnerability classes structurally, before any application code runs.`,
+				`La seguridad en la mayoría de los sistemas se aplica como una capa: comprobaciones de
+					middleware, bibliotecas de validación, reglas WAF, cabeceras de seguridad. Cada capa
+					puede estar mal configurada, ser eludida u olvidada. SAUI adopta una posición diferente:
+					la arquitectura excluye estructuralmente clases enteras de vulnerabilidades, antes
+					de que se ejecute cualquier código de aplicación.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 276, Col: 61}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 285, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var83))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 82, "</dt><dd>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 82, "</p><ul><li><strong>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var84 string
-			templ_7745c5c3_Var84, templ_7745c5c3_Err = templ.JoinStringErrs(`Full layout applied. No visual state that depends on JS class toggling.`)
+			templ_7745c5c3_Var84, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("No client state.", "Sin estado del cliente."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 277, Col: 85}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 288, Col: 69}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var84))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 83, "</dd></div><div class=\"pe-level\"><dt><span class=\"pe-level__badge\">L2</span>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 83, "</strong> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var85 string
-			templ_7745c5c3_Var85, templ_7745c5c3_Err = templ.JoinStringErrs(`JS present, htmx not yet loaded`)
+			templ_7745c5c3_Var85, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				` State manipulation — the classic "isAdmin: true" attack — requires client-held
+							state to manipulate. The browser holds none. The attack class does not apply.`,
+				` La manipulación del estado, el clásico ataque "isAdmin: true", requiere estado
+							en el cliente para manipular. El navegador no retiene nada. La clase de ataque no aplica.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 280, Col: 84}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 294, Col: 7}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var85))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 84, "</dt><dd>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 84, "</li><li><strong>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var86 string
-			templ_7745c5c3_Var86, templ_7745c5c3_Err = templ.JoinStringErrs(`Native form submission holds. Full page responses.`)
+			templ_7745c5c3_Var86, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("No hydration boundary.", "Sin límite de hidratación."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 281, Col: 64}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 297, Col: 80}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var86))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 85, "</dd></div><div class=\"pe-level\"><dt><span class=\"pe-level__badge\">L3</span>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 85, "</strong> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var87 string
-			templ_7745c5c3_Var87, templ_7745c5c3_Err = templ.JoinStringErrs(`htmx loaded`)
+			templ_7745c5c3_Var87, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				` Server state is never serialised into inline HTML for client reconstruction.
+							The hydration XSS attack class requires this boundary. It does not exist here.`,
+				` El estado del servidor nunca se serializa en HTML en línea para reconstrucción
+							en el cliente. La clase de ataque XSS de hidratación requiere este límite. Aquí no existe.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 284, Col: 64}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 303, Col: 7}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var87))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 86, "</dt><dd>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 86, "</li><li><strong>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var88 string
-			templ_7745c5c3_Var88, templ_7745c5c3_Err = templ.JoinStringErrs(`Partial DOM updates active. Forms intercepted. hx-boost on navigation.`)
+			templ_7745c5c3_Var88, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("No middleware security gate.", "Sin puerta de seguridad de middleware."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 285, Col: 84}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 306, Col: 96}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var88))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 87, "</dd></div><div class=\"pe-level\"><dt><span class=\"pe-level__badge\">L4</span>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 87, "</strong> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var89 string
-			templ_7745c5c3_Var89, templ_7745c5c3_Err = templ.JoinStringErrs(`Full baseline JS`)
+			templ_7745c5c3_Var89, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				` Authorisation runs inside the gateway, inside every request handler.
+							There is no separate runtime layer to bypass. The middleware bypass pattern
+							that produced CVE-2025-29927 (CVSS 9.1) in Next.js cannot occur.`,
+				` La autorización se ejecuta dentro de la pasarela, dentro de cada manejador
+							de solicitudes. No hay una capa de tiempo de ejecución separada que eludir.
+							El patrón de evasión de middleware que produjo CVE-2025-29927 (CVSS 9.1)
+							en Next.js no puede ocurrir.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 288, Col: 69}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 315, Col: 7}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var89))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 88, "</dt><dd>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 88, "</li><li><strong>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var90 string
-			templ_7745c5c3_Var90, templ_7745c5c3_Err = templ.JoinStringErrs(`SSE connection for real-time projection updates. View Transitions if supported.`)
+			templ_7745c5c3_Var90, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Append-only event log.", "Registro de eventos solo-adjuntar."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 289, Col: 93}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 318, Col: 86}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var90))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 89, "</dd></div></dl><p><a href=\"/stack\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 89, "</strong> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var91 string
-			templ_7745c5c3_Var91, templ_7745c5c3_Err = templ.JoinStringErrs(`See the Go implementation`)
+			templ_7745c5c3_Var91, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				` Past events cannot be altered by any code path. An attacker with database
+							access cannot rewrite history. The audit trail is a structural property,
+							not a policy.`,
+				` Los eventos pasados no pueden ser alterados por ninguna ruta de código.
+							Un atacante con acceso a la base de datos no puede reescribir el historial.
+							La pista de auditoría es una propiedad estructural, no una política.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 292, Col: 53}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 326, Col: 7}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var91))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 90, "</a></p></section></article>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 90, "</li><li><strong>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var92 string
+			templ_7745c5c3_Var92, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("No npm dependency graph.", "Sin grafo de dependencias npm."))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 329, Col: 84}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var92))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 91, "</strong> ")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var93 string
+			templ_7745c5c3_Var93, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				` htmx is a single vendored file. The rest of the stack is Go standard library.
+							There are no transitive package dependencies and therefore no supply chain
+							attack surface.`,
+				` htmx es un único archivo gestionado. El resto de la pila es la biblioteca
+							estándar de Go. No hay dependencias de paquetes transitivas y por tanto
+							no hay superficie de ataque en la cadena de suministro.`,
+			))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 337, Col: 7}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var93))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 92, "</li></ul><blockquote class=\"callout\"><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var94 string
+			templ_7745c5c3_Var94, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				"These are not mitigations. They are the consequence of an architecture where the dangerous patterns cannot exist.",
+				"Estas no son mitigaciones. Son la consecuencia de una arquitectura donde los patrones peligrosos no pueden existir.",
+			))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 344, Col: 6}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var94))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 93, "</p></blockquote></section><section id=\"progressive-enhancement\" aria-label=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var95 string
+			templ_7745c5c3_Var95, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Progressive enhancement", "Mejora progresiva"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 347, Col: 108}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var95))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 94, "\"><h2>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var96 string
+			templ_7745c5c3_Var96, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Progressive enhancement", "Mejora progresiva"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 348, Col: 64}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var96))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 95, "</h2><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var97 string
+			templ_7745c5c3_Var97, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`Every feature is built across four degradation levels. All four must produce
+					correct state; the server owns truth regardless of client capability.`,
+				`Cada función se construye en cuatro niveles de degradación. Los cuatro deben producir
+					estado correcto; el servidor posee la verdad independientemente de la capacidad del cliente.`,
+			))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 354, Col: 5}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var97))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 96, "</p><dl class=\"pe-levels\"><div class=\"pe-level\"><dt><span class=\"pe-level__badge\">L0</span>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var98 string
+			templ_7745c5c3_Var98, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("No JS, no CSS", "Sin JS, sin CSS"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 357, Col: 93}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var98))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 97, "</dt><dd>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var99 string
+			templ_7745c5c3_Var99, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Native HTML forms, POST submission, PRG pattern. Must always work.", "Formularios HTML nativos, envío POST, patrón PRG. Siempre debe funcionar."))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 358, Col: 167}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var99))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 98, "</dd></div><div class=\"pe-level\"><dt><span class=\"pe-level__badge\">L1</span>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var100 string
+			templ_7745c5c3_Var100, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("CSS only", "Solo CSS"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 361, Col: 81}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var100))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 99, "</dt><dd>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var101 string
+			templ_7745c5c3_Var101, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Full layout applied. No visual state that depends on JS class toggling.", "Diseño completo aplicado. Sin estado visual que dependa del cambio de clases JS."))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 362, Col: 178}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var101))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 100, "</dd></div><div class=\"pe-level\"><dt><span class=\"pe-level__badge\">L2</span>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var102 string
+			templ_7745c5c3_Var102, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("JS present, htmx not yet loaded", "JS presente, htmx aún no cargado"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 365, Col: 129}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var102))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 101, "</dt><dd>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var103 string
+			templ_7745c5c3_Var103, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Native form submission holds. Full page responses.", "El envío de formulario nativo funciona. Respuestas de página completa."))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 366, Col: 148}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var103))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 102, "</dd></div><div class=\"pe-level\"><dt><span class=\"pe-level__badge\">L3</span>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var104 string
+			templ_7745c5c3_Var104, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("htmx loaded", "htmx cargado"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 369, Col: 88}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var104))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 103, "</dt><dd>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var105 string
+			templ_7745c5c3_Var105, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Partial DOM updates active. Forms intercepted. hx-boost on navigation.", "Actualizaciones parciales del DOM activas. Formularios interceptados. hx-boost en la navegación."))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 370, Col: 193}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var105))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 104, "</dd></div><div class=\"pe-level\"><dt><span class=\"pe-level__badge\">L4</span>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var106 string
+			templ_7745c5c3_Var106, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Full baseline JS", "JS base completo"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 373, Col: 97}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var106))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 105, "</dt><dd>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var107 string
+			templ_7745c5c3_Var107, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("SSE connection for real-time projection updates. View Transitions if supported.", "Conexión SSE para actualizaciones de proyección en tiempo real. Transiciones de vista si se admite."))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 374, Col: 206}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var107))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 106, "</dd></div></dl><p><a href=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var108 templ.SafeURL
+			templ_7745c5c3_Var108, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/stack"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 377, Col: 52}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var108))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 107, "\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var109 string
+			templ_7745c5c3_Var109, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("See the Go implementation", "Ver la implementación en Go"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/architecture.templ`, Line: 377, Col: 124}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var109))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 108, "</a></p></section></article>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = layout.Base("Architecture", "The SAUI request lifecycle: browser submits intent, gateway authenticates and applies, event log records truth, server projects HTML back to the browser.", csrfToken, "/architecture", "/static/css/architecture.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layout.Base(
+			lang.T("Architecture", "Arquitectura"),
+			lang.T(
+				"The SAUI request lifecycle: browser submits intent, gateway authenticates and applies, event log records truth, server projects HTML back to the browser.",
+				"El ciclo de vida de una solicitud SAUI: el navegador envía intención, la pasarela autentica y aplica, el registro de eventos graba la verdad, el servidor proyecta HTML de vuelta al navegador.",
+			),
+			csrfToken,
+			lang.Prefix()+"/architecture",
+			"/static/css/architecture.css",
+			lang,
+		).Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

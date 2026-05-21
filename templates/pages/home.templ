@@ -1,9 +1,22 @@
 package pages
 
-import "saui/templates/layout"
+import (
+	"saui/locale"
+	"saui/templates/layout"
+)
 
-templ Home(csrfToken string) {
-	@layout.Base("Server-Authoritative UI", "SAUI is a web architecture where the server owns all state. No client-side state management. Security and correctness as structural properties, not layers added on top.", csrfToken, "/", "/static/css/home.css") {
+templ Home(csrfToken string, lang locale.Lang) {
+	@layout.Base(
+		lang.T("Server-Authoritative UI", "Interfaz Autorizada por el Servidor"),
+		lang.T(
+			"SAUI is a web architecture where the server owns all state. No client-side state management. Security and correctness as structural properties, not layers added on top.",
+			"SAUI es una arquitectura web donde el servidor posee todo el estado. Sin gestión de estado en el cliente. Seguridad y corrección como propiedades estructurales, no capas añadidas encima.",
+		),
+		csrfToken,
+		lang.Prefix()+"/",
+		"/static/css/home.css",
+		lang,
+	) {
 		<article class="home-hero">
 			<section class="hero">
 				<svg class="hero-bg" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -61,66 +74,92 @@ templ Home(csrfToken string) {
 					<circle class="hero-server" cx="600" cy="300" r="11"/>
 				</svg>
 				<div class="hero__content">
-					<h1>The server owns state. The browser renders truth.</h1>
-					<p>{ `The server is the single source of truth. The browser is a stateless view of it.` }</p>
+					<h1>{ lang.T("The server owns state. The browser renders truth.", "El servidor posee el estado. El navegador renderiza la verdad.") }</h1>
+					<p>{ lang.T("The server is the single source of truth. The browser is a stateless view of it.", "El servidor es la única fuente de verdad. El navegador es una vista sin estado de ella.") }</p>
 					<p>
-						<a href="/why" class="btn">Why this matters</a>
-						<a href="/architecture" class="btn btn--secondary">See the architecture</a>
+						<a href={ templ.URL(lang.Prefix() + "/why") } class="btn">{ lang.T("Why this matters", "Por qué importa") }</a>
+						<a href={ templ.URL(lang.Prefix() + "/architecture") } class="btn btn--secondary">{ lang.T("See the architecture", "Ver la arquitectura") }</a>
 					</p>
 				</div>
 			</section>
 		</article>
-		<section class="statement" aria-label="Core proposition">
+		<section class="statement" aria-label={ lang.T("Core proposition", "Proposición central") }>
 			<div class="statement__bg" aria-hidden="true"></div>
 			<div class="statement__content">
-				<p class="statement__eyebrow">{ `Server-Authoritative UI` }</p>
+				<p class="statement__eyebrow">{ lang.T("Server-Authoritative UI", "Interfaz Autorizada por el Servidor") }</p>
 				<p class="statement__quote">
-					<span class="statement__line">{ `The server owns state.` }</span>
-					<span class="statement__line statement__line--two">{ `The browser renders truth.` }</span>
+					<span class="statement__line">{ lang.T("The server owns state.", "El servidor posee el estado.") }</span>
+					<span class="statement__line statement__line--two">{ lang.T("The browser renders truth.", "El navegador renderiza la verdad.") }</span>
 				</p>
 			</div>
 		</section>
 		<article class="home-body">
 			<section class="proposition">
-				<h2>A user interface that displays server state is always correct by definition.</h2>
-				<p>{ `A user interface that maintains its own copy of state is always eventually wrong.` }</p>
-				<p>{ `The synchronisation problem (keeping client state consistent with server state)
+				<h2>{ lang.T(
+					"A user interface that displays server state is always correct by definition.",
+					"Una interfaz que muestra el estado del servidor siempre es correcta por definición.",
+				) }</h2>
+				<p>{ lang.T(
+					"A user interface that maintains its own copy of state is always eventually wrong.",
+					"Una interfaz que mantiene su propia copia del estado siempre acaba siendo incorrecta.",
+				) }</p>
+				<p>{ lang.T(
+					`The synchronisation problem (keeping client state consistent with server state)
 					has generated entire engineering disciplines: state management libraries,
-					cache invalidation strategies, optimistic update patterns, hydration pipelines.` }</p>
-				<p>{ `SAUI eliminates the synchronisation problem by eliminating the second copy of state.` }</p>
+					cache invalidation strategies, optimistic update patterns, hydration pipelines.`,
+					`El problema de sincronización (mantener el estado del cliente consistente con el del servidor)
+					ha generado disciplinas de ingeniería enteras: bibliotecas de gestión de estado,
+					estrategias de invalidación de caché, patrones de actualización optimista, canales de hidratación.`,
+				) }</p>
+				<p>{ lang.T(
+					"SAUI eliminates the synchronisation problem by eliminating the second copy of state.",
+					"SAUI elimina el problema de sincronización eliminando la segunda copia del estado.",
+				) }</p>
 			</section>
 			<section class="nav-cards nav-cards--toc">
-				<h2>Explore</h2>
+				<h2>{ lang.T("Explore", "Explorar") }</h2>
 				<ul>
 					<li>
-						<a href="/why">
+						<a href={ templ.URL(lang.Prefix() + "/why") }>
 							<span class="nav-card__num" aria-hidden="true">01</span>
-							<h3>Why</h3>
-							<p>{ `The diagnosis. What the SPA era got right, and what it universalised by mistake.` }</p>
+							<h3>{ lang.T("Why", "Por qué") }</h3>
+							<p>{ lang.T(
+								"The diagnosis. What the SPA era got right, and what it universalised by mistake.",
+								"El diagnóstico. Qué acertó la era SPA y qué universalizó por error.",
+							) }</p>
 							<span class="nav-card__arrow" aria-hidden="true">↗</span>
 						</a>
 					</li>
 					<li>
-						<a href="/architecture">
+						<a href={ templ.URL(lang.Prefix() + "/architecture") }>
 							<span class="nav-card__num" aria-hidden="true">02</span>
-							<h3>Architecture</h3>
-							<p>{ `The gateway contract, the two-layer state model, the action pattern.` }</p>
+							<h3>{ lang.T("Architecture", "Arquitectura") }</h3>
+							<p>{ lang.T(
+								"The gateway contract, the two-layer state model, the action pattern.",
+								"El contrato de la pasarela, el modelo de estado de dos capas, el patrón de acción.",
+							) }</p>
 							<span class="nav-card__arrow" aria-hidden="true">↗</span>
 						</a>
 					</li>
 					<li>
-						<a href="/stack">
+						<a href={ templ.URL(lang.Prefix() + "/stack") }>
 							<span class="nav-card__num" aria-hidden="true">03</span>
-							<h3>Stack</h3>
-							<p>{ `Go, SQLite, htmx, and nothing else. The implementation in detail.` }</p>
+							<h3>{ lang.T("Stack", "Tecnología") }</h3>
+							<p>{ lang.T(
+								"Go, SQLite, htmx, and nothing else. The implementation in detail.",
+								"Go, SQLite, htmx y nada más. La implementación en detalle.",
+							) }</p>
 							<span class="nav-card__arrow" aria-hidden="true">↗</span>
 						</a>
 					</li>
 					<li>
-						<a href="/limits">
+						<a href={ templ.URL(lang.Prefix() + "/limits") }>
 							<span class="nav-card__num" aria-hidden="true">04</span>
-							<h3>Limits</h3>
-							<p>{ `Where SAUI is the wrong choice. Stated plainly.` }</p>
+							<h3>{ lang.T("Limits", "Límites") }</h3>
+							<p>{ lang.T(
+								"Where SAUI is the wrong choice. Stated plainly.",
+								"Dónde SAUI no es la opción correcta. Dicho claramente.",
+							) }</p>
 							<span class="nav-card__arrow" aria-hidden="true">↗</span>
 						</a>
 					</li>

@@ -1,70 +1,118 @@
 package pages
 
-import "saui/templates/layout"
+import (
+	"saui/locale"
+	"saui/templates/layout"
+)
 
-templ CaseHealthcare(csrfToken string) {
-	@layout.Base("Case Study: Healthcare Booking", "SAUI in healthcare: compliant patient state management with server-projected UI, no PHI stored in the browser between requests.", csrfToken, "/cases/healthcare", "/static/css/cases-healthcare.css") {
+templ CaseHealthcare(csrfToken string, lang locale.Lang) {
+	@layout.Base(
+		lang.T("Case Study: Healthcare Booking", "Caso de estudio: Reserva sanitaria"),
+		lang.T(
+			"SAUI in healthcare: compliant patient state management with server-projected UI, no PHI stored in the browser between requests.",
+			"SAUI en sanidad: gestión de estado de pacientes conforme con UI proyectada por el servidor, sin información de salud protegida almacenada en el navegador entre solicitudes.",
+		),
+		csrfToken,
+		lang.Prefix()+"/cases/healthcare",
+		"/static/css/cases-healthcare.css",
+		lang,
+	) {
 		<section class="page-hero">
 			<div class="page-hero__content">
-				<nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
-					<a href="/cases">{ `Case Studies` }</a>{ ` / Healthcare Booking` }
+				<nav class="page-hero__breadcrumb" aria-label={ lang.T("Breadcrumb", "Ruta de navegación") }>
+					<a href={ templ.URL(lang.Prefix() + "/cases") }>{ lang.T("Case Studies", "Casos de estudio") }</a>{ lang.T(` / Healthcare Booking`, ` / Reserva sanitaria`) }
 				</nav>
-				<h1>Healthcare booking</h1>
-				<p class="lead">{ `Slot locking and double booking are solved at the architecture level, not patched at the application level.` }</p>
+				<h1>{ lang.T("Healthcare booking", "Reserva sanitaria") }</h1>
+				<p class="lead">{ lang.T(
+					"Slot locking and double booking are solved at the architecture level, not patched at the application level.",
+					"El bloqueo de franjas y las reservas duplicadas se resuelven a nivel de arquitectura, no se parchean a nivel de aplicación.",
+				) }</p>
 			</div>
 		</section>
 		<article>
 			<section>
-				<h2>The client-side state model</h2>
-				<p>{ `Healthcare booking SPAs load available slots into client state. The user selects
+				<h2>{ lang.T("The client-side state model", "El modelo de estado del lado del cliente") }</h2>
+				<p>{ lang.T(
+					`Healthcare booking SPAs load available slots into client state. The user selects
 					a slot, the UI marks it as selected, and the booking is submitted.
-					The problems:` }</p>
+					The problems:`,
+					`Las SPA de reserva sanitaria cargan las franjas disponibles en el estado del cliente.
+					El usuario selecciona una franja, la UI la marca como seleccionada y se envía la reserva.
+					Los problemas:`,
+				) }</p>
 				<ul>
 					<li>
-						<strong>Double booking.</strong>
-						{ ` Two users see the same slot as available. Both select it. Both submit.
-						The server must handle the race, but the SPA gave both users a UI that
-						promised the slot was available.` }
+						<strong>{ lang.T("Double booking.", "Reserva duplicada.") }</strong>
+						{ lang.T(
+							` Two users see the same slot as available. Both select it. Both submit.
+							The server must handle the race, but the SPA gave both users a UI that
+							promised the slot was available.`,
+							` Dos usuarios ven la misma franja como disponible. Ambos la seleccionan.
+							Ambos envían. El servidor debe manejar la condición de carrera, pero la SPA
+							dio a ambos usuarios una UI que prometía que la franja estaba disponible.`,
+						) }
 					</li>
 					<li>
-						<strong>Slot staleness.</strong>
-						{ ` The slot list loaded minutes ago. Slots booked by others since load
-						are still shown as available. The user selects a slot that no longer exists.` }
+						<strong>{ lang.T("Slot staleness.", "Desactualización de franjas.") }</strong>
+						{ lang.T(
+							` The slot list loaded minutes ago. Slots booked by others since load
+							are still shown as available. The user selects a slot that no longer exists.`,
+							` La lista de franjas se cargó hace minutos. Las franjas reservadas por otros
+							desde la carga aún se muestran como disponibles. El usuario selecciona
+							una franja que ya no existe.`,
+						) }
 					</li>
 					<li>
-						<strong>Optimistic booking.</strong>
-						{ ` The SPA may mark a slot as booked before server confirmation.
-						If the server rejects (slot taken, payment failed), the UI must unwind
-						a state the user believed was confirmed.` }
+						<strong>{ lang.T("Optimistic booking.", "Reserva optimista.") }</strong>
+						{ lang.T(
+							` The SPA may mark a slot as booked before server confirmation.
+							If the server rejects (slot taken, payment failed), the UI must unwind
+							a state the user believed was confirmed.`,
+							` La SPA puede marcar una franja como reservada antes de la confirmación
+							del servidor. Si el servidor rechaza (franja ocupada, pago fallido),
+							la UI debe deshacer un estado que el usuario creía confirmado.`,
+						) }
 					</li>
 				</ul>
 			</section>
 			<section>
-				<h2>What moves to the server under SAUI</h2>
+				<h2>{ lang.T("What moves to the server under SAUI", "Qué se mueve al servidor bajo SAUI") }</h2>
 				<ul>
-					<li>{ `Slot availability: computed from current bookings on every projection request` }</li>
-					<li>{ `Slot locking: a SlotLocked event is appended when a user begins booking; released on completion or timeout` }</li>
-					<li>{ `Double booking prevention: the gateway validates slot availability atomically before appending the SlotBooked event` }</li>
+					<li>{ lang.T("Slot availability: computed from current bookings on every projection request", "Disponibilidad de franjas: calculada desde las reservas actuales en cada solicitud de proyección") }</li>
+					<li>{ lang.T("Slot locking: a SlotLocked event is appended when a user begins booking; released on completion or timeout", "Bloqueo de franjas: se añade un evento SlotLocked cuando un usuario comienza a reservar; liberado al completar o agotar el tiempo") }</li>
+					<li>{ lang.T("Double booking prevention: the gateway validates slot availability atomically before appending the SlotBooked event", "Prevención de reservas duplicadas: la pasarela valida la disponibilidad de la franja atómicamente antes de añadir el evento SlotBooked") }</li>
 				</ul>
-				<p>{ `The lock-then-book sequence is handled entirely by server-side actions. The client
+				<p>{ lang.T(
+					`The lock-then-book sequence is handled entirely by server-side actions. The client
 					never holds a representation of slot availability; it receives a projection of
-					current truth on each request.` }</p>
+					current truth on each request.`,
+					`La secuencia bloquear-y-reservar se gestiona íntegramente mediante acciones del lado
+					del servidor. El cliente nunca mantiene una representación de la disponibilidad
+					de franjas; recibe una proyección de la verdad actual en cada solicitud.`,
+				) }</p>
 			</section>
 			<section>
-				<h2>What stays on the client</h2>
+				<h2>{ lang.T("What stays on the client", "Qué permanece en el cliente") }</h2>
 				<ul>
-					<li>{ `Calendar navigation UI state (current month view)` }</li>
-					<li>{ `Time zone display preference (UI-only, no business meaning)` }</li>
-					<li>{ `Form focus state` }</li>
+					<li>{ lang.T("Calendar navigation UI state (current month view)", "Estado de UI de navegación del calendario (vista del mes actual)") }</li>
+					<li>{ lang.T("Time zone display preference (UI-only, no business meaning)", "Preferencia de visualización de zona horaria (solo UI, sin significado empresarial)") }</li>
+					<li>{ lang.T("Form focus state", "Estado de foco del formulario") }</li>
 				</ul>
 			</section>
 			<section>
-				<h2>Security and correctness properties gained</h2>
-				<p>{ `Double booking is structurally prevented by the gateway atomic validation.
+				<h2>{ lang.T("Security and correctness properties gained", "Propiedades de seguridad y corrección obtenidas") }</h2>
+				<p>{ lang.T(
+					`Double booking is structurally prevented by the gateway atomic validation.
 					Slot staleness is eliminated; the projection is computed from current bookings,
 					not a cached snapshot. The lock timeout is server-enforced: an abandoned booking
-					flow releases the slot automatically via a scheduled action.` }</p>
-				<p><a href="/cases/saas-dashboard">Next: SaaS dashboards</a></p>
+					flow releases the slot automatically via a scheduled action.`,
+					`Las reservas duplicadas se previenen estructuralmente mediante la validación atómica
+					de la pasarela. La desactualización de franjas se elimina; la proyección se calcula
+					desde las reservas actuales, no desde una instantánea en caché. El tiempo de espera
+					del bloqueo se aplica en el servidor: un flujo de reserva abandonado libera la franja
+					automáticamente mediante una acción programada.`,
+				) }</p>
+				<p><a href={ templ.URL(lang.Prefix() + "/cases/saas-dashboard") }>{ lang.T("Next: SaaS dashboards", "Siguiente: Paneles SaaS") }</a></p>
 			</section>
 		</article>
 	}

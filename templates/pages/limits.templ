@@ -1,76 +1,164 @@
 package pages
 
-import "saui/templates/layout"
+import (
+	"saui/locale"
+	"saui/templates/layout"
+)
 
-templ Limits(csrfToken string) {
-	@layout.Base("Limits", "Where SAUI works and where it does not. Latency-sensitive UIs, offline-first apps, and the honest tradeoffs you need to know.", csrfToken, "/limits", "/static/css/limits.css") {
+templ Limits(csrfToken string, lang locale.Lang) {
+	@layout.Base(
+		lang.T("Limits", "Límites"),
+		lang.T(
+			"Where SAUI works and where it does not. Latency-sensitive UIs, offline-first apps, and the honest tradeoffs you need to know.",
+			"Dónde funciona SAUI y dónde no. Interfaces sensibles a la latencia, aplicaciones offline-first y las concesiones honestas que necesitas conocer.",
+		),
+		csrfToken,
+		lang.Prefix()+"/limits",
+		"/static/css/limits.css",
+		lang,
+	) {
 		<section class="page-hero">
 			<div class="page-hero__content">
-				<h1>Limits</h1>
-				<p class="lead">{ `SAUI is the wrong choice for some applications. These are genuine exceptions, not contrived ones.` }</p>
+				<h1>{ lang.T("Limits", "Límites") }</h1>
+				<p class="lead">{ lang.T(
+					"SAUI is the wrong choice for some applications. These are genuine exceptions, not contrived ones.",
+					"SAUI no es la opción correcta para algunas aplicaciones. Estas son excepciones genuinas, no artificiales.",
+				) }</p>
 			</div>
 		</section>
 		<article>
 			<section>
-				<p>{ `Credibility requires honesty. A pattern that claims to be appropriate for every
+				<p>{ lang.T(
+					`Credibility requires honesty. A pattern that claims to be appropriate for every
 					application is not a pattern; it is marketing. SAUI has real limits and stating
-					them plainly is part of the argument, not a concession to it.` }</p>
+					them plainly is part of the argument, not a concession to it.`,
+					`La credibilidad requiere honestidad. Un patrón que afirma ser apropiado para toda
+					aplicación no es un patrón; es marketing. SAUI tiene límites reales y exponerlos
+					claramente es parte del argumento, no una concesión a él.`,
+				) }</p>
 			</section>
 			<section>
-				<h2>Real-time collaborative editing</h2>
-				<p>{ `When multiple users concurrently mutate the same document - a shared document editor,
+				<h2>{ lang.T("Real-time collaborative editing", "Edición colaborativa en tiempo real") }</h2>
+				<p>{ lang.T(
+					`When multiple users concurrently mutate the same document - a shared document editor,
 					a collaborative whiteboard, a live code editor - the server-authoritative model
-					requires conflict resolution that SAUI does not provide out of the box.` }</p>
-				<p>{ `Concurrent writes to the same state require CRDTs (Conflict-free Replicated Data
+					requires conflict resolution that SAUI does not provide out of the box.`,
+					`Cuando múltiples usuarios mutan concurrentemente el mismo documento (un editor de
+					documentos compartido, una pizarra colaborativa, un editor de código en vivo), el modelo
+					autorizado por el servidor requiere resolución de conflictos que SAUI no proporciona
+					de serie.`,
+				) }</p>
+				<p>{ lang.T(
+					`Concurrent writes to the same state require CRDTs (Conflict-free Replicated Data
 					Types) or operational transforms to merge diverging edit histories. These are
-					hard problems and the SAUI append-only event log does not solve them.` }</p>
-				<p>{ `For single-user editing with server persistence - a CMS, a form, a document editor
+					hard problems and the SAUI append-only event log does not solve them.`,
+					`Las escrituras concurrentes al mismo estado requieren CRDT (Tipos de datos replicados
+					sin conflictos) o transformaciones operativas para fusionar historiales de edición
+					divergentes. Estos son problemas difíciles y el registro de eventos solo-adjuntar
+					de SAUI no los resuelve.`,
+				) }</p>
+				<p>{ lang.T(
+					`For single-user editing with server persistence - a CMS, a form, a document editor
 					used by one person at a time - SAUI is entirely appropriate. The limit is specifically
-					real-time multi-user concurrent mutation of shared state.` }</p>
+					real-time multi-user concurrent mutation of shared state.`,
+					`Para la edición de un solo usuario con persistencia en el servidor (un CMS, un formulario,
+					un editor de documentos utilizado por una persona a la vez), SAUI es completamente
+					apropiado. El límite es específicamente la mutación concurrente en tiempo real
+					de estado compartido por múltiples usuarios.`,
+				) }</p>
 			</section>
 			<section>
-				<h2>Canvas and creative tools</h2>
-				<p>{ `Tools like Figma, Photoshop, or a code editor have an interaction model where local
+				<h2>{ lang.T("Canvas and creative tools", "Lienzo y herramientas creativas") }</h2>
+				<p>{ lang.T(
+					`Tools like Figma, Photoshop, or a code editor have an interaction model where local
 					state is inherent. Every mouse movement is not a server round-trip. Every keypress
 					does not trigger a projection update. The latency of server authorisation is
-					incompatible with the performance requirement.` }</p>
-				<p>{ `These applications require a local state model with selective server persistence.
-					The SAUI round-trip model is not appropriate here.` }</p>
+					incompatible with the performance requirement.`,
+					`Herramientas como Figma, Photoshop o un editor de código tienen un modelo de interacción
+					donde el estado local es inherente. Cada movimiento del ratón no es un viaje de ida
+					y vuelta al servidor. Cada pulsación de tecla no desencadena una actualización de
+					proyección. La latencia de la autorización del servidor es incompatible con el
+					requisito de rendimiento.`,
+				) }</p>
+				<p>{ lang.T(
+					"These applications require a local state model with selective server persistence. The SAUI round-trip model is not appropriate here.",
+					"Estas aplicaciones requieren un modelo de estado local con persistencia selectiva en el servidor. El modelo de viaje de ida y vuelta de SAUI no es apropiado aquí.",
+				) }</p>
 			</section>
 			<section>
-				<h2>Offline-first PWAs</h2>
-				<p>{ `Applications that must function without a network connection require client-side
+				<h2>{ lang.T("Offline-first PWAs", "PWA offline-first") }</h2>
+				<p>{ lang.T(
+					`Applications that must function without a network connection require client-side
 					state with sync-on-reconnect. A service worker can cache projections, but mutations
-					made offline need to be queued and replayed when connectivity is restored.` }</p>
-				<p>{ `SAUI is online-first. The gateway cannot authorise actions it cannot reach.
+					made offline need to be queued and replayed when connectivity is restored.`,
+					`Las aplicaciones que deben funcionar sin conexión de red requieren estado del lado
+					del cliente con sincronización al reconectarse. Un service worker puede cachear
+					proyecciones, pero las mutaciones realizadas sin conexión deben encolarse y
+					reproducirse cuando se restaura la conectividad.`,
+				) }</p>
+				<p>{ lang.T(
+					`SAUI is online-first. The gateway cannot authorise actions it cannot reach.
 					For applications where offline operation is a primary requirement, not a nice-to-have,
-					a client-side state model with server sync is appropriate.` }</p>
+					a client-side state model with server sync is appropriate.`,
+					`SAUI es online-first. La pasarela no puede autorizar acciones a las que no puede llegar.
+					Para aplicaciones donde la operación sin conexión es un requisito primario, no un extra,
+					es apropiado un modelo de estado del lado del cliente con sincronización con el servidor.`,
+				) }</p>
 			</section>
 			<section>
-				<h2>Games and simulations</h2>
-				<p>{ `High-frequency local state - game physics, simulation state, real-time rendering -
+				<h2>{ lang.T("Games and simulations", "Juegos y simulaciones") }</h2>
+				<p>{ lang.T(
+					`High-frequency local state - game physics, simulation state, real-time rendering -
 					is a performance requirement. Server-authoritative game state exists (it is the
 					standard cheat-prevention model in multiplayer games) but the implementation is
-					specialised and the tooling is not general-purpose web infrastructure.` }</p>
+					specialised and the tooling is not general-purpose web infrastructure.`,
+					`El estado local de alta frecuencia (física del juego, estado de simulación, renderizado
+					en tiempo real) es un requisito de rendimiento. El estado de juego autorizado por el
+					servidor existe (es el modelo estándar de prevención de trampas en juegos multijugador)
+					pero la implementación es especializada y las herramientas no son infraestructura web
+					de propósito general.`,
+				) }</p>
 			</section>
 			<section>
-				<h2>High-frequency financial data</h2>
-				<p>{ `Live tickers and order books can be delivered via SSE or WebSocket projection
+				<h2>{ lang.T("High-frequency financial data", "Datos financieros de alta frecuencia") }</h2>
+				<p>{ lang.T(
+					`Live tickers and order books can be delivered via SSE or WebSocket projection
 					streams, and the SAUI model applies at the architecture level. At scale, however,
 					this becomes an infrastructure problem: fan-out to thousands of connections
 					receiving updates at high frequency requires careful design that goes beyond
-					the pattern described here.` }</p>
-				<p>{ `The SAUI model is sound for this use case. The implementation demands are significant.` }</p>
+					the pattern described here.`,
+					`Los tickers en vivo y los libros de órdenes pueden entregarse mediante flujos de
+					proyección SSE o WebSocket, y el modelo SAUI se aplica a nivel de arquitectura.
+					Sin embargo, a escala, esto se convierte en un problema de infraestructura: el
+					fan-out a miles de conexiones que reciben actualizaciones a alta frecuencia requiere
+					un diseño cuidadoso que va más allá del patrón aquí descrito.`,
+				) }</p>
+				<p>{ lang.T(
+					"The SAUI model is sound for this use case. The implementation demands are significant.",
+					"El modelo SAUI es sólido para este caso de uso. Las exigencias de implementación son significativas.",
+				) }</p>
 			</section>
 			<section>
-				<h2>The honest boundary</h2>
-				<p>{ `If your application is a food ordering site, a banking dashboard, a booking system,
+				<h2>{ lang.T("The honest boundary", "El límite honesto") }</h2>
+				<p>{ lang.T(
+					`If your application is a food ordering site, a banking dashboard, a booking system,
 					a CMS, an admin panel, a SaaS product, or most of what is built for the web -
-					SAUI is appropriate and the complexity of the SPA model is not justified.` }</p>
-				<p>{ `If your application is a real-time collaborative editor, a creative tool, an
+					SAUI is appropriate and the complexity of the SPA model is not justified.`,
+					`Si tu aplicación es un sitio de pedido de comida, un panel bancario, un sistema de
+					reservas, un CMS, un panel de administración, un producto SaaS o la mayoría de lo
+					que se construye para la web, SAUI es apropiado y la complejidad del modelo SPA
+					no está justificada.`,
+				) }</p>
+				<p>{ lang.T(
+					`If your application is a real-time collaborative editor, a creative tool, an
 					offline-first mobile web app, or a high-frequency data display - evaluate carefully.
-					SAUI may still apply partially, or may not be the right fit.` }</p>
-				<p><a href="/cases">See the pattern applied to common domains</a></p>
+					SAUI may still apply partially, or may not be the right fit.`,
+					`Si tu aplicación es un editor colaborativo en tiempo real, una herramienta creativa,
+					una aplicación web móvil offline-first o una visualización de datos de alta frecuencia,
+					evalúa cuidadosamente. SAUI puede seguir siendo aplicable parcialmente, o puede
+					no ser la opción adecuada.`,
+				) }</p>
+				<p><a href={ templ.URL(lang.Prefix() + "/cases") }>{ lang.T("See the pattern applied to common domains", "Ver el patrón aplicado a dominios comunes") }</a></p>
 			</section>
 		</article>
 	}

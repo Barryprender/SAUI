@@ -1,52 +1,67 @@
 package pages
 
 import (
+	"saui/locale"
 	"saui/templates/layout"
 	"saui/templates/partials"
 )
 
-templ Code(csrfToken string) {
-	@layout.Base("Code", "The SAUI reference implementation in Go. Read the source, understand the architecture, and apply the pattern to your own projects.", csrfToken, "/code", "/static/css/code.css") {
+templ Code(csrfToken string, lang locale.Lang) {
+	@layout.Base(
+		lang.T("Code", "Código"),
+		lang.T(
+			"The SAUI reference implementation in Go. Read the source, understand the architecture, and apply the pattern to your own projects.",
+			"La implementación de referencia de SAUI en Go. Lee el código fuente, comprende la arquitectura y aplica el patrón a tus propios proyectos.",
+		),
+		csrfToken,
+		lang.Prefix()+"/code",
+		"/static/css/code.css",
+		lang,
+	) {
 		<section class="page-hero">
 			<div class="page-hero__content">
-				<h1>Code</h1>
-				<p class="lead">{ `The reference implementation. This site is the reference implementation.` }</p>
+				<h1>{ lang.T("Code", "Código") }</h1>
+				<p class="lead">{ lang.T("The reference implementation. This site is the reference implementation.", "La implementación de referencia. Este sitio es la implementación de referencia.") }</p>
 			</div>
 		</section>
 		<article>
 			<section>
-				<h2>This site</h2>
-				<p>{ `SAUI.dev is built on the stack it documents. The source is available on GitHub.
-					Every architectural claim made on this site is demonstrated by the codebase that serves it.` }</p>
+				<h2>{ lang.T("This site", "Este sitio") }</h2>
+				<p>{ lang.T(
+					"SAUI.dev is built on the stack it documents. The source is available on GitHub. Every architectural claim made on this site is demonstrated by the codebase that serves it.",
+					"SAUI.dev está construido sobre la pila que documenta. El código fuente está disponible en GitHub. Cada afirmación arquitectónica hecha en este sitio está demostrada por el código base que lo sirve.",
+				) }</p>
 				<p>
 					<a href="https://github.com/your-org/saui" rel="noopener noreferrer" target="_blank">
-						{ `View source on GitHub` }
+						{ lang.T("View source on GitHub", "Ver código fuente en GitHub") }
 					</a>
 				</p>
 			</section>
 			<section>
-				<h2>Stack</h2>
+				<h2>{ lang.T("Stack", "Tecnología") }</h2>
 				<ul>
-					<li>{ `Go 1.22+ with standard library only for HTTP and templates` }</li>
-					<li>{ `modernc.org/sqlite: pure Go SQLite, no cgo` }</li>
-					<li>{ `github.com/a-h/templ: type-safe HTML templates` }</li>
-					<li>{ `htmx 2.0: partial DOM updates` }</li>
-					<li>{ `Vanilla CSS and JS: no build step` }</li>
-					<li>{ `Fly.io: single binary deployment` }</li>
+					<li>{ lang.T("Go 1.22+ with standard library only for HTTP and templates", "Go 1.22+ con solo biblioteca estándar para HTTP y plantillas") }</li>
+					<li>{ lang.T("modernc.org/sqlite: pure Go SQLite, no cgo", "modernc.org/sqlite: SQLite en Go puro, sin cgo") }</li>
+					<li>{ lang.T("github.com/a-h/templ: type-safe HTML templates", "github.com/a-h/templ: plantillas HTML con seguridad de tipos") }</li>
+					<li>{ lang.T("htmx 2.0: partial DOM updates", "htmx 2.0: actualizaciones parciales del DOM") }</li>
+					<li>{ lang.T("Vanilla CSS and JS: no build step", "CSS y JS vanilla: sin paso de compilación") }</li>
+					<li>{ lang.T("Fly.io: single binary deployment", "Fly.io: despliegue de binario único") }</li>
 				</ul>
 			</section>
 			<section>
-				<h2>Running locally</h2>
+				<h2>{ lang.T("Running locally", "Ejecutar localmente") }</h2>
 				<pre><code>{ `git clone https://github.com/your-org/saui
 cd saui
 templ generate
 go run .
 # open http://localhost:8080` }</code></pre>
 			</section>
-			<section id="feedback" aria-label="Feedback">
-				<h2>{ `What do you think?` }</h2>
-				<p>{ `Counterarguments, edge cases, and alternative approaches are welcome.
-					This is an architectural argument, not a product page. Push back.` }</p>
+			<section id="feedback" aria-label={ lang.T("Feedback", "Retroalimentación") }>
+				<h2>{ lang.T("What do you think?", "¿Qué opinas?") }</h2>
+				<p>{ lang.T(
+					"Counterarguments, edge cases, and alternative approaches are welcome. This is an architectural argument, not a product page. Push back.",
+					"Los contraargumentos, casos límite y enfoques alternativos son bienvenidos. Este es un argumento arquitectónico, no una página de producto. Empuja hacia atrás.",
+				) }</p>
 				@partials.FeedbackForm(csrfToken, "", "", 3)
 			</section>
 		</article>

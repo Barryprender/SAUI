@@ -1,19 +1,32 @@
 package pages
 
-import "saui/templates/layout"
+import (
+	"saui/locale"
+	"saui/templates/layout"
+)
 
-templ Blog(csrfToken string) {
-	@layout.Base("Blog", "The SAUI blog: writing on server-authoritative UI, web architecture, security, and the history of how the web got here.", csrfToken, "/blog", "/static/css/blog.css") {
+templ Blog(csrfToken string, lang locale.Lang) {
+	@layout.Base(
+		lang.T("Blog", "Blog"),
+		lang.T(
+			"The SAUI blog: writing on server-authoritative UI, web architecture, security, and the history of how the web got here.",
+			"El blog de SAUI: escritos sobre interfaz autorizada por el servidor, arquitectura web, seguridad e historia de cómo llegó la web hasta aquí.",
+		),
+		csrfToken,
+		lang.Prefix()+"/blog",
+		"/static/css/blog.css",
+		lang,
+	) {
 		<section class="page-hero">
 			<div class="page-hero__content">
 				<h1>Blog</h1>
-				<p class="lead">{ `Posts, counterarguments, and responses.` }</p>
+				<p class="lead">{ lang.T("Posts, counterarguments, and responses.", "Publicaciones, contraargumentos y respuestas.") }</p>
 			</div>
 		</section>
 		<article>
 			<ol class="blog-listing">
 				<li class="blog-listing__post">
-					<a class="blog-listing__thumb" href="/blog/server-response-time" tabindex="-1" aria-hidden="true">
+					<a class="blog-listing__thumb" href={ templ.URL(lang.Prefix() + "/blog/server-response-time") } tabindex="-1" aria-hidden="true">
 						<img
 							src="/static/img/blog-server-response-time.jpg"
 							alt=""
@@ -24,9 +37,12 @@ templ Blog(csrfToken string) {
 						/>
 					</a>
 					<div class="blog-listing__body">
-						<time class="blog-listing__date" datetime="2026-05-20">{ `20 May 2026` }</time>
-						<h2><a href="/blog/server-response-time">{ `Server response time: twenty years of change` }</a></h2>
-						<p>{ `The premise that justified client-side state was server latency. In 2026, the latency is gone. The premise is not.` }</p>
+						<time class="blog-listing__date" datetime="2026-05-20">{ lang.T("20 May 2026", "20 de mayo de 2026") }</time>
+						<h2><a href={ templ.URL(lang.Prefix() + "/blog/server-response-time") }>{ lang.T("Server response time: twenty years of change", "Tiempo de respuesta del servidor: veinte años de cambios") }</a></h2>
+						<p>{ lang.T(
+							"The premise that justified client-side state was server latency. In 2026, the latency is gone. The premise is not.",
+							"La premisa que justificó el estado en el cliente fue la latencia del servidor. En 2026, la latencia ha desaparecido. La premisa no.",
+						) }</p>
 					</div>
 				</li>
 			</ol>

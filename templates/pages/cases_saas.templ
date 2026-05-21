@@ -1,67 +1,112 @@
 package pages
 
-import "saui/templates/layout"
+import (
+	"saui/locale"
+	"saui/templates/layout"
+)
 
-templ CaseSaaS(csrfToken string) {
-	@layout.Base("Case Study: SaaS Dashboards", "SAUI for multi-tenant SaaS: server-authoritative state eliminates cross-tenant state leaks and removes client-side synchronisation complexity.", csrfToken, "/cases/saas-dashboard", "/static/css/cases-saas.css") {
+templ CaseSaaS(csrfToken string, lang locale.Lang) {
+	@layout.Base(
+		lang.T("Case Study: SaaS Dashboards", "Caso de estudio: Paneles SaaS"),
+		lang.T(
+			"SAUI for multi-tenant SaaS: server-authoritative state eliminates cross-tenant state leaks and removes client-side synchronisation complexity.",
+			"SAUI para SaaS multiusuario: el estado autorizado por el servidor elimina las fugas de estado entre inquilinos y elimina la complejidad de sincronización del lado del cliente.",
+		),
+		csrfToken,
+		lang.Prefix()+"/cases/saas-dashboard",
+		"/static/css/cases-saas.css",
+		lang,
+	) {
 		<section class="page-hero">
 			<div class="page-hero__content">
-				<nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
-					<a href="/cases">{ `Case Studies` }</a>{ ` / SaaS Dashboards` }
+				<nav class="page-hero__breadcrumb" aria-label={ lang.T("Breadcrumb", "Ruta de navegación") }>
+					<a href={ templ.URL(lang.Prefix() + "/cases") }>{ lang.T("Case Studies", "Casos de estudio") }</a>{ lang.T(` / SaaS Dashboards`, ` / Paneles SaaS`) }
 				</nav>
-				<h1>SaaS dashboards</h1>
-				<p class="lead">{ `Filter state, bulk actions, and unsaved edits are where SPA complexity accumulates fastest. SAUI simplifies each.` }</p>
+				<h1>{ lang.T("SaaS dashboards", "Paneles SaaS") }</h1>
+				<p class="lead">{ lang.T(
+					"Filter state, bulk actions, and unsaved edits are where SPA complexity accumulates fastest. SAUI simplifies each.",
+					"El estado de filtros, las acciones masivas y las ediciones no guardadas son donde la complejidad SPA se acumula más rápido. SAUI simplifica cada uno.",
+				) }</p>
 			</div>
 		</section>
 		<article>
 			<section>
-				<h2>The client-side state model</h2>
-				<p>{ `SaaS dashboards are among the most complex SPA deployments. They accumulate:` }</p>
+				<h2>{ lang.T("The client-side state model", "El modelo de estado del lado del cliente") }</h2>
+				<p>{ lang.T("SaaS dashboards are among the most complex SPA deployments. They accumulate:", "Los paneles SaaS se encuentran entre los despliegues SPA más complejos. Acumulan:") }</p>
 				<ul>
-					<li>{ `Filter and sort state: managed client-side, sometimes synced to URL, sometimes not` }</li>
-					<li>{ `Pagination state: page number, page size, cursor; held in multiple places` }</li>
-					<li>{ `Bulk selection state: which rows are checked, across pages` }</li>
-					<li>{ `Unsaved edits: inline editing that has not been submitted` }</li>
-					<li>{ `Real-time updates: new records appearing while the user is on page 3 of results` }</li>
+					<li>{ lang.T("Filter and sort state: managed client-side, sometimes synced to URL, sometimes not", "Estado de filtros y ordenación: gestionado en el cliente, a veces sincronizado con la URL, a veces no") }</li>
+					<li>{ lang.T("Pagination state: page number, page size, cursor; held in multiple places", "Estado de paginación: número de página, tamaño de página, cursor; mantenido en múltiples lugares") }</li>
+					<li>{ lang.T("Bulk selection state: which rows are checked, across pages", "Estado de selección masiva: qué filas están marcadas, a través de páginas") }</li>
+					<li>{ lang.T("Unsaved edits: inline editing that has not been submitted", "Ediciones no guardadas: edición en línea que no se ha enviado") }</li>
+					<li>{ lang.T("Real-time updates: new records appearing while the user is on page 3 of results", "Actualizaciones en tiempo real: nuevos registros que aparecen mientras el usuario está en la página 3 de resultados") }</li>
 				</ul>
-				<p>{ `Each of these is a synchronisation problem. Each requires its own state management
+				<p>{ lang.T(
+					`Each of these is a synchronisation problem. Each requires its own state management
 					solution. Together, they produce dashboards that are fragile, slow to build,
-					and expensive to maintain.` }</p>
+					and expensive to maintain.`,
+					`Cada uno de estos es un problema de sincronización. Cada uno requiere su propia
+					solución de gestión de estado. Juntos, producen paneles que son frágiles, lentos
+					de construir y costosos de mantener.`,
+				) }</p>
 			</section>
 			<section>
-				<h2>What moves to the server under SAUI</h2>
+				<h2>{ lang.T("What moves to the server under SAUI", "Qué se mueve al servidor bajo SAUI") }</h2>
 				<ul>
-					<li>{ `Filter and sort state: encoded in the URL, applied server-side, returned as a projection` }</li>
-					<li>{ `Pagination: server computes the page; cursor is opaque to the client` }</li>
-					<li>{ `Bulk action validation: the gateway validates each selected record before applying the bulk action` }</li>
-					<li>{ `Real-time updates: SSE pushes updated projections; the client swaps the target element` }</li>
+					<li>{ lang.T("Filter and sort state: encoded in the URL, applied server-side, returned as a projection", "Estado de filtros y ordenación: codificado en la URL, aplicado en el servidor, devuelto como proyección") }</li>
+					<li>{ lang.T("Pagination: server computes the page; cursor is opaque to the client", "Paginación: el servidor calcula la página; el cursor es opaco para el cliente") }</li>
+					<li>{ lang.T("Bulk action validation: the gateway validates each selected record before applying the bulk action", "Validación de acciones masivas: la pasarela valida cada registro seleccionado antes de aplicar la acción masiva") }</li>
+					<li>{ lang.T("Real-time updates: SSE pushes updated projections; the client swaps the target element", "Actualizaciones en tiempo real: SSE envía proyecciones actualizadas; el cliente intercambia el elemento objetivo") }</li>
 				</ul>
-				<p>{ `Filter state in the URL is bookmarkable, shareable, and survives reload without
+				<p>{ lang.T(
+					`Filter state in the URL is bookmarkable, shareable, and survives reload without
 					any client-side state management. The server applies the filters and returns
-					the correct projection.` }</p>
+					the correct projection.`,
+					`El estado de filtros en la URL es guardable, compartible y sobrevive a la recarga
+					sin ninguna gestión de estado del lado del cliente. El servidor aplica los filtros
+					y devuelve la proyección correcta.`,
+				) }</p>
 			</section>
 			<section>
-				<h2>What stays on the client</h2>
+				<h2>{ lang.T("What stays on the client", "Qué permanece en el cliente") }</h2>
 				<ul>
-					<li>{ `Dropdown open/close state for filter controls` }</li>
-					<li>{ `Row hover highlight` }</li>
-					<li>{ `Column resize drag state (ephemeral, not persisted)` }</li>
+					<li>{ lang.T("Dropdown open/close state for filter controls", "Estado de apertura/cierre de desplegables para controles de filtro") }</li>
+					<li>{ lang.T("Row hover highlight", "Resaltado de fila al pasar el cursor") }</li>
+					<li>{ lang.T("Column resize drag state (ephemeral, not persisted)", "Estado de arrastre para redimensionar columnas (efímero, no persistente)") }</li>
 				</ul>
-				<p>{ `Unsaved inline edits are a genuine case for ephemeral client state: the user is
+				<p>{ lang.T(
+					`Unsaved inline edits are a genuine case for ephemeral client state: the user is
 					mid-edit and the UI should not submit until they confirm. This is legitimate UI-only
-					state. It has no business meaning until submission, at which point it becomes an action.` }</p>
+					state. It has no business meaning until submission, at which point it becomes an action.`,
+					`Las ediciones en línea no guardadas son un caso genuino de estado efímero del cliente:
+					el usuario está editando y la UI no debe enviar hasta que confirme. Este es un estado
+					legítimo solo de UI. No tiene significado empresarial hasta el envío, momento en
+					que se convierte en una acción.`,
+				) }</p>
 			</section>
 			<section>
-				<h2>Bulk actions</h2>
-				<p>{ `Bulk actions are a common source of correctness problems in SPAs. The client holds
+				<h2>{ lang.T("Bulk actions", "Acciones masivas") }</h2>
+				<p>{ lang.T(
+					`Bulk actions are a common source of correctness problems in SPAs. The client holds
 					a selection set. The user triggers a bulk delete. The client sends a list of IDs.
 					Between selection and submission, some records may have changed state: already
-					deleted by another user, locked by a process, no longer accessible.` }</p>
-				<p>{ `Under SAUI, the gateway validates each record in the bulk action set before
+					deleted by another user, locked by a process, no longer accessible.`,
+					`Las acciones masivas son una fuente común de problemas de corrección en las SPA.
+					El cliente mantiene un conjunto de selección. El usuario desencadena una eliminación
+					masiva. El cliente envía una lista de IDs. Entre la selección y el envío, algunos
+					registros pueden haber cambiado de estado: ya eliminados por otro usuario, bloqueados
+					por un proceso, ya no accesibles.`,
+				) }</p>
+				<p>{ lang.T(
+					`Under SAUI, the gateway validates each record in the bulk action set before
 					appending any events. If any record fails validation, the entire action is rejected
 					with the current state. No partial application. The client receives a projection
-					of what actually happened.` }</p>
-				<p><a href="/cases/distributed-systems">Next: Distributed systems</a></p>
+					of what actually happened.`,
+					`Bajo SAUI, la pasarela valida cada registro del conjunto de acciones masivas antes
+					de añadir cualquier evento. Si algún registro falla la validación, toda la acción
+					se rechaza con el estado actual. Sin aplicación parcial. El cliente recibe una
+					proyección de lo que realmente ocurrió.`,
+				) }</p>
+				<p><a href={ templ.URL(lang.Prefix() + "/cases/distributed-systems") }>{ lang.T("Next: Distributed systems", "Siguiente: Sistemas distribuidos") }</a></p>
 			</section>
 		</article>
 	}

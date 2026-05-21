@@ -1,14 +1,30 @@
 package pages
 
-import "saui/templates/layout"
+import (
+	"saui/locale"
+	"saui/templates/layout"
+)
 
-templ BlogPostServerResponseTime(csrfToken string) {
-	@layout.Base("Server response time: twenty years of change", "A brief history of server response time: from static file servers to server-authoritative UI, and why latency shapes architecture decisions.", csrfToken, "/blog/server-response-time", "/static/css/blog.css") {
+templ BlogPostServerResponseTime(csrfToken string, lang locale.Lang) {
+	@layout.Base(
+		lang.T("Server response time: twenty years of change", "Tiempo de respuesta del servidor: veinte años de cambios"),
+		lang.T(
+			"A brief history of server response time: from static file servers to server-authoritative UI, and why latency shapes architecture decisions.",
+			"Una breve historia del tiempo de respuesta del servidor: desde los servidores de archivos estáticos hasta la interfaz autorizada por el servidor, y por qué la latencia configura las decisiones arquitectónicas.",
+		),
+		csrfToken,
+		lang.Prefix()+"/blog/server-response-time",
+		"/static/css/blog.css",
+		lang,
+	) {
 		<div class="blog-post-hero">
 			<div class="blog-post-hero__image">
 				<img
 					src="/static/img/blog-server-response-time.jpg"
-					alt="{ `Vintage Macintosh monitor and keyboard, beige plastic yellowed with age — computing from the era when every server round-trip was perceptible.` }"
+					alt={ lang.T(
+						"Vintage Macintosh monitor and keyboard, beige plastic yellowed with age — computing from the era when every server round-trip was perceptible.",
+						"Monitor y teclado Macintosh vintage, plástico beige amarillento con el tiempo, informática de la era en que cada viaje de ida y vuelta al servidor era perceptible.",
+					) }
 					loading="eager"
 					decoding="async"
 					width="1600"
@@ -16,148 +32,296 @@ templ BlogPostServerResponseTime(csrfToken string) {
 				/>
 			</div>
 			<div class="blog-post-hero__header">
-				<nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
-					<a href="/blog">{ `Blog` }</a>{ ` / Post` }
+				<nav class="page-hero__breadcrumb" aria-label={ lang.T("Breadcrumb", "Ruta de navegación") }>
+					<a href={ templ.URL(lang.Prefix() + "/blog") }>Blog</a>{ lang.T(` / Post`, ` / Publicación`) }
 				</nav>
-				<h1>{ `Server response time: twenty years of change` }</h1>
-				<p class="lead">{ `The premise that justified client-side state was server latency.
-					In 2026, the latency is gone. The premise is not.` }</p>
-				<time class="blog-post-hero__date" datetime="2026-05-20">{ `20 May 2026` }</time>
+				<h1>{ lang.T("Server response time: twenty years of change", "Tiempo de respuesta del servidor: veinte años de cambios") }</h1>
+				<p class="lead">{ lang.T(
+					"The premise that justified client-side state was server latency. In 2026, the latency is gone. The premise is not.",
+					"La premisa que justificó el estado en el cliente fue la latencia del servidor. En 2026, la latencia ha desaparecido. La premisa no.",
+				) }</p>
+				<time class="blog-post-hero__date" datetime="2026-05-20">{ lang.T("20 May 2026", "20 de mayo de 2026") }</time>
 			</div>
 		</div>
 		<article class="blog-post">
 			<section>
-				<p>{ `In 2004, Gmail demonstrated something genuinely new: a web application that responded
+				<p>{ lang.T(
+					`In 2004, Gmail demonstrated something genuinely new: a web application that responded
 					to user actions without reloading the page. It felt fast because it was. The trick was
 					not a faster server. It was bypassing the server entirely for most interactions by holding
-					application state in the browser.` }</p>
-				<p>{ `That architectural decision was correct for Gmail in 2004. Gmail was a mail client
+					application state in the browser.`,
+					`En 2004, Gmail demostró algo genuinamente nuevo: una aplicación web que respondía
+					a las acciones del usuario sin recargar la página. Se sentía rápido porque lo era.
+					El truco no era un servidor más rápido. Era eludir completamente el servidor en la mayoría
+					de las interacciones manteniendo el estado de la aplicación en el navegador.`,
+				) }</p>
+				<p>{ lang.T(
+					`That architectural decision was correct for Gmail in 2004. Gmail was a mail client
 					that had to feel like a desktop application. Server round-trips at the time took
-					200 to 800 milliseconds on a good day. Holding state on the client eliminated the wait.` }</p>
-				<p>{ `What followed was the generalisation of that decision to nearly every web application
+					200 to 800 milliseconds on a good day. Holding state on the client eliminated the wait.`,
+					`Esa decisión arquitectónica era correcta para Gmail en 2004. Gmail era un cliente de correo
+					que debía sentirse como una aplicación de escritorio. Los viajes de ida y vuelta al servidor
+					en aquella época tomaban de 200 a 800 milisegundos en un buen día. Mantener el estado
+					en el cliente eliminaba la espera.`,
+				) }</p>
+				<p>{ lang.T(
+					`What followed was the generalisation of that decision to nearly every web application
 					built after 2013: food ordering apps, banking dashboards, booking systems, admin panels.
 					Applications that do not share Gmail's interaction requirements inherited Gmail's
-					architecture anyway, along with its synchronisation problem.` }</p>
-				<p>{ `The generalisation was wrong. The reason it was wrong is that the infrastructure
-					constraint that justified the original decision no longer exists.` }</p>
+					architecture anyway, along with its synchronisation problem.`,
+					`Lo que siguió fue la generalización de esa decisión a casi todas las aplicaciones web
+					construidas después de 2013: aplicaciones de pedido de comida, paneles bancarios,
+					sistemas de reserva, paneles de administración. Aplicaciones que no comparten los
+					requisitos de interacción de Gmail heredaron la arquitectura de Gmail de todos modos,
+					junto con su problema de sincronización.`,
+				) }</p>
+				<p>{ lang.T(
+					"The generalisation was wrong. The reason it was wrong is that the infrastructure constraint that justified the original decision no longer exists.",
+					"La generalización estaba equivocada. La razón por la que estaba equivocada es que la restricción de infraestructura que justificó la decisión original ya no existe.",
+				) }</p>
 			</section>
 			<section>
-				<h2>{ `What the stack looked like in 2005` }</h2>
-				<p>{ `A typical dynamic web application in 2005 ran on a shared hosting provider:
+				<h2>{ lang.T("What the stack looked like in 2005", "Cómo era la pila tecnológica en 2005") }</h2>
+				<p>{ lang.T(
+					`A typical dynamic web application in 2005 ran on a shared hosting provider:
 					Apache 2.0, PHP 5, MySQL 4 or 5, all on the same physical machine,
-					reading from and writing to a spinning magnetic disk.` }</p>
-				<p>{ `Spinning disks had seek times of 5 to 10 milliseconds per operation.
+					reading from and writing to a spinning magnetic disk.`,
+					`Una aplicación web dinámica típica en 2005 se ejecutaba en un proveedor de hosting compartido:
+					Apache 2.0, PHP 5, MySQL 4 o 5, todo en la misma máquina física, leyendo y escribiendo
+					en un disco magnético giratorio.`,
+				) }</p>
+				<p>{ lang.T(
+					`Spinning disks had seek times of 5 to 10 milliseconds per operation.
 					A database query that required two or three I/O operations before returning
 					results took 15 to 30 milliseconds on the storage layer alone.
 					PHP processed the result, rendered a template, and wrote the response.
 					Total server processing for a modest page: 200 to 800 milliseconds,
-					more on a loaded shared host.` }</p>
-				<p>{ `Every user interaction that required server state required the user to
+					more on a loaded shared host.`,
+					`Los discos giratorios tenían tiempos de búsqueda de 5 a 10 milisegundos por operación.
+					Una consulta de base de datos que requería dos o tres operaciones de E/S antes de devolver
+					resultados tomaba de 15 a 30 milisegundos solo en la capa de almacenamiento. PHP procesaba
+					el resultado, renderizaba una plantilla y escribía la respuesta. Procesamiento total del
+					servidor para una página modesta: 200 a 800 milisegundos, más en un host compartido cargado.`,
+				) }</p>
+				<p>{ lang.T(
+					`Every user interaction that required server state required the user to
 					wait for that full round-trip. At 400 milliseconds round-trip, page reloads
 					were perceptibly slow. The SPA pattern solved this by eliminating the
 					round-trip for most interactions. State lived in the browser.
-					The server was consulted only when necessary.` }</p>
-				<p>{ `This was a reasonable engineering trade-off given the constraints of 2005.
-					The constraints of 2005 are not the constraints of 2026.` }</p>
+					The server was consulted only when necessary.`,
+					`Cada interacción del usuario que requería estado del servidor obligaba al usuario
+					a esperar ese viaje completo de ida y vuelta. Con 400 milisegundos de ida y vuelta,
+					las recargas de página eran perceptiblemente lentas. El patrón SPA resolvió esto
+					eliminando el viaje de ida y vuelta para la mayoría de las interacciones. El estado
+					vivía en el navegador. El servidor solo se consultaba cuando era necesario.`,
+				) }</p>
+				<p>{ lang.T(
+					"This was a reasonable engineering trade-off given the constraints of 2005. The constraints of 2005 are not the constraints of 2026.",
+					"Era una concesión de ingeniería razonable dadas las restricciones de 2005. Las restricciones de 2005 no son las restricciones de 2026.",
+				) }</p>
 			</section>
 			<section>
-				<h2>{ `Twenty years of infrastructure change` }</h2>
-				<p>{ `Every layer of the server-side stack has changed substantially.` }</p>
-				<p>{ `Storage. NVMe SSDs have seek times measured in microseconds, not milliseconds.
+				<h2>{ lang.T("Twenty years of infrastructure change", "Veinte años de cambio en la infraestructura") }</h2>
+				<p>{ lang.T("Every layer of the server-side stack has changed substantially.", "Cada capa de la pila del lado del servidor ha cambiado sustancialmente.") }</p>
+				<p>{ lang.T(
+					`Storage. NVMe SSDs have seek times measured in microseconds, not milliseconds.
 					A query that required 20 milliseconds of disk I/O in 2005 takes
 					0.1 to 0.5 milliseconds on modern storage. For read-heavy workloads with warm caches
 					(which describes most CRUD applications), queries that previously hit disk now return
-					entirely from RAM.` }</p>
-				<p>{ `Runtime performance. PHP 5 processed 200 to 400 requests per second
+					entirely from RAM.`,
+					`Almacenamiento. Los SSD NVMe tienen tiempos de búsqueda medidos en microsegundos,
+					no en milisegundos. Una consulta que requería 20 milisegundos de E/S de disco en 2005
+					tarda de 0,1 a 0,5 milisegundos en almacenamiento moderno. Para cargas de trabajo
+					con muchas lecturas y cachés calientes (lo que describe la mayoría de las aplicaciones CRUD),
+					las consultas que antes accedían al disco ahora se devuelven completamente desde RAM.`,
+				) }</p>
+				<p>{ lang.T(
+					`Runtime performance. PHP 5 processed 200 to 400 requests per second
 					on commodity hardware. Go, designed specifically for server-side concurrency,
 					handles 50,000 to 200,000 requests per second on the same class of hardware.
 					The computational work of parsing a request, running a query, and rendering
-					a response takes microseconds, not milliseconds.` }</p>
-				<p>{ `Infrastructure. Shared hosting on a single machine gave way to virtualised
+					a response takes microseconds, not milliseconds.`,
+					`Rendimiento del entorno de ejecución. PHP 5 procesaba de 200 a 400 solicitudes por
+					segundo en hardware estándar. Go, diseñado específicamente para la concurrencia
+					del lado del servidor, maneja de 50.000 a 200.000 solicitudes por segundo en la misma
+					clase de hardware. El trabajo computacional de analizar una solicitud, ejecutar una
+					consulta y renderizar una respuesta toma microsegundos, no milisegundos.`,
+				) }</p>
+				<p>{ lang.T(
+					`Infrastructure. Shared hosting on a single machine gave way to virtualised
 					cloud compute, multi-region deployments, and edge infrastructure. The application
 					that ran in one datacenter in 2005 now runs in a region closest to the user.
 					Geographic latency, which is ultimately constrained by the speed of light,
-					is now the dominant factor. Server processing time is not.` }</p>
+					is now the dominant factor. Server processing time is not.`,
+					`Infraestructura. El hosting compartido en una sola máquina dio paso a la computación
+					en la nube virtualizada, los despliegues multi-región y la infraestructura edge.
+					La aplicación que se ejecutaba en un centro de datos en 2005 ahora se ejecuta
+					en la región más cercana al usuario. La latencia geográfica, que en última instancia
+					está limitada por la velocidad de la luz, es ahora el factor dominante.
+					El tiempo de procesamiento del servidor no lo es.`,
+				) }</p>
 			</section>
 			<section>
-				<h2>{ `The numbers in 2026` }</h2>
-				<p>{ `A Go server processing a simple CRUD request against SQLite in WAL mode,
-					with a warm page cache, produces the following approximate breakdown:` }</p>
+				<h2>{ lang.T("The numbers in 2026", "Los números en 2026") }</h2>
+				<p>{ lang.T(
+					"A Go server processing a simple CRUD request against SQLite in WAL mode, with a warm page cache, produces the following approximate breakdown:",
+					"Un servidor Go que procesa una solicitud CRUD simple contra SQLite en modo WAL, con una caché de páginas caliente, produce el siguiente desglose aproximado:",
+				) }</p>
 				<ul>
-					<li>{ `Request parsing and routing: under 0.1ms` }</li>
-					<li>{ `Session authentication from memory: under 0.05ms` }</li>
-					<li>{ `SQLite query (indexed, warm cache): 0.1 to 0.5ms` }</li>
-					<li>{ `Template render (compiled Go): 0.1 to 0.3ms` }</li>
-					<li>{ `Response serialisation and write: under 0.1ms` }</li>
+					<li>{ lang.T("Request parsing and routing: under 0.1ms", "Análisis de solicitudes y enrutamiento: menos de 0,1 ms") }</li>
+					<li>{ lang.T("Session authentication from memory: under 0.05ms", "Autenticación de sesión desde memoria: menos de 0,05 ms") }</li>
+					<li>{ lang.T("SQLite query (indexed, warm cache): 0.1 to 0.5ms", "Consulta SQLite (indexada, caché caliente): 0,1 a 0,5 ms") }</li>
+					<li>{ lang.T("Template render (compiled Go): 0.1 to 0.3ms", "Renderizado de plantilla (Go compilado): 0,1 a 0,3 ms") }</li>
+					<li>{ lang.T("Response serialisation and write: under 0.1ms", "Serialización y escritura de respuesta: menos de 0,1 ms") }</li>
 				</ul>
-				<p>{ `Total server processing: 1 to 5 milliseconds. Adding a typical network
-					round-trip from a user to a well-placed regional server: 15 to 80 milliseconds total.` }</p>
-				<p>{ `For comparison: a React component tree re-rendering on a mid-range Android
+				<p>{ lang.T(
+					`Total server processing: 1 to 5 milliseconds. Adding a typical network
+					round-trip from a user to a well-placed regional server: 15 to 80 milliseconds total.`,
+					`Procesamiento total del servidor: 1 a 5 milisegundos. Añadiendo un viaje de red
+					típico de ida y vuelta desde un usuario hasta un servidor regional bien ubicado:
+					15 a 80 milisegundos en total.`,
+				) }</p>
+				<p>{ lang.T(
+					`For comparison: a React component tree re-rendering on a mid-range Android
 					device takes 16 to 60 milliseconds. State reconciliation, virtual DOM diffing,
 					and event handling add further cost. The client-side update that was supposed
 					to be fast is not measurably faster than a server round-trip on real hardware.
-					On low-end devices, it is slower.` }</p>
+					On low-end devices, it is slower.`,
+					`Para comparar: un árbol de componentes React re-renderizándose en un dispositivo
+					Android de gama media tarda de 16 a 60 milisegundos. La reconciliación de estado,
+					el diffing del DOM virtual y el manejo de eventos añaden coste adicional. La actualización
+					del lado del cliente que se supone que es rápida no es measurablemente más rápida que
+					un viaje de ida y vuelta al servidor en hardware real. En dispositivos de gama baja,
+					es más lenta.`,
+				) }</p>
 			</section>
 			<section>
-				<h2>{ `Human perception thresholds` }</h2>
-				<p>{ `Jakob Nielsen's response time research, first published in 1993 and
-					consistent with subsequent work, identifies three thresholds:` }</p>
+				<h2>{ lang.T("Human perception thresholds", "Umbrales de percepción humana") }</h2>
+				<p>{ lang.T(
+					`Jakob Nielsen's response time research, first published in 1993 and
+					consistent with subsequent work, identifies three thresholds:`,
+					`La investigación sobre el tiempo de respuesta de Jakob Nielsen, publicada por primera vez
+					en 1993 y consistente con trabajos posteriores, identifica tres umbrales:`,
+				) }</p>
 				<ul>
-					<li>{ `Below 100ms: the response feels instantaneous. The user perceives no delay.` }</li>
-					<li>{ `100 to 1000ms: the delay is noticeable but does not interrupt the user's flow.` }</li>
-					<li>{ `Above 1000ms: the user's attention shifts. Feedback is required to hold it.` }</li>
+					<li>{ lang.T("Below 100ms: the response feels instantaneous. The user perceives no delay.", "Por debajo de 100 ms: la respuesta se siente instantánea. El usuario no percibe ningún retraso.") }</li>
+					<li>{ lang.T("100 to 1000ms: the delay is noticeable but does not interrupt the user's flow.", "De 100 a 1000 ms: el retraso es perceptible pero no interrumpe el flujo del usuario.") }</li>
+					<li>{ lang.T("Above 1000ms: the user's attention shifts. Feedback is required to hold it.", "Por encima de 1000 ms: la atención del usuario se desvía. Se requiere retroalimentación para mantenerla.") }</li>
 				</ul>
-				<p>{ `A server-authoritative CRUD interaction at 20 to 80ms total round-trip
+				<p>{ lang.T(
+					`A server-authoritative CRUD interaction at 20 to 80ms total round-trip
 					lands below the 100ms threshold. It feels instantaneous. The argument
 					that server round-trips are too slow for a responsive interface requires
 					the round-trip to exceed 100ms. Most CRUD applications on modern infrastructure
-					do not produce that latency.` }</p>
+					do not produce that latency.`,
+					`Una interacción CRUD autorizada por el servidor con un viaje de ida y vuelta total
+					de 20 a 80 ms cae por debajo del umbral de 100 ms. Se siente instantánea. El argumento
+					de que los viajes de ida y vuelta al servidor son demasiado lentos para una interfaz
+					responsiva requiere que el viaje de ida y vuelta supere los 100 ms. La mayoría de las
+					aplicaciones CRUD en infraestructura moderna no producen esa latencia.`,
+				) }</p>
 			</section>
 			<section>
-				<h2>{ `What this means for how we build` }</h2>
-				<p>{ `The applications that were forced into client-side state management by
-					infrastructure constraints in 2005 can now be built correctly.` }</p>
-				<p>{ `Correctly means: the server owns state. The browser renders a projection
+				<h2>{ lang.T("What this means for how we build", "Qué significa esto para cómo construimos") }</h2>
+				<p>{ lang.T(
+					`The applications that were forced into client-side state management by
+					infrastructure constraints in 2005 can now be built correctly.`,
+					`Las aplicaciones que fueron forzadas a la gestión de estado del lado del cliente
+					por restricciones de infraestructura en 2005 ahora pueden construirse correctamente.`,
+				) }</p>
+				<p>{ lang.T(
+					`Correctly means: the server owns state. The browser renders a projection
 					of it. Every user action goes to the server, is validated against current state,
 					is appended to an audit log, and returns an updated view. The browser holds
-					nothing between requests.` }</p>
-				<p>{ `This is not a nostalgic return to 2001-era web development.
+					nothing between requests.`,
+					`Correctamente significa: el servidor posee el estado. El navegador renderiza una
+					proyección de él. Cada acción del usuario va al servidor, se valida contra el estado
+					actual, se añade a un registro de auditoría y devuelve una vista actualizada.
+					El navegador no retiene nada entre solicitudes.`,
+				) }</p>
+				<p>{ lang.T(
+					`This is not a nostalgic return to 2001-era web development.
 					The tooling is different: htmx partial DOM updates replace full page reloads.
 					Compiled templates (templ, similar tools) render in microseconds.
 					Append-only event logs provide durability and auditability by construction.
-					Edge deployment places the server close to the user.` }</p>
-				<p>{ `The result is an application with no synchronisation problem,
+					Edge deployment places the server close to the user.`,
+					`Esto no es un regreso nostálgico al desarrollo web de la era 2001.
+					Las herramientas son diferentes: las actualizaciones parciales del DOM de htmx
+					reemplazan las recargas de página completas. Las plantillas compiladas (templ,
+					herramientas similares) se renderizan en microsegundos. Los registros de eventos
+					solo-adjuntar proporcionan durabilidad y auditabilidad por construcción.
+					El despliegue edge coloca el servidor cerca del usuario.`,
+				) }</p>
+				<p>{ lang.T(
+					`The result is an application with no synchronisation problem,
 					no client-side attack surface, no npm dependency graph, and a response time
 					indistinguishable from a SPA for the interaction classes most CRUD applications
 					actually require. Not because server-side rendering is slow and we are
-					accepting the trade-off. Because it is not slow.` }</p>
+					accepting the trade-off. Because it is not slow.`,
+					`El resultado es una aplicación sin problema de sincronización, sin superficie de ataque
+					del lado del cliente, sin grafo de dependencias npm y con un tiempo de respuesta
+					indistinguible de una SPA para las clases de interacción que la mayoría de las
+					aplicaciones CRUD realmente requieren. No porque el renderizado del lado del servidor
+					sea lento y estemos aceptando la concesión. Porque no es lento.`,
+				) }</p>
 				<blockquote class="callout">
-					<p>{ `The infrastructure constraint that justified the SPA pattern for most
+					<p>{ lang.T(
+						`The infrastructure constraint that justified the SPA pattern for most
 						applications expired somewhere around 2015. The pattern outlived it
-						by a decade.` }</p>
+						by a decade.`,
+						`La restricción de infraestructura que justificó el patrón SPA para la mayoría
+						de las aplicaciones expiró alrededor de 2015. El patrón la sobrevivió
+						por una década.`,
+					) }</p>
 				</blockquote>
 			</section>
 			<section>
-				<h2>{ `The constraint that remains` }</h2>
-				<p>{ `One constraint from the original SPA analysis does remain: geographic latency.
+				<h2>{ lang.T("The constraint that remains", "La restricción que permanece") }</h2>
+				<p>{ lang.T(
+					`One constraint from the original SPA analysis does remain: geographic latency.
 					The speed of light imposes a minimum round-trip time of roughly 1ms per 100km
 					of fibre distance. A user in London connecting to a server in Sydney will
 					experience 250 to 350ms of latency regardless of how fast the server processes
-					the request.` }</p>
-				<p>{ `This is a solved problem for applications that require it: edge deployment
+					the request.`,
+					`Una restricción del análisis SPA original sí permanece: la latencia geográfica.
+					La velocidad de la luz impone un tiempo mínimo de ida y vuelta de aproximadamente
+					1 ms por cada 100 km de distancia de fibra. Un usuario en Londres que se conecta
+					a un servidor en Sídney experimentará de 250 a 350 ms de latencia independientemente
+					de la velocidad con que el servidor procese la solicitud.`,
+				) }</p>
+				<p>{ lang.T(
+					`This is a solved problem for applications that require it: edge deployment
 					puts a server close to every user. Fly.io, Cloudflare Workers, and similar
 					platforms deploy server-side logic globally. The geographic latency constraint
-					is now an infrastructure decision, not an architectural one.` }</p>
-				<p>{ `The applications that genuinely require sub-10ms client-side response
+					is now an infrastructure decision, not an architectural one.`,
+					`Este es un problema resuelto para las aplicaciones que lo requieren: el despliegue
+					edge coloca un servidor cerca de cada usuario. Fly.io, Cloudflare Workers y plataformas
+					similares despliegan la lógica del lado del servidor globalmente. La restricción de
+					latencia geográfica es ahora una decisión de infraestructura, no arquitectónica.`,
+				) }</p>
+				<p>{ lang.T(
+					`The applications that genuinely require sub-10ms client-side response
 					(collaborative document editors, creative tools, games) have always been
 					outside the scope of the server-authoritative pattern. That scope is
 					unchanged. What has changed is the scope of applications for which
-					the server is fast enough.` }</p>
-				<p>{ `For food ordering, banking, healthcare, SaaS dashboards, internal tools,
+					the server is fast enough.`,
+					`Las aplicaciones que genuinamente requieren una respuesta del lado del cliente
+					inferior a 10 ms (editores de documentos colaborativos, herramientas creativas,
+					juegos) siempre han estado fuera del alcance del patrón autorizado por el servidor.
+					Ese alcance no ha cambiado. Lo que ha cambiado es el alcance de las aplicaciones
+					para las que el servidor es suficientemente rápido.`,
+				) }</p>
+				<p>{ lang.T(
+					`For food ordering, banking, healthcare, SaaS dashboards, internal tools,
 					booking systems, and the majority of what is built for the web: the server is
 					fast enough. It has been for at least a decade. The architectural consequences
-					of that fact are still being absorbed.` }</p>
-				<p><a href="/why">{ `Read the full argument` }</a></p>
+					of that fact are still being absorbed.`,
+					`Para pedido de comida, banca, sanidad, paneles SaaS, herramientas internas,
+					sistemas de reserva y la mayoría de lo que se construye para la web: el servidor
+					es suficientemente rápido. Lo ha sido durante al menos una década. Las consecuencias
+					arquitectónicas de ese hecho siguen siendo asimiladas.`,
+				) }</p>
+				<p><a href={ templ.URL(lang.Prefix() + "/why") }>{ lang.T("Read the full argument", "Leer el argumento completo") }</a></p>
 			</section>
 		</article>
 	}

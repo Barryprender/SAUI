@@ -1,60 +1,121 @@
 package pages
 
-import "saui/templates/layout"
+import (
+	"saui/locale"
+	"saui/templates/layout"
+)
 
-templ Testing(csrfToken string) {
-	@layout.Base("Testing", "Testing SAUI applications: integration tests against real state stores, not mocks. No mock-to-production divergence, no false confidence.", csrfToken, "/testing", "/static/css/testing.css") {
+templ Testing(csrfToken string, lang locale.Lang) {
+	@layout.Base(
+		lang.T("Testing", "Pruebas"),
+		lang.T(
+			"Testing SAUI applications: integration tests against real state stores, not mocks. No mock-to-production divergence, no false confidence.",
+			"Pruebas de aplicaciones SAUI: pruebas de integración contra almacenes de estado reales, no simulacros. Sin divergencia entre simulacro y producción, sin falsa confianza.",
+		),
+		csrfToken,
+		lang.Prefix()+"/testing",
+		"/static/css/testing.css",
+		lang,
+	) {
 		<section class="page-hero">
 			<div class="page-hero__content">
-				<h1>Testing</h1>
-				<p class="lead">{ `Under SPA architecture, the majority of the test surface exists to verify that client state correctly reflects server state. SAUI eliminates that problem.` }</p>
+				<h1>{ lang.T("Testing", "Pruebas") }</h1>
+				<p class="lead">{ lang.T(
+					"Under SPA architecture, the majority of the test surface exists to verify that client state correctly reflects server state. SAUI eliminates that problem.",
+					"Bajo la arquitectura SPA, la mayor parte de la superficie de pruebas existe para verificar que el estado del cliente refleja correctamente el estado del servidor. SAUI elimina ese problema.",
+				) }</p>
 			</div>
 		</section>
 		<article>
 			<section>
-				<h2>What SPA tests actually test</h2>
-				<p>{ `In a SPA, the frontend holds a copy of state. Tests are written to verify that
+				<h2>{ lang.T("What SPA tests actually test", "Qué prueban realmente las pruebas SPA") }</h2>
+				<p>{ lang.T(
+					`In a SPA, the frontend holds a copy of state. Tests are written to verify that
 					this copy is correct: that it updates when the server responds, that it handles
 					errors correctly, that it reflects mutations optimistically before confirmation,
-					and that it reconciles when the optimistic update was wrong.` }</p>
-				<p>{ `This is not testing business logic. This is testing the synchronisation machinery.
+					and that it reconciles when the optimistic update was wrong.`,
+					`En una SPA, el frontend mantiene una copia del estado. Las pruebas se escriben para
+					verificar que esta copia es correcta: que se actualiza cuando el servidor responde,
+					que maneja los errores correctamente, que refleja las mutaciones optimistamente antes
+					de la confirmación, y que se reconcilia cuando la actualización optimista era incorrecta.`,
+				) }</p>
+				<p>{ lang.T(
+					`This is not testing business logic. This is testing the synchronisation machinery.
 					The business logic lives on the server. The test surface on the client exists
-					entirely to verify that the client correctly mirrors the server.` }</p>
-				<p>{ `When the synchronisation problem is eliminated, that test surface collapses.` }</p>
+					entirely to verify that the client correctly mirrors the server.`,
+					`Esto no es probar la lógica empresarial. Esto es probar la maquinaria de sincronización.
+					La lógica empresarial vive en el servidor. La superficie de pruebas en el cliente existe
+					únicamente para verificar que el cliente refleja correctamente al servidor.`,
+				) }</p>
+				<p>{ lang.T(
+					"When the synchronisation problem is eliminated, that test surface collapses.",
+					"Cuando se elimina el problema de sincronización, esa superficie de pruebas colapsa.",
+				) }</p>
 			</section>
 			<section>
-				<h2>Frontend tests under SAUI</h2>
-				<p>{ `The frontend is a projection renderer. Its correctness question is simple: given
-					this projection data, does this template render the correct HTML?` }</p>
-				<p>{ `These tests are fast, stable, and require no browser. They have no dependency on
+				<h2>{ lang.T("Frontend tests under SAUI", "Pruebas de frontend bajo SAUI") }</h2>
+				<p>{ lang.T(
+					`The frontend is a projection renderer. Its correctness question is simple: given
+					this projection data, does this template render the correct HTML?`,
+					`El frontend es un renderizador de proyecciones. Su pregunta de corrección es simple:
+					dados estos datos de proyección, ¿renderiza esta plantilla el HTML correcto?`,
+				) }</p>
+				<p>{ lang.T(
+					`These tests are fast, stable, and require no browser. They have no dependency on
 					business logic. A backend change that preserves the projection contract does not
 					break frontend tests. A frontend redesign that preserves the projection contract
-					does not require backend changes to test.` }</p>
-				<p>{ `The seam between frontend and backend is the projection contract. Version it.` }</p>
+					does not require backend changes to test.`,
+					`Estas pruebas son rápidas, estables y no requieren navegador. No tienen dependencia
+					de la lógica empresarial. Un cambio de backend que preserve el contrato de proyección
+					no rompe las pruebas de frontend. Un rediseño de frontend que preserve el contrato
+					de proyección no requiere cambios de backend para probarse.`,
+				) }</p>
+				<p>{ lang.T(
+					"The seam between frontend and backend is the projection contract. Version it.",
+					"La costura entre frontend y backend es el contrato de proyección. Versiónalos.",
+				) }</p>
 			</section>
 			<section>
-				<h2>Backend tests under SAUI</h2>
-				<p>{ `All business logic lives in the backend. Backend tests cover everything meaningful:` }</p>
+				<h2>{ lang.T("Backend tests under SAUI", "Pruebas de backend bajo SAUI") }</h2>
+				<p>{ lang.T("All business logic lives in the backend. Backend tests cover everything meaningful:", "Toda la lógica empresarial vive en el backend. Las pruebas de backend cubren todo lo significativo:") }</p>
 				<ul>
-					<li>{ `Action validation: does this action correctly reject invalid state?` }</li>
-					<li>{ `State transitions: does this action produce the correct event?` }</li>
-					<li>{ `Projection correctness: does this event log produce the correct read model?` }</li>
-					<li>{ `Authorisation: does the gateway correctly enforce access control?` }</li>
+					<li>{ lang.T("Action validation: does this action correctly reject invalid state?", "Validación de acciones: ¿rechaza esta acción correctamente el estado inválido?") }</li>
+					<li>{ lang.T("State transitions: does this action produce the correct event?", "Transiciones de estado: ¿produce esta acción el evento correcto?") }</li>
+					<li>{ lang.T("Projection correctness: does this event log produce the correct read model?", "Corrección de proyección: ¿produce este registro de eventos el modelo de lectura correcto?") }</li>
+					<li>{ lang.T("Authorisation: does the gateway correctly enforce access control?", "Autorización: ¿aplica la pasarela correctamente el control de acceso?") }</li>
 				</ul>
-				<p>{ `These are pure Go tests. Fast. Deterministic. No browser required. No test doubles
+				<p>{ lang.T(
+					`These are pure Go tests. Fast. Deterministic. No browser required. No test doubles
 					needed for client-side state. No mocking of the synchronisation layer,
-					because there is no synchronisation layer.` }</p>
+					because there is no synchronisation layer.`,
+					`Son pruebas Go puras. Rápidas. Deterministas. Sin necesidad de navegador. Sin dobles
+					de prueba para el estado del cliente. Sin simulación de la capa de sincronización,
+					porque no hay capa de sincronización.`,
+				) }</p>
 			</section>
 			<section>
-				<h2>Team isolation</h2>
-				<p>{ `Backend teams can change business logic - action implementations, validation rules,
+				<h2>{ lang.T("Team isolation", "Aislamiento de equipos") }</h2>
+				<p>{ lang.T(
+					`Backend teams can change business logic - action implementations, validation rules,
 					event schema - without breaking frontend tests, provided the projection contract
-					is preserved or versioned.` }</p>
-				<p>{ `Frontend teams can redesign the UI - markup, layout, interaction patterns - without
-					triggering backend test failures.` }</p>
-				<p>{ `The teams are genuinely independent. The projection contract is the interface.
-					Both sides can evolve without coordination, as long as they honour that contract.` }</p>
-				<p><a href="/limits">See where SAUI is the wrong choice</a></p>
+					is preserved or versioned.`,
+					`Los equipos de backend pueden cambiar la lógica empresarial (implementaciones de acciones,
+					reglas de validación, esquema de eventos) sin romper las pruebas de frontend, siempre
+					que el contrato de proyección se preserve o se versione.`,
+				) }</p>
+				<p>{ lang.T(
+					`Frontend teams can redesign the UI - markup, layout, interaction patterns - without
+					triggering backend test failures.`,
+					`Los equipos de frontend pueden rediseñar la UI (marcado, diseño, patrones de interacción)
+					sin provocar fallos en las pruebas de backend.`,
+				) }</p>
+				<p>{ lang.T(
+					`The teams are genuinely independent. The projection contract is the interface.
+					Both sides can evolve without coordination, as long as they honour that contract.`,
+					`Los equipos son genuinamente independientes. El contrato de proyección es la interfaz.
+					Ambos lados pueden evolucionar sin coordinación, siempre que respeten ese contrato.`,
+				) }</p>
+				<p><a href={ templ.URL(lang.Prefix() + "/limits") }>{ lang.T("See where SAUI is the wrong choice", "Ver dónde SAUI no es la opción correcta") }</a></p>
 			</section>
 		</article>
 	}

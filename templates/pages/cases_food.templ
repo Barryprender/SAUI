@@ -1,83 +1,147 @@
 package pages
 
-import "saui/templates/layout"
+import (
+	"saui/locale"
+	"saui/templates/layout"
+)
 
-templ CaseFoodOrdering(csrfToken string) {
-	@layout.Base("Case Study: Food Ordering", "How SAUI handles a food ordering system: server-owned order state, real-time updates via HTML projection, and no client-side cart logic.", csrfToken, "/cases/food-ordering", "/static/css/cases-food.css") {
+templ CaseFoodOrdering(csrfToken string, lang locale.Lang) {
+	@layout.Base(
+		lang.T("Case Study: Food Ordering", "Caso de estudio: Pedido de comida"),
+		lang.T(
+			"How SAUI handles a food ordering system: server-owned order state, real-time updates via HTML projection, and no client-side cart logic.",
+			"Cómo SAUI gestiona un sistema de pedido de comida: estado del pedido en el servidor, actualizaciones en tiempo real mediante proyección HTML y sin lógica de carrito en el cliente.",
+		),
+		csrfToken,
+		lang.Prefix()+"/cases/food-ordering",
+		"/static/css/cases-food.css",
+		lang,
+	) {
 		<section class="page-hero">
 			<div class="page-hero__content">
-				<nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
-					<a href="/cases">{ `Case Studies` }</a>{ ` / Food Ordering` }
+				<nav class="page-hero__breadcrumb" aria-label={ lang.T("Breadcrumb", "Ruta de navegación") }>
+					<a href={ templ.URL(lang.Prefix() + "/cases") }>{ lang.T("Case Studies", "Casos de estudio") }</a>{ lang.T(` / Food Ordering`, ` / Pedido de comida`) }
 				</nav>
-				<h1>Food ordering</h1>
-				<p class="lead">{ `Cart state on the client creates three classes of problem that are structural, not implementation errors.` }</p>
+				<h1>{ lang.T("Food ordering", "Pedido de comida") }</h1>
+				<p class="lead">{ lang.T(
+					"Cart state on the client creates three classes of problem that are structural, not implementation errors.",
+					"El estado del carrito en el cliente crea tres clases de problemas que son estructurales, no errores de implementación.",
+				) }</p>
 			</div>
 		</section>
 		<article>
 			<section>
-				<h2>The client-side state model</h2>
-				<p>{ `In most food ordering SPAs, the cart lives in client-side state, typically a
+				<h2>{ lang.T("The client-side state model", "El modelo de estado del lado del cliente") }</h2>
+				<p>{ lang.T(
+					`In most food ordering SPAs, the cart lives in client-side state, typically a
 					Redux store or context. Item additions, quantity changes, and removals update
 					the local cart immediately. The server is informed at checkout.
-					This produces three structural problems:` }</p>
+					This produces three structural problems:`,
+					`En la mayoría de las SPA de pedido de comida, el carrito vive en el estado del lado
+					del cliente, típicamente un store Redux o un contexto. Las adiciones de artículos,
+					cambios de cantidad y eliminaciones actualizan el carrito local de inmediato.
+					El servidor es informado en el proceso de pago. Esto produce tres problemas estructurales:`,
+				) }</p>
 				<ul>
 					<li>
-						<strong>Price manipulation.</strong>
-						{ ` The client holds item prices. A user can modify the cart price representation
-						before checkout. Server validation at checkout catches this, but the window
-						exists and must be explicitly closed.` }
+						<strong>{ lang.T("Price manipulation.", "Manipulación de precios.") }</strong>
+						{ lang.T(
+							` The client holds item prices. A user can modify the cart price representation
+							before checkout. Server validation at checkout catches this, but the window
+							exists and must be explicitly closed.`,
+							` El cliente mantiene los precios de los artículos. Un usuario puede modificar
+							la representación del precio del carrito antes del pago. La validación del servidor
+							en el pago lo detecta, pero la ventana existe y debe cerrarse explícitamente.`,
+						) }
 					</li>
 					<li>
-						<strong>Availability staleness.</strong>
-						{ ` Items in the client cart may have gone out of stock since the page loaded.
-						The client does not know. The failure surfaces at checkout, the worst possible moment.` }
+						<strong>{ lang.T("Availability staleness.", "Desactualización de disponibilidad.") }</strong>
+						{ lang.T(
+							` Items in the client cart may have gone out of stock since the page loaded.
+							The client does not know. The failure surfaces at checkout, the worst possible moment.`,
+							` Los artículos en el carrito del cliente pueden haberse agotado desde que se cargó
+							la página. El cliente no lo sabe. El fallo aparece en el pago, el peor momento posible.`,
+						) }
 					</li>
 					<li>
-						<strong>Cart integrity.</strong>
-						{ ` Multiple tabs, page reloads, and session expiry all create opportunities
-						for client-side cart state to diverge from what the server knows about the order.` }
+						<strong>{ lang.T("Cart integrity.", "Integridad del carrito.") }</strong>
+						{ lang.T(
+							` Multiple tabs, page reloads, and session expiry all create opportunities
+							for client-side cart state to diverge from what the server knows about the order.`,
+							` Las pestañas múltiples, las recargas de página y el vencimiento de la sesión
+							crean oportunidades para que el estado del carrito del lado del cliente diverja
+							de lo que el servidor sabe sobre el pedido.`,
+						) }
 					</li>
 				</ul>
 			</section>
 			<section>
-				<h2>What moves to the server under SAUI</h2>
+				<h2>{ lang.T("What moves to the server under SAUI", "Qué se mueve al servidor bajo SAUI") }</h2>
 				<ul>
-					<li>{ `Cart state: the server owns the cart for the session` }</li>
-					<li>{ `Item pricing: computed from the server current price table on every render` }</li>
-					<li>{ `Availability: checked on every add-to-cart action, not at checkout` }</li>
-					<li>{ `Quantity limits: validated at the gateway before the cart event is appended` }</li>
+					<li>{ lang.T("Cart state: the server owns the cart for the session", "Estado del carrito: el servidor posee el carrito para la sesión") }</li>
+					<li>{ lang.T("Item pricing: computed from the server current price table on every render", "Precios de artículos: calculados desde la tabla de precios actual del servidor en cada renderizado") }</li>
+					<li>{ lang.T("Availability: checked on every add-to-cart action, not at checkout", "Disponibilidad: comprobada en cada acción de añadir al carrito, no en el pago") }</li>
+					<li>{ lang.T("Quantity limits: validated at the gateway before the cart event is appended", "Límites de cantidad: validados en la pasarela antes de añadir el evento del carrito") }</li>
 				</ul>
-				<p>{ `The client submits an AddToCart action. The gateway validates it: item exists,
+				<p>{ lang.T(
+					`The client submits an AddToCart action. The gateway validates it: item exists,
 					item is available, quantity is within limits, price is current.
 					If valid, a CartItemAdded event is appended. The handler returns the updated
-					cart projection. If not, the current truth is returned with an error.` }</p>
+					cart projection. If not, the current truth is returned with an error.`,
+					`El cliente envía una acción AddToCart. La pasarela la valida: el artículo existe,
+					está disponible, la cantidad está dentro de los límites, el precio es actual.
+					Si es válido, se añade un evento CartItemAdded. El manejador devuelve la proyección
+					actualizada del carrito. Si no, se devuelve la verdad actual con un error.`,
+				) }</p>
 			</section>
 			<section>
-				<h2>What stays on the client</h2>
+				<h2>{ lang.T("What stays on the client", "Qué permanece en el cliente") }</h2>
 				<ul>
-					<li>{ `UI animations on cart update (CSS)` }</li>
-					<li>{ `Quantity input focus state` }</li>
-					<li>{ `Menu section scroll position` }</li>
+					<li>{ lang.T("UI animations on cart update (CSS)", "Animaciones de UI en la actualización del carrito (CSS)") }</li>
+					<li>{ lang.T("Quantity input focus state", "Estado de foco del campo de cantidad") }</li>
+					<li>{ lang.T("Menu section scroll position", "Posición de desplazamiento de la sección del menú") }</li>
 				</ul>
-				<p>{ `These are legitimate UI-only states. They have no business meaning and no security
-					implication. They live in CSS or minimal JS and are discarded on navigation.` }</p>
+				<p>{ lang.T(
+					`These are legitimate UI-only states. They have no business meaning and no security
+					implication. They live in CSS or minimal JS and are discarded on navigation.`,
+					`Estos son estados legítimos solo de UI. No tienen significado empresarial ni implicación
+					de seguridad. Viven en CSS o JS mínimo y se descartan en la navegación.`,
+				) }</p>
 			</section>
 			<section>
-				<h2>Security properties gained</h2>
-				<p>{ `Price manipulation is structurally impossible: the client never holds prices,
+				<h2>{ lang.T("Security properties gained", "Propiedades de seguridad obtenidas") }</h2>
+				<p>{ lang.T(
+					`Price manipulation is structurally impossible: the client never holds prices,
 					only a projection of what the server computed. Availability attacks are eliminated;
 					the server validates availability at action time, not at checkout.
-					Cart tampering has no attack surface because there is no client-side cart object to tamper with.` }</p>
+					Cart tampering has no attack surface because there is no client-side cart object to tamper with.`,
+					`La manipulación de precios es estructuralmente imposible: el cliente nunca mantiene precios,
+					solo una proyección de lo que el servidor calculó. Los ataques de disponibilidad se eliminan;
+					el servidor valida la disponibilidad en el momento de la acción, no en el pago.
+					La manipulación del carrito no tiene superficie de ataque porque no hay objeto de carrito
+					del lado del cliente que manipular.`,
+				) }</p>
 			</section>
 			<section>
-				<h2>Testing surface change</h2>
-				<p>{ `Under the SPA model: tests for cart state management, tests for price display
+				<h2>{ lang.T("Testing surface change", "Cambio en la superficie de pruebas") }</h2>
+				<p>{ lang.T(
+					`Under the SPA model: tests for cart state management, tests for price display
 					accuracy, tests for checkout flow with stale cart, tests for session recovery.
-					All of these test the synchronisation problem.` }</p>
-				<p>{ `Under SAUI: one test per action validates the business rule. One test per
+					All of these test the synchronisation problem.`,
+					`Bajo el modelo SPA: pruebas para la gestión del estado del carrito, pruebas para
+					la precisión de visualización de precios, pruebas para el flujo de pago con carrito
+					obsoleto, pruebas para la recuperación de sesión. Todas estas prueban el problema
+					de sincronización.`,
+				) }</p>
+				<p>{ lang.T(
+					`Under SAUI: one test per action validates the business rule. One test per
 					projection validates the read model. The HTML render test is a snapshot.
-					No synchronisation to test.` }</p>
-				<p><a href="/cases/banking">Next: Banking</a></p>
+					No synchronisation to test.`,
+					`Bajo SAUI: una prueba por acción valida la regla empresarial. Una prueba por proyección
+					valida el modelo de lectura. La prueba de renderizado HTML es una instantánea.
+					Sin sincronización que probar.`,
+				) }</p>
+				<p><a href={ templ.URL(lang.Prefix() + "/cases/banking") }>{ lang.T("Next: Banking", "Siguiente: Banca") }</a></p>
 			</section>
 		</article>
 	}

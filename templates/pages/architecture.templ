@@ -1,17 +1,34 @@
 package pages
 
-import "saui/templates/layout"
+import (
+	"saui/locale"
+	"saui/templates/layout"
+)
 
-templ Architecture(csrfToken string) {
-	@layout.Base("Architecture", "The SAUI request lifecycle: browser submits intent, gateway authenticates and applies, event log records truth, server projects HTML back to the browser.", csrfToken, "/architecture", "/static/css/architecture.css") {
+templ Architecture(csrfToken string, lang locale.Lang) {
+	@layout.Base(
+		lang.T("Architecture", "Arquitectura"),
+		lang.T(
+			"The SAUI request lifecycle: browser submits intent, gateway authenticates and applies, event log records truth, server projects HTML back to the browser.",
+			"El ciclo de vida de una solicitud SAUI: el navegador envía intención, la pasarela autentica y aplica, el registro de eventos graba la verdad, el servidor proyecta HTML de vuelta al navegador.",
+		),
+		csrfToken,
+		lang.Prefix()+"/architecture",
+		"/static/css/architecture.css",
+		lang,
+	) {
 		<section class="page-hero">
 			<div class="page-hero__content">
-				<h1>Architecture</h1>
-				<p class="lead">{ `The server owns state. The browser holds none.
-					Security is not a layer applied on top — it is a consequence of where state lives.` }</p>
+				<h1>{ lang.T("Architecture", "Arquitectura") }</h1>
+				<p class="lead">{ lang.T(
+					`The server owns state. The browser holds none.
+					Security is not a layer applied on top — it is a consequence of where state lives.`,
+					`El servidor posee el estado. El navegador no retiene nada.
+					La seguridad no es una capa añadida encima: es una consecuencia de dónde vive el estado.`,
+				) }</p>
 			</div>
 		</section>
-		<section class="arch-diagram-section" aria-label="Request lifecycle diagram">
+		<section class="arch-diagram-section" aria-label={ lang.T("Request lifecycle diagram", "Diagrama del ciclo de vida de una solicitud") }>
 			<figure class="arch-diagram">
 				<svg viewBox="0 0 860 760" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
 					<defs>
@@ -25,18 +42,18 @@ templ Architecture(csrfToken string) {
 					<!-- Node 1: Browser (request) -->
 					<g class="dia-node dia-node--browser">
 						<rect x="270" y="20" width="320" height="100" rx="8"/>
-						<text class="dia-node__title" x="430" y="58">Browser</text>
-						<text class="dia-node__sub" x="430" y="82">{ `submits intent` }</text>
+						<text class="dia-node__title" x="430" y="58">{ lang.T("Browser", "Navegador") }</text>
+						<text class="dia-node__sub" x="430" y="82">{ lang.T("submits intent", "envía intención") }</text>
 					</g>
 					<!-- Annotation: right of Node 1 -->
 					<g class="dia-annot dia-annot--n1">
 						<line class="dia-annot__tick" x1="590" y1="70" x2="618" y2="70"/>
-						<text class="dia-annot__label" x="626" y="64">{ `User submits intent` }</text>
-						<text class="dia-annot__body" x="626" y="81">{ `form POST · htmx · full-page` }</text>
+						<text class="dia-annot__label" x="626" y="64">{ lang.T("User submits intent", "El usuario envía intención") }</text>
+						<text class="dia-annot__body" x="626" y="81">{ lang.T("form POST · htmx · full-page", "form POST · htmx · página completa") }</text>
 					</g>
 					<!-- Arrow 1 -->
 					<line class="dia-line dia-line--1" x1="430" y1="120" x2="430" y2="220" marker-end="url(#dia-arrow)"/>
-					<text class="dia-line__label" x="442" y="175">{ `POST intent` }</text>
+					<text class="dia-line__label" x="442" y="175">{ lang.T("POST intent", "POST intención") }</text>
 					<circle class="dia-packet dia-packet--1" r="5"/>
 					<!-- Node 2: Gateway -->
 					<g class="dia-node dia-node--gateway">
@@ -44,51 +61,54 @@ templ Architecture(csrfToken string) {
 						<g clip-path="url(#gateway-clip)">
 							<rect class="dia-gateway-scan" x="270" y="224" width="24" height="100"/>
 						</g>
-						<text class="dia-node__title dia-node__title--light" x="430" y="262">Gateway</text>
-						<text class="dia-node__sub dia-node__sub--light" x="430" y="286">{ `auth · validate · apply` }</text>
+						<text class="dia-node__title dia-node__title--light" x="430" y="262">{ lang.T("Gateway", "Pasarela") }</text>
+						<text class="dia-node__sub dia-node__sub--light" x="430" y="286">{ lang.T("auth · validate · apply", "auth · validar · aplicar") }</text>
 					</g>
 					<!-- Annotation: left of Node 2 -->
 					<g class="dia-annot dia-annot--n2">
 						<line class="dia-annot__tick" x1="270" y1="274" x2="242" y2="274"/>
-						<text class="dia-annot__label dia-annot__label--end" x="236" y="268">{ `Authenticate · Authorize` }</text>
-						<text class="dia-annot__body dia-annot__body--end" x="236" y="285">{ `validate · rate-limit · log` }</text>
+						<text class="dia-annot__label dia-annot__label--end" x="236" y="268">{ lang.T("Authenticate · Authorize", "Autenticar · Autorizar") }</text>
+						<text class="dia-annot__body dia-annot__body--end" x="236" y="285">{ lang.T("validate · rate-limit · log", "validar · limitar tasa · registrar") }</text>
 					</g>
 					<!-- Arrow 2 -->
 					<line class="dia-line dia-line--2" x1="430" y1="324" x2="430" y2="424" marker-end="url(#dia-arrow)"/>
-					<text class="dia-line__label" x="442" y="379">{ `append event` }</text>
+					<text class="dia-line__label" x="442" y="379">{ lang.T("append event", "añadir evento") }</text>
 					<circle class="dia-packet dia-packet--2" r="5"/>
 					<!-- Node 3: Event Log -->
 					<g class="dia-node dia-node--store">
 						<rect x="270" y="428" width="320" height="100" rx="8"/>
-						<text class="dia-node__title" x="430" y="466">{ `Event Log` }</text>
-						<text class="dia-node__sub" x="430" y="490">{ `SQLite · append-only` }</text>
+						<text class="dia-node__title" x="430" y="466">{ lang.T("Event Log", "Registro de Eventos") }</text>
+						<text class="dia-node__sub" x="430" y="490">{ lang.T("SQLite · append-only", "SQLite · solo-adjuntar") }</text>
 					</g>
 					<!-- Annotation: right of Node 3 -->
 					<g class="dia-annot dia-annot--n3">
 						<line class="dia-annot__tick" x1="590" y1="478" x2="618" y2="478"/>
-						<text class="dia-annot__label" x="626" y="472">{ `Append-only event log` }</text>
-						<text class="dia-annot__body" x="626" y="489">{ `never mutated · auditable` }</text>
+						<text class="dia-annot__label" x="626" y="472">{ lang.T("Append-only event log", "Registro de eventos solo-adjuntar") }</text>
+						<text class="dia-annot__body" x="626" y="489">{ lang.T("never mutated · auditable", "nunca mutado · auditable") }</text>
 					</g>
 					<!-- Arrow 3 -->
 					<line class="dia-line dia-line--3" x1="430" y1="528" x2="430" y2="628" marker-end="url(#dia-arrow)"/>
-					<text class="dia-line__label" x="442" y="583">{ `HTML projection` }</text>
+					<text class="dia-line__label" x="442" y="583">{ lang.T("HTML projection", "proyección HTML") }</text>
 					<circle class="dia-packet dia-packet--3" r="5"/>
 					<!-- Node 4: Browser (response) -->
 					<g class="dia-node dia-node--browser">
 						<rect x="270" y="632" width="320" height="100" rx="8"/>
-						<text class="dia-node__title" x="430" y="670">Browser</text>
-						<text class="dia-node__sub" x="430" y="694">{ `renders truth` }</text>
+						<text class="dia-node__title" x="430" y="670">{ lang.T("Browser", "Navegador") }</text>
+						<text class="dia-node__sub" x="430" y="694">{ lang.T("renders truth", "renderiza la verdad") }</text>
 					</g>
 					<!-- Annotation: left of Node 4 -->
 					<g class="dia-annot dia-annot--n4">
 						<line class="dia-annot__tick" x1="270" y1="682" x2="242" y2="682"/>
-						<text class="dia-annot__label dia-annot__label--end" x="236" y="676">{ `Server-projected HTML` }</text>
-						<text class="dia-annot__body dia-annot__body--end" x="236" y="693">{ `durable truth rendered` }</text>
+						<text class="dia-annot__label dia-annot__label--end" x="236" y="676">{ lang.T("Server-projected HTML", "HTML proyectado por el servidor") }</text>
+						<text class="dia-annot__body dia-annot__body--end" x="236" y="693">{ lang.T("durable truth rendered", "verdad durable renderizada") }</text>
 					</g>
 				</svg>
-				<figcaption>{ `Intent in, projection out. State lives on the server. The browser holds nothing between requests.` }</figcaption>
+				<figcaption>{ lang.T(
+					"Intent in, projection out. State lives on the server. The browser holds nothing between requests.",
+					"Intención de entrada, proyección de salida. El estado vive en el servidor. El navegador no retiene nada entre solicitudes.",
+				) }</figcaption>
 			</figure>
-			<nav class="arch-step-nav" aria-label="Step detail">
+			<nav class="arch-step-nav" aria-label={ lang.T("Step detail", "Detalle del paso") }>
 				<button type="button"
 					class="arch-step-btn"
 					aria-pressed="false"
@@ -97,7 +117,7 @@ templ Architecture(csrfToken string) {
 					hx-swap="innerHTML"
 				>
 					<span class="arch-step-num" aria-hidden="true">{ `1` }</span>
-					{ `Browser` }
+					{ lang.T("Browser", "Navegador") }
 				</button>
 				<button type="button"
 					class="arch-step-btn"
@@ -107,7 +127,7 @@ templ Architecture(csrfToken string) {
 					hx-swap="innerHTML"
 				>
 					<span class="arch-step-num" aria-hidden="true">{ `2` }</span>
-					{ `Gateway` }
+					{ lang.T("Gateway", "Pasarela") }
 				</button>
 				<button type="button"
 					class="arch-step-btn"
@@ -117,7 +137,7 @@ templ Architecture(csrfToken string) {
 					hx-swap="innerHTML"
 				>
 					<span class="arch-step-num" aria-hidden="true">{ `3` }</span>
-					{ `Event log` }
+					{ lang.T("Event log", "Registro de eventos") }
 				</button>
 				<button type="button"
 					class="arch-step-btn"
@@ -127,169 +147,234 @@ templ Architecture(csrfToken string) {
 					hx-swap="innerHTML"
 				>
 					<span class="arch-step-num" aria-hidden="true">{ `4` }</span>
-					{ `Response` }
+					{ lang.T("Response", "Respuesta") }
 				</button>
 			</nav>
 			<div id="arch-step-detail" class="arch-step-detail" aria-live="polite">
-				<p class="arch-step-detail__prompt">{ `Select a step to see the implementation detail.` }</p>
+				<p class="arch-step-detail__prompt">{ lang.T("Select a step to see the implementation detail.", "Seleccione un paso para ver el detalle de implementación.") }</p>
 			</div>
 		</section>
 		<article>
-			<section id="two-layer-state-model" aria-label="Two-layer state model">
-				<h2>The two-layer state model</h2>
-				<p>{ `State is separated into two layers with different lifetimes, different storage, and
+			<section id="two-layer-state-model" aria-label={ lang.T("Two-layer state model", "Modelo de estado de dos capas") }>
+				<h2>{ lang.T("The two-layer state model", "El modelo de estado de dos capas") }</h2>
+				<p>{ lang.T(
+					`State is separated into two layers with different lifetimes, different storage, and
 					a strict one-way rule about which may influence the other. The rule is enforced
-					structurally, not by convention.` }</p>
+					structurally, not by convention.`,
+					`El estado se separa en dos capas con diferentes duraciones de vida, almacenamiento diferente y
+					una regla estricta de sentido único sobre cuál puede influir en la otra. La regla
+					se aplica estructuralmente, no por convención.`,
+				) }</p>
 				<div class="state-model">
 					<div class="state-model__layer state-model__layer--durable">
 						<p class="state-model__header">
-							<span class="state-model__label">{ `Durable state` }</span>
+							<span class="state-model__label">{ lang.T("Durable state", "Estado durable") }</span>
 							<span class="state-model__sep" aria-hidden="true">{ `·` }</span>
-							<span class="state-model__sub">{ `what actually happened` }</span>
+							<span class="state-model__sub">{ lang.T("what actually happened", "lo que realmente ocurrió") }</span>
 						</p>
 						<ul class="state-model__list">
-							<li>{ `Append-only event log: events are inserted, never modified` }</li>
-							<li>{ `Past events cannot be altered by any code path` }</li>
-							<li>{ `Auditable by construction: the log is the audit trail` }</li>
-							<li>{ `All writes require gateway authorisation` }</li>
-							<li>{ `Survives server restart; loss-free by design` }</li>
+							<li>{ lang.T("Append-only event log: events are inserted, never modified", "Registro de eventos solo-adjuntar: los eventos se insertan, nunca se modifican") }</li>
+							<li>{ lang.T("Past events cannot be altered by any code path", "Los eventos pasados no pueden ser alterados por ninguna ruta de código") }</li>
+							<li>{ lang.T("Auditable by construction: the log is the audit trail", "Auditable por construcción: el registro es la pista de auditoría") }</li>
+							<li>{ lang.T("All writes require gateway authorisation", "Todas las escrituras requieren autorización de la pasarela") }</li>
+							<li>{ lang.T("Survives server restart; loss-free by design", "Sobrevive al reinicio del servidor; sin pérdidas por diseño") }</li>
 						</ul>
 					</div>
 					<div class="state-model__flow">
-						<span class="state-model__flow-label" aria-label="one-way only">{ `one-way only` }</span>
+						<span class="state-model__flow-label" aria-label={ lang.T("one-way only", "solo en un sentido") }>{ lang.T("one-way only", "solo en un sentido") }</span>
 						<span class="state-model__flow-arrow" aria-hidden="true">{ `↓` }</span>
 					</div>
 					<div class="state-model__layer state-model__layer--ephemeral">
 						<p class="state-model__header">
-							<span class="state-model__label">{ `Ephemeral state` }</span>
+							<span class="state-model__label">{ lang.T("Ephemeral state", "Estado efímero") }</span>
 							<span class="state-model__sep" aria-hidden="true">{ `·` }</span>
-							<span class="state-model__sub">{ `current session context` }</span>
+							<span class="state-model__sub">{ lang.T("current session context", "contexto de sesión actual") }</span>
 						</p>
 						<ul class="state-model__list">
-							<li>{ `In-memory only, keyed by session ID` }</li>
-							<li>{ `Holds UI context: current view, in-progress flows, flash messages` }</li>
-							<li>{ `Derived from durable state, never the reverse` }</li>
-							<li>{ `Never used as input to durable state transitions` }</li>
-							<li>{ `Discarded on session end; nothing persists to the client` }</li>
+							<li>{ lang.T("In-memory only, keyed by session ID", "Solo en memoria, indexado por ID de sesión") }</li>
+							<li>{ lang.T("Holds UI context: current view, in-progress flows, flash messages", "Mantiene contexto de UI: vista actual, flujos en curso, mensajes flash") }</li>
+							<li>{ lang.T("Derived from durable state, never the reverse", "Derivado del estado durable, nunca al revés") }</li>
+							<li>{ lang.T("Never used as input to durable state transitions", "Nunca se usa como entrada para transiciones de estado durable") }</li>
+							<li>{ lang.T("Discarded on session end; nothing persists to the client", "Descartado al finalizar la sesión; nada persiste en el cliente") }</li>
 						</ul>
 					</div>
 				</div>
-				<p>{ `Ephemeral state flows one direction only. Durable state seeds ephemeral state.
+				<p>{ lang.T(
+					`Ephemeral state flows one direction only. Durable state seeds ephemeral state.
 					Ephemeral state never influences durable state transitions. This rule makes
 					client-side state manipulation structurally impossible: there is no client state
-					to manipulate.` }</p>
+					to manipulate.`,
+					`El estado efímero fluye en un solo sentido. El estado durable alimenta el estado efímero.
+					El estado efímero nunca influye en las transiciones de estado durable. Esta regla hace
+					que la manipulación del estado del lado del cliente sea estructuralmente imposible:
+					no hay estado del cliente que manipular.`,
+				) }</p>
 			</section>
-			<section id="gateway-contract" aria-label="Gateway contract">
-				<h2>The gateway contract</h2>
-				<p>{ `The gateway is the security boundary of the system. All state access — read or
+			<section id="gateway-contract" aria-label={ lang.T("Gateway contract", "Contrato de la pasarela") }>
+				<h2>{ lang.T("The gateway contract", "El contrato de la pasarela") }</h2>
+				<p>{ lang.T(
+					`The gateway is the security boundary of the system. All state access — read or
 					write — passes through it. No handler, no middleware, no other package touches
 					state directly. This is not a convention: the Store type is unexported from the
-					state package; only the Gateway is exposed. There is no path around it.` }</p>
+					state package; only the Gateway is exposed. There is no path around it.`,
+					`La pasarela es el límite de seguridad del sistema. Todo acceso al estado, lectura
+					o escritura, pasa por ella. Ningún manejador, ningún middleware, ningún otro paquete
+					toca el estado directamente. Esto no es una convención: el tipo Store no se exporta
+					desde el paquete de estado; solo se expone la pasarela. No hay forma de evitarla.`,
+				) }</p>
 				<pre><code>{ `// Reading state — returns a named projection
 gateway.Project(ctx, sessionID, "projection-name")
 
 // Writing state — submits a validated intent
 gateway.Dispatch(ctx, sessionID, action)` }</code></pre>
-				<p>{ `Every call through the gateway enforces the same contract:` }</p>
+				<p>{ lang.T("Every call through the gateway enforces the same contract:", "Cada llamada a través de la pasarela aplica el mismo contrato:") }</p>
 				<ul>
-					<li>{ `Session is authenticated` }</li>
-					<li>{ `Actor is authorised for this action or projection` }</li>
-					<li>{ `Action is valid against current state before any change is applied` }</li>
-					<li>{ `Every transition is appended to the audit log` }</li>
+					<li>{ lang.T("Session is authenticated", "La sesión está autenticada") }</li>
+					<li>{ lang.T("Actor is authorised for this action or projection", "El actor está autorizado para esta acción o proyección") }</li>
+					<li>{ lang.T("Action is valid against current state before any change is applied", "La acción es válida contra el estado actual antes de aplicar cualquier cambio") }</li>
+					<li>{ lang.T("Every transition is appended to the audit log", "Cada transición se añade al registro de auditoría") }</li>
 				</ul>
-				<p>{ `Authorisation is not middleware. It runs inside the gateway, inside every request.
-					There is no separate runtime layer that can be bypassed with a crafted header.` }</p>
+				<p>{ lang.T(
+					`Authorisation is not middleware. It runs inside the gateway, inside every request.
+					There is no separate runtime layer that can be bypassed with a crafted header.`,
+					`La autorización no es middleware. Se ejecuta dentro de la pasarela, dentro de cada solicitud.
+					No hay una capa de tiempo de ejecución separada que pueda ser eludida con una cabecera manipulada.`,
+				) }</p>
 			</section>
-			<section id="action-pattern" aria-label="Action pattern">
-				<h2>The action pattern</h2>
-				<p>{ `State changes are expressed as validated intents, not direct mutations.
-					A handler never writes state directly; it submits an action to the gateway.` }</p>
+			<section id="action-pattern" aria-label={ lang.T("Action pattern", "Patrón de acción") }>
+				<h2>{ lang.T("The action pattern", "El patrón de acción") }</h2>
+				<p>{ lang.T(
+					`State changes are expressed as validated intents, not direct mutations.
+					A handler never writes state directly; it submits an action to the gateway.`,
+					`Los cambios de estado se expresan como intenciones validadas, no como mutaciones directas.
+					Un manejador nunca escribe el estado directamente; envía una acción a la pasarela.`,
+				) }</p>
 				<pre><code>{ `type Action interface {
     Type()     string
     Validate(ctx, store, sessionID) error
     Apply(ctx, store, sessionID)    (Event, error)
 }` }</code></pre>
-				<p>{ `The lifecycle of a state change:` }</p>
+				<p>{ lang.T("The lifecycle of a state change:", "El ciclo de vida de un cambio de estado:") }</p>
 				<ol>
-					<li>{ `Handler parses the request and constructs an action` }</li>
-					<li>{ `Gateway calls Validate against current state; rejects if invalid` }</li>
-					<li>{ `Gateway calls Apply; produces a new event` }</li>
-					<li>{ `Event is appended to the durable log` }</li>
-					<li>{ `Gateway returns the updated projection to the handler` }</li>
-					<li>{ `Handler renders the projection as HTML: partial for htmx, full page otherwise` }</li>
+					<li>{ lang.T("Handler parses the request and constructs an action", "El manejador analiza la solicitud y construye una acción") }</li>
+					<li>{ lang.T("Gateway calls Validate against current state; rejects if invalid", "La pasarela llama a Validate contra el estado actual; rechaza si es inválido") }</li>
+					<li>{ lang.T("Gateway calls Apply; produces a new event", "La pasarela llama a Apply; produce un nuevo evento") }</li>
+					<li>{ lang.T("Event is appended to the durable log", "El evento se añade al registro durable") }</li>
+					<li>{ lang.T("Gateway returns the updated projection to the handler", "La pasarela devuelve la proyección actualizada al manejador") }</li>
+					<li>{ lang.T("Handler renders the projection as HTML: partial for htmx, full page otherwise", "El manejador renderiza la proyección como HTML: parcial para htmx, página completa en caso contrario") }</li>
 				</ol>
 				<blockquote class="callout">
-					<p>{ `No partial application. No silent failure. No client state to reconcile.` }</p>
+					<p>{ lang.T(
+						"No partial application. No silent failure. No client state to reconcile.",
+						"Sin aplicación parcial. Sin fallos silenciosos. Sin estado del cliente que reconciliar.",
+					) }</p>
 				</blockquote>
 			</section>
-			<section id="security-by-construction" aria-label="Security by construction">
-				<h2>Security by construction</h2>
-				<p>{ `Security in most systems is applied as a layer: middleware checks, validation
+			<section id="security-by-construction" aria-label={ lang.T("Security by construction", "Seguridad por construcción") }>
+				<h2>{ lang.T("Security by construction", "Seguridad por construcción") }</h2>
+				<p>{ lang.T(
+					`Security in most systems is applied as a layer: middleware checks, validation
 					libraries, WAF rules, security headers. Each layer can be misconfigured, bypassed,
 					or forgotten. SAUI takes a different position: the architecture excludes entire
-					vulnerability classes structurally, before any application code runs.` }</p>
+					vulnerability classes structurally, before any application code runs.`,
+					`La seguridad en la mayoría de los sistemas se aplica como una capa: comprobaciones de
+					middleware, bibliotecas de validación, reglas WAF, cabeceras de seguridad. Cada capa
+					puede estar mal configurada, ser eludida u olvidada. SAUI adopta una posición diferente:
+					la arquitectura excluye estructuralmente clases enteras de vulnerabilidades, antes
+					de que se ejecute cualquier código de aplicación.`,
+				) }</p>
 				<ul>
 					<li>
-						<strong>{ `No client state.` }</strong>
-						{ ` State manipulation — the classic "isAdmin: true" attack — requires client-held
-						state to manipulate. The browser holds none. The attack class does not apply.` }
+						<strong>{ lang.T("No client state.", "Sin estado del cliente.") }</strong>
+						{ lang.T(
+							` State manipulation — the classic "isAdmin: true" attack — requires client-held
+							state to manipulate. The browser holds none. The attack class does not apply.`,
+							` La manipulación del estado, el clásico ataque "isAdmin: true", requiere estado
+							en el cliente para manipular. El navegador no retiene nada. La clase de ataque no aplica.`,
+						) }
 					</li>
 					<li>
-						<strong>{ `No hydration boundary.` }</strong>
-						{ ` Server state is never serialised into inline HTML for client reconstruction.
-						The hydration XSS attack class requires this boundary. It does not exist here.` }
+						<strong>{ lang.T("No hydration boundary.", "Sin límite de hidratación.") }</strong>
+						{ lang.T(
+							` Server state is never serialised into inline HTML for client reconstruction.
+							The hydration XSS attack class requires this boundary. It does not exist here.`,
+							` El estado del servidor nunca se serializa en HTML en línea para reconstrucción
+							en el cliente. La clase de ataque XSS de hidratación requiere este límite. Aquí no existe.`,
+						) }
 					</li>
 					<li>
-						<strong>{ `No middleware security gate.` }</strong>
-						{ ` Authorisation runs inside the gateway, inside every request handler.
-						There is no separate runtime layer to bypass. The middleware bypass pattern
-						that produced CVE-2025-29927 (CVSS 9.1) in Next.js cannot occur.` }
+						<strong>{ lang.T("No middleware security gate.", "Sin puerta de seguridad de middleware.") }</strong>
+						{ lang.T(
+							` Authorisation runs inside the gateway, inside every request handler.
+							There is no separate runtime layer to bypass. The middleware bypass pattern
+							that produced CVE-2025-29927 (CVSS 9.1) in Next.js cannot occur.`,
+							` La autorización se ejecuta dentro de la pasarela, dentro de cada manejador
+							de solicitudes. No hay una capa de tiempo de ejecución separada que eludir.
+							El patrón de evasión de middleware que produjo CVE-2025-29927 (CVSS 9.1)
+							en Next.js no puede ocurrir.`,
+						) }
 					</li>
 					<li>
-						<strong>{ `Append-only event log.` }</strong>
-						{ ` Past events cannot be altered by any code path. An attacker with database
-						access cannot rewrite history. The audit trail is a structural property,
-						not a policy.` }
+						<strong>{ lang.T("Append-only event log.", "Registro de eventos solo-adjuntar.") }</strong>
+						{ lang.T(
+							` Past events cannot be altered by any code path. An attacker with database
+							access cannot rewrite history. The audit trail is a structural property,
+							not a policy.`,
+							` Los eventos pasados no pueden ser alterados por ninguna ruta de código.
+							Un atacante con acceso a la base de datos no puede reescribir el historial.
+							La pista de auditoría es una propiedad estructural, no una política.`,
+						) }
 					</li>
 					<li>
-						<strong>{ `No npm dependency graph.` }</strong>
-						{ ` htmx is a single vendored file. The rest of the stack is Go standard library.
-						There are no transitive package dependencies and therefore no supply chain
-						attack surface.` }
+						<strong>{ lang.T("No npm dependency graph.", "Sin grafo de dependencias npm.") }</strong>
+						{ lang.T(
+							` htmx is a single vendored file. The rest of the stack is Go standard library.
+							There are no transitive package dependencies and therefore no supply chain
+							attack surface.`,
+							` htmx es un único archivo gestionado. El resto de la pila es la biblioteca
+							estándar de Go. No hay dependencias de paquetes transitivas y por tanto
+							no hay superficie de ataque en la cadena de suministro.`,
+						) }
 					</li>
 				</ul>
 				<blockquote class="callout">
-					<p>{ `These are not mitigations. They are the consequence of an architecture
-						where the dangerous patterns cannot exist.` }</p>
+					<p>{ lang.T(
+						"These are not mitigations. They are the consequence of an architecture where the dangerous patterns cannot exist.",
+						"Estas no son mitigaciones. Son la consecuencia de una arquitectura donde los patrones peligrosos no pueden existir.",
+					) }</p>
 				</blockquote>
 			</section>
-			<section id="progressive-enhancement" aria-label="Progressive enhancement">
-				<h2>Progressive enhancement</h2>
-				<p>{ `Every feature is built across four degradation levels. All four must produce
-					correct state; the server owns truth regardless of client capability.` }</p>
+			<section id="progressive-enhancement" aria-label={ lang.T("Progressive enhancement", "Mejora progresiva") }>
+				<h2>{ lang.T("Progressive enhancement", "Mejora progresiva") }</h2>
+				<p>{ lang.T(
+					`Every feature is built across four degradation levels. All four must produce
+					correct state; the server owns truth regardless of client capability.`,
+					`Cada función se construye en cuatro niveles de degradación. Los cuatro deben producir
+					estado correcto; el servidor posee la verdad independientemente de la capacidad del cliente.`,
+				) }</p>
 				<dl class="pe-levels">
 					<div class="pe-level">
-						<dt><span class="pe-level__badge">L0</span>{ `No JS, no CSS` }</dt>
-						<dd>{ `Native HTML forms, POST submission, PRG pattern. Must always work.` }</dd>
+						<dt><span class="pe-level__badge">L0</span>{ lang.T("No JS, no CSS", "Sin JS, sin CSS") }</dt>
+						<dd>{ lang.T("Native HTML forms, POST submission, PRG pattern. Must always work.", "Formularios HTML nativos, envío POST, patrón PRG. Siempre debe funcionar.") }</dd>
 					</div>
 					<div class="pe-level">
-						<dt><span class="pe-level__badge">L1</span>{ `CSS only` }</dt>
-						<dd>{ `Full layout applied. No visual state that depends on JS class toggling.` }</dd>
+						<dt><span class="pe-level__badge">L1</span>{ lang.T("CSS only", "Solo CSS") }</dt>
+						<dd>{ lang.T("Full layout applied. No visual state that depends on JS class toggling.", "Diseño completo aplicado. Sin estado visual que dependa del cambio de clases JS.") }</dd>
 					</div>
 					<div class="pe-level">
-						<dt><span class="pe-level__badge">L2</span>{ `JS present, htmx not yet loaded` }</dt>
-						<dd>{ `Native form submission holds. Full page responses.` }</dd>
+						<dt><span class="pe-level__badge">L2</span>{ lang.T("JS present, htmx not yet loaded", "JS presente, htmx aún no cargado") }</dt>
+						<dd>{ lang.T("Native form submission holds. Full page responses.", "El envío de formulario nativo funciona. Respuestas de página completa.") }</dd>
 					</div>
 					<div class="pe-level">
-						<dt><span class="pe-level__badge">L3</span>{ `htmx loaded` }</dt>
-						<dd>{ `Partial DOM updates active. Forms intercepted. hx-boost on navigation.` }</dd>
+						<dt><span class="pe-level__badge">L3</span>{ lang.T("htmx loaded", "htmx cargado") }</dt>
+						<dd>{ lang.T("Partial DOM updates active. Forms intercepted. hx-boost on navigation.", "Actualizaciones parciales del DOM activas. Formularios interceptados. hx-boost en la navegación.") }</dd>
 					</div>
 					<div class="pe-level">
-						<dt><span class="pe-level__badge">L4</span>{ `Full baseline JS` }</dt>
-						<dd>{ `SSE connection for real-time projection updates. View Transitions if supported.` }</dd>
+						<dt><span class="pe-level__badge">L4</span>{ lang.T("Full baseline JS", "JS base completo") }</dt>
+						<dd>{ lang.T("SSE connection for real-time projection updates. View Transitions if supported.", "Conexión SSE para actualizaciones de proyección en tiempo real. Transiciones de vista si se admite.") }</dd>
 					</div>
 				</dl>
-				<p><a href="/stack">{ `See the Go implementation` }</a></p>
+				<p><a href={ templ.URL(lang.Prefix() + "/stack") }>{ lang.T("See the Go implementation", "Ver la implementación en Go") }</a></p>
 			</section>
 		</article>
 	}

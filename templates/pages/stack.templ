@@ -1,47 +1,100 @@
 package pages
 
-import "saui/templates/layout"
+import (
+	"saui/locale"
+	"saui/templates/layout"
+)
 
-templ Stack(csrfToken string) {
-	@layout.Base("Stack", "The SAUI technology stack: Go, SQLite, htmx, and templ. No JavaScript framework, no ORM, no message queue. Boring technology, reliable results.", csrfToken, "/stack", "/static/css/stack.css") {
+templ Stack(csrfToken string, lang locale.Lang) {
+	@layout.Base(
+		lang.T("Stack", "Tecnología"),
+		lang.T(
+			"The SAUI technology stack: Go, SQLite, htmx, and templ. No JavaScript framework, no ORM, no message queue. Boring technology, reliable results.",
+			"La pila tecnológica de SAUI: Go, SQLite, htmx y templ. Sin framework JavaScript, sin ORM, sin cola de mensajes. Tecnología aburrida, resultados fiables.",
+		),
+		csrfToken,
+		lang.Prefix()+"/stack",
+		"/static/css/stack.css",
+		lang,
+	) {
 		<section class="page-hero">
 			<div class="page-hero__content">
-				<h1>Stack</h1>
-				<p class="lead">{ `Go standard library, SQLite, htmx, and templ. No framework. No ORM. No bundler. A single deployable binary.` }</p>
+				<h1>{ lang.T("Stack", "Tecnología") }</h1>
+				<p class="lead">{ lang.T(
+					"Go standard library, SQLite, htmx, and templ. No framework. No ORM. No bundler. A single deployable binary.",
+					"Biblioteca estándar de Go, SQLite, htmx y templ. Sin framework. Sin ORM. Sin empaquetador. Un único binario desplegable.",
+				) }</p>
 			</div>
 		</section>
 		<article>
 			<section>
-				<h2>Backend</h2>
-				<h3>Go: standard library first</h3>
-				<p>{ `net/http handles routing and serving. No Gin, no Echo, no Chi.
+				<h2>{ lang.T("Backend", "Backend") }</h2>
+				<h3>{ lang.T("Go: standard library first", "Go: biblioteca estándar primero") }</h3>
+				<p>{ lang.T(
+					`net/http handles routing and serving. No Gin, no Echo, no Chi.
 					The standard library multiplexer gained method and wildcard routing in Go 1.22,
-					removing the last practical justification for a routing framework in most applications.` }</p>
+					removing the last practical justification for a routing framework in most applications.`,
+					`net/http maneja el enrutamiento y el servicio. Sin Gin, sin Echo, sin Chi.
+					El multiplexor de la biblioteca estándar obtuvo enrutamiento por método y comodín en Go 1.22,
+					eliminando la última justificación práctica para un framework de enrutamiento
+					en la mayoría de las aplicaciones.`,
+				) }</p>
 				<p>
-					{ `The html/template package provides auto-escaping that prevents XSS by construction.
-					This project uses ` }<code>templ</code>{ ` instead, for compile-time type safety across
-					the many htmx partials. The compiled output is standard Go.` }
+					{ lang.T(
+						"The html/template package provides auto-escaping that prevents XSS by construction. This project uses ",
+						"El paquete html/template proporciona auto-escape que previene XSS por construcción. Este proyecto usa ",
+					) }<code>templ</code>{ lang.T(
+						" instead, for compile-time type safety across the many htmx partials. The compiled output is standard Go.",
+						" en su lugar, para seguridad de tipos en tiempo de compilación en los muchos parciales htmx. La salida compilada es Go estándar.",
+					) }
 				</p>
-				<h3>SQLite via modernc.org/sqlite</h3>
-				<p>{ `Pure Go SQLite: no cgo, no external shared library. The database is compiled into
+				<h3>{ lang.T("SQLite via modernc.org/sqlite", "SQLite mediante modernc.org/sqlite") }</h3>
+				<p>{ lang.T(
+					`Pure Go SQLite: no cgo, no external shared library. The database is compiled into
 					the binary. Deployment is a single file copy. SQLite is the reference implementation
-					choice. It is not a requirement of the SAUI pattern.` }</p>
-				<p>{ `WAL mode is enabled at startup. WAL allows concurrent reads without blocking writes,
+					choice. It is not a requirement of the SAUI pattern.`,
+					`SQLite en Go puro: sin cgo, sin biblioteca compartida externa. La base de datos se compila
+					en el binario. El despliegue es una copia de un único archivo. SQLite es la elección
+					de implementación de referencia. No es un requisito del patrón SAUI.`,
+				) }</p>
+				<p>{ lang.T(
+					`WAL mode is enabled at startup. WAL allows concurrent reads without blocking writes,
 					which is appropriate for a read-heavy content site with occasional state mutations.
 					A single writer is enforced; the SQLite concurrency model requires it and the
-					append-only event log is naturally sequential.` }</p>
-				<h4>What SAUI requires from a persistence layer</h4>
-				<p>{ `Three things. An append-only event log: events are inserted, never updated or deleted.
+					append-only event log is naturally sequential.`,
+					`El modo WAL se activa al inicio. WAL permite lecturas concurrentes sin bloquear escrituras,
+					lo que es apropiado para un sitio de contenido con muchas lecturas y mutaciones ocasionales
+					de estado. Se aplica un único escritor; el modelo de concurrencia de SQLite lo requiere
+					y el registro de eventos solo-adjuntar es naturalmente secuencial.`,
+				) }</p>
+				<h4>{ lang.T("What SAUI requires from a persistence layer", "Lo que SAUI requiere de una capa de persistencia") }</h4>
+				<p>{ lang.T(
+					`Three things. An append-only event log: events are inserted, never updated or deleted.
 					Sequential projection reads: SELECT ... ORDER BY id ASC to derive current state from
 					the log. Serialised writes: concurrent mutations must be ordered so no two events
-					are applied simultaneously to the same session.` }</p>
-				<p>{ `SQLite satisfies the third by construction. Any database satisfies it explicitly.
+					are applied simultaneously to the same session.`,
+					`Tres cosas. Un registro de eventos solo-adjuntar: los eventos se insertan, nunca se actualizan
+					ni se eliminan. Lecturas de proyección secuenciales: SELECT ... ORDER BY id ASC para derivar
+					el estado actual del registro. Escrituras serializadas: las mutaciones concurrentes deben
+					ordenarse para que no se apliquen dos eventos simultáneamente a la misma sesión.`,
+				) }</p>
+				<p>{ lang.T(
+					`SQLite satisfies the third by construction. Any database satisfies it explicitly.
 					The event log schema, the Action interface, and all projection queries are plain SQL
-					and are database-agnostic.` }</p>
-				<h4>Adapting to Postgres</h4>
-				<p>{ `Replace modernc.org/sqlite with pgx. Remove WAL setup. In the gateway Dispatch
+					and are database-agnostic.`,
+					`SQLite satisface el tercero por construcción. Cualquier base de datos lo satisface explícitamente.
+					El esquema del registro de eventos, la interfaz Action y todas las consultas de proyección
+					son SQL simple y son independientes de la base de datos.`,
+				) }</p>
+				<h4>{ lang.T("Adapting to Postgres", "Adaptación a Postgres") }</h4>
+				<p>{ lang.T(
+					`Replace modernc.org/sqlite with pgx. Remove WAL setup. In the gateway Dispatch
 					method, acquire a Postgres advisory lock before the action is applied and release
-					it after the event is appended. Everything else is unchanged.` }</p>
+					it after the event is appended. Everything else is unchanged.`,
+					`Reemplazar modernc.org/sqlite con pgx. Eliminar la configuración WAL. En el método
+					Dispatch de la pasarela, adquirir un bloqueo advisory de Postgres antes de aplicar
+					la acción y liberarlo después de añadir el evento. Todo lo demás permanece igual.`,
+				) }</p>
 				<pre><code>{ `-- Serialise writes per session; released automatically on transaction commit
 SELECT pg_advisory_xact_lock(hashtext($1));  -- $1 = session_id
 
@@ -53,44 +106,86 @@ CREATE TABLE events (
     payload     JSONB        NOT NULL,
     occurred_at TIMESTAMPTZ  NOT NULL DEFAULT now()
 );` }</code></pre>
-				<p>{ `MySQL and MariaDB use GET_LOCK() for the same purpose. The lock scope
+				<p>{ lang.T(
+					`MySQL and MariaDB use GET_LOCK() for the same purpose. The lock scope
 					changes; the gateway contract does not. Any database that supports
-					row-level locking or advisory locks can satisfy the SAUI write model.` }</p>
-				<h3>SSE for real-time</h3>
-				<p>{ `Server-Sent Events over standard net/http. No WebSocket unless a use case genuinely
+					row-level locking or advisory locks can satisfy the SAUI write model.`,
+					`MySQL y MariaDB usan GET_LOCK() para el mismo propósito. El alcance del bloqueo
+					cambia; el contrato de la pasarela no. Cualquier base de datos que admita bloqueos
+					a nivel de fila o bloqueos advisory puede satisfacer el modelo de escritura de SAUI.`,
+				) }</p>
+				<h3>{ lang.T("SSE for real-time", "SSE para tiempo real") }</h3>
+				<p>{ lang.T(
+					`Server-Sent Events over standard net/http. No WebSocket unless a use case genuinely
 					requires bidirectional framing. SSE is unidirectional, trivial to implement,
-					and reconnects automatically. It is sufficient for pushing projection updates to the client.` }</p>
+					and reconnects automatically. It is sufficient for pushing projection updates to the client.`,
+					`Server-Sent Events sobre net/http estándar. Sin WebSocket a menos que un caso de uso
+					requiera genuinamente un encuadre bidireccional. SSE es unidireccional, trivial de implementar
+					y se reconecta automáticamente. Es suficiente para enviar actualizaciones de proyección al cliente.`,
+				) }</p>
 			</section>
 			<section>
-				<h2>Frontend</h2>
+				<h2>{ lang.T("Frontend", "Frontend") }</h2>
 				<h3>htmx</h3>
-				<p>{ `htmx intercepts form submissions and link clicks, sends them as AJAX requests,
+				<p>{ lang.T(
+					`htmx intercepts form submissions and link clicks, sends them as AJAX requests,
 					and swaps the returned HTML fragment into the DOM. The server decides what HTML to return.
-					The client decides where to put it.` }</p>
-				<p>{ `This is the only JS dependency. It is loaded from a local file with no CDN dependency
-					for functionality, pinned to a specific version and verified with a subresource integrity hash.` }</p>
-				<h3>Vanilla JS: Baseline 2023</h3>
-				<p>{ `No framework. No build step. No bundler. JS files are served directly.
-					ES modules via type="module". JSDoc type annotations for IDE inference without a compilation step.` }</p>
-				<p>{ `Target: modern evergreen browsers. The audience is developers. No polyfills.` }</p>
-				<h3>Vanilla CSS</h3>
-				<p>{ `CSS custom properties as design tokens. Grid and Flexbox for layout.
+					The client decides where to put it.`,
+					`htmx intercepta envíos de formularios y clics en enlaces, los envía como solicitudes AJAX
+					e intercambia el fragmento HTML devuelto en el DOM. El servidor decide qué HTML devolver.
+					El cliente decide dónde colocarlo.`,
+				) }</p>
+				<p>{ lang.T(
+					`This is the only JS dependency. It is loaded from a local file with no CDN dependency
+					for functionality, pinned to a specific version and verified with a subresource integrity hash.`,
+					`Esta es la única dependencia JS. Se carga desde un archivo local sin dependencia de CDN
+					para su funcionalidad, fijada a una versión específica y verificada con un hash
+					de integridad de subrecurso.`,
+				) }</p>
+				<h3>{ lang.T("Vanilla JS: Baseline 2023", "JS vanilla: Baseline 2023") }</h3>
+				<p>{ lang.T(
+					`No framework. No build step. No bundler. JS files are served directly.
+					ES modules via type="module". JSDoc type annotations for IDE inference without a compilation step.`,
+					`Sin framework. Sin paso de compilación. Sin empaquetador. Los archivos JS se sirven directamente.
+					Módulos ES mediante type="module". Anotaciones de tipo JSDoc para inferencia del IDE
+					sin paso de compilación.`,
+				) }</p>
+				<p>{ lang.T(
+					"Target: modern evergreen browsers. The audience is developers. No polyfills.",
+					"Objetivo: navegadores modernos evergreen. El público objetivo son desarrolladores. Sin polyfills.",
+				) }</p>
+				<h3>{ lang.T("Vanilla CSS", "CSS vanilla") }</h3>
+				<p>{ lang.T(
+					`CSS custom properties as design tokens. Grid and Flexbox for layout.
 					Container queries for component-level responsiveness. No CSS-in-JS.
-					No preprocessor. No utility framework.` }</p>
+					No preprocessor. No utility framework.`,
+					`Propiedades personalizadas de CSS como tokens de diseño. Grid y Flexbox para el diseño.
+					Consultas de contenedor para la adaptabilidad a nivel de componente. Sin CSS-in-JS.
+					Sin preprocesador. Sin framework de utilidades.`,
+				) }</p>
 			</section>
 			<section>
-				<h2>Deployment</h2>
-				<p>{ `A single Go binary. SQLite database on a persistent volume. Fly.io manages TLS.
+				<h2>{ lang.T("Deployment", "Despliegue") }</h2>
+				<p>{ lang.T(
+					`A single Go binary. SQLite database on a persistent volume. Fly.io manages TLS.
 					No external runtime dependencies. No database server. No cache layer.
-					No CDN required for correctness.` }</p>
+					No CDN required for correctness.`,
+					`Un único binario Go. Base de datos SQLite en un volumen persistente. Fly.io gestiona TLS.
+					Sin dependencias de tiempo de ejecución externas. Sin servidor de base de datos.
+					Sin capa de caché. No se requiere CDN para la corrección.`,
+				) }</p>
 				<pre><code>{ `# build
 go build -o saui .
 
 # deploy
 fly deploy` }</code></pre>
-				<p>{ `The entire production stack fits in one process. Operational complexity is proportional
-					to what the application actually requires, not to what the architecture assumes.` }</p>
-				<p><a href="/cases">See the architecture applied to real domains</a></p>
+				<p>{ lang.T(
+					`The entire production stack fits in one process. Operational complexity is proportional
+					to what the application actually requires, not to what the architecture assumes.`,
+					`Toda la pila de producción cabe en un proceso. La complejidad operativa es proporcional
+					a lo que la aplicación realmente requiere, no a lo que la arquitectura asume.`,
+				) }</p>
+				<p><a href={ templ.URL(lang.Prefix() + "/cases") }>{ lang.T("See the architecture applied to real domains", "Ver la arquitectura aplicada a dominios reales") }</a></p>
 			</section>
 		</article>
 	}

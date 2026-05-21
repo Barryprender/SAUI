@@ -1,76 +1,126 @@
 package pages
 
-import "saui/templates/layout"
+import (
+	"saui/locale"
+	"saui/templates/layout"
+)
 
-templ CaseBanking(csrfToken string) {
-	@layout.Base("Case Study: Banking", "SAUI in banking: server-authoritative state makes financial operations auditable by construction, with no client-side balance or transaction logic.", csrfToken, "/cases/banking", "/static/css/cases-banking.css") {
+templ CaseBanking(csrfToken string, lang locale.Lang) {
+	@layout.Base(
+		lang.T("Case Study: Banking", "Caso de estudio: Banca"),
+		lang.T(
+			"SAUI in banking: server-authoritative state makes financial operations auditable by construction, with no client-side balance or transaction logic.",
+			"SAUI en banca: el estado autorizado por el servidor hace que las operaciones financieras sean auditables por construcción, sin lógica de saldo o transacciones en el cliente.",
+		),
+		csrfToken,
+		lang.Prefix()+"/cases/banking",
+		"/static/css/cases-banking.css",
+		lang,
+	) {
 		<section class="page-hero">
 			<div class="page-hero__content">
-				<nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
-					<a href="/cases">{ `Case Studies` }</a>{ ` / Banking` }
+				<nav class="page-hero__breadcrumb" aria-label={ lang.T("Breadcrumb", "Ruta de navegación") }>
+					<a href={ templ.URL(lang.Prefix() + "/cases") }>{ lang.T("Case Studies", "Casos de estudio") }</a>{ lang.T(` / Banking`, ` / Banca`) }
 				</nav>
-				<h1>Banking</h1>
-				<p class="lead">{ `Balance accuracy, transfer state durability, and audit requirements are structural requirements that client-side state works against.` }</p>
+				<h1>{ lang.T("Banking", "Banca") }</h1>
+				<p class="lead">{ lang.T(
+					"Balance accuracy, transfer state durability, and audit requirements are structural requirements that client-side state works against.",
+					"La exactitud del saldo, la durabilidad del estado de las transferencias y los requisitos de auditoría son requisitos estructurales contra los que trabaja el estado del lado del cliente.",
+				) }</p>
 			</div>
 		</section>
 		<article>
 			<section>
-				<h2>The client-side state model</h2>
-				<p>{ `Banking SPAs typically load account balances into client state on page load and
-					update them optimistically on transfer submission. The problems are structural:` }</p>
+				<h2>{ lang.T("The client-side state model", "El modelo de estado del lado del cliente") }</h2>
+				<p>{ lang.T(
+					`Banking SPAs typically load account balances into client state on page load and
+					update them optimistically on transfer submission. The problems are structural:`,
+					`Las SPA bancarias típicamente cargan los saldos de cuentas en el estado del cliente
+					al cargar la página y los actualizan optimistamente al enviar una transferencia.
+					Los problemas son estructurales:`,
+				) }</p>
 				<ul>
 					<li>
-						<strong>Balance staleness.</strong>
-						{ ` The client holds a balance snapshot. Between load and display, another
-						transaction may have changed the balance. The user sees a stale number.
-						For spending decisions, this matters.` }
+						<strong>{ lang.T("Balance staleness.", "Desactualización del saldo.") }</strong>
+						{ lang.T(
+							` The client holds a balance snapshot. Between load and display, another
+							transaction may have changed the balance. The user sees a stale number.
+							For spending decisions, this matters.`,
+							` El cliente mantiene una instantánea del saldo. Entre la carga y la visualización,
+							otra transacción puede haber cambiado el saldo. El usuario ve un número obsoleto.
+							Para las decisiones de gasto, esto importa.`,
+						) }
 					</li>
 					<li>
-						<strong>Double submission.</strong>
-						{ ` Network failures on transfer submission can leave the client uncertain
-						whether the transfer occurred. Retry logic on the client can produce duplicate
-						transfers if not carefully designed with idempotency keys.` }
+						<strong>{ lang.T("Double submission.", "Envío doble.") }</strong>
+						{ lang.T(
+							` Network failures on transfer submission can leave the client uncertain
+							whether the transfer occurred. Retry logic on the client can produce duplicate
+							transfers if not carefully designed with idempotency keys.`,
+							` Los fallos de red al enviar una transferencia pueden dejar al cliente sin saber
+							si la transferencia ocurrió. La lógica de reintento en el cliente puede producir
+							transferencias duplicadas si no se diseña cuidadosamente con claves de idempotencia.`,
+						) }
 					</li>
 					<li>
-						<strong>Audit surface.</strong>
-						{ ` Client-side state transitions are unlogged. The audit trail lives in the
-						backend but reconstructing it from client events requires the backend to trust
-						client-reported sequences.` }
+						<strong>{ lang.T("Audit surface.", "Superficie de auditoría.") }</strong>
+						{ lang.T(
+							` Client-side state transitions are unlogged. The audit trail lives in the
+							backend but reconstructing it from client events requires the backend to trust
+							client-reported sequences.`,
+							` Las transiciones de estado del lado del cliente no se registran. La pista de
+							auditoría vive en el backend, pero reconstruirla a partir de eventos del cliente
+							requiere que el backend confíe en las secuencias informadas por el cliente.`,
+						) }
 					</li>
 				</ul>
 			</section>
 			<section>
-				<h2>What moves to the server under SAUI</h2>
+				<h2>{ lang.T("What moves to the server under SAUI", "Qué se mueve al servidor bajo SAUI") }</h2>
 				<ul>
-					<li>{ `Account balance: computed from the event log on every projection request` }</li>
-					<li>{ `Transfer validation: funds availability checked at gateway before event append` }</li>
-					<li>{ `Idempotency: transfer actions carry a client-generated idempotency key; the gateway deduplicates` }</li>
-					<li>{ `Audit trail: every state transition is an event; the log is the audit trail by construction` }</li>
+					<li>{ lang.T("Account balance: computed from the event log on every projection request", "Saldo de cuenta: calculado desde el registro de eventos en cada solicitud de proyección") }</li>
+					<li>{ lang.T("Transfer validation: funds availability checked at gateway before event append", "Validación de transferencias: disponibilidad de fondos comprobada en la pasarela antes de añadir el evento") }</li>
+					<li>{ lang.T("Idempotency: transfer actions carry a client-generated idempotency key; the gateway deduplicates", "Idempotencia: las acciones de transferencia llevan una clave de idempotencia generada por el cliente; la pasarela deduplica") }</li>
+					<li>{ lang.T("Audit trail: every state transition is an event; the log is the audit trail by construction", "Pista de auditoría: cada transición de estado es un evento; el registro es la pista de auditoría por construcción") }</li>
 				</ul>
 			</section>
 			<section>
-				<h2>What stays on the client</h2>
+				<h2>{ lang.T("What stays on the client", "Qué permanece en el cliente") }</h2>
 				<ul>
-					<li>{ `Transfer form input state (cleared on successful submission)` }</li>
-					<li>{ `Account list expand/collapse UI state` }</li>
-					<li>{ `Date picker interaction state` }</li>
+					<li>{ lang.T("Transfer form input state (cleared on successful submission)", "Estado de entrada del formulario de transferencia (borrado al enviar correctamente)") }</li>
+					<li>{ lang.T("Account list expand/collapse UI state", "Estado de UI de expandir/colapsar la lista de cuentas") }</li>
+					<li>{ lang.T("Date picker interaction state", "Estado de interacción del selector de fecha") }</li>
 				</ul>
 			</section>
 			<section>
-				<h2>Security properties gained</h2>
-				<p>{ `Balance display is always current: computed from the event log on request,
+				<h2>{ lang.T("Security properties gained", "Propiedades de seguridad obtenidas") }</h2>
+				<p>{ lang.T(
+					`Balance display is always current: computed from the event log on request,
 					not from a cached client value. Transfer validation occurs at the gateway before
 					any event is appended; no optimistic balance update to reconcile. The audit trail
 					is a structural consequence of the append-only log, not a separate logging system
-					that might be bypassed.` }</p>
+					that might be bypassed.`,
+					`La visualización del saldo siempre es actual: calculada desde el registro de eventos
+					a petición, no desde un valor en caché del cliente. La validación de transferencias
+					ocurre en la pasarela antes de añadir cualquier evento; no hay actualización optimista
+					del saldo que reconciliar. La pista de auditoría es una consecuencia estructural
+					del registro solo-adjuntar, no un sistema de registro separado que podría eludirse.`,
+				) }</p>
 			</section>
 			<section>
-				<h2>Regulatory fit</h2>
-				<p>{ `The append-only event log is a natural fit for financial audit requirements.
+				<h2>{ lang.T("Regulatory fit", "Ajuste regulatorio") }</h2>
+				<p>{ lang.T(
+					`The append-only event log is a natural fit for financial audit requirements.
 					Every state transition is timestamped, session-tagged, and immutable by construction.
 					Regulatory queries such as "show all transfers by this account in this period"
-					are projections over the event log; no separate audit infrastructure required.` }</p>
-				<p><a href="/cases/healthcare">Next: Healthcare booking</a></p>
+					are projections over the event log; no separate audit infrastructure required.`,
+					`El registro de eventos solo-adjuntar se adapta naturalmente a los requisitos de auditoría
+					financiera. Cada transición de estado tiene marca de tiempo, etiqueta de sesión
+					y es inmutable por construcción. Las consultas regulatorias como "mostrar todas las
+					transferencias de esta cuenta en este período" son proyecciones sobre el registro
+					de eventos; no se requiere infraestructura de auditoría separada.`,
+				) }</p>
+				<p><a href={ templ.URL(lang.Prefix() + "/cases/healthcare") }>{ lang.T("Next: Healthcare booking", "Siguiente: Reserva sanitaria") }</a></p>
 			</section>
 		</article>
 	}

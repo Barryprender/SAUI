@@ -16,4 +16,20 @@
   <url><loc>https://saui.fly.dev/blog</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://saui.fly.dev/blog/server-response-time</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://saui.fly.dev/code</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/es/</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://saui.fly.dev/es/why</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/es/architecture</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/es/stack</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/es/cases</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/es/cases/food-ordering</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/es/cases/banking</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/es/cases/healthcare</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/es/cases/saas-dashboard</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/es/cases/distributed-systems</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/es/cases/micro-frontends</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/es/testing</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/es/limits</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/es/blog</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://saui.fly.dev/es/blog/server-response-time</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/es/code</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
 </urlset>

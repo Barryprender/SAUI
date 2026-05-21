@@ -8,9 +8,12 @@ package pages
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-import "saui/templates/layout"
+import (
+	"saui/locale"
+	"saui/templates/layout"
+)
 
-func BlogPostServerResponseTime(csrfToken string) templ.Component {
+func BlogPostServerResponseTime(csrfToken string, lang locale.Lang) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -43,114 +46,120 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"blog-post-hero\"><div class=\"blog-post-hero__image\"><img src=\"/static/img/blog-server-response-time.jpg\" alt=\"{ `Vintage Macintosh monitor and keyboard, beige plastic yellowed with age — computing from the era when every server round-trip was perceptible.` }\" loading=\"eager\" decoding=\"async\" width=\"1600\" height=\"900\"></div><div class=\"blog-post-hero__header\"><nav class=\"page-hero__breadcrumb\" aria-label=\"Breadcrumb\"><a href=\"/blog\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"blog-post-hero\"><div class=\"blog-post-hero__image\"><img src=\"/static/img/blog-server-response-time.jpg\" alt=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
-			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(`Blog`)
+			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				"Vintage Macintosh monitor and keyboard, beige plastic yellowed with age — computing from the era when every server round-trip was perceptible.",
+				"Monitor y teclado Macintosh vintage, plástico beige amarillento con el tiempo, informática de la era en que cada viaje de ida y vuelta al servidor era perceptible.",
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 20, Col: 29}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 27, Col: 6}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</a>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "\" loading=\"eager\" decoding=\"async\" width=\"1600\" height=\"900\"></div><div class=\"blog-post-hero__header\"><nav class=\"page-hero__breadcrumb\" aria-label=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var4 string
-			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(` / Post`)
+			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Breadcrumb", "Ruta de navegación"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 20, Col: 46}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 35, Col: 95}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</nav><h1>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\"><a href=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var5 string
-			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(`Server response time: twenty years of change`)
+			var templ_7745c5c3_Var5 templ.SafeURL
+			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/blog"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 22, Col: 56}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 36, Col: 49}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</h1><p class=\"lead\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\">Blog</a>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var6 string
-			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(`The premise that justified client-side state was server latency.
-					In 2026, the latency is gone. The premise is not.`)
+			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(` / Post`, ` / Publicación`))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 24, Col: 55}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 36, Col: 98}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p><time class=\"blog-post-hero__date\" datetime=\"2026-05-20\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</nav><h1>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var7 string
-			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(`20 May 2026`)
+			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Server response time: twenty years of change", "Tiempo de respuesta del servidor: veinte años de cambios"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 25, Col: 76}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 38, Col: 125}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</time></div></div><article class=\"blog-post\"><section><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</h1><p class=\"lead\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var8 string
-			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(`In 2004, Gmail demonstrated something genuinely new: a web application that responded
-					to user actions without reloading the page. It felt fast because it was. The trick was
-					not a faster server. It was bypassing the server entirely for most interactions by holding
-					application state in the browser.`)
+			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				"The premise that justified client-side state was server latency. In 2026, the latency is gone. The premise is not.",
+				"La premisa que justificó el estado en el cliente fue la latencia del servidor. En 2026, la latencia ha desaparecido. La premisa no.",
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 33, Col: 39}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 42, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</p><time class=\"blog-post-hero__date\" datetime=\"2026-05-20\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var9 string
-			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(`That architectural decision was correct for Gmail in 2004. Gmail was a mail client
-					that had to feel like a desktop application. Server round-trips at the time took
-					200 to 800 milliseconds on a good day. Holding state on the client eliminated the wait.`)
+			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("20 May 2026", "20 de mayo de 2026"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 36, Col: 93}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 43, Col: 106}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</time></div></div><article class=\"blog-post\"><section><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var10 string
-			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(`What followed was the generalisation of that decision to nearly every web application
-					built after 2013: food ordering apps, banking dashboards, booking systems, admin panels.
-					Applications that do not share Gmail's interaction requirements inherited Gmail's
-					architecture anyway, along with its synchronisation problem.`)
+			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`In 2004, Gmail demonstrated something genuinely new: a web application that responded
+					to user actions without reloading the page. It felt fast because it was. The trick was
+					not a faster server. It was bypassing the server entirely for most interactions by holding
+					application state in the browser.`,
+				`En 2004, Gmail demostró algo genuinamente nuevo: una aplicación web que respondía
+					a las acciones del usuario sin recargar la página. Se sentía rápido porque lo era.
+					El truco no era un servidor más rápido. Era eludir completamente el servidor en la mayoría
+					de las interacciones manteniendo el estado de la aplicación en el navegador.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 40, Col: 66}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 57, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
@@ -161,73 +170,89 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var11 string
-			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(`The generalisation was wrong. The reason it was wrong is that the infrastructure
-					constraint that justified the original decision no longer exists.`)
+			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`That architectural decision was correct for Gmail in 2004. Gmail was a mail client
+					that had to feel like a desktop application. Server round-trips at the time took
+					200 to 800 milliseconds on a good day. Holding state on the client eliminated the wait.`,
+				`Esa decisión arquitectónica era correcta para Gmail en 2004. Gmail era un cliente de correo
+					que debía sentirse como una aplicación de escritorio. Los viajes de ida y vuelta al servidor
+					en aquella época tomaban de 200 a 800 milisegundos en un buen día. Mantener el estado
+					en el cliente eliminaba la espera.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 42, Col: 71}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 66, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</p></section><section><h2>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var12 string
-			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(`What the stack looked like in 2005`)
+			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`What followed was the generalisation of that decision to nearly every web application
+					built after 2013: food ordering apps, banking dashboards, booking systems, admin panels.
+					Applications that do not share Gmail's interaction requirements inherited Gmail's
+					architecture anyway, along with its synchronisation problem.`,
+				`Lo que siguió fue la generalización de esa decisión a casi todas las aplicaciones web
+					construidas después de 2013: aplicaciones de pedido de comida, paneles bancarios,
+					sistemas de reserva, paneles de administración. Aplicaciones que no comparten los
+					requisitos de interacción de Gmail heredaron la arquitectura de Gmail de todos modos,
+					junto con su problema de sincronización.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 45, Col: 46}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 77, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var13 string
-			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(`A typical dynamic web application in 2005 ran on a shared hosting provider:
-					Apache 2.0, PHP 5, MySQL 4 or 5, all on the same physical machine,
-					reading from and writing to a spinning magnetic disk.`)
+			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				"The generalisation was wrong. The reason it was wrong is that the infrastructure constraint that justified the original decision no longer exists.",
+				"La generalización estaba equivocada. La razón por la que estaba equivocada es que la restricción de infraestructura que justificó la decisión original ya no existe.",
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 48, Col: 59}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 81, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</p></section><section><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var14 string
-			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(`Spinning disks had seek times of 5 to 10 milliseconds per operation.
-					A database query that required two or three I/O operations before returning
-					results took 15 to 30 milliseconds on the storage layer alone.
-					PHP processed the result, rendered a template, and wrote the response.
-					Total server processing for a modest page: 200 to 800 milliseconds,
-					more on a loaded shared host.`)
+			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("What the stack looked like in 2005", "Cómo era la pila tecnológica en 2005"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 54, Col: 35}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 84, Col: 96}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var15 string
-			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(`Every user interaction that required server state required the user to
-					wait for that full round-trip. At 400 milliseconds round-trip, page reloads
-					were perceptibly slow. The SPA pattern solved this by eliminating the
-					round-trip for most interactions. State lived in the browser.
-					The server was consulted only when necessary.`)
+			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`A typical dynamic web application in 2005 ran on a shared hosting provider:
+					Apache 2.0, PHP 5, MySQL 4 or 5, all on the same physical machine,
+					reading from and writing to a spinning magnetic disk.`,
+				`Una aplicación web dinámica típica en 2005 se ejecutaba en un proveedor de hosting compartido:
+					Apache 2.0, PHP 5, MySQL 4 o 5, todo en la misma máquina física, leyendo y escribiendo
+					en un disco magnético giratorio.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 59, Col: 51}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 92, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 			if templ_7745c5c3_Err != nil {
@@ -238,70 +263,87 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var16 string
-			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(`This was a reasonable engineering trade-off given the constraints of 2005.
-					The constraints of 2005 are not the constraints of 2026.`)
+			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`Spinning disks had seek times of 5 to 10 milliseconds per operation.
+					A database query that required two or three I/O operations before returning
+					results took 15 to 30 milliseconds on the storage layer alone.
+					PHP processed the result, rendered a template, and wrote the response.
+					Total server processing for a modest page: 200 to 800 milliseconds,
+					more on a loaded shared host.`,
+				`Los discos giratorios tenían tiempos de búsqueda de 5 a 10 milisegundos por operación.
+					Una consulta de base de datos que requería dos o tres operaciones de E/S antes de devolver
+					resultados tomaba de 15 a 30 milisegundos solo en la capa de almacenamiento. PHP procesaba
+					el resultado, renderizaba una plantilla y escribía la respuesta. Procesamiento total del
+					servidor para una página modesta: 200 a 800 milisegundos, más en un host compartido cargado.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 61, Col: 62}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 105, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</p></section><section><h2>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var17 string
-			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(`Twenty years of infrastructure change`)
+			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`Every user interaction that required server state required the user to
+					wait for that full round-trip. At 400 milliseconds round-trip, page reloads
+					were perceptibly slow. The SPA pattern solved this by eliminating the
+					round-trip for most interactions. State lived in the browser.
+					The server was consulted only when necessary.`,
+				`Cada interacción del usuario que requería estado del servidor obligaba al usuario
+					a esperar ese viaje completo de ida y vuelta. Con 400 milisegundos de ida y vuelta,
+					las recargas de página eran perceptiblemente lentas. El patrón SPA resolvió esto
+					eliminando el viaje de ida y vuelta para la mayoría de las interacciones. El estado
+					vivía en el navegador. El servidor solo se consultaba cuando era necesario.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 64, Col: 49}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 117, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var18 string
-			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(`Every layer of the server-side stack has changed substantially.`)
+			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				"This was a reasonable engineering trade-off given the constraints of 2005. The constraints of 2005 are not the constraints of 2026.",
+				"Era una concesión de ingeniería razonable dadas las restricciones de 2005. Las restricciones de 2005 no son las restricciones de 2026.",
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 65, Col: 74}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 121, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</p></section><section><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var19 string
-			templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(`Storage. NVMe SSDs have seek times measured in microseconds, not milliseconds.
-					A query that required 20 milliseconds of disk I/O in 2005 takes
-					0.1 to 0.5 milliseconds on modern storage. For read-heavy workloads with warm caches
-					(which describes most CRUD applications), queries that previously hit disk now return
-					entirely from RAM.`)
+			templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Twenty years of infrastructure change", "Veinte años de cambio en la infraestructura"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 70, Col: 24}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 124, Col: 105}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var20 string
-			templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(`Runtime performance. PHP 5 processed 200 to 400 requests per second
-					on commodity hardware. Go, designed specifically for server-side concurrency,
-					handles 50,000 to 200,000 requests per second on the same class of hardware.
-					The computational work of parsing a request, running a query, and rendering
-					a response takes microseconds, not milliseconds.`)
+			templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Every layer of the server-side stack has changed substantially.", "Cada capa de la pila del lado del servidor ha cambiado sustancialmente."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 75, Col: 54}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 125, Col: 157}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
 			if templ_7745c5c3_Err != nil {
@@ -312,79 +354,111 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var21 string
-			templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(`Infrastructure. Shared hosting on a single machine gave way to virtualised
-					cloud compute, multi-region deployments, and edge infrastructure. The application
-					that ran in one datacenter in 2005 now runs in a region closest to the user.
-					Geographic latency, which is ultimately constrained by the speed of light,
-					is now the dominant factor. Server processing time is not.`)
+			templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`Storage. NVMe SSDs have seek times measured in microseconds, not milliseconds.
+					A query that required 20 milliseconds of disk I/O in 2005 takes
+					0.1 to 0.5 milliseconds on modern storage. For read-heavy workloads with warm caches
+					(which describes most CRUD applications), queries that previously hit disk now return
+					entirely from RAM.`,
+				`Almacenamiento. Los SSD NVMe tienen tiempos de búsqueda medidos en microsegundos,
+					no en milisegundos. Una consulta que requería 20 milisegundos de E/S de disco en 2005
+					tarda de 0,1 a 0,5 milisegundos en almacenamiento moderno. Para cargas de trabajo
+					con muchas lecturas y cachés calientes (lo que describe la mayoría de las aplicaciones CRUD),
+					las consultas que antes accedían al disco ahora se devuelven completamente desde RAM.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 80, Col: 64}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 137, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</p></section><section><h2>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var22 string
-			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(`The numbers in 2026`)
+			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`Runtime performance. PHP 5 processed 200 to 400 requests per second
+					on commodity hardware. Go, designed specifically for server-side concurrency,
+					handles 50,000 to 200,000 requests per second on the same class of hardware.
+					The computational work of parsing a request, running a query, and rendering
+					a response takes microseconds, not milliseconds.`,
+				`Rendimiento del entorno de ejecución. PHP 5 procesaba de 200 a 400 solicitudes por
+					segundo en hardware estándar. Go, diseñado específicamente para la concurrencia
+					del lado del servidor, maneja de 50.000 a 200.000 solicitudes por segundo en la misma
+					clase de hardware. El trabajo computacional de analizar una solicitud, ejecutar una
+					consulta y renderizar una respuesta toma microsegundos, no milisegundos.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 83, Col: 31}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 149, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var23 string
-			templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(`A Go server processing a simple CRUD request against SQLite in WAL mode,
-					with a warm page cache, produces the following approximate breakdown:`)
+			templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`Infrastructure. Shared hosting on a single machine gave way to virtualised
+					cloud compute, multi-region deployments, and edge infrastructure. The application
+					that ran in one datacenter in 2005 now runs in a region closest to the user.
+					Geographic latency, which is ultimately constrained by the speed of light,
+					is now the dominant factor. Server processing time is not.`,
+				`Infraestructura. El hosting compartido en una sola máquina dio paso a la computación
+					en la nube virtualizada, los despliegues multi-región y la infraestructura edge.
+					La aplicación que se ejecutaba en un centro de datos en 2005 ahora se ejecuta
+					en la región más cercana al usuario. La latencia geográfica, que en última instancia
+					está limitada por la velocidad de la luz, es ahora el factor dominante.
+					El tiempo de procesamiento del servidor no lo es.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 85, Col: 75}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 162, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "</p><ul><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "</p></section><section><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var24 string
-			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(`Request parsing and routing: under 0.1ms`)
+			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The numbers in 2026", "Los números en 2026"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 87, Col: 53}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 165, Col: 63}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var25 string
-			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(`Session authentication from memory: under 0.05ms`)
+			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				"A Go server processing a simple CRUD request against SQLite in WAL mode, with a warm page cache, produces the following approximate breakdown:",
+				"Un servidor Go que procesa una solicitud CRUD simple contra SQLite en modo WAL, con una caché de páginas caliente, produce el siguiente desglose aproximado:",
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 88, Col: 61}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 169, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var25))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "</p><ul><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var26 string
-			templ_7745c5c3_Var26, templ_7745c5c3_Err = templ.JoinStringErrs(`SQLite query (indexed, warm cache): 0.1 to 0.5ms`)
+			templ_7745c5c3_Var26, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Request parsing and routing: under 0.1ms", "Análisis de solicitudes y enrutamiento: menos de 0,1 ms"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 89, Col: 61}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 171, Col: 121}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var26))
 			if templ_7745c5c3_Err != nil {
@@ -395,9 +469,9 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var27 string
-			templ_7745c5c3_Var27, templ_7745c5c3_Err = templ.JoinStringErrs(`Template render (compiled Go): 0.1 to 0.3ms`)
+			templ_7745c5c3_Var27, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Session authentication from memory: under 0.05ms", "Autenticación de sesión desde memoria: menos de 0,05 ms"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 90, Col: 56}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 172, Col: 130}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var27))
 			if templ_7745c5c3_Err != nil {
@@ -408,183 +482,204 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var28 string
-			templ_7745c5c3_Var28, templ_7745c5c3_Err = templ.JoinStringErrs(`Response serialisation and write: under 0.1ms`)
+			templ_7745c5c3_Var28, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("SQLite query (indexed, warm cache): 0.1 to 0.5ms", "Consulta SQLite (indexada, caché caliente): 0,1 a 0,5 ms"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 91, Col: 58}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 173, Col: 130}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var28))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "</li></ul><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var29 string
-			templ_7745c5c3_Var29, templ_7745c5c3_Err = templ.JoinStringErrs(`Total server processing: 1 to 5 milliseconds. Adding a typical network
-					round-trip from a user to a well-placed regional server: 15 to 80 milliseconds total.`)
+			templ_7745c5c3_Var29, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Template render (compiled Go): 0.1 to 0.3ms", "Renderizado de plantilla (Go compilado): 0,1 a 0,3 ms"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 94, Col: 91}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 174, Col: 121}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var29))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 28, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 28, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var30 string
-			templ_7745c5c3_Var30, templ_7745c5c3_Err = templ.JoinStringErrs(`For comparison: a React component tree re-rendering on a mid-range Android
-					device takes 16 to 60 milliseconds. State reconciliation, virtual DOM diffing,
-					and event handling add further cost. The client-side update that was supposed
-					to be fast is not measurably faster than a server round-trip on real hardware.
-					On low-end devices, it is slower.`)
+			templ_7745c5c3_Var30, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Response serialisation and write: under 0.1ms", "Serialización y escritura de respuesta: menos de 0,1 ms"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 99, Col: 39}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 175, Col: 126}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var30))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 29, "</p></section><section><h2>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 29, "</li></ul><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var31 string
-			templ_7745c5c3_Var31, templ_7745c5c3_Err = templ.JoinStringErrs(`Human perception thresholds`)
+			templ_7745c5c3_Var31, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`Total server processing: 1 to 5 milliseconds. Adding a typical network
+					round-trip from a user to a well-placed regional server: 15 to 80 milliseconds total.`,
+				`Procesamiento total del servidor: 1 a 5 milisegundos. Añadiendo un viaje de red
+					típico de ida y vuelta desde un usuario hasta un servidor regional bien ubicado:
+					15 a 80 milisegundos en total.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 102, Col: 39}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 183, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var31))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 30, "</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 30, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var32 string
-			templ_7745c5c3_Var32, templ_7745c5c3_Err = templ.JoinStringErrs(`Jakob Nielsen's response time research, first published in 1993 and
-					consistent with subsequent work, identifies three thresholds:`)
+			templ_7745c5c3_Var32, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`For comparison: a React component tree re-rendering on a mid-range Android
+					device takes 16 to 60 milliseconds. State reconciliation, virtual DOM diffing,
+					and event handling add further cost. The client-side update that was supposed
+					to be fast is not measurably faster than a server round-trip on real hardware.
+					On low-end devices, it is slower.`,
+				`Para comparar: un árbol de componentes React re-renderizándose en un dispositivo
+					Android de gama media tarda de 16 a 60 milisegundos. La reconciliación de estado,
+					el diffing del DOM virtual y el manejo de eventos añaden coste adicional. La actualización
+					del lado del cliente que se supone que es rápida no es measurablemente más rápida que
+					un viaje de ida y vuelta al servidor en hardware real. En dispositivos de gama baja,
+					es más lenta.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 104, Col: 67}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 196, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var32))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 31, "</p><ul><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 31, "</p></section><section><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var33 string
-			templ_7745c5c3_Var33, templ_7745c5c3_Err = templ.JoinStringErrs(`Below 100ms: the response feels instantaneous. The user perceives no delay.`)
+			templ_7745c5c3_Var33, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Human perception thresholds", "Umbrales de percepción humana"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 106, Col: 88}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 199, Col: 81}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var33))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 32, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 32, "</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var34 string
-			templ_7745c5c3_Var34, templ_7745c5c3_Err = templ.JoinStringErrs(`100 to 1000ms: the delay is noticeable but does not interrupt the user's flow.`)
+			templ_7745c5c3_Var34, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`Jakob Nielsen's response time research, first published in 1993 and
+					consistent with subsequent work, identifies three thresholds:`,
+				`La investigación sobre el tiempo de respuesta de Jakob Nielsen, publicada por primera vez
+					en 1993 y consistente con trabajos posteriores, identifica tres umbrales:`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 107, Col: 91}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 205, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var34))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 33, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 33, "</p><ul><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var35 string
-			templ_7745c5c3_Var35, templ_7745c5c3_Err = templ.JoinStringErrs(`Above 1000ms: the user's attention shifts. Feedback is required to hold it.`)
+			templ_7745c5c3_Var35, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Below 100ms: the response feels instantaneous. The user perceives no delay.", "Por debajo de 100 ms: la respuesta se siente instantánea. El usuario no percibe ningún retraso."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 108, Col: 88}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 207, Col: 197}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var35))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 34, "</li></ul><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 34, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var36 string
-			templ_7745c5c3_Var36, templ_7745c5c3_Err = templ.JoinStringErrs(`A server-authoritative CRUD interaction at 20 to 80ms total round-trip
-					lands below the 100ms threshold. It feels instantaneous. The argument
-					that server round-trips are too slow for a responsive interface requires
-					the round-trip to exceed 100ms. Most CRUD applications on modern infrastructure
-					do not produce that latency.`)
+			templ_7745c5c3_Var36, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("100 to 1000ms: the delay is noticeable but does not interrupt the user's flow.", "De 100 a 1000 ms: el retraso es perceptible pero no interrumpe el flujo del usuario."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 114, Col: 34}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 208, Col: 187}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var36))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 35, "</p></section><section><h2>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 35, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var37 string
-			templ_7745c5c3_Var37, templ_7745c5c3_Err = templ.JoinStringErrs(`What this means for how we build`)
+			templ_7745c5c3_Var37, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Above 1000ms: the user's attention shifts. Feedback is required to hold it.", "Por encima de 1000 ms: la atención del usuario se desvía. Se requiere retroalimentación para mantenerla."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 117, Col: 44}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 209, Col: 207}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var37))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 36, "</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 36, "</li></ul><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var38 string
-			templ_7745c5c3_Var38, templ_7745c5c3_Err = templ.JoinStringErrs(`The applications that were forced into client-side state management by
-					infrastructure constraints in 2005 can now be built correctly.`)
+			templ_7745c5c3_Var38, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`A server-authoritative CRUD interaction at 20 to 80ms total round-trip
+					lands below the 100ms threshold. It feels instantaneous. The argument
+					that server round-trips are too slow for a responsive interface requires
+					the round-trip to exceed 100ms. Most CRUD applications on modern infrastructure
+					do not produce that latency.`,
+				`Una interacción CRUD autorizada por el servidor con un viaje de ida y vuelta total
+					de 20 a 80 ms cae por debajo del umbral de 100 ms. Se siente instantánea. El argumento
+					de que los viajes de ida y vuelta al servidor son demasiado lentos para una interfaz
+					responsiva requiere que el viaje de ida y vuelta supere los 100 ms. La mayoría de las
+					aplicaciones CRUD en infraestructura moderna no producen esa latencia.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 119, Col: 68}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 222, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var38))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 37, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 37, "</p></section><section><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var39 string
-			templ_7745c5c3_Var39, templ_7745c5c3_Err = templ.JoinStringErrs(`Correctly means: the server owns state. The browser renders a projection
-					of it. Every user action goes to the server, is validated against current state,
-					is appended to an audit log, and returns an updated view. The browser holds
-					nothing between requests.`)
+			templ_7745c5c3_Var39, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("What this means for how we build", "Qué significa esto para cómo construimos"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 123, Col: 31}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 225, Col: 98}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var39))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 38, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 38, "</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var40 string
-			templ_7745c5c3_Var40, templ_7745c5c3_Err = templ.JoinStringErrs(`This is not a nostalgic return to 2001-era web development.
-					The tooling is different: htmx partial DOM updates replace full page reloads.
-					Compiled templates (templ, similar tools) render in microseconds.
-					Append-only event logs provide durability and auditability by construction.
-					Edge deployment places the server close to the user.`)
+			templ_7745c5c3_Var40, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`The applications that were forced into client-side state management by
+					infrastructure constraints in 2005 can now be built correctly.`,
+				`Las aplicaciones que fueron forzadas a la gestión de estado del lado del cliente
+					por restricciones de infraestructura en 2005 ahora pueden construirse correctamente.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 128, Col: 58}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 231, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var40))
 			if templ_7745c5c3_Err != nil {
@@ -595,91 +690,124 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var41 string
-			templ_7745c5c3_Var41, templ_7745c5c3_Err = templ.JoinStringErrs(`The result is an application with no synchronisation problem,
-					no client-side attack surface, no npm dependency graph, and a response time
-					indistinguishable from a SPA for the interaction classes most CRUD applications
-					actually require. Not because server-side rendering is slow and we are
-					accepting the trade-off. Because it is not slow.`)
+			templ_7745c5c3_Var41, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`Correctly means: the server owns state. The browser renders a projection
+					of it. Every user action goes to the server, is validated against current state,
+					is appended to an audit log, and returns an updated view. The browser holds
+					nothing between requests.`,
+				`Correctamente significa: el servidor posee el estado. El navegador renderiza una
+					proyección de él. Cada acción del usuario va al servidor, se valida contra el estado
+					actual, se añade a un registro de auditoría y devuelve una vista actualizada.
+					El navegador no retiene nada entre solicitudes.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 133, Col: 54}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 241, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var41))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 40, "</p><blockquote class=\"callout\"><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 40, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var42 string
-			templ_7745c5c3_Var42, templ_7745c5c3_Err = templ.JoinStringErrs(`The infrastructure constraint that justified the SPA pattern for most
-						applications expired somewhere around 2015. The pattern outlived it
-						by a decade.`)
+			templ_7745c5c3_Var42, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`This is not a nostalgic return to 2001-era web development.
+					The tooling is different: htmx partial DOM updates replace full page reloads.
+					Compiled templates (templ, similar tools) render in microseconds.
+					Append-only event logs provide durability and auditability by construction.
+					Edge deployment places the server close to the user.`,
+				`Esto no es un regreso nostálgico al desarrollo web de la era 2001.
+					Las herramientas son diferentes: las actualizaciones parciales del DOM de htmx
+					reemplazan las recargas de página completas. Las plantillas compiladas (templ,
+					herramientas similares) se renderizan en microsegundos. Los registros de eventos
+					solo-adjuntar proporcionan durabilidad y auditabilidad por construcción.
+					El despliegue edge coloca el servidor cerca del usuario.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 137, Col: 19}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 254, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var42))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 41, "</p></blockquote></section><section><h2>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 41, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var43 string
-			templ_7745c5c3_Var43, templ_7745c5c3_Err = templ.JoinStringErrs(`The constraint that remains`)
+			templ_7745c5c3_Var43, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`The result is an application with no synchronisation problem,
+					no client-side attack surface, no npm dependency graph, and a response time
+					indistinguishable from a SPA for the interaction classes most CRUD applications
+					actually require. Not because server-side rendering is slow and we are
+					accepting the trade-off. Because it is not slow.`,
+				`El resultado es una aplicación sin problema de sincronización, sin superficie de ataque
+					del lado del cliente, sin grafo de dependencias npm y con un tiempo de respuesta
+					indistinguible de una SPA para las clases de interacción que la mayoría de las
+					aplicaciones CRUD realmente requieren. No porque el renderizado del lado del servidor
+					sea lento y estemos aceptando la concesión. Porque no es lento.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 141, Col: 39}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 266, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var43))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 42, "</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 42, "</p><blockquote class=\"callout\"><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var44 string
-			templ_7745c5c3_Var44, templ_7745c5c3_Err = templ.JoinStringErrs(`One constraint from the original SPA analysis does remain: geographic latency.
-					The speed of light imposes a minimum round-trip time of roughly 1ms per 100km
-					of fibre distance. A user in London connecting to a server in Sydney will
-					experience 250 to 350ms of latency regardless of how fast the server processes
-					the request.`)
+			templ_7745c5c3_Var44, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`The infrastructure constraint that justified the SPA pattern for most
+						applications expired somewhere around 2015. The pattern outlived it
+						by a decade.`,
+				`La restricción de infraestructura que justificó el patrón SPA para la mayoría
+						de las aplicaciones expiró alrededor de 2015. El patrón la sobrevivió
+						por una década.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 146, Col: 18}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 275, Col: 6}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var44))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 43, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 43, "</p></blockquote></section><section><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var45 string
-			templ_7745c5c3_Var45, templ_7745c5c3_Err = templ.JoinStringErrs(`This is a solved problem for applications that require it: edge deployment
-					puts a server close to every user. Fly.io, Cloudflare Workers, and similar
-					platforms deploy server-side logic globally. The geographic latency constraint
-					is now an infrastructure decision, not an architectural one.`)
+			templ_7745c5c3_Var45, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The constraint that remains", "La restricción que permanece"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 150, Col: 66}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 279, Col: 80}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var45))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 44, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 44, "</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var46 string
-			templ_7745c5c3_Var46, templ_7745c5c3_Err = templ.JoinStringErrs(`The applications that genuinely require sub-10ms client-side response
-					(collaborative document editors, creative tools, games) have always been
-					outside the scope of the server-authoritative pattern. That scope is
-					unchanged. What has changed is the scope of applications for which
-					the server is fast enough.`)
+			templ_7745c5c3_Var46, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`One constraint from the original SPA analysis does remain: geographic latency.
+					The speed of light imposes a minimum round-trip time of roughly 1ms per 100km
+					of fibre distance. A user in London connecting to a server in Sydney will
+					experience 250 to 350ms of latency regardless of how fast the server processes
+					the request.`,
+				`Una restricción del análisis SPA original sí permanece: la latencia geográfica.
+					La velocidad de la luz impone un tiempo mínimo de ida y vuelta de aproximadamente
+					1 ms por cada 100 km de distancia de fibra. Un usuario en Londres que se conecta
+					a un servidor en Sídney experimentará de 250 a 350 ms de latencia independientemente
+					de la velocidad con que el servidor procese la solicitud.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 155, Col: 32}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 291, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var46))
 			if templ_7745c5c3_Err != nil {
@@ -690,37 +818,112 @@ func BlogPostServerResponseTime(csrfToken string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var47 string
-			templ_7745c5c3_Var47, templ_7745c5c3_Err = templ.JoinStringErrs(`For food ordering, banking, healthcare, SaaS dashboards, internal tools,
-					booking systems, and the majority of what is built for the web: the server is
-					fast enough. It has been for at least a decade. The architectural consequences
-					of that fact are still being absorbed.`)
+			templ_7745c5c3_Var47, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`This is a solved problem for applications that require it: edge deployment
+					puts a server close to every user. Fly.io, Cloudflare Workers, and similar
+					platforms deploy server-side logic globally. The geographic latency constraint
+					is now an infrastructure decision, not an architectural one.`,
+				`Este es un problema resuelto para las aplicaciones que lo requieren: el despliegue
+					edge coloca un servidor cerca de cada usuario. Fly.io, Cloudflare Workers y plataformas
+					similares despliegan la lógica del lado del servidor globalmente. La restricción de
+					latencia geográfica es ahora una decisión de infraestructura, no arquitectónica.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 159, Col: 44}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 301, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var47))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 46, "</p><p><a href=\"/why\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 46, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var48 string
-			templ_7745c5c3_Var48, templ_7745c5c3_Err = templ.JoinStringErrs(`Read the full argument`)
+			templ_7745c5c3_Var48, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`The applications that genuinely require sub-10ms client-side response
+					(collaborative document editors, creative tools, games) have always been
+					outside the scope of the server-authoritative pattern. That scope is
+					unchanged. What has changed is the scope of applications for which
+					the server is fast enough.`,
+				`Las aplicaciones que genuinamente requieren una respuesta del lado del cliente
+					inferior a 10 ms (editores de documentos colaborativos, herramientas creativas,
+					juegos) siempre han estado fuera del alcance del patrón autorizado por el servidor.
+					Ese alcance no ha cambiado. Lo que ha cambiado es el alcance de las aplicaciones
+					para las que el servidor es suficientemente rápido.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 160, Col: 48}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 313, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var48))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 47, "</a></p></section></article>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 47, "</p><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var49 string
+			templ_7745c5c3_Var49, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`For food ordering, banking, healthcare, SaaS dashboards, internal tools,
+					booking systems, and the majority of what is built for the web: the server is
+					fast enough. It has been for at least a decade. The architectural consequences
+					of that fact are still being absorbed.`,
+				`Para pedido de comida, banca, sanidad, paneles SaaS, herramientas internas,
+					sistemas de reserva y la mayoría de lo que se construye para la web: el servidor
+					es suficientemente rápido. Lo ha sido durante al menos una década. Las consecuencias
+					arquitectónicas de ese hecho siguen siendo asimiladas.`,
+			))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 323, Col: 5}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var49))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 48, "</p><p><a href=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var50 templ.SafeURL
+			templ_7745c5c3_Var50, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/why"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 324, Col: 50}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var50))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 49, "\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var51 string
+			templ_7745c5c3_Var51, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Read the full argument", "Leer el argumento completo"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_latency.templ`, Line: 324, Col: 117}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var51))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 50, "</a></p></section></article>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = layout.Base("Server response time: twenty years of change", "A brief history of server response time: from static file servers to server-authoritative UI, and why latency shapes architecture decisions.", csrfToken, "/blog/server-response-time", "/static/css/blog.css").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layout.Base(
+			lang.T("Server response time: twenty years of change", "Tiempo de respuesta del servidor: veinte años de cambios"),
+			lang.T(
+				"A brief history of server response time: from static file servers to server-authoritative UI, and why latency shapes architecture decisions.",
+				"Una breve historia del tiempo de respuesta del servidor: desde los servidores de archivos estáticos hasta la interfaz autorizada por el servidor, y por qué la latencia configura las decisiones arquitectónicas.",
+			),
+			csrfToken,
+			lang.Prefix()+"/blog/server-response-time",
+			"/static/css/blog.css",
+			lang,
+		).Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
