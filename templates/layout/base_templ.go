@@ -183,7 +183,7 @@ func Base(title string, csrfToken string, currentPath string, pageCSS string) te
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, ">Blog</a></li></ul></nav></header><main id=\"main-content\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, ">Blog</a></li></ul><button class=\"nav-toggle\" aria-expanded=\"false\" aria-controls=\"mobile-nav\" aria-label=\"Open navigation\"><svg width=\"22\" height=\"14\" viewBox=\"0 0 22 14\" aria-hidden=\"true\" focusable=\"false\"><line x1=\"0\" y1=\"2\" x2=\"22\" y2=\"2\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"></line> <line x1=\"4\" y1=\"12\" x2=\"22\" y2=\"12\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"></line></svg></button></nav></header><main id=\"main-content\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -191,7 +191,87 @@ func Base(title string, csrfToken string, currentPath string, pageCSS string) te
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "</main><footer><p>SAUI — Server-Authoritative UI</p></footer><script type=\"module\" src=\"/static/js/app.js\"></script></body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "</main><footer><p>SAUI — Server-Authoritative UI</p></footer><dialog id=\"mobile-nav\" class=\"mobile-nav\" aria-label=\"Navigation\"><div class=\"mobile-nav__inner\"><div class=\"mobile-nav__header\"><span class=\"mobile-nav__brand\" aria-hidden=\"true\">SAUI</span> <button class=\"mobile-nav__close\" aria-label=\"Close navigation\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" aria-hidden=\"true\" focusable=\"false\"><line x1=\"1\" y1=\"1\" x2=\"17\" y2=\"17\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"></line> <line x1=\"17\" y1=\"1\" x2=\"1\" y2=\"17\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"></line></svg></button></div><nav aria-label=\"Mobile navigation\"><ol class=\"mobile-nav__list\"><li><a href=\"/why\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		if currentPath == "/why" {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, " aria-current=\"page\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 28, "><span class=\"mobile-nav__num\" aria-hidden=\"true\">01</span> <span class=\"mobile-nav__label\">Why</span></a></li><li><a href=\"/architecture\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		if currentPath == "/architecture" {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 29, " aria-current=\"page\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 30, "><span class=\"mobile-nav__num\" aria-hidden=\"true\">02</span> <span class=\"mobile-nav__label\">Architecture</span></a></li><li><a href=\"/stack\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		if currentPath == "/stack" {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 31, " aria-current=\"page\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 32, "><span class=\"mobile-nav__num\" aria-hidden=\"true\">03</span> <span class=\"mobile-nav__label\">Stack</span></a></li><li><a href=\"/cases\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		if strings.HasPrefix(currentPath, "/cases") {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 33, " aria-current=\"page\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 34, "><span class=\"mobile-nav__num\" aria-hidden=\"true\">04</span> <span class=\"mobile-nav__label\">Cases</span></a></li><li><a href=\"/testing\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		if currentPath == "/testing" {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 35, " aria-current=\"page\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 36, "><span class=\"mobile-nav__num\" aria-hidden=\"true\">05</span> <span class=\"mobile-nav__label\">Testing</span></a></li><li><a href=\"/limits\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		if currentPath == "/limits" {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 37, " aria-current=\"page\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 38, "><span class=\"mobile-nav__num\" aria-hidden=\"true\">06</span> <span class=\"mobile-nav__label\">Limits</span></a></li><li><a href=\"/code\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		if currentPath == "/code" {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 39, " aria-current=\"page\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 40, "><span class=\"mobile-nav__num\" aria-hidden=\"true\">07</span> <span class=\"mobile-nav__label\">Code</span></a></li><li><a href=\"/blog\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		if strings.HasPrefix(currentPath, "/blog") {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 41, " aria-current=\"page\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 42, "><span class=\"mobile-nav__num\" aria-hidden=\"true\">08</span> <span class=\"mobile-nav__label\">Blog</span></a></li></ol></nav></div></dialog><script type=\"module\" src=\"/static/js/app.js\"></script></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
