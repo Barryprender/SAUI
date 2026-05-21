@@ -39,6 +39,13 @@ func main() {
 	mux.Handle("GET /static/", http.StripPrefix("/static/",
 		http.FileServer(noDirFS{http.Dir("static")})))
 
+	mux.HandleFunc("GET /robots.txt", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "static/robots.txt")
+	})
+	mux.HandleFunc("GET /sitemap.xml", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "static/sitemap.xml")
+	})
+
 	session := middleware.NewSession(cfg.secure, logger)
 	csrf := middleware.NewCSRF(cfg.secure, logger)
 	page := func(hf http.HandlerFunc) http.Handler {
