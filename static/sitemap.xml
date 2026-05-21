@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://saui.fly.dev/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://saui.fly.dev/why</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/architecture</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/stack</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/cases</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/cases/food-ordering</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/cases/banking</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/cases/healthcare</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/cases/saas-dashboard</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/cases/distributed-systems</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/cases/micro-frontends</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/testing</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/limits</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/blog</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://saui.fly.dev/blog/server-response-time</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/code</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+</urlset>
