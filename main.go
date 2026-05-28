@@ -95,6 +95,11 @@ func main() {
 	mux.Handle("POST /demo/food-ordering/checkout", page(h.FoodCheckout))
 	mux.Handle("GET /demo/food-ordering/confirmation", page(h.FoodConfirmation))
 
+	mux.Handle("GET /demo/banking", page(h.BankingDashboard))
+	mux.Handle("GET /demo/banking/transfer", page(h.BankingTransfer))
+	mux.Handle("POST /demo/banking/transfer", page(h.BankingTransferSubmit))
+	mux.Handle("GET /demo/banking/confirmation", page(h.BankingConfirmation))
+
 	srv := &http.Server{
 		Addr: cfg.addr,
 		Handler: middleware.Chain(mux,
