@@ -1,0 +1,63 @@
+package food
+
+import "fmt"
+
+// MenuItemAction renders the action area inline (initial page load).
+templ MenuItemAction(itemID, itemName string, available bool, qty int, csrfToken string) {
+	<div id={ "menu-item-" + itemID + "__action" } class="menu-item__action">
+		@menuItemActionBody(itemID, itemName, available, qty, csrfToken)
+	</div>
+}
+
+// MenuItemActionOOB renders the action area as an htmx out-of-band swap.
+// Append this to any response that modifies the cart so the menu button
+// updates without a full page reload or client-side state.
+templ MenuItemActionOOB(itemID, itemName string, available bool, qty int, csrfToken string) {
+	<div id={ "menu-item-" + itemID + "__action" } class="menu-item__action" hx-swap-oob="outerHTML">
+		@menuItemActionBody(itemID, itemName, available, qty, csrfToken)
+	</div>
+}
+
+templ menuItemActionBody(itemID, itemName string, available bool, qty int, csrfToken string) {
+	if !available {
+		<span class="badge--unavailable">Unavailable</span>
+	} else if qty > 0 {
+		<div class="item-counter" role="group" aria-label={ itemName + " quantity" }>
+			<form
+				method="POST"
+				action="/demo/food-ordering/cart/remove"
+				hx-post="/demo/food-ordering/cart/remove"
+				hx-target="#cart-panel"
+				hx-swap="outerHTML"
+			>
+				<input type="hidden" name="_csrf" value={ csrfToken }/>
+				<input type="hidden" name="item_id" value={ itemID }/>
+				<button type="submit" class="btn-counter btn-counter--dec" aria-label={ "Remove one " + itemName }>−</button>
+			</form>
+			<span class="item-counter__qty" aria-live="polite">{ fmt.Sprintf("%d", qty) }</span>
+			<form
+				method="POST"
+				action="/demo/food-ordering/cart/add"
+				hx-post="/demo/food-ordering/cart/add"
+				hx-target="#cart-panel"
+				hx-swap="outerHTML"
+			>
+				<input type="hidden" name="_csrf" value={ csrfToken }/>
+				<input type="hidden" name="item_id" value={ itemID }/>
+				<button type="submit" class="btn-counter btn-counter--inc" aria-label={ "Add another " + itemName }>+</button>
+			</form>
+		</div>
+	} else {
+		<form
+			method="POST"
+			action="/demo/food-ordering/cart/add"
+			hx-post="/demo/food-ordering/cart/add"
+			hx-target="#cart-panel"
+			hx-swap="outerHTML"
+		>
+			<input type="hidden" name="_csrf" value={ csrfToken }/>
+			<input type="hidden" name="item_id" value={ itemID }/>
+			<button type="submit" class="btn-add" aria-label={ "Add " + itemName + " to order" }>+ Add</button>
+		</form>
+	}
+}
