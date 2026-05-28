@@ -435,6 +435,77 @@ They are complementary. Secure-UI is the appropriate security layer for a SAUI a
 
 ---
 
+## Case Study Demo Package Pattern
+
+Each case study has a live interactive demo. All six demos follow the same structure.
+
+### Directory layout — one package per demo
+
+```
+demo/<domain>/
+  events.go        — event type constants + event-log replay helpers (unexported)
+  actions.go       — action types implementing statestore.Action
+  projections.go   — projection types + init() registration with statestore
+  helpers.go       — shared pure functions (e.g. formatPrice)
+  layout.templ     — standalone app layout (no SAUI docs nav)
+  *.templ          — page and partial templates
+  *_templ.go       — generated; do not edit by hand
+
+statestore/<domain>.go   — DB migration + Store methods for domain reference data
+handlers/<domain>_demo.go — HTTP handlers (one import: saui/demo/<domain>)
+static/demo/<domain>/    — CSS and assets
+```
+
+### Why one package per demo (not actions/<domain>/ + projections/<domain>/)
+
+Two sub-packages both named after the domain would both declare `package <domain>`,
+forcing import aliases everywhere. Co-locating everything in `demo/<domain>/` gives
+a single clean import, zero aliases, and keeps domain code self-contained.
+
+### Template co-location
+
+Templates live inside `demo/<domain>/`, not in `templates/demo/<domain>/`.
+Because they are in the same package as the projection types, they reference
+types directly with no import — `MenuProjection`, `CartProjection`, etc.
+
+### Naming conventions inside a demo package
+
+Drop the domain prefix on types — they are already scoped by package:
+- `food.AddToCart` not `food.FoodAddToCart`
+- `food.MenuProjection` not `food.FoodMenuProjection`
+- `food.CartItemAdded` not `food.FoodCartItemAdded`
+
+### Handler wiring
+
+Demo routes use the same `page` middleware (session + CSRF) as doc pages.
+Routes follow the pattern `/demo/<domain>/...`
+
+### Adding a new demo
+
+1. `mkdir demo/<domain>/`
+2. Write `events.go`, `actions.go`, `projections.go`, `helpers.go`
+3. Write `layout.templ` + page/partial templates
+4. Run `templ generate ./demo/<domain>/...`
+5. Add `statestore/<domain>.go` with migration + Store methods; call migration from `statestore/store.go` `New()`
+6. Add `handlers/<domain>_demo.go`
+7. Add `static/demo/<domain>/<domain>.css`
+8. Wire routes in `main.go`
+9. `go build ./...` to verify
+
+### Completed demos
+
+- `demo/food/` — food ordering (`/demo/food-ordering`)
+
+### Planned demos (case studies)
+
+- `demo/banking/` — `/demo/banking`
+- `demo/healthcare/` — `/demo/healthcare`
+- `demo/saas/` — `/demo/saas-dashboard`
+- `demo/distributed/` — `/demo/distributed-systems`
+- `demo/mfe/` — `/demo/micro-frontends`
+
+---
+
 ## Non-Negotiable Constraints
 
 1. The site itself must run on the SAUI stack. No exceptions.
