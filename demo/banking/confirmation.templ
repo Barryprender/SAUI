@@ -1,0 +1,45 @@
+package banking
+
+import "fmt"
+
+templ TransferConfirmation(tx TxRecord, account AccountProjection) {
+	@Layout("Transfer sent") {
+		<article class="conf" aria-labelledby="conf-heading">
+			<div class="conf__check" aria-hidden="true">
+				<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<polyline points="20 6 9 17 4 12"></polyline>
+				</svg>
+			</div>
+			<h2 id="conf-heading" class="conf__title">Sent</h2>
+			<p class="conf__amount">{ FormatBalance(tx.AmountCents) }</p>
+			<p class="conf__recipient">to { tx.RecipientName }</p>
+			<dl class="conf__details">
+				<div class="conf__detail-row">
+					<dt>New balance</dt>
+					<dd>{ FormatBalance(account.BalanceCents) }</dd>
+				</div>
+				<div class="conf__detail-row">
+					<dt>Time</dt>
+					<dd>
+						<time datetime={ tx.OccurredAt.Format("2006-01-02T15:04:05Z") }>
+							{ tx.OccurredAt.Format("Jan 2, 2006 · 15:04") }
+						</time>
+					</dd>
+				</div>
+				<div class="conf__detail-row conf__detail-row--event">
+					<dt>Event ID</dt>
+					<dd><code class="conf__event-id">{ fmt.Sprintf("EVT-%06d", tx.EventID) }</code></dd>
+				</div>
+			</dl>
+			<p class="conf__note">
+				This transfer is a durable event in the append-only log.
+				It cannot be altered retroactively — not by you, not by anyone.
+				The event ID above is your cryptographically ordered proof.
+			</p>
+			<div class="conf__actions">
+				<a href="/demo/banking/transfer" class="btn-action">Send another</a>
+				<a href="/demo/banking" class="conf__back">Dashboard</a>
+			</div>
+		</article>
+	}
+}
