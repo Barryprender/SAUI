@@ -1,0 +1,33 @@
+package banking
+
+templ Layout(title string) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>{ title } — Demo Bank</title>
+			<meta name="robots" content="noindex, nofollow"/>
+			<link rel="stylesheet" href="/static/demo/banking/banking.css"/>
+			<script src="/static/demo/banking/banking.js" defer></script>
+		</head>
+		<body>
+			<div class="demo-banner" role="note" aria-label="Demo context">
+				<span class="demo-banner__label">Live SAUI Demo</span>
+				<span class="demo-banner__sep" aria-hidden="true">·</span>
+				<span class="demo-banner__note">Balance and transfers live entirely on the server</span>
+				<a class="demo-banner__link" href="/cases/banking">← Back to case study</a>
+			</div>
+			<div class="app">
+				<header class="app-header" role="banner">
+					<div class="app-header__inner">
+						<span class="app-wordmark">Demo Bank</span>
+					</div>
+				</header>
+				<main id="main-content">
+					{ children... }
+				</main>
+			</div>
+		</body>
+	</html>
+}
