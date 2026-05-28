@@ -2,12 +2,26 @@ package food
 
 templ Menu(menu MenuProjection, cart CartProjection, csrfToken string) {
 	@Layout("Menu", csrfToken) {
+		<nav class="category-nav" aria-label="Menu categories">
+			<div class="category-nav__inner">
+				<ul role="list">
+					for _, cat := range menu.Categories {
+						<li>
+							<a href={ templ.SafeURL("#cat-" + cat.Name) } class="category-nav__link">{ cat.Name }</a>
+						</li>
+					}
+				</ul>
+			</div>
+		</nav>
 		<div class="menu-layout">
-			<section class="menu-section" aria-label="Menu">
-				<h1 class="menu-heading">Menu</h1>
+			<section aria-label="Menu">
 				for _, cat := range menu.Categories {
-					<section class="menu-category" aria-labelledby={ "cat-" + cat.Name }>
-						<h2 id={ "cat-" + cat.Name } class="menu-category__title">{ cat.Name }</h2>
+					<section
+						id={ "cat-" + cat.Name }
+						class="menu-category"
+						aria-labelledby={ "heading-" + cat.Name }
+					>
+						<h2 id={ "heading-" + cat.Name } class="menu-category__title">{ cat.Name }</h2>
 						<ul class="menu-items" role="list">
 							for _, item := range cat.Items {
 								<li class="menu-item">
@@ -16,25 +30,7 @@ templ Menu(menu MenuProjection, cart CartProjection, csrfToken string) {
 										<p class="menu-item__desc">{ item.Description }</p>
 										<span class="menu-item__price">{ formatPrice(item.PriceCents) }</span>
 									</div>
-									if item.Available {
-										<form
-											method="POST"
-											action="/demo/food-ordering/cart/add"
-											hx-post="/demo/food-ordering/cart/add"
-											hx-target="#cart-panel"
-											hx-swap="outerHTML"
-										>
-											<input type="hidden" name="_csrf" value={ csrfToken }/>
-											<input type="hidden" name="item_id" value={ item.ID }/>
-											<button type="submit" class="btn-add" aria-label={ "Add " + item.Name + " to order" }>
-												Add
-											</button>
-										</form>
-									} else {
-										<span class="badge badge--unavailable" aria-label={ item.Name + " unavailable" }>
-											Unavailable
-										</span>
-									}
+									@MenuItemAction(item.ID, item.Name, item.Available, CartItemQty(cart, item.ID), csrfToken)
 								</li>
 							}
 						</ul>
@@ -43,5 +39,22 @@ templ Menu(menu MenuProjection, cart CartProjection, csrfToken string) {
 			</section>
 			@CartPanel(cart, csrfToken, "")
 		</div>
+		<script>
+			(function () {
+				const sections = document.querySelectorAll('.menu-category');
+				const links = document.querySelectorAll('.category-nav__link');
+				if (!sections.length || !links.length) return;
+				const obs = new IntersectionObserver(function (entries) {
+					entries.forEach(function (e) {
+						if (!e.isIntersecting) return;
+						const id = e.target.id;
+						links.forEach(function (l) {
+							l.toggleAttribute('aria-current', l.getAttribute('href') === '#' + id);
+						});
+					});
+				}, { rootMargin: '-30% 0px -60% 0px' });
+				sections.forEach(function (s) { obs.observe(s); });
+			})();
+		</script>
 	}
 }
