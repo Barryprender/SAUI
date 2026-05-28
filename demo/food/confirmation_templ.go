@@ -43,20 +43,20 @@ func Confirmation(order OrderProjection) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<article class=\"confirmation\" aria-labelledby=\"conf-heading\"><header class=\"confirmation__header\"><svg class=\"confirmation__icon\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" width=\"48\" height=\"48\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z\"></path></svg><h1 id=\"conf-heading\" class=\"confirmation__title\">Order Placed</h1><p class=\"confirmation__time\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<article class=\"confirmation\" aria-labelledby=\"conf-heading\"><header class=\"confirmation__header\"><div class=\"confirmation__check\" aria-hidden=\"true\">✓</div><h2 id=\"conf-heading\" class=\"confirmation__title\">Order placed</h2><p class=\"confirmation__time\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(order.PlacedAt.Format("15:04"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `demo/food/confirmation.templ`, Line: 13, Col: 66}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `demo/food/confirmation.templ`, Line: 11, Col: 66}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</p></header><ul class=\"confirmation__items\" role=\"list\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</p></header><div class=\"confirmation__receipt\"><ul class=\"confirmation__items\" role=\"list\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -68,7 +68,7 @@ func Confirmation(order OrderProjection) templ.Component {
 				var templ_7745c5c3_Var4 string
 				templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(item.Name)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `demo/food/confirmation.templ`, Line: 19, Col: 18}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `demo/food/confirmation.templ`, Line: 18, Col: 19}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 				if templ_7745c5c3_Err != nil {
@@ -81,20 +81,20 @@ func Confirmation(order OrderProjection) templ.Component {
 				var templ_7745c5c3_Var5 string
 				templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("%d", item.Quantity))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `demo/food/confirmation.templ`, Line: 20, Col: 75}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `demo/food/confirmation.templ`, Line: 19, Col: 76}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</span></span> <span>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</span></span> <span class=\"confirmation__item-price\">")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 				var templ_7745c5c3_Var6 string
 				templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(formatPrice(item.PriceCents * int64(item.Quantity)))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `demo/food/confirmation.templ`, Line: 22, Col: 65}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `demo/food/confirmation.templ`, Line: 21, Col: 99}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 				if templ_7745c5c3_Err != nil {
@@ -112,13 +112,13 @@ func Confirmation(order OrderProjection) templ.Component {
 			var templ_7745c5c3_Var7 string
 			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(formatPrice(order.TotalCents))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `demo/food/confirmation.templ`, Line: 28, Col: 43}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `demo/food/confirmation.templ`, Line: 27, Col: 44}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</strong></div><a href=\"/demo/food-ordering\" class=\"btn-back\">← Order again</a><p class=\"confirmation__note\">This order is a durable event in the server's append-only log. It cannot be altered retroactively — not by the client, not by anyone.</p></article>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</strong></div></div><div class=\"confirmation__cta\"><a href=\"/demo/food-ordering\" class=\"btn-back\">Order again</a></div><p class=\"confirmation__note\">This order is a durable event in the server's append-only log. It cannot be altered retroactively — not by the client, not by anyone.</p></article>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
