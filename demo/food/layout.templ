@@ -1,0 +1,47 @@
+package food
+
+templ Layout(title string, csrfToken string) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>{ title } — Bella Roma</title>
+			<meta name="robots" content="noindex, nofollow"/>
+			<link rel="stylesheet" href="/static/demo/food/food.css"/>
+			<script
+				src="/static/js/htmx.min.js"
+				integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
+				crossorigin="anonymous"
+				defer
+			></script>
+			if csrfToken != "" {
+				<meta name="csrf-token" content={ csrfToken }/>
+			}
+		</head>
+		<body>
+			<a class="skip-link" href="#main-content">Skip to main content</a>
+			<div class="demo-banner" role="note" aria-label="Demo context">
+				<span class="demo-banner__label">Live SAUI Demo</span>
+				<span class="demo-banner__sep" aria-hidden="true">·</span>
+				<span class="demo-banner__note">Cart and order state live entirely on the server</span>
+				<a class="demo-banner__link" href="/cases/food-ordering">← Back to case study</a>
+			</div>
+			<header class="resto-header">
+				<a href="/demo/food-ordering" class="resto-brand" aria-label="Bella Roma — home">
+					<span class="resto-brand__name">Bella Roma</span>
+					<span class="resto-brand__tagline">Ristorante Italiano</span>
+				</a>
+			</header>
+			<main id="main-content">
+				{ children... }
+			</main>
+			<footer class="resto-footer">
+				<p>
+					A live demonstration of <a href="/">Server-Authoritative UI</a>.
+					No cart state in your browser. No price in the page you can tamper with.
+				</p>
+			</footer>
+		</body>
+	</html>
+}
