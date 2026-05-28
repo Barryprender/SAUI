@@ -28,10 +28,17 @@ templ Layout(title string, csrfToken string) {
 				<a class="demo-banner__link" href="/cases/food-ordering">← Back to case study</a>
 			</div>
 			<header class="resto-header">
-				<a href="/demo/food-ordering" class="resto-brand" aria-label="Bella Roma — home">
-					<span class="resto-brand__name">Bella Roma</span>
-					<span class="resto-brand__tagline">Ristorante Italiano</span>
-				</a>
+				<div class="resto-header__inner">
+					<h1 class="resto-name">
+						<a href="/demo/food-ordering" style="color:inherit;text-decoration:none">Bella Roma</a>
+					</h1>
+					<p class="resto-tagline">Authentic Italian kitchen</p>
+					<p class="resto-meta" aria-label="Restaurant details">
+						<span class="resto-chip">Italian</span>
+						<span class="resto-chip">20–35 min</span>
+						<span class="resto-chip">Free delivery</span>
+					</p>
+				</div>
 			</header>
 			<main id="main-content">
 				{ children... }
