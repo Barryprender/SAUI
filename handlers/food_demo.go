@@ -38,10 +38,9 @@ func (h *Handler) FoodCartAdd(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 	sessionID := middleware.SessionID(ctx)
 	csrfToken := middleware.CSRFToken(r)
+	itemID := r.FormValue("item_id")
 
-	dispatchErr := h.gateway.Dispatch(ctx, sessionID, food.AddToCart{
-		ItemID: r.FormValue("item_id"),
-	})
+	dispatchErr := h.gateway.Dispatch(ctx, sessionID, food.AddToCart{ItemID: itemID})
 
 	if !middleware.IsHXRequest(r) {
 		http.Redirect(w, r, "/demo/food-ordering", http.StatusSeeOther)
@@ -64,6 +63,14 @@ func (h *Handler) FoodCartAdd(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	if err := food.CartPanel(cart, csrfToken, errMsg).Render(ctx, w); err != nil {
 		h.logger.Error("render food cart", "err", err)
+		return
+	}
+	if dispatchErr == nil {
+		qty := food.CartItemQty(cart, itemID)
+		name := food.CartItemName(cart, itemID)
+		if err := food.MenuItemActionOOB(itemID, name, true, qty, csrfToken).Render(ctx, w); err != nil {
+			h.logger.Error("render food item oob", "err", err)
+		}
 	}
 }
 
@@ -71,10 +78,14 @@ func (h *Handler) FoodCartRemove(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 	sessionID := middleware.SessionID(ctx)
 	csrfToken := middleware.CSRFToken(r)
+	itemID := r.FormValue("item_id")
 
-	dispatchErr := h.gateway.Dispatch(ctx, sessionID, food.RemoveFromCart{
-		ItemID: r.FormValue("item_id"),
-	})
+	// Capture name before the item may leave the cart entirely.
+	preCartProj, _ := h.gateway.Project(ctx, sessionID, food.CartProjectionName)
+	preCart := preCartProj.(food.CartProjection)
+	itemName := food.CartItemName(preCart, itemID)
+
+	dispatchErr := h.gateway.Dispatch(ctx, sessionID, food.RemoveFromCart{ItemID: itemID})
 
 	if !middleware.IsHXRequest(r) {
 		http.Redirect(w, r, "/demo/food-ordering", http.StatusSeeOther)
@@ -97,6 +108,13 @@ func (h *Handler) FoodCartRemove(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	if err := food.CartPanel(cart, csrfToken, errMsg).Render(ctx, w); err != nil {
 		h.logger.Error("render food cart", "err", err)
+		return
+	}
+	if dispatchErr == nil {
+		qty := food.CartItemQty(cart, itemID)
+		if err := food.MenuItemActionOOB(itemID, itemName, true, qty, csrfToken).Render(ctx, w); err != nil {
+			h.logger.Error("render food item oob", "err", err)
+		}
 	}
 }
 
