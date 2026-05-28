@@ -4,64 +4,60 @@ import "fmt"
 
 templ CartPanel(cart CartProjection, csrfToken string, errMsg string) {
 	<aside id="cart-panel" class="cart-panel" aria-label="Your order" aria-live="polite">
-		<h2 class="cart-panel__title">
-			Your Order
+		<div class="cart-panel__header">
+			<h2 class="cart-panel__title">Your order</h2>
 			if cart.ItemCount > 0 {
 				<span class="cart-badge" aria-label={ fmt.Sprintf("%d item", cart.ItemCount) }>
 					{ fmt.Sprintf("%d", cart.ItemCount) }
 				</span>
 			}
-		</h2>
-		if errMsg != "" {
-			<p class="cart-error" role="alert">{ errMsg }</p>
-		}
-		if len(cart.Items) == 0 {
-			<p class="cart-empty">Nothing added yet.</p>
-		} else {
-			<ul class="cart-items" role="list">
-				for _, item := range cart.Items {
-					<li class="cart-item">
-						<div class="cart-item__info">
+		</div>
+		<div class="cart-body">
+			if errMsg != "" {
+				<p class="cart-error" role="alert">{ errMsg }</p>
+			}
+			if len(cart.Items) == 0 {
+				<p class="cart-empty">Ready when you are.</p>
+			} else {
+				<ul class="cart-items" role="list">
+					for _, item := range cart.Items {
+						<li class="cart-item">
 							<span class="cart-item__name">{ item.Name }</span>
 							<span class="cart-item__qty">×{ fmt.Sprintf("%d", item.Quantity) }</span>
-						</div>
-						<span class="cart-item__price">{ formatPrice(item.PriceCents * int64(item.Quantity)) }</span>
-						<form
-							method="POST"
-							action="/demo/food-ordering/cart/remove"
-							hx-post="/demo/food-ordering/cart/remove"
-							hx-target="#cart-panel"
-							hx-swap="outerHTML"
-						>
-							<input type="hidden" name="_csrf" value={ csrfToken }/>
-							<input type="hidden" name="item_id" value={ item.ItemID }/>
-							<button
-								type="submit"
-								class="cart-item__remove"
-								aria-label={ "Remove " + item.Name }
-							>×</button>
-						</form>
-					</li>
-				}
-			</ul>
-			<div class="cart-total">
-				<span>Total</span>
-				<strong>{ formatPrice(cart.TotalCents) }</strong>
-			</div>
-			<form method="POST" action="/demo/food-ordering/checkout">
-				<input type="hidden" name="_csrf" value={ csrfToken }/>
-				<button type="submit" class="btn-checkout">Place Order</button>
-			</form>
-		}
+							<span class="cart-item__price">{ formatPrice(item.PriceCents * int64(item.Quantity)) }</span>
+							<form
+								method="POST"
+								action="/demo/food-ordering/cart/remove"
+								hx-post="/demo/food-ordering/cart/remove"
+								hx-target="#cart-panel"
+								hx-swap="outerHTML"
+							>
+								<input type="hidden" name="_csrf" value={ csrfToken }/>
+								<input type="hidden" name="item_id" value={ item.ItemID }/>
+								<button type="submit" class="cart-item__remove" aria-label={ "Remove " + item.Name }>×</button>
+							</form>
+						</li>
+					}
+				</ul>
+				<div class="cart-total">
+					<span>Subtotal</span>
+					<strong>{ formatPrice(cart.TotalCents) }</strong>
+				</div>
+				<form method="POST" action="/demo/food-ordering/checkout">
+					<input type="hidden" name="_csrf" value={ csrfToken }/>
+					<button type="submit" class="btn-checkout">Go to checkout</button>
+				</form>
+			}
+		</div>
 		<details class="cart-saui-note">
-			<summary>How does this work?</summary>
+			<summary>Curious how this works?</summary>
 			<p>
 				The cart lives on the server as an append-only event log.
 				Your browser holds no cart state.
 				The total is computed server-side from current menu prices —
-				there is nothing in the page to tamper with.
-				Try it: open DevTools and inspect the cart markup.
-				No prices are stored client-side.
+				there is nothing in the page you can tamper with.
+				The item counters above update via a single server round-trip
+				with no JavaScript state involved.
 			</p>
 		</details>
 	</aside>
