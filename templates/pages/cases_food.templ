@@ -141,6 +141,7 @@ templ CaseFoodOrdering(csrfToken string, lang locale.Lang) {
 					valida el modelo de lectura. La prueba de renderizado HTML es una instantánea.
 					Sin sincronización que probar.`,
 				) }</p>
+				<p><a href="/demo/food-ordering" class="btn">{ lang.T("Try the live demo →", "Probar la demo en vivo →") }</a></p>
 				<p><a href={ templ.URL(lang.Prefix() + "/cases/banking") }>{ lang.T("Next: Banking", "Siguiente: Banca") }</a></p>
 			</section>
 		</article>
