@@ -1,0 +1,47 @@
+package food
+
+templ Menu(menu MenuProjection, cart CartProjection, csrfToken string) {
+	@Layout("Menu", csrfToken) {
+		<div class="menu-layout">
+			<section class="menu-section" aria-label="Menu">
+				<h1 class="menu-heading">Menu</h1>
+				for _, cat := range menu.Categories {
+					<section class="menu-category" aria-labelledby={ "cat-" + cat.Name }>
+						<h2 id={ "cat-" + cat.Name } class="menu-category__title">{ cat.Name }</h2>
+						<ul class="menu-items" role="list">
+							for _, item := range cat.Items {
+								<li class="menu-item">
+									<div class="menu-item__info">
+										<h3 class="menu-item__name">{ item.Name }</h3>
+										<p class="menu-item__desc">{ item.Description }</p>
+										<span class="menu-item__price">{ formatPrice(item.PriceCents) }</span>
+									</div>
+									if item.Available {
+										<form
+											method="POST"
+											action="/demo/food-ordering/cart/add"
+											hx-post="/demo/food-ordering/cart/add"
+											hx-target="#cart-panel"
+											hx-swap="outerHTML"
+										>
+											<input type="hidden" name="_csrf" value={ csrfToken }/>
+											<input type="hidden" name="item_id" value={ item.ID }/>
+											<button type="submit" class="btn-add" aria-label={ "Add " + item.Name + " to order" }>
+												Add
+											</button>
+										</form>
+									} else {
+										<span class="badge badge--unavailable" aria-label={ item.Name + " unavailable" }>
+											Unavailable
+										</span>
+									}
+								</li>
+							}
+						</ul>
+					</section>
+				}
+			</section>
+			@CartPanel(cart, csrfToken, "")
+		</div>
+	}
+}
