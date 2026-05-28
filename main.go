@@ -89,6 +89,12 @@ func main() {
 	mux.Handle("POST /feedback", page(h.SubmitFeedback))
 	mux.Handle("GET /architecture/step/{step}", http.HandlerFunc(h.ArchStep))
 
+	mux.Handle("GET /demo/food-ordering", page(h.FoodMenu))
+	mux.Handle("POST /demo/food-ordering/cart/add", page(h.FoodCartAdd))
+	mux.Handle("POST /demo/food-ordering/cart/remove", page(h.FoodCartRemove))
+	mux.Handle("POST /demo/food-ordering/checkout", page(h.FoodCheckout))
+	mux.Handle("GET /demo/food-ordering/confirmation", page(h.FoodConfirmation))
+
 	srv := &http.Server{
 		Addr: cfg.addr,
 		Handler: middleware.Chain(mux,
