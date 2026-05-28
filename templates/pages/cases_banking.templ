@@ -120,6 +120,7 @@ templ CaseBanking(csrfToken string, lang locale.Lang) {
 					transferencias de esta cuenta en este período" son proyecciones sobre el registro
 					de eventos; no se requiere infraestructura de auditoría separada.`,
 				) }</p>
+				<p><a href="/demo/banking" class="btn">{ lang.T("Try the live demo →", "Probar la demo en vivo →") }</a></p>
 				<p><a href={ templ.URL(lang.Prefix() + "/cases/healthcare") }>{ lang.T("Next: Healthcare booking", "Siguiente: Reserva sanitaria") }</a></p>
 			</section>
 		</article>
