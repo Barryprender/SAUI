@@ -1,0 +1,70 @@
+package banking
+
+templ TransferForm(account AccountProjection, csrfToken string, errMsg string) {
+	@Layout("Send money") {
+		<section class="transfer-section" aria-labelledby="transfer-heading">
+			<header class="transfer-header">
+				<a href="/demo/banking" class="btn-back-nav" aria-label="Back to dashboard">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<line x1="19" y1="12" x2="5" y2="12"></line>
+						<polyline points="12 19 5 12 12 5"></polyline>
+					</svg>
+				</a>
+				<h2 id="transfer-heading" class="transfer-title">Send money</h2>
+			</header>
+			<p class="transfer-available">Available: <strong>{ FormatBalance(account.BalanceCents) }</strong></p>
+			if errMsg != "" {
+				<p class="transfer-error" role="alert">{ errMsg }</p>
+			}
+			<form method="POST" action="/demo/banking/transfer" class="transfer-form">
+				<input type="hidden" name="_csrf" value={ csrfToken }/>
+				<fieldset class="field-group">
+					<legend class="field-label">To</legend>
+					<div class="recipients-grid" role="group">
+						for _, r := range Recipients() {
+							<label class="recipient-card" for={ "r-" + r.ID }>
+								<input
+									type="radio"
+									id={ "r-" + r.ID }
+									name="recipient_id"
+									value={ r.ID }
+									class="recipient-radio"
+									required
+								/>
+								<div class={ "recipient-card__avatar avatar " + r.ColorClass } aria-hidden="true">{ r.Initials }</div>
+								<span class="recipient-card__name">{ r.Name }</span>
+								<span class="recipient-card__bank">{ r.Bank }</span>
+							</label>
+						}
+					</div>
+				</fieldset>
+				<fieldset class="field-group">
+					<legend class="field-label">Amount</legend>
+					<div class="amount-presets" role="group" aria-label="Quick amounts">
+						<button type="button" class="btn-preset" data-amount="5.00">€5</button>
+						<button type="button" class="btn-preset" data-amount="10.00">€10</button>
+						<button type="button" class="btn-preset" data-amount="25.00">€25</button>
+						<button type="button" class="btn-preset" data-amount="50.00">€50</button>
+					</div>
+					<div class="amount-wrap">
+						<span class="amount-currency" aria-hidden="true">€</span>
+						<input
+							type="number"
+							id="amount_euros"
+							name="amount_euros"
+							class="amount-input"
+							min="0.01"
+							max="9999.99"
+							step="0.01"
+							placeholder="0.00"
+							inputmode="decimal"
+							required
+							aria-label="Amount in euros"
+						/>
+					</div>
+				</fieldset>
+				<button type="submit" class="btn-submit">Send</button>
+			</form>
+		</section>
+	}
+}
