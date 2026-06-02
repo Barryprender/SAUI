@@ -854,7 +854,7 @@ func Workspace(proj WorkspaceProjection, csrfToken string) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 66, "</div></secure-telemetry-provider>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 66, "</div></secure-telemetry-provider> <details class=\"saui-note\"><summary>How does this work?</summary><p>The three panels belong to separate teams, yet they share a single append-only event log. When Team Alpha toggles a task, one <code>task.toggled</code> event is appended server-side. Team Beta's activity feed and Team Gamma's stats counter are both projections of that same log — no shared mutable store, no cross-panel API calls. The HTMX out-of-band swap you see on each action returns all three panels in a single response, each independently projected from the updated log. Adding a new panel requires no changes to existing panels — only a new projection.</p></details>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
