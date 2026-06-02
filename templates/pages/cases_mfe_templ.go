@@ -127,25 +127,38 @@ func CaseMFE(csrfToken string, lang locale.Lang) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</p></div></section><article><section><h2>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</p><a href=\"/demo/mfe\" class=\"demo-link\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var9 string
-			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The coupling problem in micro frontends", "El problema de acoplamiento en los micro frontends"))
+			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Try the live demo →", "Probar la demo en vivo →"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 34, Col: 113}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 30, Col: 105}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</a></div></section><article><section><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var10 string
-			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The coupling problem in micro frontends", "El problema de acoplamiento en los micro frontends"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 35, Col: 113}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</h2><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var11 string
+			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
 				`The micro frontend pattern promises team independence: each team owns a vertical
 					slice of the UI and deploys it independently. In practice, this independence is
 					undermined by shared client-side state.`,
@@ -154,18 +167,18 @@ func CaseMFE(csrfToken string, lang locale.Lang) templ.Component {
 					independencia se ve socavada por el estado compartido del lado del cliente.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 42, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 43, Col: 5}
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var11 string
-			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+			var templ_7745c5c3_Var12 string
+			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
 				`If MFE A and MFE B both need to know the current user cart, they must either
 					share a state store (coupling) or duplicate state (staleness). Cross-MFE event
 					buses, shared stores, and global state contracts emerge as the coordination mechanism.
@@ -177,31 +190,31 @@ func CaseMFE(csrfToken string, lang locale.Lang) templ.Component {
 					a través del bus de estado.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 53, Col: 5}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</p></section><section><h2>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var12 string
-			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("SAUI eliminates the coupling", "SAUI elimina el acoplamiento"))
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 56, Col: 80}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 54, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</p></section><section><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var13 string
-			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("SAUI eliminates the coupling", "SAUI elimina el acoplamiento"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 57, Col: 80}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</h2><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var14 string
+			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
 				`Under SAUI, there is no client-side state to share. Each MFE consumes its own
 					projection from the server. The server is the source of truth. MFEs do not need
 					to communicate with each other because they each have a direct line to the
@@ -211,18 +224,18 @@ func CaseMFE(csrfToken string, lang locale.Lang) templ.Component {
 					comunicarse entre sí porque cada uno tiene una línea directa al estado autoritativo.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 65, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 66, Col: 5}
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var14 string
-			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+			var templ_7745c5c3_Var15 string
+			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
 				`If MFE A updates cart state by submitting an AddToCart action, the server appends
 					the event and updates the cart projection. MFE B next render (or SSE update)
 					reflects the current cart. No event bus. No shared store. No cross-MFE contract.`,
@@ -232,46 +245,33 @@ func CaseMFE(csrfToken string, lang locale.Lang) templ.Component {
 					Sin contrato entre MFE.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 74, Col: 5}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</p></section><section><h2>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var15 string
-			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Team isolation in practice", "Aislamiento de equipos en la práctica"))
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 77, Col: 88}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 75, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</h2><ul><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</p></section><section><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var16 string
-			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Each team owns a projection: their read model from the server", "Cada equipo posee una proyección: su modelo de lectura desde el servidor"))
+			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Team isolation in practice", "Aislamiento de equipos en la práctica"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 79, Col: 159}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 78, Col: 88}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</h2><ul><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var17 string
-			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Each team owns their actions: their write interface to the gateway", "Cada equipo posee sus acciones: su interfaz de escritura con la pasarela"))
+			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Each team owns a projection: their read model from the server", "Cada equipo posee una proyección: su modelo de lectura desde el servidor"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 80, Col: 163}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 80, Col: 159}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 			if templ_7745c5c3_Err != nil {
@@ -282,9 +282,9 @@ func CaseMFE(csrfToken string, lang locale.Lang) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var18 string
-			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Teams deploy independently: no shared build output", "Los equipos despliegan independientemente: sin salida de compilación compartida"))
+			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Each team owns their actions: their write interface to the gateway", "Cada equipo posee sus acciones: su interfaz de escritura con la pasarela"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 81, Col: 155}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 81, Col: 163}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 			if templ_7745c5c3_Err != nil {
@@ -295,20 +295,33 @@ func CaseMFE(csrfToken string, lang locale.Lang) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var19 string
-			templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Teams test independently: no cross-MFE integration test surface", "Los equipos prueban independientemente: sin superficie de prueba de integración entre MFE"))
+			templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Teams deploy independently: no shared build output", "Los equipos despliegan independientemente: sin salida de compilación compartida"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 82, Col: 178}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 82, Col: 155}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "</li></ul><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "</li><li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var20 string
-			templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+			templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Teams test independently: no cross-MFE integration test surface", "Los equipos prueban independientemente: sin superficie de prueba de integración entre MFE"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 83, Col: 178}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "</li></ul><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var21 string
+			templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
 				`The seam between teams is the projection contract and the action API, both of
 					which are server-defined. Changes to one team UI do not affect other teams.
 					Changes to one team projection require coordination with the backend, but not
@@ -319,31 +332,31 @@ func CaseMFE(csrfToken string, lang locale.Lang) templ.Component {
 					pero no con otros equipos frontend.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 93, Col: 5}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "</p></section><section><h2>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var21 string
-			templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Composition", "Composición"))
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 96, Col: 47}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 94, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</p></section><section><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var22 string
-			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Composition", "Composición"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 97, Col: 47}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "</h2><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var23 string
+			templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
 				`MFEs under SAUI are composed server-side: each team template fragment is
 					included in the page layout by the server. There is no client-side module
 					federation, no runtime JS composition, no shared bundle negotiation.`,
@@ -353,18 +366,18 @@ func CaseMFE(csrfToken string, lang locale.Lang) templ.Component {
 					ni negociación de paquetes compartidos.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 105, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 106, Col: 5}
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var23 string
-			templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+			var templ_7745c5c3_Var24 string
+			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
 				`Each fragment is a server-rendered HTML partial, served by the team own
 					backend, composed into the page at the BFF or reverse proxy layer. The client
 					receives assembled HTML. This is simpler, faster, and more resilient than
@@ -375,39 +388,39 @@ func CaseMFE(csrfToken string, lang locale.Lang) templ.Component {
 					la composición del lado del cliente.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 115, Col: 5}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "</p><p><a href=\"")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var24 templ.SafeURL
-			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/cases"))
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 116, Col: 52}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 116, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "</p><p><a href=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var25 string
-			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Back to all case studies", "Volver a todos los casos de estudio"))
+			var templ_7745c5c3_Var25 templ.SafeURL
+			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/cases"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 116, Col: 130}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 117, Col: 52}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var25))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "</a></p></section></article>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var26 string
+			templ_7745c5c3_Var26, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Back to all case studies", "Volver a todos los casos de estudio"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/cases_mfe.templ`, Line: 117, Col: 130}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var26))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "</a></p></section></article>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
