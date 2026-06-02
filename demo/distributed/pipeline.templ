@@ -115,5 +115,18 @@ templ PipelineBoard(proj PipelineProjection, csrfToken string) {
 templ Pipeline(proj PipelineProjection, csrfToken string) {
 	@Layout("Order Pipeline") {
 		@PipelineBoard(proj, csrfToken)
+		<details class="saui-note">
+			<summary>How does this work?</summary>
+			<p>
+				Each stage in the pipeline is owned by a separate service, and no service writes to another's state.
+				The Order Service emits <code>order.created</code>; the Inventory Service emits <code>inventory.reserved</code>;
+				the Payment Service emits <code>payment.captured</code> or <code>payment.declined</code>.
+				The event IDs you see on each completed node are the actual persisted event IDs —
+				immutable records that cannot be overwritten.
+				The pipeline view is a BFF projection: a single read model built server-side
+				by replaying all service events in sequence.
+				No service polls another; the event log is the only shared contract.
+			</p>
+		</details>
 	}
 }

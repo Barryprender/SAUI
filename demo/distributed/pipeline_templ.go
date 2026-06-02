@@ -488,6 +488,10 @@ func Pipeline(proj PipelineProjection, csrfToken string) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 45, " <details class=\"saui-note\"><summary>How does this work?</summary><p>Each stage in the pipeline is owned by a separate service, and no service writes to another's state. The Order Service emits <code>order.created</code>; the Inventory Service emits <code>inventory.reserved</code>; the Payment Service emits <code>payment.captured</code> or <code>payment.declined</code>. The event IDs you see on each completed node are the actual persisted event IDs — immutable records that cannot be overwritten. The pipeline view is a BFF projection: a single read model built server-side by replaying all service events in sequence. No service polls another; the event log is the only shared contract.</p></details>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
 			return nil
 		})
 		templ_7745c5c3_Err = Layout("Order Pipeline").Render(templ.WithChildren(ctx, templ_7745c5c3_Var29), templ_7745c5c3_Buffer)
