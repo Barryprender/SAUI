@@ -17,6 +17,18 @@ templ Schedule(proj ScheduleProjection, csrfToken string) {
 				}
 			</section>
 			@BookingPanel(proj, csrfToken, "")
-		</div>
+</div>
+		<details class="saui-note">
+			<summary>How does this work?</summary>
+			<p>
+				Appointment slots cannot be double-booked.
+				There is no "available" flag stored in a database row —
+				the server replays the booking event log on every request and recomputes
+				which slots are taken before rendering this page.
+				When you confirm, a durable <code>appointment.booked</code> event is appended to the log.
+				Any concurrent attempt to book the same slot arrives after that event
+				and is rejected during projection, not by a lock.
+			</p>
+		</details>
 	}
 }

@@ -82,7 +82,7 @@ func Schedule(proj ScheduleProjection, csrfToken string) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</div><details class=\"saui-note\"><summary>How does this work?</summary><p>Appointment slots cannot be double-booked. There is no \"available\" flag stored in a database row — the server replays the booking event log on every request and recomputes which slots are taken before rendering this page. When you confirm, a durable <code>appointment.booked</code> event is appended to the log. Any concurrent attempt to book the same slot arrives after that event and is rejected during projection, not by a lock.</p></details>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
