@@ -108,6 +108,9 @@ func main() {
 	mux.Handle("POST /demo/saas/invite", page(h.SAASInvite))
 	mux.Handle("POST /demo/saas/archive", page(h.SAASArchive))
 
+	mux.Handle("GET /demo/distributed", page(h.DistributedPipeline))
+	mux.Handle("POST /demo/distributed/advance", page(h.DistributedAdvance))
+
 	srv := &http.Server{
 		Addr: cfg.addr,
 		Handler: middleware.Chain(mux,
