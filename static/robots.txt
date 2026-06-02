@@ -1,4 +1,21 @@
 User-agent: *
 Allow: /
+Disallow: /demo/
+
+User-agent: GPTBot
+Allow: /
+Disallow: /demo/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /demo/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /demo/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /demo/
 
 Sitemap: https://saui.fly.dev/sitemap.xml
