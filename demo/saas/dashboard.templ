@@ -1,0 +1,106 @@
+package saas
+
+templ Dashboard(proj TeamProjection, csrfToken string) {
+	@Layout("Team") {
+		<div class="dashboard">
+			<div class="dashboard-header">
+				<h2 class="dashboard-title">Team members</h2>
+				<span class="member-count">{ countLabel(proj.CountAll) }</span>
+			</div>
+			<nav class="filter-tabs" aria-label="Filter by role">
+				<a
+					href="/demo/saas"
+					class={ "filter-tab" + activeClass(proj.RoleFilter, "") }
+					aria-current={ ariaCurrent(proj.RoleFilter, "") }
+				>All <span class="tab-count">{ itoa(proj.CountAll) }</span></a>
+				<a
+					href="/demo/saas?role=admin"
+					class={ "filter-tab" + activeClass(proj.RoleFilter, "admin") }
+					aria-current={ ariaCurrent(proj.RoleFilter, "admin") }
+				>Admin <span class="tab-count">{ itoa(proj.CountAdmin) }</span></a>
+				<a
+					href="/demo/saas?role=member"
+					class={ "filter-tab" + activeClass(proj.RoleFilter, "member") }
+					aria-current={ ariaCurrent(proj.RoleFilter, "member") }
+				>Member <span class="tab-count">{ itoa(proj.CountMember) }</span></a>
+				<a
+					href="/demo/saas?role=viewer"
+					class={ "filter-tab" + activeClass(proj.RoleFilter, "viewer") }
+					aria-current={ ariaCurrent(proj.RoleFilter, "viewer") }
+				>Viewer <span class="tab-count">{ itoa(proj.CountViewer) }</span></a>
+			</nav>
+			<div class="member-table-wrap">
+				if len(proj.Members) == 0 {
+					<p class="table-empty">No members in this role.</p>
+				} else {
+					<table class="member-table">
+						<thead>
+							<tr>
+								<th scope="col">Name</th>
+								<th scope="col">Email</th>
+								<th scope="col">Role</th>
+								<th scope="col"><span class="sr-only">Actions</span></th>
+							</tr>
+						</thead>
+						<tbody>
+							for _, m := range proj.Members {
+								<tr class="member-row">
+									<td class="cell-name">
+										<span class={ "member-avatar " + m.AvatarClass } aria-hidden="true">{ m.Initials }</span>
+										<span class="member-name">{ m.Name }</span>
+									</td>
+									<td class="cell-email">{ m.Email }</td>
+									<td class="cell-role">
+										<span class={ "role-badge role-badge--" + m.Role }>{ m.Role }</span>
+									</td>
+									<td class="cell-actions">
+										<form method="POST" action="/demo/saas/archive" class="archive-form">
+											<input type="hidden" name="_csrf" value={ csrfToken }/>
+											<input type="hidden" name="user_id" value={ m.UserID }/>
+											<input type="hidden" name="role_filter" value={ proj.RoleFilter }/>
+											<button type="submit" class="btn-archive" aria-label={ "Archive " + m.Name }>
+												Archive
+											</button>
+										</form>
+									</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				}
+			</div>
+			<details class="invite-details">
+				<summary class="invite-trigger">
+					<span class="invite-trigger__icon" aria-hidden="true">+</span>
+					Invite a member
+				</summary>
+				<form method="POST" action="/demo/saas/invite" class="invite-form">
+					<input type="hidden" name="_csrf" value={ csrfToken }/>
+					<div class="invite-fields">
+						<label class="invite-label" for="invite-name">
+							Full name
+							<input
+								type="text"
+								id="invite-name"
+								name="name"
+								class="invite-input"
+								placeholder="e.g. Jane Smith"
+								required
+								autocomplete="off"
+							/>
+						</label>
+						<label class="invite-label" for="invite-role">
+							Role
+							<select id="invite-role" name="role" class="invite-select">
+								<option value="member">Member</option>
+								<option value="admin">Admin</option>
+								<option value="viewer">Viewer</option>
+							</select>
+						</label>
+						<button type="submit" class="btn-invite">Send invite</button>
+					</div>
+				</form>
+			</details>
+		</div>
+	}
+}

@@ -1,0 +1,33 @@
+package saas
+
+templ Layout(title string) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>{ title } — Demo SaaS</title>
+			<meta name="robots" content="noindex, nofollow"/>
+			<link rel="stylesheet" href="/static/demo/saas/saas.css"/>
+		</head>
+		<body>
+			<div class="demo-banner" role="note" aria-label="Demo context">
+				<span class="demo-banner__label">Live SAUI Demo</span>
+				<span class="demo-banner__sep" aria-hidden="true">·</span>
+				<span class="demo-banner__note">Filter state lives in the URL, applied server-side</span>
+				<a class="demo-banner__link" href="/cases/saas-dashboard">← Back to case study</a>
+			</div>
+			<div class="app">
+				<header class="app-header" role="banner">
+					<div class="app-header__inner">
+						<span class="app-wordmark">Demo SaaS</span>
+						<span class="app-section">Team</span>
+					</div>
+				</header>
+				<main id="main-content">
+					{ children... }
+				</main>
+			</div>
+		</body>
+	</html>
+}
