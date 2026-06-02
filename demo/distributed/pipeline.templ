@@ -1,0 +1,119 @@
+package distributed
+
+import "fmt"
+
+templ PipelineBoard(proj PipelineProjection, csrfToken string) {
+	<div id="pipeline-board" class="pipeline-board">
+		<div class="board-header">
+			if proj.OrderNumber > 0 {
+				<span class="order-label">Order <span class="order-num">{ fmt.Sprintf("#%d", proj.OrderNumber) }</span></span>
+			} else {
+				<span class="order-label">No active order</span>
+			}
+			<span class="bff-badge">BFF projection</span>
+		</div>
+		<div class="pipeline-stepper" aria-label="Order pipeline">
+			for i, node := range proj.Nodes {
+				<div class={ node.CSSClasses() }>
+					<div class="node-icon" aria-hidden="true">{ node.IconText() }</div>
+					<div class="node-label">{ node.Label }</div>
+					<div class="node-service">{ node.ServiceName }</div>
+					if node.Status == StageDone && node.EventID > 0 {
+						<div class="node-event-id">{ FormatEventID(node.EventID) }</div>
+					}
+				</div>
+				if i < len(proj.Nodes)-1 {
+					<div class={ "pipeline-connector " + ConnectorClass(node, proj.Nodes[i+1]) } aria-hidden="true"></div>
+				}
+			}
+		</div>
+		<div class="action-area">
+			switch proj.Status {
+			case StatusNew:
+				<p class="action-hint">Place a demo order to watch events flow through the pipeline.</p>
+				<form hx-post="/demo/distributed/advance" hx-target="#pipeline-board" hx-swap="outerHTML" class="action-form">
+					<input type="hidden" name="_csrf" value={ csrfToken }/>
+					<input type="hidden" name="action" value="place"/>
+					<button type="submit" class="btn-action btn-action--primary">Place order</button>
+				</form>
+			case StatusAwaitingInventory:
+				<p class="action-hint">Order Service emitted <code>order.created</code>. Inventory Service is next.</p>
+				<form hx-post="/demo/distributed/advance" hx-target="#pipeline-board" hx-swap="outerHTML" class="action-form">
+					<input type="hidden" name="_csrf" value={ csrfToken }/>
+					<input type="hidden" name="action" value="reserve"/>
+					<button type="submit" class="btn-action btn-action--inventory">Reserve inventory</button>
+				</form>
+			case StatusAwaitingPayment:
+				<p class="action-hint">Inventory reserved. Choose a payment outcome to continue.</p>
+				<div class="action-row">
+					<form hx-post="/demo/distributed/advance" hx-target="#pipeline-board" hx-swap="outerHTML" class="action-form">
+						<input type="hidden" name="_csrf" value={ csrfToken }/>
+						<input type="hidden" name="action" value="capture"/>
+						<button type="submit" class="btn-action btn-action--payment">Capture payment</button>
+					</form>
+					<form hx-post="/demo/distributed/advance" hx-target="#pipeline-board" hx-swap="outerHTML" class="action-form">
+						<input type="hidden" name="_csrf" value={ csrfToken }/>
+						<input type="hidden" name="action" value="decline"/>
+						<button type="submit" class="btn-action btn-action--fail">Decline payment</button>
+					</form>
+				</div>
+			case StatusPaymentDeclined:
+				<p class="action-hint">Payment Service emitted <code>payment.declined</code>. Retry or cancel.</p>
+				<div class="action-row">
+					<form hx-post="/demo/distributed/advance" hx-target="#pipeline-board" hx-swap="outerHTML" class="action-form">
+						<input type="hidden" name="_csrf" value={ csrfToken }/>
+						<input type="hidden" name="action" value="capture"/>
+						<button type="submit" class="btn-action btn-action--payment">Retry payment</button>
+					</form>
+					<form hx-post="/demo/distributed/advance" hx-target="#pipeline-board" hx-swap="outerHTML" class="action-form">
+						<input type="hidden" name="_csrf" value={ csrfToken }/>
+						<input type="hidden" name="action" value="cancel"/>
+						<button type="submit" class="btn-action btn-action--fail">Cancel order</button>
+					</form>
+				</div>
+			case StatusAwaitingFulfillment:
+				<p class="action-hint">Payment captured. Order Service handles fulfillment.</p>
+				<form hx-post="/demo/distributed/advance" hx-target="#pipeline-board" hx-swap="outerHTML" class="action-form">
+					<input type="hidden" name="_csrf" value={ csrfToken }/>
+					<input type="hidden" name="action" value="fulfill"/>
+					<button type="submit" class="btn-action btn-action--primary">Fulfill order</button>
+				</form>
+			case StatusFulfilled:
+				<p class="action-hint action-hint--success">Order fulfilled. The pipeline is complete.</p>
+				<form hx-post="/demo/distributed/advance" hx-target="#pipeline-board" hx-swap="outerHTML" class="action-form">
+					<input type="hidden" name="_csrf" value={ csrfToken }/>
+					<input type="hidden" name="action" value="place"/>
+					<button type="submit" class="btn-action btn-action--ghost">Place new order</button>
+				</form>
+			case StatusCancelled:
+				<p class="action-hint action-hint--cancelled">Order cancelled.</p>
+				<form hx-post="/demo/distributed/advance" hx-target="#pipeline-board" hx-swap="outerHTML" class="action-form">
+					<input type="hidden" name="_csrf" value={ csrfToken }/>
+					<input type="hidden" name="action" value="place"/>
+					<button type="submit" class="btn-action btn-action--ghost">Place new order</button>
+				</form>
+			}
+		</div>
+		if len(proj.EventLog) > 0 {
+			<div class="event-log">
+				<h3 class="event-log__heading">Event log</h3>
+				<ul class="event-log__list">
+					for _, entry := range proj.EventLog {
+						<li class={ "event-row " + entry.ColorClass }>
+							<span class="event-id">{ FormatEventID(entry.EventID) }</span>
+							<span class="event-type">{ entry.Label }</span>
+							<span class={ "event-service " + entry.ColorClass + "-badge" }>{ entry.ServiceName }</span>
+							<span class="event-time">{ entry.OccurredAt.Format("15:04:05") }</span>
+						</li>
+					}
+				</ul>
+			</div>
+		}
+	</div>
+}
+
+templ Pipeline(proj PipelineProjection, csrfToken string) {
+	@Layout("Order Pipeline") {
+		@PipelineBoard(proj, csrfToken)
+	}
+}
