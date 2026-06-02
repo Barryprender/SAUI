@@ -1,0 +1,35 @@
+package mfe
+
+templ Layout(title string) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>{ title } — MFE Demo</title>
+			<meta name="robots" content="noindex, nofollow"/>
+			<link rel="stylesheet" href="/static/demo/mfe/mfe.css"/>
+			<script src="/static/js/htmx.min.js" defer></script>
+			<script type="module" src="/static/js/secure-ui.bundle.js"></script>
+		</head>
+		<body>
+			<div class="demo-banner" role="note" aria-label="Demo context">
+				<span class="demo-banner__label">Live SAUI Demo</span>
+				<span class="demo-banner__sep" aria-hidden="true">·</span>
+				<span class="demo-banner__note">Three independent frontend modules, one server-authoritative state</span>
+				<a class="demo-banner__link" href="/cases/micro-frontends">← Back to case study</a>
+			</div>
+			<div class="app">
+				<header class="app-header" role="banner">
+					<div class="app-header__inner">
+						<span class="app-wordmark">Workspace</span>
+						<span class="app-subtitle">BFF projection · per-session</span>
+					</div>
+				</header>
+				<main id="main-content">
+					{ children... }
+				</main>
+			</div>
+		</body>
+	</html>
+}
