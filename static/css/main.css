@@ -830,6 +830,30 @@
     pointer-events: none;
   }
 
+  .demo-link {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--text-base);
+    font-weight: 500;
+    color: var(--c-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    letter-spacing: -0.01em;
+    transition: color var(--t-fast), text-underline-offset var(--t-fast);
+  }
+
+  .demo-link:hover {
+    color: var(--c-accent-hover);
+    text-underline-offset: 7px;
+  }
+
+  .demo-link:focus-visible {
+    outline: 2px solid var(--c-accent);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+
   .btn--secondary {
     background-color: transparent;
     color: var(--c-accent);
