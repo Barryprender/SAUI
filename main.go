@@ -66,6 +66,7 @@ func main() {
 	mux.Handle("GET /testing", page(h.Testing))
 	mux.Handle("GET /limits", page(h.Limits))
 	mux.Handle("GET /blog", page(h.Blog))
+	mux.Handle("GET /blog/supply-chain", page(h.BlogPostSupplyChain))
 	mux.Handle("GET /blog/server-response-time", page(h.BlogPostServerResponseTime))
 	mux.Handle("GET /code", page(h.Code))
 
@@ -83,6 +84,7 @@ func main() {
 	mux.Handle("GET /es/testing", page(h.TestingES))
 	mux.Handle("GET /es/limits", page(h.LimitsES))
 	mux.Handle("GET /es/blog", page(h.BlogES))
+	mux.Handle("GET /es/blog/supply-chain", page(h.BlogPostSupplyChainES))
 	mux.Handle("GET /es/blog/server-response-time", page(h.BlogPostServerResponseTimeES))
 	mux.Handle("GET /es/code", page(h.CodeES))
 
