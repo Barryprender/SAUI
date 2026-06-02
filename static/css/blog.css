@@ -210,4 +210,101 @@
       .blog-post section { animation: none; opacity: 1; transform: none; }
     }
   }
+
+  /* ----------------------------------------------------------
+     Blog post prose elements
+     ---------------------------------------------------------- */
+
+  .blog-post strong {
+    font-weight: 650;
+    color: var(--c-text);
+  }
+
+  /* Incident timeline — <dl class="incident-log"> */
+  .blog-post .incident-log {
+    margin-block: var(--sp-5);
+    border: var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .blog-post .incident-log dt {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--c-accent);
+    letter-spacing: 0.01em;
+    padding: var(--sp-4) var(--sp-5) var(--sp-2);
+    background: var(--c-surface);
+  }
+
+  .blog-post .incident-log dd {
+    font-size: var(--text-sm);
+    color: var(--c-text-muted);
+    line-height: var(--leading-prose);
+    padding: 0 var(--sp-5) var(--sp-4);
+    background: var(--c-surface);
+    margin: 0;
+  }
+
+  .blog-post .incident-log dd + dt {
+    border-block-start: var(--border);
+  }
+
+  /* Stat comparison row — <div class="blog-stat-row"> */
+  .blog-stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-3);
+    margin-block: var(--sp-5);
+  }
+
+  @media (width < 560px) {
+    .blog-stat-row { grid-template-columns: 1fr; }
+  }
+
+  .blog-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-5) var(--sp-4);
+    background: var(--c-surface);
+    border: var(--border);
+    border-radius: var(--radius-md);
+    text-align: center;
+  }
+
+  .blog-stat__num {
+    font-family: var(--font-mono);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: var(--c-text);
+  }
+
+  .blog-stat--exposed .blog-stat__num { color: oklch(58% 0.18 25); }
+  .blog-stat--safe    .blog-stat__num { color: oklch(52% 0.14 155); }
+
+  @media (prefers-color-scheme: dark) {
+    .blog-stat--exposed .blog-stat__num { color: oklch(68% 0.18 25); }
+    .blog-stat--safe    .blog-stat__num { color: oklch(68% 0.16 155); }
+  }
+
+  .blog-stat__label {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--c-text-muted);
+  }
+
+  .blog-stat__sublabel {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--c-text-muted);
+    opacity: 0.6;
+  }
 }
