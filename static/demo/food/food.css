@@ -653,15 +653,6 @@ details[open] .cart-saui-note summary::before { transform: rotate(90deg); }
   outline-offset: 2px;
 }
 
-.confirmation__note {
-  font-size: 0.8125rem;
-  color: var(--text-faint);
-  line-height: 1.6;
-  text-align: center;
-  border-block-start: 1px solid var(--border);
-  padding-block-start: 1.5rem;
-}
-
 /* ── Footer ────────────────────────────────────── */
 .resto-footer {
   border-block-start: 1px solid var(--border);
@@ -765,7 +756,52 @@ details[open] .cart-saui-note summary::before { transform: rotate(90deg); }
 .confirmation__item:nth-child(6) { animation-delay: 0.95s; }
 .confirmation__total { animation: receiptIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) 1.0s both; }
 .confirmation__cta   { animation: receiptIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) 1.1s both; }
-.confirmation__note  { animation: receiptIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) 1.18s both; }
+
+/* ── SAUI note ─────────────────────────────────── */
+.saui-note {
+  margin-block-start: 2rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.saui-note summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--text);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.saui-note summary::-webkit-details-marker,
+.saui-note summary::marker { display: none; }
+
+.saui-note summary::after {
+  content: '+';
+  color: var(--text-faint);
+  font-size: 1rem;
+  line-height: 1;
+  margin-inline-start: auto;
+  transition: transform var(--t-fast);
+}
+
+.saui-note[open] summary::after { content: '−'; }
+
+.saui-note p {
+  margin-block-start: 0.75rem;
+  line-height: 1.6;
+}
+
+.saui-note code {
+  font-family: ui-monospace, 'Cascadia Code', monospace;
+  font-size: 0.85em;
+  color: var(--teal);
+}
 
 /* ── Reduced motion ────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
@@ -776,8 +812,7 @@ details[open] .cart-saui-note summary::before { transform: rotate(90deg); }
   .btn-add, .item-counter, .item-counter__qty,
   .cart-badge, .cart-body,
   .confirmation__check, .confirmation__title, .confirmation__time,
-  .confirmation__item, .confirmation__total, .confirmation__cta,
-  .confirmation__note { animation: none; }
+  .confirmation__item, .confirmation__total, .confirmation__cta { animation: none; }
 
   .btn-checkout::after { display: none; }
 }
