@@ -35,12 +35,16 @@ templ Base(title string, description string, csrfToken string, currentPath strin
 			<meta property="og:description" content={ description }/>
 			<meta property="og:url" content={ "https://saui.fly.dev" + currentPath }/>
 			<meta property="og:locale" content={ lang.OGLocale() }/>
-			<meta name="twitter:card" content="summary"/>
+			<meta property="og:image" content="https://saui.fly.dev/static/img/og.svg"/>
+			<meta property="og:image:width" content="1200"/>
+			<meta property="og:image:height" content="630"/>
+			<meta name="twitter:card" content="summary_large_image"/>
+			<meta name="twitter:image" content="https://saui.fly.dev/static/img/og.svg"/>
 			<meta name="twitter:site" content="@saui_dev"/>
 			<meta name="twitter:title" content={ title + " — SAUI" }/>
 			<meta name="twitter:description" content={ description }/>
 			<script type="application/ld+json">
-				{"@context":"https://schema.org","@type":"WebSite","name":"SAUI","url":"https://saui.fly.dev","description":"Server-Authoritative UI — a framework for secure, predictable web applications where the server owns all state.","potentialAction":{"@type":"SearchAction","target":"https://saui.fly.dev/search?q={search_term_string}","query-input":"required name=search_term_string"}}
+				{"@context":"https://schema.org","@type":"WebSite","name":"SAUI","url":"https://saui.fly.dev","description":"Server-Authoritative UI — a framework for secure, predictable web applications where the server owns all state."}
 			</script>
 			<link rel="preconnect" href="https://fonts.googleapis.com"/>
 			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
