@@ -1,0 +1,452 @@
+/* ── Design tokens ─────────────────────────────────────────────── */
+:root {
+  --bg:          oklch(11% 0.005 240);
+  --surface:     oklch(16% 0.008 240);
+  --surface-hi:  oklch(20% 0.010 240);
+  --border:      oklch(28% 0.010 240);
+  --border-faint:oklch(22% 0.008 240);
+  --text:        oklch(88% 0.006 240);
+  --text-muted:  oklch(60% 0.008 240);
+  --text-faint:  oklch(38% 0.006 240);
+
+  /* Service: Order (blue) */
+  --order:        oklch(64% 0.17 255);
+  --order-dim:    oklch(22% 0.07 255);
+  --order-border: oklch(32% 0.11 255);
+  --order-text:   oklch(80% 0.12 255);
+
+  /* Service: Inventory (amber) */
+  --inventory:        oklch(72% 0.15 60);
+  --inventory-dim:    oklch(22% 0.06 60);
+  --inventory-border: oklch(32% 0.09 60);
+  --inventory-text:   oklch(82% 0.12 60);
+
+  /* Service: Payment (green) */
+  --payment:        oklch(66% 0.15 145);
+  --payment-dim:    oklch(20% 0.06 145);
+  --payment-border: oklch(30% 0.09 145);
+  --payment-text:   oklch(78% 0.12 145);
+
+  /* Failure (red) */
+  --fail:        oklch(62% 0.20 25);
+  --fail-dim:    oklch(20% 0.08 25);
+  --fail-border: oklch(30% 0.12 25);
+  --fail-text:   oklch(78% 0.15 25);
+
+  --radius-sm: 5px;
+  --radius:    9px;
+  --radius-lg: 14px;
+  --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Reset & base ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+code {
+  font-family: ui-monospace, "Cascadia Code", "SF Mono", monospace;
+  font-size: 0.85em;
+  color: var(--text-muted);
+}
+
+/* ── Demo banner ───────────────────────────────────────────────── */
+.demo-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px;
+  background: oklch(20% 0.08 255);
+  border-bottom: 1px solid var(--order-border);
+  color: var(--order-text);
+  font-size: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.demo-banner__label { font-weight: 600; letter-spacing: 0.02em; }
+.demo-banner__sep   { opacity: 0.4; }
+.demo-banner__note  { opacity: 0.8; color: var(--text-muted); }
+
+.demo-banner__link {
+  margin-inline-start: auto;
+  color: var(--order);
+  opacity: 0.85;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.demo-banner__link:hover { opacity: 1; }
+
+/* ── App shell ─────────────────────────────────────────────────── */
+.app { min-height: 100dvh; display: flex; flex-direction: column; }
+
+.app-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.app-header__inner {
+  max-width: 860px;
+  margin-inline: auto;
+  padding: 14px 24px;
+}
+
+.app-wordmark {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--order);
+}
+
+#main-content {
+  flex: 1;
+  max-width: 860px;
+  margin-inline: auto;
+  width: 100%;
+  padding: 32px 24px 56px;
+}
+
+/* ── Pipeline board ────────────────────────────────────────────── */
+.pipeline-board {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.board-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.order-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.order-num {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.bff-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--order);
+  background: var(--order-dim);
+  border: 1px solid var(--order-border);
+  padding: 3px 8px;
+  border-radius: 99px;
+}
+
+/* ── Pipeline stepper ──────────────────────────────────────────── */
+.pipeline-stepper {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 28px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+}
+
+/* ── Pipeline node ─────────────────────────────────────────────── */
+.pipeline-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  min-width: 90px;
+}
+
+.node-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--surface-hi);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-faint);
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+  position: relative;
+}
+
+.node-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: color 0.25s;
+}
+
+.node-service {
+  font-size: 0.65rem;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+.node-event-id {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.58rem;
+  color: var(--text-faint);
+  letter-spacing: 0.04em;
+  animation: fadeIn 0.4s var(--ease-out) both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Pending node: default (defined above) */
+
+/* Active node */
+.pipeline-node--active .node-icon {
+  border-color: var(--text-faint);
+  background: var(--surface-hi);
+}
+
+.pipeline-node--active .node-label { color: var(--text); }
+
+/* Done states per service */
+.pipeline-node--done.node--order .node-icon {
+  background: var(--order-dim);
+  border-color: var(--order);
+  color: var(--order);
+}
+
+.pipeline-node--done.node--order .node-label { color: var(--order-text); }
+
+.pipeline-node--done.node--inventory .node-icon {
+  background: var(--inventory-dim);
+  border-color: var(--inventory);
+  color: var(--inventory);
+}
+
+.pipeline-node--done.node--inventory .node-label { color: var(--inventory-text); }
+
+.pipeline-node--done.node--payment .node-icon {
+  background: var(--payment-dim);
+  border-color: var(--payment);
+  color: var(--payment);
+}
+
+.pipeline-node--done.node--payment .node-label { color: var(--payment-text); }
+
+/* Failed node */
+.pipeline-node--failed .node-icon {
+  background: var(--fail-dim);
+  border-color: var(--fail);
+  color: var(--fail);
+  animation: shake 0.4s var(--ease-out) both;
+}
+
+.pipeline-node--failed .node-label { color: var(--fail-text); }
+
+@keyframes shake {
+  0%  { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+  100%{ transform: translateX(0); }
+}
+
+/* Pulse ring on just-completed node */
+.pipeline-node--pulse .node-icon::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  opacity: 0;
+  animation: ringPulse 0.7s var(--ease-out) 0.1s both;
+}
+
+@keyframes ringPulse {
+  0%  { inset: -2px; opacity: 0.8; }
+  100%{ inset: -12px; opacity: 0; }
+}
+
+/* ── Pipeline connector ────────────────────────────────────────── */
+.pipeline-connector {
+  flex: 1;
+  height: 2px;
+  min-width: 20px;
+  background: var(--border);
+  transition: background 0.3s;
+}
+
+.pipeline-connector--done { background: var(--order); }
+
+/* ── Action area ───────────────────────────────────────────────── */
+.action-area {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.action-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.action-hint--success { color: var(--payment-text); }
+.action-hint--cancelled { color: var(--fail-text); }
+
+.action-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.action-form { display: contents; }
+
+.btn-action {
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 9px 18px;
+  letter-spacing: 0.01em;
+  transition: background 0.15s, transform 0.1s, border-color 0.15s;
+}
+
+.btn-action:active { transform: scale(0.97); }
+
+.btn-action--primary {
+  background: var(--order-dim);
+  color: var(--order-text);
+  border-color: var(--order-border);
+}
+
+.btn-action--primary:hover { background: oklch(26% 0.09 255); }
+
+.btn-action--inventory {
+  background: var(--inventory-dim);
+  color: var(--inventory-text);
+  border-color: var(--inventory-border);
+}
+
+.btn-action--inventory:hover { background: oklch(26% 0.08 60); }
+
+.btn-action--payment {
+  background: var(--payment-dim);
+  color: var(--payment-text);
+  border-color: var(--payment-border);
+}
+
+.btn-action--payment:hover { background: oklch(24% 0.08 145); }
+
+.btn-action--fail {
+  background: var(--fail-dim);
+  color: var(--fail-text);
+  border-color: var(--fail-border);
+}
+
+.btn-action--fail:hover { background: oklch(24% 0.10 25); }
+
+.btn-action--ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+
+.btn-action--ghost:hover { color: var(--text); border-color: var(--text-faint); }
+
+/* ── Event log ─────────────────────────────────────────────────── */
+.event-log {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.event-log__heading {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border-faint);
+}
+
+.event-log__list {
+  list-style: none;
+}
+
+.event-row {
+  display: grid;
+  grid-template-columns: 90px 1fr auto auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border-faint);
+  font-size: 0.78rem;
+  transition: background 0.1s;
+}
+
+.event-row:last-child { border-bottom: none; }
+.event-row:first-child { animation: rowSlideIn 0.35s var(--ease-out) both; }
+.event-row:hover { background: var(--surface-hi); }
+
+@keyframes rowSlideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.event-id {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.68rem;
+  color: var(--text-faint);
+  letter-spacing: 0.04em;
+}
+
+.event-type { color: var(--text); font-weight: 500; }
+
+.event-service {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 2px 7px;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+
+.log--order-badge      { background: var(--order-dim);     color: var(--order-text);     border: 1px solid var(--order-border); }
+.log--inventory-badge  { background: var(--inventory-dim); color: var(--inventory-text); border: 1px solid var(--inventory-border); }
+.log--payment-badge    { background: var(--payment-dim);   color: var(--payment-text);   border: 1px solid var(--payment-border); }
+
+.event-time {
+  font-size: 0.68rem;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ── Reduced motion ────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .pipeline-node--pulse .node-icon::after,
+  .pipeline-node--failed .node-icon,
+  .event-row:first-child,
+  .node-event-id { animation: none; }
+  .node-icon, .node-label, .pipeline-connector { transition: none; }
+}
