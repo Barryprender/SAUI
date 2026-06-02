@@ -26,6 +26,26 @@ templ Blog(csrfToken string, lang locale.Lang) {
 		<article>
 			<ol class="blog-listing">
 				<li class="blog-listing__post">
+					<a class="blog-listing__thumb" href={ templ.URL(lang.Prefix() + "/blog/supply-chain") } tabindex="-1" aria-hidden="true">
+						<img
+							src="/static/img/blog-supply-chain.svg"
+							alt=""
+							width="320"
+							height="180"
+							loading="lazy"
+							decoding="async"
+						/>
+					</a>
+					<div class="blog-listing__body">
+						<time class="blog-listing__date" datetime="2026-06-02">{ lang.T("2 June 2026", "2 de junio de 2026") }</time>
+						<h2><a href={ templ.URL(lang.Prefix() + "/blog/supply-chain") }>{ lang.T("The dependency you didn't write", "La dependencia que no escribiste") }</a></h2>
+						<p>{ lang.T(
+							"Supply chain attacks are not a vulnerability problem — they are an architectural one. How conservative, server-side approaches reduce exposure at the structural level.",
+							"Los ataques a la cadena de suministro no son un problema de vulnerabilidades, sino arquitectónico. Cómo los enfoques conservadores del lado del servidor reducen la exposición a nivel estructural.",
+						) }</p>
+					</div>
+				</li>
+				<li class="blog-listing__post">
 					<a class="blog-listing__thumb" href={ templ.URL(lang.Prefix() + "/blog/server-response-time") } tabindex="-1" aria-hidden="true">
 						<img
 							src="/static/img/blog-server-response-time.jpg"
