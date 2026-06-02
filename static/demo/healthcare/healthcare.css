@@ -1,0 +1,392 @@
+/* ── Design tokens ─────────────────────────────────────────────── */
+:root {
+  --bg:            oklch(97% 0.006 295);
+  --surface:       oklch(99.5% 0.002 295);
+  --surface-raised: oklch(100% 0 0);
+  --accent:        oklch(48% 0.16 295);
+  --accent-dim:    oklch(55% 0.12 295);
+  --accent-tint:   oklch(95% 0.04 295);
+  --accent-border: oklch(85% 0.06 295);
+  --text:          oklch(18% 0.012 295);
+  --text-muted:    oklch(50% 0.01 295);
+  --text-faint:    oklch(68% 0.008 295);
+  --border:        oklch(88% 0.008 295);
+  --taken-bg:      oklch(95% 0.002 0);
+  --taken-border:  oklch(86% 0.004 0);
+  --taken-text:    oklch(55% 0.006 0);
+  --mine-bg:       var(--accent-tint);
+  --mine-border:   var(--accent-border);
+  --radius-sm:     6px;
+  --radius:        10px;
+  --radius-lg:     14px;
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Reset & base ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Demo banner ───────────────────────────────────────────────── */
+.demo-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px;
+  background: var(--accent);
+  color: oklch(97% 0.01 295);
+  font-size: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.demo-banner__label {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.demo-banner__sep { opacity: 0.5; }
+
+.demo-banner__note { opacity: 0.85; }
+
+.demo-banner__link {
+  margin-inline-start: auto;
+  color: inherit;
+  opacity: 0.85;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.demo-banner__link:hover { opacity: 1; }
+
+/* ── App shell ─────────────────────────────────────────────────── */
+.app {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-raised);
+}
+
+.app-header__inner {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding: 14px 24px;
+}
+
+.app-wordmark {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--accent);
+}
+
+#main-content {
+  flex: 1;
+  max-width: 1100px;
+  margin-inline: auto;
+  width: 100%;
+  padding: 32px 24px 48px;
+}
+
+/* ── Schedule layout ───────────────────────────────────────────── */
+.schedule-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .schedule-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Schedule section ──────────────────────────────────────────── */
+.schedule-section { }
+
+.schedule-heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-block-end: 24px;
+  letter-spacing: -0.01em;
+}
+
+.day-group { margin-block-end: 28px; }
+
+.day-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-block-end: 8px;
+  padding-block-end: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.slots-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ── Slot row ──────────────────────────────────────────────────── */
+.slot-row {
+  display: grid;
+  grid-template-columns: 52px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  animation: slotIn 0.3s var(--ease-out) both;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.slot-row--mine {
+  background: var(--mine-bg);
+  border-color: var(--mine-border);
+}
+
+.slot-row--taken {
+  background: var(--taken-bg);
+  border-color: var(--taken-border);
+}
+
+@keyframes slotIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.slot-time {
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+
+.slot-row--taken .slot-time { color: var(--taken-text); }
+
+.slot-doctor { min-width: 0; }
+
+.slot-doctor__name {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.slot-row--taken .slot-doctor__name { color: var(--taken-text); }
+
+.slot-doctor__specialty {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-faint);
+  margin-block-start: 1px;
+}
+
+.slot-action { display: flex; align-items: center; }
+
+.slot-form { display: contents; }
+
+/* ── Badges ────────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 99px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.badge--mine {
+  background: var(--accent-tint);
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
+}
+
+.badge--taken {
+  background: var(--taken-bg);
+  color: var(--taken-text);
+  border: 1px solid var(--taken-border);
+}
+
+/* ── Book button ───────────────────────────────────────────────── */
+.btn-book {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: oklch(98% 0.005 295);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: background 0.15s, transform 0.1s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-book::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, oklch(98% 0.01 295 / 0.18) 50%, transparent 100%);
+  transform: translateX(-100%);
+  transition: transform 0s;
+}
+
+.btn-book:hover { background: var(--accent-dim); }
+
+.btn-book:active { transform: scale(0.96); }
+
+.btn-book:hover::after {
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+/* ── Booking panel ─────────────────────────────────────────────── */
+.booking-panel {
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  position: sticky;
+  top: 24px;
+}
+
+.panel-heading {
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-block-end: 16px;
+  padding-block-end: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.panel-empty {
+  font-size: 0.875rem;
+  color: var(--text-faint);
+  padding-block: 8px;
+}
+
+.bookings-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.booking-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px;
+  background: var(--accent-tint);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius);
+  animation: bookingIn 0.35s var(--ease-out) both;
+}
+
+@keyframes bookingIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.booking-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.booking-doctor {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.booking-when {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.booking-event-id {
+  font-size: 0.68rem;
+  font-family: ui-monospace, "Cascadia Code", "SF Mono", Menlo, monospace;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  margin-block-start: 4px;
+}
+
+/* Typewriter reveal for freshly booked event ID */
+.booking-event-id--new {
+  clip-path: inset(0 100% 0 0);
+  animation: typeReveal 0.55s steps(10, end) 0.15s both;
+}
+
+@keyframes typeReveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+
+/* ── Cancel button ─────────────────────────────────────────────── */
+.booking-cancel { display: contents; }
+
+.btn-cancel {
+  appearance: none;
+  border: 1px solid var(--accent-border);
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  align-self: center;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.btn-cancel:hover {
+  background: var(--accent);
+  color: oklch(98% 0.005 295);
+  border-color: var(--accent);
+}
+
+/* ── Reduced motion ────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .slot-row,
+  .booking-item,
+  .booking-event-id--new,
+  .btn-book::after {
+    animation: none;
+    transition: none;
+    clip-path: none;
+  }
+}
