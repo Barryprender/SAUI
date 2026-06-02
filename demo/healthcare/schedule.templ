@@ -1,0 +1,22 @@
+package healthcare
+
+templ Schedule(proj ScheduleProjection, csrfToken string) {
+	@Layout("Book an appointment") {
+		<div class="schedule-layout">
+			<section class="schedule-section" aria-labelledby="schedule-heading">
+				<h2 id="schedule-heading" class="schedule-heading">Available appointments</h2>
+				for _, day := range proj.Days {
+					<div class="day-group">
+						<h3 class="day-label">{ day.Day }</h3>
+						<ul class="slots-list">
+							for _, slot := range day.Slots {
+								@SlotRow(slot, csrfToken)
+							}
+						</ul>
+					</div>
+				}
+			</section>
+			@BookingPanel(proj, csrfToken, "")
+		</div>
+	}
+}

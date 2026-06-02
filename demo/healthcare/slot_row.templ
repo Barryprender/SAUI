@@ -1,0 +1,44 @@
+package healthcare
+
+templ slotRowInner(slot ScheduleSlot, csrfToken string) {
+	<div class="slot-time">{ slot.Time }</div>
+	<div class="slot-doctor">
+		<span class="slot-doctor__name">{ slot.DoctorName }</span>
+		<span class="slot-doctor__specialty">{ slot.Specialty }</span>
+	</div>
+	<div class="slot-action">
+		switch slot.Status {
+		case SlotAvailable:
+			<form
+				hx-post="/demo/healthcare/book"
+				hx-target="#booking-panel"
+				hx-swap="outerHTML"
+				class="slot-form"
+			>
+				<input type="hidden" name="_csrf" value={ csrfToken }/>
+				<input type="hidden" name="slot_id" value={ slot.ID }/>
+				<button type="submit" class="btn-book">Book</button>
+			</form>
+		case SlotBookedByMe:
+			<span class="badge badge--mine">Your appointment</span>
+		case SlotBookedByOther:
+			<span class="badge badge--taken">Unavailable</span>
+		}
+	</div>
+}
+
+templ SlotRow(slot ScheduleSlot, csrfToken string) {
+	<li id={ "slot-" + slot.ID } class={ "slot-row slot-row--" + slotStatusClass(slot.Status) }>
+		@slotRowInner(slot, csrfToken)
+	</li>
+}
+
+templ SlotRowOOB(slot ScheduleSlot, csrfToken string) {
+	<li
+		id={ "slot-" + slot.ID }
+		hx-swap-oob={ "outerHTML:#slot-" + slot.ID }
+		class={ "slot-row slot-row--" + slotStatusClass(slot.Status) }
+	>
+		@slotRowInner(slot, csrfToken)
+	</li>
+}

@@ -1,0 +1,38 @@
+package healthcare
+
+import "fmt"
+
+templ BookingPanel(proj ScheduleProjection, csrfToken string, justBookedSlotID string) {
+	<aside id="booking-panel" class="booking-panel">
+		<h2 class="panel-heading">Your appointments</h2>
+		if len(proj.MyBookings) == 0 {
+			<p class="panel-empty">No appointments booked yet.</p>
+		} else {
+			<ul class="bookings-list">
+				for _, b := range proj.MyBookings {
+					<li class="booking-item">
+						<div class="booking-info">
+							<span class="booking-doctor">{ b.DoctorName }</span>
+							<span class="booking-when">{ b.Day } · { b.Time }</span>
+							<span class={ "booking-event-id" + justBookedClass(b.SlotID, justBookedSlotID) }>
+								{ fmt.Sprintf("EVT-%06d", b.EventID) }
+							</span>
+						</div>
+						<form
+							hx-post="/demo/healthcare/cancel"
+							hx-target="#booking-panel"
+							hx-swap="outerHTML"
+							class="booking-cancel"
+						>
+							<input type="hidden" name="_csrf" value={ csrfToken }/>
+							<input type="hidden" name="slot_id" value={ b.SlotID }/>
+							<button type="submit" class="btn-cancel" aria-label={ "Cancel appointment with " + b.DoctorName }>
+								Cancel
+							</button>
+						</form>
+					</li>
+				}
+			</ul>
+		}
+	</aside>
+}
