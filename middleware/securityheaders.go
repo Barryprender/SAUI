@@ -7,7 +7,7 @@ import (
 
 func buildCSP() string {
 	scriptSrc := "'self'"
-	connectSrc := "'self'"
+	connectSrc := "'self' https://fonts.googleapis.com https://fonts.gstatic.com"
 	if os.Getenv("APP_ENV") == "development" {
 		scriptSrc += " http://localhost:8400"
 		connectSrc += " http://localhost:8400"
