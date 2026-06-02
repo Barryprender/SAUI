@@ -100,6 +100,14 @@ func main() {
 	mux.Handle("POST /demo/banking/transfer", page(h.BankingTransferSubmit))
 	mux.Handle("GET /demo/banking/confirmation", page(h.BankingConfirmation))
 
+	mux.Handle("GET /demo/healthcare", page(h.HealthcareSchedule))
+	mux.Handle("POST /demo/healthcare/book", page(h.HealthcareBook))
+	mux.Handle("POST /demo/healthcare/cancel", page(h.HealthcareCancel))
+
+	mux.Handle("GET /demo/saas", page(h.SAASDashboard))
+	mux.Handle("POST /demo/saas/invite", page(h.SAASInvite))
+	mux.Handle("POST /demo/saas/archive", page(h.SAASArchive))
+
 	srv := &http.Server{
 		Addr: cfg.addr,
 		Handler: middleware.Chain(mux,
