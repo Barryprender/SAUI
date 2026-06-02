@@ -111,6 +111,10 @@ func main() {
 	mux.Handle("GET /demo/distributed", page(h.DistributedPipeline))
 	mux.Handle("POST /demo/distributed/advance", page(h.DistributedAdvance))
 
+	mux.Handle("GET /demo/mfe", page(h.MFEWorkspace))
+	mux.Handle("POST /demo/mfe/toggle", page(h.MFEToggle))
+	mux.Handle("POST /demo/mfe/create", page(h.MFECreate))
+
 	srv := &http.Server{
 		Addr: cfg.addr,
 		Handler: middleware.Chain(mux,
