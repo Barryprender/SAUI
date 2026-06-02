@@ -27,6 +27,7 @@ templ CaseFoodOrdering(csrfToken string, lang locale.Lang) {
 					"Cart state on the client creates three classes of problem that are structural, not implementation errors.",
 					"El estado del carrito en el cliente crea tres clases de problemas que son estructurales, no errores de implementación.",
 				) }</p>
+				<a href="/demo/food-ordering" class="demo-link">{ lang.T("Try the live demo →", "Probar la demo en vivo →") }</a>
 			</div>
 		</section>
 		<article>
@@ -141,7 +142,6 @@ templ CaseFoodOrdering(csrfToken string, lang locale.Lang) {
 					valida el modelo de lectura. La prueba de renderizado HTML es una instantánea.
 					Sin sincronización que probar.`,
 				) }</p>
-				<p><a href="/demo/food-ordering" class="btn">{ lang.T("Try the live demo →", "Probar la demo en vivo →") }</a></p>
 				<p><a href={ templ.URL(lang.Prefix() + "/cases/banking") }>{ lang.T("Next: Banking", "Siguiente: Banca") }</a></p>
 			</section>
 		</article>
