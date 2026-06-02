@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="48%" r="80%" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#0d1728"/>
+      <stop offset="100%" stop-color="#050911"/>
+    </radialGradient>
+    <pattern id="dots" x="0" y="0" width="44" height="44" patternUnits="userSpaceOnUse">
+      <circle cx="22" cy="22" r="0.9" fill="#4b6480" opacity="0.32"/>
+    </pattern>
+    <filter id="f-red" x="-150%" y="-150%" width="400%" height="400%">
+      <feGaussianBlur stdDeviation="18" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="f-orange" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="f-blue" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="9" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#dots)"/>
+
+  <!-- Far-field decorative nodes -->
+  <g fill="none" stroke="#1a3060" stroke-width="1.4" opacity="0.2">
+    <circle cx="130" cy="155" r="7"/>
+    <circle cx="70"  cy="390" r="5"/>
+    <circle cx="170" cy="605" r="8"/>
+    <circle cx="280" cy="790" r="6"/>
+    <circle cx="460" cy="820" r="7"/>
+    <circle cx="645" cy="835" r="5"/>
+    <circle cx="820" cy="845" r="6"/>
+    <circle cx="990" cy="830" r="5"/>
+    <circle cx="1155" cy="800" r="7"/>
+    <circle cx="1310" cy="740" r="6"/>
+    <circle cx="1435" cy="612" r="8"/>
+    <circle cx="1500" cy="435" r="5"/>
+    <circle cx="1450" cy="250" r="7"/>
+    <circle cx="1320" cy="140" r="6"/>
+    <circle cx="1155" cy="82"  r="5"/>
+    <circle cx="990"  cy="55"  r="7"/>
+    <circle cx="600"  cy="65"  r="5"/>
+    <circle cx="395"  cy="115" r="6"/>
+    <circle cx="195"  cy="42"  r="4"/>
+    <circle cx="1050" cy="200" r="5"/>
+    <circle cx="1230" cy="190" r="6"/>
+  </g>
+
+  <!-- Far-field faint connections -->
+  <g stroke="#1a3060" stroke-width="1" opacity="0.1">
+    <line x1="130"  y1="155" x2="395"  y2="115"/>
+    <line x1="70"   y1="390" x2="170"  y2="605"/>
+    <line x1="280"  y1="790" x2="460"  y2="820"/>
+    <line x1="1500" y1="435" x2="1435" y2="612"/>
+    <line x1="1320" y1="140" x2="1450" y2="250"/>
+    <line x1="1155" y1="82"  x2="1230" y2="190"/>
+    <line x1="990"  y1="55"  x2="1050" y2="200"/>
+  </g>
+
+  <!-- Normal dependency edges (dim blue) -->
+  <g stroke="#1d3e78" stroke-width="1.8" opacity="0.52">
+    <!-- App → direct dep left (d1) -->
+    <line x1="800" y1="108" x2="542" y2="256"/>
+    <!-- App → direct dep right (d3) -->
+    <line x1="800" y1="108" x2="1058" y2="256"/>
+    <!-- d1 → t1 -->
+    <line x1="542" y1="256" x2="428" y2="412"/>
+    <!-- d1 → t2 -->
+    <line x1="542" y1="256" x2="598" y2="430"/>
+    <!-- d2 (attack) → t4 (non-attack branch) -->
+    <line x1="800" y1="272" x2="946" y2="432"/>
+    <!-- d3 → t5 -->
+    <line x1="1058" y1="256" x2="1118" y2="402"/>
+    <!-- t1 → dp1 -->
+    <line x1="428" y1="412" x2="338" y2="578"/>
+    <!-- t1 → dp2 -->
+    <line x1="428" y1="412" x2="492" y2="595"/>
+    <!-- t2 → dp3 -->
+    <line x1="598" y1="430" x2="528" y2="598"/>
+    <!-- t3 (attack) → dp4 (non-attack branch) -->
+    <line x1="762" y1="448" x2="845" y2="596"/>
+    <!-- t4 → dp5 -->
+    <line x1="946" y1="432" x2="1008" y2="580"/>
+    <!-- t5 → dp6 -->
+    <line x1="1118" y1="402" x2="1148" y2="554"/>
+  </g>
+
+  <!-- Attack path edges (orange glow: app → d2 → t3 → compromised) -->
+  <g filter="url(#f-orange)">
+    <g stroke="#f97316" stroke-width="2.8" stroke-linecap="round" opacity="0.88">
+      <line x1="800" y1="108" x2="800" y2="272"/>
+      <line x1="800" y1="272" x2="762" y2="448"/>
+      <line x1="762" y1="448" x2="682" y2="620"/>
+    </g>
+  </g>
+
+  <!-- Normal dep nodes -->
+  <g fill="#080e1c" stroke="#1d4a8a" stroke-width="1.8">
+    <!-- direct left (d1) -->
+    <circle cx="542"  cy="256" r="18"/>
+    <!-- direct right (d3) -->
+    <circle cx="1058" cy="256" r="18"/>
+    <!-- transitive t1, t2, t4, t5 -->
+    <circle cx="428"  cy="412" r="14"/>
+    <circle cx="598"  cy="430" r="14"/>
+    <circle cx="946"  cy="432" r="14"/>
+    <circle cx="1118" cy="402" r="14"/>
+    <!-- deep deps -->
+    <circle cx="338"  cy="578" r="10"/>
+    <circle cx="492"  cy="595" r="10"/>
+    <circle cx="528"  cy="598" r="10"/>
+    <circle cx="845"  cy="596" r="10"/>
+    <circle cx="1008" cy="580" r="10"/>
+    <circle cx="1148" cy="554" r="10"/>
+  </g>
+
+  <!-- Attack path intermediate nodes (orange border: d2, t3) -->
+  <g fill="#0d1a30" stroke="#f97316" stroke-width="2.2">
+    <circle cx="800" cy="272" r="18"/>
+    <circle cx="762" cy="448" r="14"/>
+  </g>
+
+  <!-- Compromised node pulse rings -->
+  <circle cx="682" cy="620" r="34" fill="none" stroke="#dc2626" stroke-width="1.2" opacity="0.22"/>
+  <circle cx="682" cy="620" r="48" fill="none" stroke="#dc2626" stroke-width="0.8" opacity="0.1"/>
+
+  <!-- Compromised node (red glow) -->
+  <g filter="url(#f-red)">
+    <circle cx="682" cy="620" r="20" fill="#2c0707" stroke="#dc2626" stroke-width="3"/>
+  </g>
+  <text x="682" y="626" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#f87171">✕</text>
+
+  <!-- App node (blue glow) -->
+  <g filter="url(#f-blue)">
+    <circle cx="800" cy="100" r="28" fill="#091e3e" stroke="#3b82f6" stroke-width="3"/>
+  </g>
+  <!-- App icon -->
+  <rect x="789" y="89" width="22" height="22" rx="4" fill="none" stroke="#60a5fa" stroke-width="1.6" opacity="0.85"/>
+  <line x1="793" y1="95" x2="807" y2="95" stroke="#60a5fa" stroke-width="1.4" opacity="0.85"/>
+  <line x1="793" y1="100" x2="807" y2="100" stroke="#60a5fa" stroke-width="1.4" opacity="0.6"/>
+  <line x1="793" y1="105" x2="802" y2="105" stroke="#60a5fa" stroke-width="1.4" opacity="0.4"/>
+
+  <!-- Text annotations -->
+  <text x="800" y="56" text-anchor="middle" font-family="ui-monospace, 'Cascadia Code', monospace" font-size="11" fill="#60a5fa" letter-spacing="0.14em" opacity="0.88">YOUR APPLICATION</text>
+
+  <text x="682" y="664" text-anchor="middle" font-family="ui-monospace, 'Cascadia Code', monospace" font-size="10" fill="#f87171" letter-spacing="0.1em" opacity="0.82">COMPROMISED PACKAGE</text>
+
+  <!-- Attack path label -->
+  <text x="835" y="310" font-family="ui-monospace, 'Cascadia Code', monospace" font-size="10" fill="#fb923c" letter-spacing="0.08em" opacity="0.65" transform="rotate(-74 835 310)">attack path</text>
+
+  <!-- Dependency count callout -->
+  <rect x="1290" y="130" width="238" height="58" rx="6" fill="#0a1224" stroke="#1e3a6e" stroke-width="1" opacity="0.8"/>
+  <text x="1409" y="153" text-anchor="middle" font-family="ui-monospace, 'Cascadia Code', monospace" font-size="11" fill="#64748b" letter-spacing="0.06em">typical SPA project</text>
+  <text x="1409" y="173" text-anchor="middle" font-family="ui-monospace, 'Cascadia Code', monospace" font-size="13" font-weight="600" fill="#94a3b8" letter-spacing="0.04em">1,200+ transitive deps</text>
+
+  <!-- npm registry callout -->
+  <rect x="72" y="130" width="220" height="58" rx="6" fill="#0a1224" stroke="#1e3a6e" stroke-width="1" opacity="0.8"/>
+  <text x="182" y="153" text-anchor="middle" font-family="ui-monospace, 'Cascadia Code', monospace" font-size="11" fill="#64748b" letter-spacing="0.06em">npm registry</text>
+  <text x="182" y="173" text-anchor="middle" font-family="ui-monospace, 'Cascadia Code', monospace" font-size="13" font-weight="600" fill="#94a3b8" letter-spacing="0.04em">2.5M packages</text>
+
+  <!-- Bottom caption bar -->
+  <rect x="0" y="858" width="1600" height="42" fill="#04070f" opacity="0.72"/>
+  <text x="800" y="884" text-anchor="middle" font-family="ui-monospace, 'Cascadia Code', monospace" font-size="11" fill="#334155" letter-spacing="0.18em">SUPPLY CHAIN VULNERABILITY · TRANSITIVE DEPENDENCY COMPROMISE · TRUST BOUNDARY</text>
+</svg>
