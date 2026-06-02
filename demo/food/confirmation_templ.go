@@ -118,7 +118,7 @@ func Confirmation(order OrderProjection) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</strong></div></div><div class=\"confirmation__cta\"><a href=\"/demo/food-ordering\" class=\"btn-back\">Order again</a></div><p class=\"confirmation__note\">This order is a durable event in the server's append-only log. It cannot be altered retroactively — not by the client, not by anyone.</p></article>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</strong></div></div><div class=\"confirmation__cta\"><a href=\"/demo/food-ordering\" class=\"btn-back\">Order again</a></div><details class=\"saui-note\"><summary>How does this work?</summary><p>This receipt is sealed. At checkout, a single <code>order.placed</code> event was appended to the server's log, capturing every item name, quantity, and price at the moment you confirmed. Even if the menu changes tomorrow, this order is locked to what was agreed at checkout — the event cannot be altered by the client, the server, or anyone else. No cart state exists in the browser; the browser held no prices, no totals, nothing to tamper with.</p></details></article>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
