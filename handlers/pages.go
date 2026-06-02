@@ -184,6 +184,18 @@ func (h *Handler) BlogES(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func (h *Handler) BlogPostSupplyChain(w http.ResponseWriter, r *http.Request) {
+	if err := pages.BlogPostSupplyChain(middleware.CSRFToken(r), locale.EN).Render(r.Context(), w); err != nil {
+		h.logger.Error("render blog post", "err", err)
+	}
+}
+
+func (h *Handler) BlogPostSupplyChainES(w http.ResponseWriter, r *http.Request) {
+	if err := pages.BlogPostSupplyChain(middleware.CSRFToken(r), locale.ES).Render(r.Context(), w); err != nil {
+		h.logger.Error("render blog post es", "err", err)
+	}
+}
+
 func (h *Handler) BlogPostServerResponseTime(w http.ResponseWriter, r *http.Request) {
 	if err := pages.BlogPostServerResponseTime(middleware.CSRFToken(r), locale.EN).Render(r.Context(), w); err != nil {
 		h.logger.Error("render blog post", "err", err)
