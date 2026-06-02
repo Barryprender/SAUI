@@ -1,0 +1,222 @@
+package mfe
+
+import "fmt"
+
+// AlphaPanel renders the Team Alpha task board.
+templ AlphaPanel(proj WorkspaceProjection, csrfToken string) {
+	<section id="mfe-alpha" class="mfe-panel mfe-panel--alpha" aria-label="Team Alpha — Task Board">
+		<header class="panel-header">
+			<span class="panel-team">Team Alpha</span>
+			<span class="panel-role">Task Board</span>
+		</header>
+		<ul class="task-list" aria-label="Tasks">
+			for _, t := range proj.Tasks {
+				<li class={ taskRowClass(t, proj.JustToggled) }>
+					<form
+						hx-post="/demo/mfe/toggle"
+						hx-target="#mfe-alpha"
+						hx-swap="outerHTML"
+						hx-include="[name='_csrf']"
+						class="task-toggle-form"
+					>
+						<input type="hidden" name="_csrf" value={ csrfToken }/>
+						<input type="hidden" name="task_id" value={ t.ID }/>
+						<button
+							type="submit"
+							class="task-check"
+							aria-label={ fmt.Sprintf("Toggle: %s", t.Title) }
+							aria-pressed={ fmt.Sprintf("%v", t.Completed) }
+						>
+							if t.Completed {
+								<svg aria-hidden="true" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+							} else {
+								<span class="task-check__empty"></span>
+							}
+						</button>
+						<span class="task-title">{ t.Title }</span>
+					</form>
+				</li>
+			}
+		</ul>
+		<form
+			hx-post="/demo/mfe/create"
+			hx-target="#mfe-alpha"
+			hx-swap="outerHTML"
+			class="create-form"
+			aria-label="Add task"
+		>
+			<input type="hidden" name="_csrf" value={ csrfToken }/>
+			<secure-input type="text" name="title" placeholder="Add a task…" autocomplete="off" maxlength="120" security-tier="public"></secure-input>
+			<button type="submit" class="btn-create" aria-label="Add task">+</button>
+		</form>
+	</section>
+}
+
+// AlphaPanelOOB is the same panel wrapped with an OOB swap attribute.
+templ AlphaPanelOOB(proj WorkspaceProjection, csrfToken string) {
+	<section id="mfe-alpha" hx-swap-oob="outerHTML:#mfe-alpha" class="mfe-panel mfe-panel--alpha" aria-label="Team Alpha — Task Board">
+		<header class="panel-header">
+			<span class="panel-team">Team Alpha</span>
+			<span class="panel-role">Task Board</span>
+		</header>
+		<ul class="task-list" aria-label="Tasks">
+			for _, t := range proj.Tasks {
+				<li class={ taskRowClass(t, proj.JustToggled) }>
+					<form
+						hx-post="/demo/mfe/toggle"
+						hx-target="#mfe-alpha"
+						hx-swap="outerHTML"
+						hx-include="[name='_csrf']"
+						class="task-toggle-form"
+					>
+						<input type="hidden" name="_csrf" value={ csrfToken }/>
+						<input type="hidden" name="task_id" value={ t.ID }/>
+						<button
+							type="submit"
+							class="task-check"
+							aria-label={ fmt.Sprintf("Toggle: %s", t.Title) }
+							aria-pressed={ fmt.Sprintf("%v", t.Completed) }
+						>
+							if t.Completed {
+								<svg aria-hidden="true" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+							} else {
+								<span class="task-check__empty"></span>
+							}
+						</button>
+						<span class="task-title">{ t.Title }</span>
+					</form>
+				</li>
+			}
+		</ul>
+		<form
+			hx-post="/demo/mfe/create"
+			hx-target="#mfe-alpha"
+			hx-swap="outerHTML"
+			class="create-form"
+			aria-label="Add task"
+		>
+			<input type="hidden" name="_csrf" value={ csrfToken }/>
+			<secure-input type="text" name="title" placeholder="Add a task…" autocomplete="off" maxlength="120" security-tier="public"></secure-input>
+			<button type="submit" class="btn-create" aria-label="Add task">+</button>
+		</form>
+	</section>
+}
+
+// BetaPanel renders the Team Beta activity feed.
+templ BetaPanel(proj WorkspaceProjection) {
+	<section id="mfe-beta" class="mfe-panel mfe-panel--beta" aria-label="Team Beta — Activity Feed">
+		<header class="panel-header">
+			<span class="panel-team">Team Beta</span>
+			<span class="panel-role">Activity Feed</span>
+		</header>
+		if len(proj.Feed) == 0 {
+			<p class="panel-empty">No activity yet.</p>
+		} else {
+			<ul class="feed-list" aria-label="Activity">
+				for _, entry := range proj.Feed {
+					<li class={ feedRowClass(entry) }>
+						<span class="feed-label">{ entry.Label }</span>
+						<span class="feed-title">{ entry.TaskTitle }</span>
+						<time class="feed-time" datetime={ entry.OccurredAt.Format("2006-01-02T15:04:05Z") }>{ entry.OccurredAt.Format("15:04:05") }</time>
+					</li>
+				}
+			</ul>
+		}
+	</section>
+}
+
+// BetaPanelOOB renders Team Beta with an OOB swap attribute.
+templ BetaPanelOOB(proj WorkspaceProjection) {
+	<section id="mfe-beta" hx-swap-oob="outerHTML:#mfe-beta" class="mfe-panel mfe-panel--beta" aria-label="Team Beta — Activity Feed">
+		<header class="panel-header">
+			<span class="panel-team">Team Beta</span>
+			<span class="panel-role">Activity Feed</span>
+		</header>
+		if len(proj.Feed) == 0 {
+			<p class="panel-empty">No activity yet.</p>
+		} else {
+			<ul class="feed-list" aria-label="Activity">
+				for _, entry := range proj.Feed {
+					<li class={ feedRowClass(entry) }>
+						<span class="feed-label">{ entry.Label }</span>
+						<span class="feed-title">{ entry.TaskTitle }</span>
+						<time class="feed-time" datetime={ entry.OccurredAt.Format("2006-01-02T15:04:05Z") }>{ entry.OccurredAt.Format("15:04:05") }</time>
+					</li>
+				}
+			</ul>
+		}
+	</section>
+}
+
+// GammaPanel renders the Team Gamma stats panel.
+templ GammaPanel(proj WorkspaceProjection) {
+	<section id="mfe-gamma" class="mfe-panel mfe-panel--gamma" aria-label="Team Gamma — Stats">
+		<header class="panel-header">
+			<span class="panel-team">Team Gamma</span>
+			<span class="panel-role">Stats</span>
+		</header>
+		<div class="stats-body">
+			<dl class="stats-grid">
+				<div class="stat-item">
+					<dd class="stat-value">{ fmt.Sprintf("%d", proj.Stats.Total) }</dd>
+					<dt class="stat-label">total</dt>
+				</div>
+				<div class="stat-item stat-item--completed">
+					<dd class="stat-value">{ fmt.Sprintf("%d", proj.Stats.Completed) }</dd>
+					<dt class="stat-label">completed</dt>
+				</div>
+				<div class="stat-item stat-item--open">
+					<dd class="stat-value">{ fmt.Sprintf("%d", proj.Stats.Open) }</dd>
+					<dt class="stat-label">open</dt>
+				</div>
+			</dl>
+			<div class="progress-bar" role="progressbar" aria-valuenow={ fmt.Sprintf("%d", proj.Stats.CompletePct) } aria-valuemin="0" aria-valuemax="100" aria-label={ fmt.Sprintf("%d%% complete", proj.Stats.CompletePct) }>
+				<div class="progress-bar__fill" style={ progressWidth(proj.Stats.CompletePct) }></div>
+			</div>
+			<p class="progress-label">{ fmt.Sprintf("%d%%", proj.Stats.CompletePct) } complete</p>
+		</div>
+	</section>
+}
+
+// GammaPanelOOB renders Team Gamma with an OOB swap attribute.
+templ GammaPanelOOB(proj WorkspaceProjection) {
+	<section id="mfe-gamma" hx-swap-oob="outerHTML:#mfe-gamma" class="mfe-panel mfe-panel--gamma" aria-label="Team Gamma — Stats">
+		<header class="panel-header">
+			<span class="panel-team">Team Gamma</span>
+			<span class="panel-role">Stats</span>
+		</header>
+		<div class="stats-body">
+			<dl class="stats-grid">
+				<div class="stat-item">
+					<dd class="stat-value">{ fmt.Sprintf("%d", proj.Stats.Total) }</dd>
+					<dt class="stat-label">total</dt>
+				</div>
+				<div class="stat-item stat-item--completed">
+					<dd class="stat-value">{ fmt.Sprintf("%d", proj.Stats.Completed) }</dd>
+					<dt class="stat-label">completed</dt>
+				</div>
+				<div class="stat-item stat-item--open">
+					<dd class="stat-value">{ fmt.Sprintf("%d", proj.Stats.Open) }</dd>
+					<dt class="stat-label">open</dt>
+				</div>
+			</dl>
+			<div class="progress-bar" role="progressbar" aria-valuenow={ fmt.Sprintf("%d", proj.Stats.CompletePct) } aria-valuemin="0" aria-valuemax="100" aria-label={ fmt.Sprintf("%d%% complete", proj.Stats.CompletePct) }>
+				<div class="progress-bar__fill" style={ progressWidth(proj.Stats.CompletePct) }></div>
+			</div>
+			<p class="progress-label">{ fmt.Sprintf("%d%%", proj.Stats.CompletePct) } complete</p>
+		</div>
+	</section>
+}
+
+// Workspace renders the full MFE demo page.
+templ Workspace(proj WorkspaceProjection, csrfToken string) {
+	@Layout("Workspace") {
+		<secure-telemetry-provider>
+			<div class="workspace">
+				@AlphaPanel(proj, csrfToken)
+				@BetaPanel(proj)
+				@GammaPanel(proj)
+			</div>
+		</secure-telemetry-provider>
+	}
+}
