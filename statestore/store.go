@@ -48,6 +48,10 @@ func New(path string, logger *slog.Logger) (*Store, error) {
 		db.Close()
 		return nil, err
 	}
+	if err := s.migrateMFEDemo(); err != nil {
+		db.Close()
+		return nil, err
+	}
 	return s, nil
 }
 
