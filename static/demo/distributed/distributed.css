@@ -43,7 +43,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.5;
@@ -84,17 +84,17 @@ code {
 .demo-banner__link:hover { opacity: 1; }
 
 /* ── App shell ─────────────────────────────────────────────────── */
-.app { min-height: 100dvh; display: flex; flex-direction: column; }
+.app { min-block-size: 100dvh; display: flex; flex-direction: column; }
 
 .app-header {
   background: var(--surface);
-  border-bottom: 1px solid var(--border);
+  border-block-end: 1px solid var(--border);
 }
 
 .app-header__inner {
-  max-width: 860px;
+  max-inline-size: 860px;
   margin-inline: auto;
-  padding: 14px 24px;
+  padding: 0.875rem 1.5rem;
 }
 
 .app-wordmark {
@@ -106,10 +106,10 @@ code {
 
 #main-content {
   flex: 1;
-  max-width: 860px;
+  max-inline-size: 860px;
   margin-inline: auto;
-  width: 100%;
-  padding: 32px 24px 56px;
+  inline-size: 100%;
+  padding: 2rem 1.5rem 3.5rem;
 }
 
 /* ── Pipeline board ────────────────────────────────────────────── */
@@ -440,6 +440,52 @@ code {
   color: var(--text-faint);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
+}
+
+/* ── SAUI note ─────────────────────────────────────────────── */
+.saui-note {
+  margin-block-start: 2rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.saui-note summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.saui-note summary::-webkit-details-marker,
+.saui-note summary::marker { display: none; }
+
+.saui-note summary::after {
+  content: '+';
+  color: var(--text-faint);
+  font-size: 1rem;
+  line-height: 1;
+  margin-inline-start: auto;
+  transition: color 0.15s;
+}
+
+.saui-note[open] summary::after { content: '−'; }
+
+.saui-note p {
+  margin-block-start: 0.75rem;
+  line-height: 1.6;
+}
+
+.saui-note code {
+  font-family: ui-monospace, 'Cascadia Code', monospace;
+  font-size: 0.85em;
+  color: var(--text);
 }
 
 /* ── Reduced motion ────────────────────────────────────────────── */
