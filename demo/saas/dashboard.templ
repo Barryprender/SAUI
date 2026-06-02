@@ -102,5 +102,17 @@ templ Dashboard(proj TeamProjection, csrfToken string) {
 				</form>
 			</details>
 		</div>
+		<details class="saui-note">
+			<summary>How does this work?</summary>
+			<p>
+				The team roster is never stored as a mutable table of users.
+				Every invite, role change, and archive action appends an immutable event to the server's log.
+				The member list you see is a projection recomputed from that log on every request —
+				so the full audit trail is always intact.
+				Archiving a member does not delete their record;
+				it appends a <code>member.archived</code> event, and the projection filters them out.
+				Restoring history is a matter of replaying events, not recovering from deleted rows.
+			</p>
+		</details>
 	}
 }
