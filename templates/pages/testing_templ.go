@@ -46,7 +46,7 @@ func Testing(csrfToken string, lang locale.Lang) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"page-hero\"><div class=\"page-hero__content\"><h1>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"page-hero page-hero--split\"><div class=\"page-hero__content\"><h1>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -75,14 +75,14 @@ func Testing(csrfToken string, lang locale.Lang) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p></div></section><article><section><h2>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p></div><div class=\"page-hero__figure\"><svg class=\"hero-gfx\" viewBox=\"0 0 480 400\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><!-- baseline --><line class=\"hg-edge\" x1=\"70\" y1=\"316\" x2=\"412\" y2=\"316\"></line><!-- SPA bar: large sync segment (fades) + small logic segment --><text class=\"hg-label\" x=\"140\" y=\"100\" text-anchor=\"middle\">SPA tests</text> <rect class=\"hg-block--dim\" x=\"104\" y=\"120\" width=\"72\" height=\"140\"></rect> <rect class=\"hg-block\" x=\"104\" y=\"260\" width=\"72\" height=\"54\"></rect> <rect class=\"hg-edge\" x=\"104\" y=\"120\" width=\"72\" height=\"194\"></rect> <line class=\"hg-edge\" x1=\"104\" y1=\"260\" x2=\"176\" y2=\"260\"></line> <text class=\"hg-label hg-label--dim\" x=\"140\" y=\"182\" text-anchor=\"middle\">state</text> <text class=\"hg-label hg-label--dim\" x=\"140\" y=\"198\" text-anchor=\"middle\">sync</text> <text class=\"hg-label hg-label--accent\" x=\"140\" y=\"292\" text-anchor=\"middle\">logic</text> <text class=\"hg-label hg-label--dim\" x=\"140\" y=\"340\" text-anchor=\"middle\">≈ 120 tests</text><!-- collapse arrow --><line class=\"hg-edge--accent\" x1=\"198\" y1=\"215\" x2=\"290\" y2=\"215\"></line> <path class=\"hg-arrow\" d=\"M290 208 L304 215 L290 222 Z\"></path> <text class=\"hg-label hg-label--accent\" x=\"248\" y=\"205\" text-anchor=\"middle\">collapse</text><!-- SAUI bar: sync gone (ghost), logic remains --><text class=\"hg-label\" x=\"340\" y=\"100\" text-anchor=\"middle\">SAUI tests</text> <rect class=\"hg-block--ghost\" x=\"304\" y=\"120\" width=\"72\" height=\"140\"></rect> <rect class=\"hg-block\" x=\"304\" y=\"260\" width=\"72\" height=\"54\"></rect> <rect class=\"hg-edge\" x=\"304\" y=\"260\" width=\"72\" height=\"54\"></rect> <text class=\"hg-label hg-label--dim\" x=\"340\" y=\"186\" text-anchor=\"middle\">sync</text> <text class=\"hg-label hg-label--dim\" x=\"340\" y=\"202\" text-anchor=\"middle\">removed</text> <text class=\"hg-label hg-label--accent\" x=\"340\" y=\"292\" text-anchor=\"middle\">logic</text> <text class=\"hg-label hg-label--dim\" x=\"340\" y=\"340\" text-anchor=\"middle\">≈ 18 tests</text></svg></div></section><article><section><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var5 string
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("What SPA tests actually test", "Qué prueban realmente las pruebas SPA"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 31, Col: 90}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 60, Col: 90}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -104,7 +104,7 @@ func Testing(csrfToken string, lang locale.Lang) templ.Component {
 					de la confirmación, y que se reconcilia cuando la actualización optimista era incorrecta.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 41, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 70, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -124,7 +124,7 @@ func Testing(csrfToken string, lang locale.Lang) templ.Component {
 					únicamente para verificar que el cliente refleja correctamente al servidor.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 49, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 78, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
@@ -140,7 +140,7 @@ func Testing(csrfToken string, lang locale.Lang) templ.Component {
 				"Cuando se elimina el problema de sincronización, esa superficie de pruebas colapsa.",
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 53, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 82, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
@@ -153,7 +153,7 @@ func Testing(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var9 string
 			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Frontend tests under SAUI", "Pruebas de frontend bajo SAUI"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 56, Col: 78}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 85, Col: 78}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
@@ -171,7 +171,7 @@ func Testing(csrfToken string, lang locale.Lang) templ.Component {
 					dados estos datos de proyección, ¿renderiza esta plantilla el HTML correcto?`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 62, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 91, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
@@ -193,7 +193,7 @@ func Testing(csrfToken string, lang locale.Lang) templ.Component {
 					de proyección no requiere cambios de backend para probarse.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 72, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 101, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
@@ -209,7 +209,7 @@ func Testing(csrfToken string, lang locale.Lang) templ.Component {
 				"La costura entre frontend y backend es el contrato de proyección. Versiónalos.",
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 76, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 105, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -222,7 +222,7 @@ func Testing(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var13 string
 			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Backend tests under SAUI", "Pruebas de backend bajo SAUI"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 79, Col: 76}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 108, Col: 76}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 			if templ_7745c5c3_Err != nil {
@@ -235,7 +235,7 @@ func Testing(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var14 string
 			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("All business logic lives in the backend. Backend tests cover everything meaningful:", "Toda la lógica empresarial vive en el backend. Las pruebas de backend cubren todo lo significativo:"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 80, Col: 206}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 109, Col: 206}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
@@ -248,7 +248,7 @@ func Testing(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var15 string
 			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Action validation: does this action correctly reject invalid state?", "Validación de acciones: ¿rechaza esta acción correctamente el estado inválido?"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 82, Col: 174}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 111, Col: 174}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 			if templ_7745c5c3_Err != nil {
@@ -261,7 +261,7 @@ func Testing(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var16 string
 			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("State transitions: does this action produce the correct event?", "Transiciones de estado: ¿produce esta acción el evento correcto?"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 83, Col: 153}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 112, Col: 153}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 			if templ_7745c5c3_Err != nil {
@@ -274,7 +274,7 @@ func Testing(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var17 string
 			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Projection correctness: does this event log produce the correct read model?", "Corrección de proyección: ¿produce este registro de eventos el modelo de lectura correcto?"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 84, Col: 193}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 113, Col: 193}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 			if templ_7745c5c3_Err != nil {
@@ -287,7 +287,7 @@ func Testing(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var18 string
 			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Authorisation: does the gateway correctly enforce access control?", "Autorización: ¿aplica la pasarela correctamente el control de acceso?"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 85, Col: 161}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 114, Col: 161}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 			if templ_7745c5c3_Err != nil {
@@ -307,7 +307,7 @@ func Testing(csrfToken string, lang locale.Lang) templ.Component {
 					porque no hay capa de sincronización.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 94, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 123, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
 			if templ_7745c5c3_Err != nil {
@@ -320,7 +320,7 @@ func Testing(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var20 string
 			templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Team isolation", "Aislamiento de equipos"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 97, Col: 60}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 126, Col: 60}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
 			if templ_7745c5c3_Err != nil {
@@ -340,7 +340,7 @@ func Testing(csrfToken string, lang locale.Lang) templ.Component {
 					que el contrato de proyección se preserve o se versione.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 105, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 134, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
 			if templ_7745c5c3_Err != nil {
@@ -358,7 +358,7 @@ func Testing(csrfToken string, lang locale.Lang) templ.Component {
 					sin provocar fallos en las pruebas de backend.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 111, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 140, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
 			if templ_7745c5c3_Err != nil {
@@ -376,7 +376,7 @@ func Testing(csrfToken string, lang locale.Lang) templ.Component {
 					Ambos lados pueden evolucionar sin coordinación, siempre que respeten ese contrato.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 117, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 146, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
 			if templ_7745c5c3_Err != nil {
@@ -389,7 +389,7 @@ func Testing(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var24 templ.SafeURL
 			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/limits"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 118, Col: 53}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 147, Col: 53}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
 			if templ_7745c5c3_Err != nil {
@@ -402,7 +402,7 @@ func Testing(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var25 string
 			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("See where SAUI is the wrong choice", "Ver dónde SAUI no es la opción correcta"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 118, Col: 147}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/testing.templ`, Line: 147, Col: 147}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var25))
 			if templ_7745c5c3_Err != nil {

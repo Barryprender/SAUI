@@ -17,13 +17,44 @@ templ Limits(csrfToken string, lang locale.Lang) {
 		"/static/css/limits.css",
 		lang,
 	) {
-		<section class="page-hero">
+		<section class="page-hero page-hero--split">
 			<div class="page-hero__content">
 				<h1>{ lang.T("Limits", "Límites") }</h1>
 				<p class="lead">{ lang.T(
 					"SAUI is the wrong choice for some applications. These are genuine exceptions, not contrived ones.",
 					"SAUI no es la opción correcta para algunas aplicaciones. Estas son excepciones genuinas, no artificiales.",
 				) }</p>
+			</div>
+			<div class="page-hero__figure">
+				<svg class="hero-gfx" viewBox="0 0 480 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<!-- boundary -->
+					<line class="hg-edge--accent" x1="240" y1="74" x2="240" y2="332"></line>
+					<circle class="hg-core" cx="240" cy="66" r="5"></circle>
+					<!-- fits column -->
+					<text class="hg-label hg-label--accent" x="120" y="98" text-anchor="middle">SAUI fits</text>
+					<path class="hg-check" d="M70 138 l5 6 l10 -13"></path>
+					<text class="hg-label" x="96" y="145">CRUD apps</text>
+					<path class="hg-check" d="M70 170 l5 6 l10 -13"></path>
+					<text class="hg-label" x="96" y="177">dashboards</text>
+					<path class="hg-check" d="M70 202 l5 6 l10 -13"></path>
+					<text class="hg-label" x="96" y="209">booking flows</text>
+					<path class="hg-check" d="M70 234 l5 6 l10 -13"></path>
+					<text class="hg-label" x="96" y="241">commerce</text>
+					<path class="hg-check" d="M70 266 l5 6 l10 -13"></path>
+					<text class="hg-label" x="96" y="273">CMS · content</text>
+					<!-- wrong-choice column -->
+					<text class="hg-label hg-label--dim" x="356" y="98" text-anchor="middle">wrong choice</text>
+					<g class="hg-cross"><line x1="262" y1="134" x2="272" y2="144"></line><line x1="272" y1="134" x2="262" y2="144"></line></g>
+					<text class="hg-label hg-label--dim" x="282" y="145">collab editing</text>
+					<g class="hg-cross"><line x1="262" y1="166" x2="272" y2="176"></line><line x1="272" y1="166" x2="262" y2="176"></line></g>
+					<text class="hg-label hg-label--dim" x="282" y="177">canvas · creative</text>
+					<g class="hg-cross"><line x1="262" y1="198" x2="272" y2="208"></line><line x1="272" y1="198" x2="262" y2="208"></line></g>
+					<text class="hg-label hg-label--dim" x="282" y="209">offline-first</text>
+					<g class="hg-cross"><line x1="262" y1="230" x2="272" y2="240"></line><line x1="272" y1="230" x2="262" y2="240"></line></g>
+					<text class="hg-label hg-label--dim" x="282" y="241">games · sims</text>
+					<g class="hg-cross"><line x1="262" y1="262" x2="272" y2="272"></line><line x1="272" y1="262" x2="262" y2="272"></line></g>
+					<text class="hg-label hg-label--dim" x="282" y="273">live order books</text>
+				</svg>
 			</div>
 		</section>
 		<article>

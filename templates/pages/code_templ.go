@@ -47,7 +47,7 @@ func Code(csrfToken string, lang locale.Lang) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"page-hero\"><div class=\"page-hero__content\"><h1>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"page-hero page-hero--split\"><div class=\"page-hero__content\"><h1>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -73,14 +73,14 @@ func Code(csrfToken string, lang locale.Lang) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p></div></section><article><section><h2>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p></div><div class=\"page-hero__figure\"><svg class=\"hero-gfx\" viewBox=\"0 0 480 400\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><rect class=\"hg-fill\" x=\"90\" y=\"70\" width=\"300\" height=\"196\" rx=\"10\"></rect> <line class=\"hg-edge\" x1=\"90\" y1=\"98\" x2=\"390\" y2=\"98\"></line> <circle class=\"hg-node\" cx=\"108\" cy=\"84\" r=\"3.5\"></circle> <circle class=\"hg-node\" cx=\"122\" cy=\"84\" r=\"3.5\"></circle> <circle class=\"hg-node\" cx=\"136\" cy=\"84\" r=\"3.5\"></circle> <text class=\"hg-label hg-label--dim\" x=\"372\" y=\"88\" text-anchor=\"end\">gateway.go</text> <line class=\"hg-stroke\" x1=\"112\" y1=\"128\" x2=\"188\" y2=\"128\"></line> <line class=\"hg-stroke\" x1=\"196\" y1=\"128\" x2=\"264\" y2=\"128\"></line> <line class=\"hg-stroke\" x1=\"132\" y1=\"154\" x2=\"208\" y2=\"154\"></line> <line class=\"hg-stroke\" x1=\"216\" y1=\"154\" x2=\"300\" y2=\"154\"></line> <line class=\"hg-stroke\" x1=\"152\" y1=\"180\" x2=\"212\" y2=\"180\"></line> <line class=\"hg-stroke\" x1=\"132\" y1=\"206\" x2=\"228\" y2=\"206\"></line> <line class=\"hg-stroke\" x1=\"236\" y1=\"206\" x2=\"288\" y2=\"206\"></line> <rect class=\"hg-caret\" x=\"296\" y=\"196\" width=\"7\" height=\"16\"></rect> <line class=\"hg-stroke\" x1=\"112\" y1=\"232\" x2=\"150\" y2=\"232\"></line> <line class=\"hg-edge\" x1=\"120\" y1=\"308\" x2=\"360\" y2=\"308\"></line> <circle class=\"hg-node\" cx=\"120\" cy=\"308\" r=\"6\"></circle> <circle class=\"hg-core\" cx=\"180\" cy=\"308\" r=\"6\"></circle> <circle class=\"hg-node\" cx=\"240\" cy=\"308\" r=\"6\"></circle> <circle class=\"hg-core\" cx=\"300\" cy=\"308\" r=\"6\"></circle> <circle class=\"hg-node\" cx=\"360\" cy=\"308\" r=\"6\"></circle> <text class=\"hg-label hg-label--dim\" x=\"240\" y=\"346\" text-anchor=\"middle\">open source · auditable</text></svg></div></section><article><section><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var5 string
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("This site", "Este sitio"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 29, Col: 43}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 55, Col: 43}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -96,7 +96,7 @@ func Code(csrfToken string, lang locale.Lang) templ.Component {
 				"SAUI.dev está construido sobre la pila que documenta. El código fuente está disponible en GitHub. Cada afirmación arquitectónica hecha en este sitio está demostrada por el código base que lo sirve.",
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 33, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 59, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -109,7 +109,7 @@ func Code(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var7 string
 			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("View source on GitHub", "Ver código fuente en GitHub"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 36, Col: 71}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 62, Col: 71}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
@@ -122,7 +122,7 @@ func Code(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var8 string
 			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Stack", "Tecnología"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 41, Col: 40}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 67, Col: 40}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
@@ -135,7 +135,7 @@ func Code(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var9 string
 			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Go 1.22+ with standard library only for HTTP and templates", "Go 1.22+ con solo biblioteca estándar para HTTP y plantillas"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 43, Col: 144}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 69, Col: 144}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
@@ -148,7 +148,7 @@ func Code(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var10 string
 			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("modernc.org/sqlite: pure Go SQLite, no cgo", "modernc.org/sqlite: SQLite en Go puro, sin cgo"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 44, Col: 113}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 70, Col: 113}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
@@ -161,7 +161,7 @@ func Code(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var11 string
 			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("github.com/a-h/templ: type-safe HTML templates", "github.com/a-h/templ: plantillas HTML con seguridad de tipos"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 45, Col: 131}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 71, Col: 131}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
@@ -174,7 +174,7 @@ func Code(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var12 string
 			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("htmx 2.0: partial DOM updates", "htmx 2.0: actualizaciones parciales del DOM"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 46, Col: 97}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 72, Col: 97}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -187,7 +187,7 @@ func Code(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var13 string
 			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Vanilla CSS and JS: no build step", "CSS y JS vanilla: sin paso de compilación"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 47, Col: 100}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 73, Col: 100}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 			if templ_7745c5c3_Err != nil {
@@ -200,7 +200,7 @@ func Code(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var14 string
 			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Fly.io: single binary deployment", "Fly.io: despliegue de binario único"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 48, Col: 93}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 74, Col: 93}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
@@ -213,7 +213,7 @@ func Code(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var15 string
 			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Running locally", "Ejecutar localmente"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 52, Col: 58}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 78, Col: 58}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 			if templ_7745c5c3_Err != nil {
@@ -230,7 +230,7 @@ templ generate
 go run .
 # open http://localhost:8080`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 57, Col: 29}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 83, Col: 29}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 			if templ_7745c5c3_Err != nil {
@@ -243,7 +243,7 @@ go run .
 			var templ_7745c5c3_Var17 string
 			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Feedback", "Retroalimentación"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 59, Col: 79}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 85, Col: 79}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 			if templ_7745c5c3_Err != nil {
@@ -256,7 +256,7 @@ go run .
 			var templ_7745c5c3_Var18 string
 			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("What do you think?", "¿Qué opinas?"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 60, Col: 56}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 86, Col: 56}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 			if templ_7745c5c3_Err != nil {
@@ -272,7 +272,7 @@ go run .
 				"Los contraargumentos, casos límite y enfoques alternativos son bienvenidos. Este es un argumento arquitectónico, no una página de producto. Empuja hacia atrás.",
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 64, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/code.templ`, Line: 90, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
 			if templ_7745c5c3_Err != nil {

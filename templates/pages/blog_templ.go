@@ -46,7 +46,7 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"page-hero\"><div class=\"page-hero__content\"><h1>Blog</h1><p class=\"lead\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"page-hero page-hero--split\"><div class=\"page-hero__content\"><h1>Blog</h1><p class=\"lead\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -59,14 +59,14 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</p></div></section><article><ol class=\"blog-listing\"><li class=\"blog-listing__post\"><a class=\"blog-listing__thumb\" href=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</p></div><div class=\"page-hero__figure\"><svg class=\"hero-gfx\" viewBox=\"0 0 480 400\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><rect class=\"hg-fill\" x=\"90\" y=\"86\" width=\"300\" height=\"76\" rx=\"10\"></rect> <rect class=\"hg-core\" x=\"90\" y=\"86\" width=\"7\" height=\"76\" rx=\"3.5\"></rect> <rect class=\"hg-fill\" x=\"112\" y=\"104\" width=\"44\" height=\"40\" rx=\"5\"></rect> <line class=\"hg-stroke\" x1=\"176\" y1=\"112\" x2=\"356\" y2=\"112\"></line> <line class=\"hg-edge--accent\" x1=\"176\" y1=\"132\" x2=\"300\" y2=\"132\"></line> <text class=\"hg-label hg-label--dim\" x=\"176\" y=\"156\">2026 · post</text> <rect class=\"hg-fill\" x=\"90\" y=\"176\" width=\"300\" height=\"72\" rx=\"10\"></rect> <rect class=\"hg-fill\" x=\"112\" y=\"192\" width=\"42\" height=\"38\" rx=\"5\"></rect> <line class=\"hg-stroke\" x1=\"174\" y1=\"200\" x2=\"356\" y2=\"200\"></line> <line class=\"hg-stroke\" x1=\"174\" y1=\"220\" x2=\"300\" y2=\"220\"></line> <rect class=\"hg-fill\" x=\"90\" y=\"262\" width=\"300\" height=\"72\" rx=\"10\"></rect> <rect class=\"hg-fill\" x=\"112\" y=\"278\" width=\"42\" height=\"38\" rx=\"5\"></rect> <line class=\"hg-stroke\" x1=\"174\" y1=\"286\" x2=\"340\" y2=\"286\"></line> <line class=\"hg-stroke\" x1=\"174\" y1=\"306\" x2=\"288\" y2=\"306\"></line> <circle class=\"hg-node\" cx=\"368\" cy=\"124\" r=\"4\"></circle> <circle class=\"hg-node\" cx=\"368\" cy=\"212\" r=\"4\"></circle> <circle class=\"hg-node\" cx=\"368\" cy=\"298\" r=\"4\"></circle></svg></div></section><article><ol class=\"blog-listing\"><li class=\"blog-listing__post\"><a class=\"blog-listing__thumb\" href=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var4 templ.SafeURL
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/blog/eu-compliance"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 29, Col: 91}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 50, Col: 91}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
@@ -79,7 +79,7 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var5 string
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("24 July 2026", "24 de julio de 2026"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 40, Col: 108}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 61, Col: 108}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -92,7 +92,7 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var6 templ.SafeURL
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/blog/eu-compliance"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 41, Col: 68}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 62, Col: 68}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -105,7 +105,7 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var7 string
 			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Compliance by architecture: GDPR, NIS2, and the EU security baseline", "Cumplimiento por arquitectura: RGPD, NIS2 y el estándar de seguridad de la UE"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 41, Col: 233}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 62, Col: 233}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
@@ -121,7 +121,7 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 				"La UE ahora regula la seguridad de las aplicaciones web mediante el RGPD, NIS2, la Ley de Ciberresiliencia y DORA. La interfaz autorizada por el servidor convierte varios de sus requisitos, de trámites en propiedades estructurales del sistema.",
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 45, Col: 7}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 66, Col: 7}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
@@ -134,7 +134,7 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var9 templ.SafeURL
 			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/blog/supply-chain"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 49, Col: 90}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 70, Col: 90}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
@@ -147,7 +147,7 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var10 string
 			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("2 June 2026", "2 de junio de 2026"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 60, Col: 106}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 81, Col: 106}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
@@ -160,7 +160,7 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var11 templ.SafeURL
 			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/blog/supply-chain"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 61, Col: 67}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 82, Col: 67}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
@@ -173,7 +173,7 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var12 string
 			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The dependency you didn't write", "La dependencia que no escribiste"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 61, Col: 149}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 82, Col: 149}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -189,7 +189,7 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 				"Los ataques a la cadena de suministro no son un problema de vulnerabilidades, sino arquitectónico. Cómo los enfoques conservadores del lado del servidor reducen la exposición a nivel estructural.",
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 65, Col: 7}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 86, Col: 7}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 			if templ_7745c5c3_Err != nil {
@@ -202,7 +202,7 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var14 templ.SafeURL
 			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/blog/server-response-time"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 69, Col: 98}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 90, Col: 98}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
@@ -215,7 +215,7 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var15 string
 			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("20 May 2026", "20 de mayo de 2026"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 80, Col: 106}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 101, Col: 106}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 			if templ_7745c5c3_Err != nil {
@@ -228,7 +228,7 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var16 templ.SafeURL
 			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/blog/server-response-time"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 81, Col: 75}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 102, Col: 75}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 			if templ_7745c5c3_Err != nil {
@@ -241,7 +241,7 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var17 string
 			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Server response time: twenty years of change", "Tiempo de respuesta del servidor: veinte años de cambios"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 81, Col: 195}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 102, Col: 195}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 			if templ_7745c5c3_Err != nil {
@@ -257,7 +257,7 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 				"La premisa que justificó el estado en el cliente fue la latencia del servidor. En 2026, la latencia ha desaparecido. La premisa no.",
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 85, Col: 7}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 106, Col: 7}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 			if templ_7745c5c3_Err != nil {

@@ -17,10 +17,31 @@ templ Blog(csrfToken string, lang locale.Lang) {
 		"/static/css/blog.css",
 		lang,
 	) {
-		<section class="page-hero">
+		<section class="page-hero page-hero--split">
 			<div class="page-hero__content">
 				<h1>Blog</h1>
 				<p class="lead">{ lang.T("Posts, counterarguments, and responses.", "Publicaciones, contraargumentos y respuestas.") }</p>
+			</div>
+			<div class="page-hero__figure">
+				<svg class="hero-gfx" viewBox="0 0 480 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<rect class="hg-fill" x="90" y="86" width="300" height="76" rx="10"></rect>
+					<rect class="hg-core" x="90" y="86" width="7" height="76" rx="3.5"></rect>
+					<rect class="hg-fill" x="112" y="104" width="44" height="40" rx="5"></rect>
+					<line class="hg-stroke" x1="176" y1="112" x2="356" y2="112"></line>
+					<line class="hg-edge--accent" x1="176" y1="132" x2="300" y2="132"></line>
+					<text class="hg-label hg-label--dim" x="176" y="156">2026 · post</text>
+					<rect class="hg-fill" x="90" y="176" width="300" height="72" rx="10"></rect>
+					<rect class="hg-fill" x="112" y="192" width="42" height="38" rx="5"></rect>
+					<line class="hg-stroke" x1="174" y1="200" x2="356" y2="200"></line>
+					<line class="hg-stroke" x1="174" y1="220" x2="300" y2="220"></line>
+					<rect class="hg-fill" x="90" y="262" width="300" height="72" rx="10"></rect>
+					<rect class="hg-fill" x="112" y="278" width="42" height="38" rx="5"></rect>
+					<line class="hg-stroke" x1="174" y1="286" x2="340" y2="286"></line>
+					<line class="hg-stroke" x1="174" y1="306" x2="288" y2="306"></line>
+					<circle class="hg-node" cx="368" cy="124" r="4"></circle>
+					<circle class="hg-node" cx="368" cy="212" r="4"></circle>
+					<circle class="hg-node" cx="368" cy="298" r="4"></circle>
+				</svg>
 			</div>
 		</section>
 		<article>

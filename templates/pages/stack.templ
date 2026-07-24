@@ -17,13 +17,37 @@ templ Stack(csrfToken string, lang locale.Lang) {
 		"/static/css/stack.css",
 		lang,
 	) {
-		<section class="page-hero">
+		<section class="page-hero page-hero--split">
 			<div class="page-hero__content">
 				<h1>{ lang.T("Stack", "Tecnología") }</h1>
 				<p class="lead">{ lang.T(
 					"Go standard library, SQLite, htmx, and templ. No framework. No ORM. No bundler. A single deployable binary.",
 					"Biblioteca estándar de Go, SQLite, htmx y templ. Sin framework. Sin ORM. Sin empaquetador. Un único binario desplegable.",
 				) }</p>
+			</div>
+			<div class="page-hero__figure">
+				<svg class="hero-gfx" viewBox="0 0 480 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<rect class="hg-fill" x="120" y="60" width="256" height="46" rx="8"></rect>
+					<text class="hg-label" x="140" y="88">htmx</text>
+					<text class="hg-label hg-label--dim" x="356" y="88" text-anchor="end">partial DOM</text>
+					<rect class="hg-fill" x="120" y="116" width="256" height="46" rx="8"></rect>
+					<text class="hg-label" x="140" y="144">templ</text>
+					<text class="hg-label hg-label--dim" x="356" y="144" text-anchor="end">typed HTML</text>
+					<rect class="hg-fill" x="120" y="172" width="256" height="46" rx="8"></rect>
+					<text class="hg-label" x="140" y="200">net/http</text>
+					<text class="hg-label hg-label--dim" x="356" y="200" text-anchor="end">std lib</text>
+					<rect class="hg-fill" x="120" y="228" width="256" height="46" rx="8"></rect>
+					<text class="hg-label" x="140" y="256">SQLite</text>
+					<text class="hg-label hg-label--dim" x="356" y="256" text-anchor="end">pure Go</text>
+					<rect class="hg-fill" x="120" y="284" width="256" height="50" rx="8"></rect>
+					<rect class="hg-core" x="120" y="284" width="8" height="50" rx="4"></rect>
+					<text class="hg-label hg-label--accent" x="144" y="314">Go · one binary</text>
+					<circle class="hg-node" cx="400" cy="83" r="3.5"></circle>
+					<circle class="hg-node" cx="400" cy="139" r="3.5"></circle>
+					<circle class="hg-node" cx="400" cy="195" r="3.5"></circle>
+					<circle class="hg-node" cx="400" cy="251" r="3.5"></circle>
+					<circle class="hg-core" cx="400" cy="309" r="5"></circle>
+				</svg>
 			</div>
 		</section>
 		<article>

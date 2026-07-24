@@ -46,7 +46,7 @@ func Stack(csrfToken string, lang locale.Lang) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"page-hero\"><div class=\"page-hero__content\"><h1>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"page-hero page-hero--split\"><div class=\"page-hero__content\"><h1>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -75,14 +75,14 @@ func Stack(csrfToken string, lang locale.Lang) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p></div></section><article><section><h2>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p></div><div class=\"page-hero__figure\"><svg class=\"hero-gfx\" viewBox=\"0 0 480 400\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><rect class=\"hg-fill\" x=\"120\" y=\"60\" width=\"256\" height=\"46\" rx=\"8\"></rect> <text class=\"hg-label\" x=\"140\" y=\"88\">htmx</text> <text class=\"hg-label hg-label--dim\" x=\"356\" y=\"88\" text-anchor=\"end\">partial DOM</text> <rect class=\"hg-fill\" x=\"120\" y=\"116\" width=\"256\" height=\"46\" rx=\"8\"></rect> <text class=\"hg-label\" x=\"140\" y=\"144\">templ</text> <text class=\"hg-label hg-label--dim\" x=\"356\" y=\"144\" text-anchor=\"end\">typed HTML</text> <rect class=\"hg-fill\" x=\"120\" y=\"172\" width=\"256\" height=\"46\" rx=\"8\"></rect> <text class=\"hg-label\" x=\"140\" y=\"200\">net/http</text> <text class=\"hg-label hg-label--dim\" x=\"356\" y=\"200\" text-anchor=\"end\">std lib</text> <rect class=\"hg-fill\" x=\"120\" y=\"228\" width=\"256\" height=\"46\" rx=\"8\"></rect> <text class=\"hg-label\" x=\"140\" y=\"256\">SQLite</text> <text class=\"hg-label hg-label--dim\" x=\"356\" y=\"256\" text-anchor=\"end\">pure Go</text> <rect class=\"hg-fill\" x=\"120\" y=\"284\" width=\"256\" height=\"50\" rx=\"8\"></rect> <rect class=\"hg-core\" x=\"120\" y=\"284\" width=\"8\" height=\"50\" rx=\"4\"></rect> <text class=\"hg-label hg-label--accent\" x=\"144\" y=\"314\">Go · one binary</text> <circle class=\"hg-node\" cx=\"400\" cy=\"83\" r=\"3.5\"></circle> <circle class=\"hg-node\" cx=\"400\" cy=\"139\" r=\"3.5\"></circle> <circle class=\"hg-node\" cx=\"400\" cy=\"195\" r=\"3.5\"></circle> <circle class=\"hg-node\" cx=\"400\" cy=\"251\" r=\"3.5\"></circle> <circle class=\"hg-core\" cx=\"400\" cy=\"309\" r=\"5\"></circle></svg></div></section><article><section><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var5 string
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Backend", "Backend"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 31, Col: 38}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 55, Col: 38}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -95,7 +95,7 @@ func Stack(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var6 string
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Go: standard library first", "Go: biblioteca estándar primero"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 32, Col: 82}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 56, Col: 82}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -116,7 +116,7 @@ func Stack(csrfToken string, lang locale.Lang) templ.Component {
 					en la mayoría de las aplicaciones.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 41, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 65, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
@@ -132,7 +132,7 @@ func Stack(csrfToken string, lang locale.Lang) templ.Component {
 				"El paquete html/template proporciona auto-escape que previene XSS por construcción. Este proyecto usa ",
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 46, Col: 6}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 70, Col: 6}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
@@ -148,7 +148,7 @@ func Stack(csrfToken string, lang locale.Lang) templ.Component {
 				" en su lugar, para seguridad de tipos en tiempo de compilación en los muchos parciales htmx. La salida compilada es Go estándar.",
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 49, Col: 6}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 73, Col: 6}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
@@ -161,7 +161,7 @@ func Stack(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var10 string
 			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("SQLite via modernc.org/sqlite", "SQLite mediante modernc.org/sqlite"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 51, Col: 87}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 75, Col: 87}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
@@ -181,7 +181,7 @@ func Stack(csrfToken string, lang locale.Lang) templ.Component {
 					de implementación de referencia. No es un requisito del patrón SAUI.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 59, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 83, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
@@ -203,7 +203,7 @@ func Stack(csrfToken string, lang locale.Lang) templ.Component {
 					y el registro de eventos solo-adjuntar es naturalmente secuencial.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 69, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 93, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -216,7 +216,7 @@ func Stack(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var13 string
 			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("What SAUI requires from a persistence layer", "Lo que SAUI requiere de una capa de persistencia"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 70, Col: 115}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 94, Col: 115}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 			if templ_7745c5c3_Err != nil {
@@ -238,7 +238,7 @@ func Stack(csrfToken string, lang locale.Lang) templ.Component {
 					ordenarse para que no se apliquen dos eventos simultáneamente a la misma sesión.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 80, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 104, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
@@ -258,7 +258,7 @@ func Stack(csrfToken string, lang locale.Lang) templ.Component {
 					son SQL simple y son independientes de la base de datos.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 88, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 112, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 			if templ_7745c5c3_Err != nil {
@@ -271,7 +271,7 @@ func Stack(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var16 string
 			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Adapting to Postgres", "Adaptación a Postgres"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 89, Col: 66}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 113, Col: 66}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 			if templ_7745c5c3_Err != nil {
@@ -291,7 +291,7 @@ func Stack(csrfToken string, lang locale.Lang) templ.Component {
 					la acción y liberarlo después de añadir el evento. Todo lo demás permanece igual.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 97, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 121, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 			if templ_7745c5c3_Err != nil {
@@ -314,7 +314,7 @@ CREATE TABLE events (
     occurred_at TIMESTAMPTZ  NOT NULL DEFAULT now()
 );`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 108, Col: 3}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 132, Col: 3}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 			if templ_7745c5c3_Err != nil {
@@ -334,7 +334,7 @@ CREATE TABLE events (
 					a nivel de fila o bloqueos advisory puede satisfacer el modelo de escritura de SAUI.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 116, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 140, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
 			if templ_7745c5c3_Err != nil {
@@ -347,7 +347,7 @@ CREATE TABLE events (
 			var templ_7745c5c3_Var20 string
 			templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("SSE for real-time", "SSE para tiempo real"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 117, Col: 61}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 141, Col: 61}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
 			if templ_7745c5c3_Err != nil {
@@ -367,7 +367,7 @@ CREATE TABLE events (
 					y se reconecta automáticamente. Es suficiente para enviar actualizaciones de proyección al cliente.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 125, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 149, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
 			if templ_7745c5c3_Err != nil {
@@ -380,7 +380,7 @@ CREATE TABLE events (
 			var templ_7745c5c3_Var22 string
 			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Frontend", "Frontend"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 128, Col: 40}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 152, Col: 40}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
 			if templ_7745c5c3_Err != nil {
@@ -400,7 +400,7 @@ CREATE TABLE events (
 					El cliente decide dónde colocarlo.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 137, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 161, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
 			if templ_7745c5c3_Err != nil {
@@ -419,7 +419,7 @@ CREATE TABLE events (
 					de integridad de subrecurso.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 144, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 168, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
 			if templ_7745c5c3_Err != nil {
@@ -432,7 +432,7 @@ CREATE TABLE events (
 			var templ_7745c5c3_Var25 string
 			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Vanilla JS: Baseline 2023", "JS vanilla: Baseline 2023"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 145, Col: 74}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 169, Col: 74}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var25))
 			if templ_7745c5c3_Err != nil {
@@ -451,7 +451,7 @@ CREATE TABLE events (
 					sin paso de compilación.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 152, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 176, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var26))
 			if templ_7745c5c3_Err != nil {
@@ -467,7 +467,7 @@ CREATE TABLE events (
 				"Objetivo: navegadores modernos evergreen. El público objetivo son desarrolladores. Sin polyfills.",
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 156, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 180, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var27))
 			if templ_7745c5c3_Err != nil {
@@ -480,7 +480,7 @@ CREATE TABLE events (
 			var templ_7745c5c3_Var28 string
 			templ_7745c5c3_Var28, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Vanilla CSS", "CSS vanilla"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 157, Col: 46}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 181, Col: 46}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var28))
 			if templ_7745c5c3_Err != nil {
@@ -500,7 +500,7 @@ CREATE TABLE events (
 					Sin preprocesador. Sin framework de utilidades.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 165, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 189, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var29))
 			if templ_7745c5c3_Err != nil {
@@ -513,7 +513,7 @@ CREATE TABLE events (
 			var templ_7745c5c3_Var30 string
 			templ_7745c5c3_Var30, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Deployment", "Despliegue"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 168, Col: 44}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 192, Col: 44}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var30))
 			if templ_7745c5c3_Err != nil {
@@ -533,7 +533,7 @@ CREATE TABLE events (
 					Sin capa de caché. No se requiere CDN para la corrección.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 176, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 200, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var31))
 			if templ_7745c5c3_Err != nil {
@@ -550,7 +550,7 @@ go build -o saui .
 # deploy
 fly deploy`)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 181, Col: 11}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 205, Col: 11}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var32))
 			if templ_7745c5c3_Err != nil {
@@ -568,7 +568,7 @@ fly deploy`)
 					a lo que la aplicación realmente requiere, no a lo que la arquitectura asume.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 187, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 211, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var33))
 			if templ_7745c5c3_Err != nil {
@@ -581,7 +581,7 @@ fly deploy`)
 			var templ_7745c5c3_Var34 templ.SafeURL
 			templ_7745c5c3_Var34, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/cases"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 188, Col: 52}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 212, Col: 52}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var34))
 			if templ_7745c5c3_Err != nil {
@@ -594,7 +594,7 @@ fly deploy`)
 			var templ_7745c5c3_Var35 string
 			templ_7745c5c3_Var35, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("See the architecture applied to real domains", "Ver la arquitectura aplicada a dominios reales"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 188, Col: 161}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/stack.templ`, Line: 212, Col: 161}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var35))
 			if templ_7745c5c3_Err != nil {

@@ -46,7 +46,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"page-hero\"><div class=\"page-hero__content\"><h1>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"page-hero page-hero--split\"><div class=\"page-hero__content\"><h1>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -75,14 +75,14 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p></div></section><article class=\"why-page\"><section><h2>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p></div><div class=\"page-hero__figure\"><svg class=\"hero-gfx\" viewBox=\"0 0 480 400\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><line class=\"hg-edge--accent\" x1=\"190\" y1=\"180\" x2=\"298\" y2=\"180\"></line> <line class=\"hg-edge\" x1=\"298\" y1=\"214\" x2=\"190\" y2=\"214\"></line> <rect class=\"hg-fill\" x=\"62\" y=\"150\" width=\"128\" height=\"98\" rx=\"10\"></rect> <circle class=\"hg-core\" cx=\"94\" cy=\"182\" r=\"7\"></circle> <line class=\"hg-stroke\" x1=\"114\" y1=\"182\" x2=\"166\" y2=\"182\"></line> <line class=\"hg-stroke\" x1=\"82\" y1=\"208\" x2=\"166\" y2=\"208\"></line> <line class=\"hg-stroke\" x1=\"82\" y1=\"228\" x2=\"142\" y2=\"228\"></line> <text class=\"hg-label hg-label--accent\" x=\"62\" y=\"138\">server · state</text> <rect class=\"hg-fill\" x=\"300\" y=\"150\" width=\"120\" height=\"98\" rx=\"8\"></rect> <line class=\"hg-edge\" x1=\"300\" y1=\"172\" x2=\"420\" y2=\"172\"></line> <line class=\"hg-stroke\" x1=\"318\" y1=\"198\" x2=\"402\" y2=\"198\"></line> <line class=\"hg-stroke\" x1=\"318\" y1=\"220\" x2=\"380\" y2=\"220\"></line> <text class=\"hg-label\" x=\"300\" y=\"138\">browser · view</text> <text class=\"hg-label hg-label--dim\" x=\"206\" y=\"172\">projection</text> <text class=\"hg-label hg-label--dim\" x=\"220\" y=\"234\">intent</text> <circle class=\"hg-node\" cx=\"120\" cy=\"86\" r=\"4\"></circle> <circle class=\"hg-node\" cx=\"410\" cy=\"92\" r=\"3.5\"></circle> <circle class=\"hg-node\" cx=\"360\" cy=\"308\" r=\"4\"></circle> <circle class=\"hg-node\" cx=\"250\" cy=\"336\" r=\"3.5\"></circle> <circle class=\"hg-node\" cx=\"66\" cy=\"304\" r=\"3.5\"></circle></svg></div></section><article class=\"why-page\"><section><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var5 string
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("What SPAs got right", "Qué acertaron las SPA"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 31, Col: 65}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 55, Col: 65}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -107,7 +107,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 					la restricción dominante de la experiencia de usuario.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 44, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 68, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -123,7 +123,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 				"Esa clase de aplicación sigue existiendo y el patrón SPA sigue siendo correcto para ella.",
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 48, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 72, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
@@ -136,7 +136,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var8 string
 			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The universalisation mistake", "El error de la universalización"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 51, Col: 84}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 75, Col: 84}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
@@ -158,7 +158,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 					Sistemas de reserva sanitaria. Herramientas CMS. Paneles de administración internos.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 61, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 85, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
@@ -174,7 +174,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 				"Ninguna de estas aplicaciones requiere el modelo de interacción de Gmail. Todas fueron construidas como si lo hicieran.",
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 65, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 89, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
@@ -187,7 +187,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var11 string
 			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The compounding cost", "El coste acumulado"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 68, Col: 62}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 92, Col: 62}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
@@ -207,7 +207,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 					con la copia del servidor. Resolver ese problema ha generado disciplinas de ingeniería enteras.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 76, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 100, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -220,7 +220,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var13 string
 			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("State management libraries.", "Bibliotecas de gestión de estado."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 79, Col: 91}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 103, Col: 91}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 			if templ_7745c5c3_Err != nil {
@@ -238,7 +238,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 							que se origina al mantener estado en el cliente.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 85, Col: 7}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 109, Col: 7}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
@@ -251,7 +251,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var15 string
 			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Cache invalidation.", "Invalidación de caché."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 88, Col: 73}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 112, Col: 73}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 			if templ_7745c5c3_Err != nil {
@@ -269,7 +269,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 							cuándo los datos del cliente están obsoletos.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 94, Col: 7}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 118, Col: 7}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 			if templ_7745c5c3_Err != nil {
@@ -282,7 +282,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var17 string
 			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Optimistic updates.", "Actualizaciones optimistas."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 97, Col: 76}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 121, Col: 76}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 			if templ_7745c5c3_Err != nil {
@@ -300,7 +300,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 							Cuando el servidor no está de acuerdo, se requiere reconciliación.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 103, Col: 7}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 127, Col: 7}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 			if templ_7745c5c3_Err != nil {
@@ -313,7 +313,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var19 string
 			templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Hydration.", "Hidratación."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 106, Col: 53}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 130, Col: 53}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
 			if templ_7745c5c3_Err != nil {
@@ -333,7 +333,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 							tomar propiedad del DOM.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 114, Col: 7}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 138, Col: 7}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
 			if templ_7745c5c3_Err != nil {
@@ -346,7 +346,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var21 string
 			templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Build toolchains.", "Cadenas de herramientas de compilación."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 117, Col: 87}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 141, Col: 87}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
 			if templ_7745c5c3_Err != nil {
@@ -364,7 +364,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 							de árboles para un lenguaje que se ejecuta de forma nativa en el navegador.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 123, Col: 7}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 147, Col: 7}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
 			if templ_7745c5c3_Err != nil {
@@ -380,7 +380,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 				"Estas no son soluciones a problemas de producto. Son soluciones al problema de sincronización. No existirían si el cliente no mantuviera estado.",
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 129, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 153, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
 			if templ_7745c5c3_Err != nil {
@@ -393,7 +393,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var24 string
 			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The security consequence", "La consecuencia de seguridad"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 132, Col: 76}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 156, Col: 76}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
 			if templ_7745c5c3_Err != nil {
@@ -415,7 +415,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 					el cliente puede modificar esa representación.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 142, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 166, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var25))
 			if templ_7745c5c3_Err != nil {
@@ -435,7 +435,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 					no hay estado del lado del cliente que manipular porque no hay estado del lado del cliente.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 150, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 174, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var26))
 			if templ_7745c5c3_Err != nil {
@@ -448,7 +448,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var27 string
 			templ_7745c5c3_Var27, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The security record", "El historial de seguridad"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 153, Col: 68}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 177, Col: 68}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var27))
 			if templ_7745c5c3_Err != nil {
@@ -468,7 +468,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 					que requiere el estado del lado del cliente.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 161, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 185, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var28))
 			if templ_7745c5c3_Err != nil {
@@ -481,7 +481,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var29 string
 			templ_7745c5c3_Var29, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Middleware bypass.", "Evasión de middleware."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 164, Col: 71}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 188, Col: 71}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var29))
 			if templ_7745c5c3_Err != nil {
@@ -506,7 +506,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 							que el framework promovía era la superficie de ataque.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 177, Col: 7}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 201, Col: 7}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var30))
 			if templ_7745c5c3_Err != nil {
@@ -519,7 +519,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var31 string
 			templ_7745c5c3_Var31, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Serialisation as attack surface.", "Serialización como superficie de ataque."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 180, Col: 103}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 204, Col: 103}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var31))
 			if templ_7745c5c3_Err != nil {
@@ -544,7 +544,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 							y 53 credenciales en texto plano.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 193, Col: 7}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 217, Col: 7}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var32))
 			if templ_7745c5c3_Err != nil {
@@ -557,7 +557,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var33 string
 			templ_7745c5c3_Var33, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The hydration boundary.", "El límite de hidratación."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 196, Col: 80}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 220, Col: 80}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var33))
 			if templ_7745c5c3_Err != nil {
@@ -582,7 +582,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 							y seguridad interactuaron.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 209, Col: 7}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 233, Col: 7}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var34))
 			if templ_7745c5c3_Err != nil {
@@ -595,7 +595,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var35 string
 			templ_7745c5c3_Var35, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Supply chain.", "Cadena de suministro."))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 212, Col: 64}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 236, Col: 64}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var35))
 			if templ_7745c5c3_Err != nil {
@@ -621,7 +621,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 							y 2.000 dependencias npm transitivas. Cada una es un vector potencial.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 226, Col: 7}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 250, Col: 7}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var36))
 			if templ_7745c5c3_Err != nil {
@@ -648,7 +648,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 					que produjeron las vulnerabilidades.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 243, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 267, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var37))
 			if templ_7745c5c3_Err != nil {
@@ -661,7 +661,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var38 string
 			templ_7745c5c3_Var38, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("What this is not", "Qué no es esto"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 246, Col: 55}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 270, Col: 55}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var38))
 			if templ_7745c5c3_Err != nil {
@@ -683,7 +683,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 					de las aplicaciones no lo hacen.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 256, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 280, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var39))
 			if templ_7745c5c3_Err != nil {
@@ -706,7 +706,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 					La mejora progresiva es alcanzable sin un paso de compilación.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 267, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 291, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var40))
 			if templ_7745c5c3_Err != nil {
@@ -719,7 +719,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var41 templ.SafeURL
 			templ_7745c5c3_Var41, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/architecture"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 268, Col: 59}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 292, Col: 59}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var41))
 			if templ_7745c5c3_Err != nil {
@@ -732,7 +732,7 @@ func Why(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var42 string
 			templ_7745c5c3_Var42, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("See how the architecture works", "Ver cómo funciona la arquitectura"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 268, Col: 142}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/why.templ`, Line: 292, Col: 142}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var42))
 			if templ_7745c5c3_Err != nil {

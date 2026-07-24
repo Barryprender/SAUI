@@ -46,7 +46,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"page-hero\"><div class=\"page-hero__content\"><h1>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"page-hero page-hero--split\"><div class=\"page-hero__content\"><h1>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -75,7 +75,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p></div></section><article><section><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p></div><div class=\"page-hero__figure\"><svg class=\"hero-gfx\" viewBox=\"0 0 480 400\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><!-- boundary --><line class=\"hg-edge--accent\" x1=\"240\" y1=\"74\" x2=\"240\" y2=\"332\"></line> <circle class=\"hg-core\" cx=\"240\" cy=\"66\" r=\"5\"></circle><!-- fits column --><text class=\"hg-label hg-label--accent\" x=\"120\" y=\"98\" text-anchor=\"middle\">SAUI fits</text> <path class=\"hg-check\" d=\"M70 138 l5 6 l10 -13\"></path> <text class=\"hg-label\" x=\"96\" y=\"145\">CRUD apps</text> <path class=\"hg-check\" d=\"M70 170 l5 6 l10 -13\"></path> <text class=\"hg-label\" x=\"96\" y=\"177\">dashboards</text> <path class=\"hg-check\" d=\"M70 202 l5 6 l10 -13\"></path> <text class=\"hg-label\" x=\"96\" y=\"209\">booking flows</text> <path class=\"hg-check\" d=\"M70 234 l5 6 l10 -13\"></path> <text class=\"hg-label\" x=\"96\" y=\"241\">commerce</text> <path class=\"hg-check\" d=\"M70 266 l5 6 l10 -13\"></path> <text class=\"hg-label\" x=\"96\" y=\"273\">CMS · content</text><!-- wrong-choice column --><text class=\"hg-label hg-label--dim\" x=\"356\" y=\"98\" text-anchor=\"middle\">wrong choice</text> <g class=\"hg-cross\"><line x1=\"262\" y1=\"134\" x2=\"272\" y2=\"144\"></line><line x1=\"272\" y1=\"134\" x2=\"262\" y2=\"144\"></line></g> <text class=\"hg-label hg-label--dim\" x=\"282\" y=\"145\">collab editing</text> <g class=\"hg-cross\"><line x1=\"262\" y1=\"166\" x2=\"272\" y2=\"176\"></line><line x1=\"272\" y1=\"166\" x2=\"262\" y2=\"176\"></line></g> <text class=\"hg-label hg-label--dim\" x=\"282\" y=\"177\">canvas · creative</text> <g class=\"hg-cross\"><line x1=\"262\" y1=\"198\" x2=\"272\" y2=\"208\"></line><line x1=\"272\" y1=\"198\" x2=\"262\" y2=\"208\"></line></g> <text class=\"hg-label hg-label--dim\" x=\"282\" y=\"209\">offline-first</text> <g class=\"hg-cross\"><line x1=\"262\" y1=\"230\" x2=\"272\" y2=\"240\"></line><line x1=\"272\" y1=\"230\" x2=\"262\" y2=\"240\"></line></g> <text class=\"hg-label hg-label--dim\" x=\"282\" y=\"241\">games · sims</text> <g class=\"hg-cross\"><line x1=\"262\" y1=\"262\" x2=\"272\" y2=\"272\"></line><line x1=\"272\" y1=\"262\" x2=\"262\" y2=\"272\"></line></g> <text class=\"hg-label hg-label--dim\" x=\"282\" y=\"273\">live order books</text></svg></div></section><article><section><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -89,7 +89,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 					claramente es parte del argumento, no una concesión a él.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 38, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 69, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -102,7 +102,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var6 string
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Real-time collaborative editing", "Edición colaborativa en tiempo real"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 41, Col: 91}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 72, Col: 91}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -123,7 +123,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 					de serie.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 50, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 81, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
@@ -144,7 +144,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 					de SAUI no los resuelve.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 59, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 90, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
@@ -165,7 +165,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 					de estado compartido por múltiples usuarios.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 68, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 99, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
@@ -178,7 +178,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var10 string
 			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Canvas and creative tools", "Lienzo y herramientas creativas"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 71, Col: 80}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 102, Col: 80}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
@@ -201,7 +201,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 					requisito de rendimiento.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 82, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 113, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
@@ -217,7 +217,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 				"Estas aplicaciones requieren un modelo de estado local con persistencia selectiva en el servidor. El modelo de viaje de ida y vuelta de SAUI no es apropiado aquí.",
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 86, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 117, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -230,7 +230,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var13 string
 			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Offline-first PWAs", "PWA offline-first"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 89, Col: 59}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 120, Col: 59}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 			if templ_7745c5c3_Err != nil {
@@ -251,7 +251,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 					reproducirse cuando se restaura la conectividad.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 98, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 129, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
@@ -271,7 +271,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 					es apropiado un modelo de estado del lado del cliente con sincronización con el servidor.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 106, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 137, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 			if templ_7745c5c3_Err != nil {
@@ -284,7 +284,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var16 string
 			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Games and simulations", "Juegos y simulaciones"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 109, Col: 66}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 140, Col: 66}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 			if templ_7745c5c3_Err != nil {
@@ -307,7 +307,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 					de propósito general.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 120, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 151, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 			if templ_7745c5c3_Err != nil {
@@ -320,7 +320,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var18 string
 			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("High-frequency financial data", "Datos financieros de alta frecuencia"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 123, Col: 89}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 154, Col: 89}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 			if templ_7745c5c3_Err != nil {
@@ -344,7 +344,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 					un diseño cuidadoso que va más allá del patrón aquí descrito.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 135, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 166, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
 			if templ_7745c5c3_Err != nil {
@@ -360,7 +360,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 				"El modelo SAUI es sólido para este caso de uso. Las exigencias de implementación son significativas.",
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 139, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 170, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
 			if templ_7745c5c3_Err != nil {
@@ -373,7 +373,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var21 string
 			templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The honest boundary", "El límite honesto"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 142, Col: 61}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 173, Col: 61}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
 			if templ_7745c5c3_Err != nil {
@@ -394,7 +394,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 					no está justificada.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 151, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 182, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
 			if templ_7745c5c3_Err != nil {
@@ -415,7 +415,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 					no ser la opción adecuada.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 160, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 191, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
 			if templ_7745c5c3_Err != nil {
@@ -428,7 +428,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var24 templ.SafeURL
 			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/cases"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 161, Col: 52}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 192, Col: 52}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
 			if templ_7745c5c3_Err != nil {
@@ -441,7 +441,7 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var25 string
 			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("See the pattern applied to common domains", "Ver el patrón aplicado a dominios comunes"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 161, Col: 154}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 192, Col: 154}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var25))
 			if templ_7745c5c3_Err != nil {

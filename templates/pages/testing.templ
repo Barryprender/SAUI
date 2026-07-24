@@ -17,13 +17,42 @@ templ Testing(csrfToken string, lang locale.Lang) {
 		"/static/css/testing.css",
 		lang,
 	) {
-		<section class="page-hero">
+		<section class="page-hero page-hero--split">
 			<div class="page-hero__content">
 				<h1>{ lang.T("Testing", "Pruebas") }</h1>
 				<p class="lead">{ lang.T(
 					"Under SPA architecture, the majority of the test surface exists to verify that client state correctly reflects server state. SAUI eliminates that problem.",
 					"Bajo la arquitectura SPA, la mayor parte de la superficie de pruebas existe para verificar que el estado del cliente refleja correctamente el estado del servidor. SAUI elimina ese problema.",
 				) }</p>
+			</div>
+			<div class="page-hero__figure">
+				<svg class="hero-gfx" viewBox="0 0 480 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<!-- baseline -->
+					<line class="hg-edge" x1="70" y1="316" x2="412" y2="316"></line>
+					<!-- SPA bar: large sync segment (fades) + small logic segment -->
+					<text class="hg-label" x="140" y="100" text-anchor="middle">SPA tests</text>
+					<rect class="hg-block--dim" x="104" y="120" width="72" height="140"></rect>
+					<rect class="hg-block" x="104" y="260" width="72" height="54"></rect>
+					<rect class="hg-edge" x="104" y="120" width="72" height="194"></rect>
+					<line class="hg-edge" x1="104" y1="260" x2="176" y2="260"></line>
+					<text class="hg-label hg-label--dim" x="140" y="182" text-anchor="middle">state</text>
+					<text class="hg-label hg-label--dim" x="140" y="198" text-anchor="middle">sync</text>
+					<text class="hg-label hg-label--accent" x="140" y="292" text-anchor="middle">logic</text>
+					<text class="hg-label hg-label--dim" x="140" y="340" text-anchor="middle">≈ 120 tests</text>
+					<!-- collapse arrow -->
+					<line class="hg-edge--accent" x1="198" y1="215" x2="290" y2="215"></line>
+					<path class="hg-arrow" d="M290 208 L304 215 L290 222 Z"></path>
+					<text class="hg-label hg-label--accent" x="248" y="205" text-anchor="middle">collapse</text>
+					<!-- SAUI bar: sync gone (ghost), logic remains -->
+					<text class="hg-label" x="340" y="100" text-anchor="middle">SAUI tests</text>
+					<rect class="hg-block--ghost" x="304" y="120" width="72" height="140"></rect>
+					<rect class="hg-block" x="304" y="260" width="72" height="54"></rect>
+					<rect class="hg-edge" x="304" y="260" width="72" height="54"></rect>
+					<text class="hg-label hg-label--dim" x="340" y="186" text-anchor="middle">sync</text>
+					<text class="hg-label hg-label--dim" x="340" y="202" text-anchor="middle">removed</text>
+					<text class="hg-label hg-label--accent" x="340" y="292" text-anchor="middle">logic</text>
+					<text class="hg-label hg-label--dim" x="340" y="340" text-anchor="middle">≈ 18 tests</text>
+				</svg>
 			</div>
 		</section>
 		<article>

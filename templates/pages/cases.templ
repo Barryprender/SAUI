@@ -17,13 +17,42 @@ templ Cases(csrfToken string, lang locale.Lang) {
 		"/static/css/cases.css",
 		lang,
 	) {
-		<section class="page-hero">
+		<section class="page-hero page-hero--split">
 			<div class="page-hero__content">
 				<h1>{ lang.T("Case Studies", "Casos de estudio") }</h1>
 				<p class="lead">{ lang.T(
 					"SAUI applied to real application domains. What moves to the server, what stays on the client, and what is gained.",
 					"SAUI aplicado a dominios de aplicación reales. Qué se mueve al servidor, qué permanece en el cliente y qué se gana.",
 				) }</p>
+			</div>
+			<div class="page-hero__figure">
+				<svg class="hero-gfx" viewBox="0 0 480 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<!-- projection spokes: one model out to each domain -->
+					<line class="hg-edge--accent" x1="240" y1="200" x2="112" y2="96"></line>
+					<line class="hg-edge--accent" x1="240" y1="200" x2="368" y2="96"></line>
+					<line class="hg-edge--accent" x1="240" y1="200" x2="80" y2="200"></line>
+					<line class="hg-edge--accent" x1="240" y1="200" x2="400" y2="200"></line>
+					<line class="hg-edge--accent" x1="240" y1="200" x2="112" y2="304"></line>
+					<line class="hg-edge--accent" x1="240" y1="200" x2="368" y2="304"></line>
+					<!-- hub -->
+					<circle class="hg-core" cx="240" cy="200" r="24"></circle>
+					<text class="hg-label hg-label--hub" x="240" y="197" text-anchor="middle">{ lang.T("one", "un") }</text>
+					<text class="hg-label hg-label--hub" x="240" y="210" text-anchor="middle">{ lang.T("model", "modelo") }</text>
+					<!-- domain tiles -->
+					<rect class="hg-fill" x="70" y="80" width="84" height="32" rx="6"></rect>
+					<text class="hg-label" x="112" y="100" text-anchor="middle">Food</text>
+					<rect class="hg-fill" x="326" y="80" width="84" height="32" rx="6"></rect>
+					<text class="hg-label" x="368" y="100" text-anchor="middle">Banking</text>
+					<rect class="hg-fill" x="28" y="184" width="84" height="32" rx="6"></rect>
+					<text class="hg-label" x="70" y="204" text-anchor="middle">Healthcare</text>
+					<rect class="hg-fill" x="368" y="184" width="84" height="32" rx="6"></rect>
+					<text class="hg-label" x="410" y="204" text-anchor="middle">SaaS</text>
+					<rect class="hg-fill" x="70" y="288" width="84" height="32" rx="6"></rect>
+					<text class="hg-label" x="112" y="308" text-anchor="middle">Distributed</text>
+					<rect class="hg-fill" x="326" y="288" width="84" height="32" rx="6"></rect>
+					<text class="hg-label" x="368" y="308" text-anchor="middle">Micro-FE</text>
+					<text class="hg-label hg-label--dim" x="240" y="358" text-anchor="middle">{ lang.T("6 domains · one state model", "6 dominios · un modelo de estado") }</text>
+				</svg>
 			</div>
 		</section>
 		<article>

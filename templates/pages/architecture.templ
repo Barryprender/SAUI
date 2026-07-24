@@ -17,7 +17,7 @@ templ Architecture(csrfToken string, lang locale.Lang) {
 		"/static/css/architecture.css",
 		lang,
 	) {
-		<section class="page-hero">
+		<section class="page-hero page-hero--split">
 			<div class="page-hero__content">
 				<h1>{ lang.T("Architecture", "Arquitectura") }</h1>
 				<p class="lead">{ lang.T(
@@ -26,6 +26,27 @@ templ Architecture(csrfToken string, lang locale.Lang) {
 					`El servidor posee el estado. El navegador no retiene nada.
 					La seguridad no es una capa añadida encima: es una consecuencia de dónde vive el estado.`,
 				) }</p>
+			</div>
+			<div class="page-hero__figure">
+				<svg class="hero-gfx" viewBox="0 0 480 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<path class="hg-edge--accent" d="M286 96 Q356 118 374 190"></path>
+					<path class="hg-edge--accent" d="M366 232 Q320 312 262 314"></path>
+					<path class="hg-edge--accent" d="M206 314 Q140 296 112 226"></path>
+					<path class="hg-edge--accent" d="M116 178 Q146 100 214 92"></path>
+					<rect class="hg-fill" x="196" y="66" width="96" height="46" rx="8"></rect>
+					<text class="hg-label" x="212" y="94">Browser</text>
+					<circle class="hg-core" cx="376" cy="204" r="11"></circle>
+					<text class="hg-label hg-label--accent" x="332" y="180">Gateway</text>
+					<rect class="hg-fill" x="192" y="298" width="98" height="46" rx="8"></rect>
+					<line class="hg-stroke" x1="208" y1="316" x2="274" y2="316"></line>
+					<line class="hg-stroke" x1="208" y1="328" x2="252" y2="328"></line>
+					<text class="hg-label" x="150" y="374">event log</text>
+					<circle class="hg-node" cx="104" cy="204" r="10"></circle>
+					<circle class="hg-node" cx="104" cy="204" r="3.5"></circle>
+					<text class="hg-label" x="34" y="208">Projection</text>
+					<text class="hg-label hg-label--dim" x="320" y="112">intent</text>
+					<text class="hg-label hg-label--dim" x="278" y="300">append</text>
+				</svg>
 			</div>
 		</section>
 		<section class="arch-diagram-section" aria-label={ lang.T("Request lifecycle diagram", "Diagrama del ciclo de vida de una solicitud") }>
