@@ -64,22 +64,22 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var4 templ.SafeURL
-			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/blog/supply-chain"))
+			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/blog/eu-compliance"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 29, Col: 90}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 29, Col: 91}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\" tabindex=\"-1\" aria-hidden=\"true\"><img src=\"/static/img/blog-supply-chain.svg\" alt=\"\" width=\"320\" height=\"180\" loading=\"lazy\" decoding=\"async\"></a><div class=\"blog-listing__body\"><time class=\"blog-listing__date\" datetime=\"2026-06-02\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\" tabindex=\"-1\" aria-hidden=\"true\"><img src=\"/static/img/blog-eu-compliance.svg\" alt=\"\" width=\"320\" height=\"180\" loading=\"lazy\" decoding=\"async\"></a><div class=\"blog-listing__body\"><time class=\"blog-listing__date\" datetime=\"2026-07-24\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var5 string
-			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("2 June 2026", "2 de junio de 2026"))
+			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("24 July 2026", "24 de julio de 2026"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 40, Col: 106}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 40, Col: 108}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -90,9 +90,9 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var6 templ.SafeURL
-			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/blog/supply-chain"))
+			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/blog/eu-compliance"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 41, Col: 67}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 41, Col: 68}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -103,9 +103,9 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var7 string
-			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The dependency you didn't write", "La dependencia que no escribiste"))
+			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Compliance by architecture: GDPR, NIS2, and the EU security baseline", "Cumplimiento por arquitectura: RGPD, NIS2 y el estándar de seguridad de la UE"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 41, Col: 149}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 41, Col: 233}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
@@ -117,8 +117,8 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 			}
 			var templ_7745c5c3_Var8 string
 			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				"Supply chain attacks are not a vulnerability problem — they are an architectural one. How conservative, server-side approaches reduce exposure at the structural level.",
-				"Los ataques a la cadena de suministro no son un problema de vulnerabilidades, sino arquitectónico. Cómo los enfoques conservadores del lado del servidor reducen la exposición a nivel estructural.",
+				"The EU now regulates web application security through GDPR, NIS2, the Cyber Resilience Act, and DORA. Server-authoritative UI turns several of their requirements from paperwork into structural properties of the system.",
+				"La UE ahora regula la seguridad de las aplicaciones web mediante el RGPD, NIS2, la Ley de Ciberresiliencia y DORA. La interfaz autorizada por el servidor convierte varios de sus requisitos, de trámites en propiedades estructurales del sistema.",
 			))
 			if templ_7745c5c3_Err != nil {
 				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 45, Col: 7}
@@ -132,20 +132,20 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var9 templ.SafeURL
-			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/blog/server-response-time"))
+			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/blog/supply-chain"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 49, Col: 98}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 49, Col: 90}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "\" tabindex=\"-1\" aria-hidden=\"true\"><img src=\"/static/img/blog-server-response-time.jpg\" alt=\"\" width=\"320\" height=\"180\" loading=\"lazy\" decoding=\"async\"></a><div class=\"blog-listing__body\"><time class=\"blog-listing__date\" datetime=\"2026-05-20\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "\" tabindex=\"-1\" aria-hidden=\"true\"><img src=\"/static/img/blog-supply-chain.svg\" alt=\"\" width=\"320\" height=\"180\" loading=\"lazy\" decoding=\"async\"></a><div class=\"blog-listing__body\"><time class=\"blog-listing__date\" datetime=\"2026-06-02\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var10 string
-			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("20 May 2026", "20 de mayo de 2026"))
+			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("2 June 2026", "2 de junio de 2026"))
 			if templ_7745c5c3_Err != nil {
 				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 60, Col: 106}
 			}
@@ -158,9 +158,9 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var11 templ.SafeURL
-			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/blog/server-response-time"))
+			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/blog/supply-chain"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 61, Col: 75}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 61, Col: 67}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
@@ -171,9 +171,9 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var12 string
-			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Server response time: twenty years of change", "Tiempo de respuesta del servidor: veinte años de cambios"))
+			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The dependency you didn't write", "La dependencia que no escribiste"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 61, Col: 195}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 61, Col: 149}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -185,8 +185,8 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 			}
 			var templ_7745c5c3_Var13 string
 			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				"The premise that justified client-side state was server latency. In 2026, the latency is gone. The premise is not.",
-				"La premisa que justificó el estado en el cliente fue la latencia del servidor. En 2026, la latencia ha desaparecido. La premisa no.",
+				"Supply chain attacks are not a vulnerability problem — they are an architectural one. How conservative, server-side approaches reduce exposure at the structural level.",
+				"Los ataques a la cadena de suministro no son un problema de vulnerabilidades, sino arquitectónico. Cómo los enfoques conservadores del lado del servidor reducen la exposición a nivel estructural.",
 			))
 			if templ_7745c5c3_Err != nil {
 				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 65, Col: 7}
@@ -195,7 +195,75 @@ func Blog(csrfToken string, lang locale.Lang) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</p></div></li></ol></article>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</p></div></li><li class=\"blog-listing__post\"><a class=\"blog-listing__thumb\" href=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var14 templ.SafeURL
+			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/blog/server-response-time"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 69, Col: 98}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "\" tabindex=\"-1\" aria-hidden=\"true\"><img src=\"/static/img/blog-server-response-time.jpg\" alt=\"\" width=\"320\" height=\"180\" loading=\"lazy\" decoding=\"async\"></a><div class=\"blog-listing__body\"><time class=\"blog-listing__date\" datetime=\"2026-05-20\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var15 string
+			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("20 May 2026", "20 de mayo de 2026"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 80, Col: 106}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</time><h2><a href=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var16 templ.SafeURL
+			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/blog/server-response-time"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 81, Col: 75}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var17 string
+			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Server response time: twenty years of change", "Tiempo de respuesta del servidor: veinte años de cambios"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 81, Col: 195}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</a></h2><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var18 string
+			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				"The premise that justified client-side state was server latency. In 2026, the latency is gone. The premise is not.",
+				"La premisa que justificó el estado en el cliente fue la latencia del servidor. En 2026, la latencia ha desaparecido. La premisa no.",
+			))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog.templ`, Line: 85, Col: 7}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</p></div></li></ol></article>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

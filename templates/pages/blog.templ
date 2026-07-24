@@ -26,6 +26,26 @@ templ Blog(csrfToken string, lang locale.Lang) {
 		<article>
 			<ol class="blog-listing">
 				<li class="blog-listing__post">
+					<a class="blog-listing__thumb" href={ templ.URL(lang.Prefix() + "/blog/eu-compliance") } tabindex="-1" aria-hidden="true">
+						<img
+							src="/static/img/blog-eu-compliance.svg"
+							alt=""
+							width="320"
+							height="180"
+							loading="lazy"
+							decoding="async"
+						/>
+					</a>
+					<div class="blog-listing__body">
+						<time class="blog-listing__date" datetime="2026-07-24">{ lang.T("24 July 2026", "24 de julio de 2026") }</time>
+						<h2><a href={ templ.URL(lang.Prefix() + "/blog/eu-compliance") }>{ lang.T("Compliance by architecture: GDPR, NIS2, and the EU security baseline", "Cumplimiento por arquitectura: RGPD, NIS2 y el estándar de seguridad de la UE") }</a></h2>
+						<p>{ lang.T(
+							"The EU now regulates web application security through GDPR, NIS2, the Cyber Resilience Act, and DORA. Server-authoritative UI turns several of their requirements from paperwork into structural properties of the system.",
+							"La UE ahora regula la seguridad de las aplicaciones web mediante el RGPD, NIS2, la Ley de Ciberresiliencia y DORA. La interfaz autorizada por el servidor convierte varios de sus requisitos, de trámites en propiedades estructurales del sistema.",
+						) }</p>
+					</div>
+				</li>
+				<li class="blog-listing__post">
 					<a class="blog-listing__thumb" href={ templ.URL(lang.Prefix() + "/blog/supply-chain") } tabindex="-1" aria-hidden="true">
 						<img
 							src="/static/img/blog-supply-chain.svg"

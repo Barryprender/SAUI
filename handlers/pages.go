@@ -208,6 +208,18 @@ func (h *Handler) BlogPostServerResponseTimeES(w http.ResponseWriter, r *http.Re
 	}
 }
 
+func (h *Handler) BlogPostEUCompliance(w http.ResponseWriter, r *http.Request) {
+	if err := pages.BlogPostEUCompliance(middleware.CSRFToken(r), locale.EN).Render(r.Context(), w); err != nil {
+		h.logger.Error("render blog post", "err", err)
+	}
+}
+
+func (h *Handler) BlogPostEUComplianceES(w http.ResponseWriter, r *http.Request) {
+	if err := pages.BlogPostEUCompliance(middleware.CSRFToken(r), locale.ES).Render(r.Context(), w); err != nil {
+		h.logger.Error("render blog post es", "err", err)
+	}
+}
+
 func (h *Handler) Code(w http.ResponseWriter, r *http.Request) {
 	if err := pages.Code(middleware.CSRFToken(r), locale.EN).Render(r.Context(), w); err != nil {
 		h.logger.Error("render code", "err", err)
