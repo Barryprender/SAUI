@@ -13,7 +13,7 @@ const ScheduleProjectionName = "healthcare.schedule"
 type SlotStatus int
 
 const (
-	SlotAvailable    SlotStatus = iota
+	SlotAvailable SlotStatus = iota
 	SlotBookedByMe
 	SlotBookedByOther
 )

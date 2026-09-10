@@ -10,8 +10,8 @@ import (
 )
 
 const csrfCookieName = "saui_csrf"
-const csrfHeader     = "X-CSRF-Token"
-const csrfField      = "_csrf"
+const csrfHeader = "X-CSRF-Token"
+const csrfField = "_csrf"
 
 type csrfCtxKey struct{}
 

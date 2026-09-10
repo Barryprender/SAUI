@@ -514,3 +514,56 @@ Routes follow the pattern `/demo/<domain>/...`
 4. The reference implementation must be open source and linkable.
 5. No venture capital positioning. No SaaS. No monetisation of the idea itself.
 6. The goal is consensus and adoption, not a product.
+
+---
+
+## Verification and the Traps That Make a Green Run Lie
+
+`./verify.sh` is the only definition of a passing build. CI runs that file, not
+a copy of it, so a green run locally and a green run on GitHub mean the same
+thing. Run it before pushing. Fix a failing gate; never work around one.
+
+```
+./verify.sh               # every gate
+./verify.sh --update-sbom # regenerate sbom.json, then every gate
+```
+
+**Trap 1 — stale generated templates.** Editing a `.templ` file without running
+`templ generate` leaves the committed `_templ.go` describing the previous
+markup. Every test still passes, against a page that is no longer in the source.
+The gate catches it; the point is to know why the gate exists. See
+[ADR-0001](docs/adr/0001-use-templ-for-templates.md).
+
+**Trap 2 — a Go toolchain floor that drifts.** The version in `go.mod`, in the
+CI workflow, and in the `Dockerfile` builder must match. The floor is 1.25.14
+because every earlier 1.25 patch ships standard-library vulnerabilities that
+`govulncheck` reports as reachable from this code. Raise all three together, or
+the container ships a toolchain the gate never inspected.
+
+**Trap 3 — an SBOM generated for the wrong target.** Build constraints steer
+Go's module selection, so `sbom.json` is regenerated under
+`CGO_ENABLED=0 GOOS=linux GOARCH=amd64` — the shipped container, not a
+developer's Windows machine. `verify.sh` handles this; do not generate the file
+by hand.
+
+**Trap 4 — believing coverage.** Statement coverage is 18.3%. The state store,
+the feedback action and the projections are tested. The demo handlers and the
+middleware are largely not. A green pipeline means nothing known-bad is present,
+not that the code is right.
+
+## Preserve Unconditionally
+
+Do not delete, weaken, or route around any of these without an explicit
+instruction. They are the deliverable, not overhead:
+
+- `verify.sh` and `.github/workflows/ci.yml` — no `continue-on-error`, no
+  `|| true`, no gate downgraded to a warning.
+- `sbom.json` and its freshness gate. A committed SBOM nobody regenerates is
+  worse than none, because it is believed.
+- `SECURITY.md` and the response windows in it. They are commitments.
+- `docs/technical-documentation.md` — CRA Annex VII. Update it on any material
+  release: a change to the dependency set, the data held, or the risk
+  assessment.
+- `docs/adr/` — records are never deleted and numbers are never reused.
+- The security middleware in `middleware/`: CSRF, session cookie flags, rate
+  limiting, security headers.

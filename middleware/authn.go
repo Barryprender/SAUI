@@ -12,10 +12,10 @@ import (
 
 type ctxKey string
 
-const sessionCtxKey    ctxKey = "session_id"
-const sessionCookieName       = "saui_session"
-const sessionIDBytes          = 16 // produces 32 hex chars
-const sessionIDHexLen         = sessionIDBytes * 2
+const sessionCtxKey ctxKey = "session_id"
+const sessionCookieName = "saui_session"
+const sessionIDBytes = 16 // produces 32 hex chars
+const sessionIDHexLen = sessionIDBytes * 2
 
 // NewSession returns the session middleware.
 // secure must be true when serving over HTTPS or behind a TLS-terminating proxy.

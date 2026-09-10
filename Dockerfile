@@ -1,4 +1,7 @@
-FROM golang:1.25-alpine AS builder
+# Pinned to match the `go` line in go.mod and the CI toolchain. The floor is
+# 1.25.14: every earlier 1.25 patch ships standard-library vulnerabilities that
+# govulncheck reports as reachable from this code. Raise all three together.
+FROM golang:1.25.14-alpine AS builder
 
 WORKDIR /app
 

@@ -10,11 +10,11 @@ type Doctor struct {
 
 // SlotDef is a fixed appointment slot in the schedule.
 type SlotDef struct {
-	ID         string
-	Doctor     Doctor
-	Day        string
-	DayOrder   int
-	Time       string
+	ID       string
+	Doctor   Doctor
+	Day      string
+	DayOrder int
+	Time     string
 }
 
 var allDoctors = []Doctor{

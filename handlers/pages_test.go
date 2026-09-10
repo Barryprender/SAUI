@@ -153,4 +153,3 @@ func TestAllPages_ContainCSRFMeta(t *testing.T) {
 		})
 	}
 }
-

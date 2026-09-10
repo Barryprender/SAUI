@@ -5,9 +5,9 @@ import (
 )
 
 const (
-	hcSlotBooked        = "healthcare.slot.booked"
-	hcBookingCancelled  = "healthcare.booking.cancelled"
-	hcPreseedSession    = "__preseed__"
+	hcSlotBooked       = "healthcare.slot.booked"
+	hcBookingCancelled = "healthcare.booking.cancelled"
+	hcPreseedSession   = "__preseed__"
 )
 
 var hcPreseedSlots = []struct{ id, doctor, day, time string }{

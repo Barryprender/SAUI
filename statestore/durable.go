@@ -9,10 +9,10 @@ import (
 
 // Event is an immutable record of something that happened.
 type Event struct {
-	ID        int64
-	SessionID string
-	Type      string
-	Payload   json.RawMessage
+	ID         int64
+	SessionID  string
+	Type       string
+	Payload    json.RawMessage
 	OccurredAt time.Time
 }
 

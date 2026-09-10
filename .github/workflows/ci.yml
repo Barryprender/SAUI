@@ -1,0 +1,32 @@
+# Every gate lives in ./verify.sh, not here. This workflow exists to run that
+# file on a clean machine, so "it passed on my laptop" and "it passed on CI"
+# cannot mean two different things. Nothing in this file may warn instead of
+# failing: no continue-on-error, no `|| true`.
+name: Verify
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          # Must match the `go` line in go.mod and the builder image in the
+          # Dockerfile. The floor is 1.25.14 because every earlier 1.25 patch
+          # carries standard-library vulnerabilities that govulncheck reports
+          # as reachable from this code. Raise all three together.
+          go-version-file: go.mod
+          check-latest: true
+
+      - name: Run every gate
+        run: ./verify.sh

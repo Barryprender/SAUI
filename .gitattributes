@@ -1,0 +1,11 @@
+# Generated *_templ.go files are written with LF by `templ generate`. Without
+# this, a Windows checkout rewrites them as CRLF, templ rewrites them back, and
+# the generated-code freshness gate in verify.sh fails on a file nobody edited.
+# verify.sh must be LF for the same reason it must be LF everywhere: a CRLF
+# shebang line is not executable on Linux, which is where CI runs it.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.svg text eol=lf
+*.db binary
