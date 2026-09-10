@@ -9,6 +9,7 @@ import (
 	"syscall"
 	"time"
 
+	"saui/actions"
 	"saui/handlers"
 	"saui/middleware"
 	"saui/statestore"
@@ -135,6 +136,33 @@ func main() {
 
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
+
+	// Storage limitation is a schedule, not an intention. Feedback is retained
+	// with its session identifier cleared; every other event past the window
+	// goes. Run once at boot so a restarted instance is compliant immediately.
+	purge := func() {
+		pctx, cancel := context.WithTimeout(ctx, 30*time.Second)
+		defer cancel()
+		anonymised, deleted, err := store.PurgeExpired(pctx, time.Now().UTC(), actions.FeedbackSubmittedType)
+		if err != nil {
+			logger.Error("event retention purge failed", "err", err)
+			return
+		}
+		logger.Info("event retention purge", "anonymised", anonymised, "deleted", deleted)
+	}
+	go func() {
+		purge()
+		ticker := time.NewTicker(6 * time.Hour)
+		defer ticker.Stop()
+		for {
+			select {
+			case <-ctx.Done():
+				return
+			case <-ticker.C:
+				purge()
+			}
+		}
+	}()
 
 	go func() {
 		logger.Info("server starting", "addr", cfg.addr)

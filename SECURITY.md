@@ -17,6 +17,19 @@ What the server stores, in a single SQLite file:
 No names, email addresses, passwords or payment data are collected. Visitors may
 type personal data into the feedback box; that text is stored as written.
 
+**Retention.** The session identifier is an online identifier, so the log is not
+kept indefinitely. A background pass runs at start-up and every six hours:
+
+- Demo interaction events older than **30 days** are deleted.
+- Feedback older than 30 days is kept, with its session identifier cleared. The
+  argument outlives the identifier; the identifier is the part that made the row
+  personal data.
+- Demo fixture rows, which are scenery rather than visitor activity, are
+  untouched.
+
+Clearing the identifier does not sanitise the message body. A visitor who typed
+their own name into the feedback box has left it there.
+
 ## The worst plausible defect
 
 The demos are the attack surface. The pattern's central claim is that a client
@@ -75,7 +88,7 @@ unformatted code, `go vet` findings, stale generated templates, failing tests, a
 `govulncheck` finding, or a stale SBOM.
 
 It does not substitute for a threat model, and it cannot make untested code
-correct. Statement coverage across the application packages is currently 18.3%,
+correct. Statement coverage across the application packages is currently 20.5%,
 which is thin: most of the demo handlers and all of the middleware are exercised
 only indirectly, if at all. Treat a green pipeline as evidence that nothing
 known-bad is present, not as evidence that the code is right.

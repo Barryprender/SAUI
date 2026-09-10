@@ -546,7 +546,7 @@ Go's module selection, so `sbom.json` is regenerated under
 developer's Windows machine. `verify.sh` handles this; do not generate the file
 by hand.
 
-**Trap 4 — believing coverage.** Statement coverage is 18.3%. The state store,
+**Trap 4 — believing coverage.** Statement coverage is 20.5%. The state store,
 the feedback action and the projections are tested. The demo handlers and the
 middleware are largely not. A green pipeline means nothing known-bad is present,
 not that the code is right.

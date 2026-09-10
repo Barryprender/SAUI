@@ -51,6 +51,14 @@ anonymous session identifier, plus per-demo projection tables rebuilt from it.
 The full inventory of personal data held is in
 [SECURITY.md](../SECURITY.md#what-this-product-is-and-what-it-holds).
 
+Append-only storage and the GDPR storage-limitation principle pull against each
+other, and this product resolves the tension rather than ignoring it:
+`Store.PurgeExpired` runs at start-up and every six hours, deleting demo events
+past a 30-day window and clearing the session identifier from retained feedback.
+Demo fixture rows carry no personal data and are excluded. The retention window
+is a constant in `statestore/durable.go`, and a test in
+`statestore/store_test.go` fails if either half of the behaviour regresses.
+
 ## 4. Cybersecurity risk assessment
 
 Assessed against the OWASP Top 10 (2021). Risks are listed with the control that
@@ -67,6 +75,7 @@ addresses them and the residual exposure that remains.
 | Security misconfiguration | Security-header middleware; container runs as a non-root user; no debug endpoints | None known |
 | Denial of service | Rate-limiting middleware; 2000-character cap on feedback | Single instance, no autoscaling — availability is best-effort and stated as such |
 | Logging failures | Structured JSON logs of requests and errors; message bodies are not logged | Logs are not shipped off-host or retained centrally |
+| Storage limitation — identifiers kept past their purpose | Scheduled retention pass: demo events deleted after 30 days, feedback detached from its session | Free-text a visitor typed about themselves survives the detachment |
 | Server-side request forgery | The server makes no outbound requests on behalf of a visitor | Not applicable |
 
 The product processes no special-category personal data and performs no
@@ -97,7 +106,7 @@ rather than a copy of it. It fails, never warns, on:
 6. A `sbom.json` that no longer matches a regeneration under the shipped build
    constraints (`CGO_ENABLED=0 GOOS=linux GOARCH=amd64`)
 
-**Known weakness.** Statement coverage across the application packages is 18.3%.
+**Known weakness.** Statement coverage across the application packages is 20.5%.
 The state store, the feedback action and the projection layer are tested; the
 demo handlers and the middleware are largely not. The pipeline is trustworthy
 about what it checks, and what it checks is narrower than the product.

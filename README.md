@@ -49,7 +49,7 @@ files behind their `.templ` sources, any failing test, any `govulncheck`
 finding, or a `sbom.json` that no longer matches a regeneration under the
 shipped build constraints. It installs its own pinned tooling.
 
-Statement coverage is 18.3%. That is thin, and stated rather than hidden: the
+Statement coverage is 20.5%. That is thin, and stated rather than hidden: the
 state store, the feedback action and the projections are tested; the demo
 handlers and the middleware are largely not.
 

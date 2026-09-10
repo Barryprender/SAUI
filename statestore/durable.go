@@ -52,6 +52,73 @@ func (s *Store) AppendEvent(ctx context.Context, sessionID, eventType string, pa
 	return Event{ID: id, SessionID: sessionID, Type: eventType, Payload: p, OccurredAt: now}, nil
 }
 
+// eventRetention is how long an event stays attributable to the session that
+// produced it. The only personal data in the log is session_id — an online
+// identifier under GDPR Recital 30 — and the session cookie expires after 24
+// hours, so beyond this window nobody can reach their own rows anyway.
+// Article 5(1)(e) does not permit keeping identifiers with no purpose left.
+const eventRetention = 30 * 24 * time.Hour
+
+// PurgeExpired enforces that window. Events of the retained types are detached
+// from their session rather than removed, because the retained type is visitor
+// feedback and the argument it carries outlives the identifier attached to it;
+// everything else past the window is deleted outright.
+//
+// Callers pass the retained types, so this package stays ignorant of the
+// domain's event names. Only the placeholder count is interpolated into SQL;
+// every value is bound.
+// The demo fixtures share this table. The healthcare demo preseeds booked
+// slots as events under hcPreseedSession, which are scenery rather than a
+// visitor's activity: they carry no personal data and the demo is wrong
+// without them, so retention leaves them alone.
+func (s *Store) PurgeExpired(ctx context.Context, now time.Time, retain ...string) (anonymised, deleted int64, err error) {
+	args := []any{now.Add(-eventRetention).UnixMilli(), hcPreseedSession}
+	var list string
+	for i, t := range retain {
+		if i > 0 {
+			list += ", "
+		}
+		list += "?"
+		args = append(args, t)
+	}
+	keep, drop := "", ""
+	if len(retain) > 0 {
+		keep = " AND type IN (" + list + ")"
+		drop = " AND type NOT IN (" + list + ")"
+	}
+
+	// One transaction, so a failure between the two statements cannot leave
+	// feedback detached while the events around it survive.
+	tx, err := s.db.BeginTx(ctx, nil)
+	if err != nil {
+		return 0, 0, fmt.Errorf("begin retention purge: %w", err)
+	}
+	defer tx.Rollback()
+
+	// session_id NOT IN ('', fixtures) keeps the pass idempotent and keeps the
+	// fixtures out of it.
+	const expired = ` WHERE occurred_at < ? AND session_id NOT IN ('', ?)`
+
+	if len(retain) > 0 {
+		res, err := tx.ExecContext(ctx, `UPDATE events SET session_id = ''`+expired+keep, args...)
+		if err != nil {
+			return 0, 0, fmt.Errorf("detach expired events: %w", err)
+		}
+		anonymised, _ = res.RowsAffected()
+	}
+
+	res, err := tx.ExecContext(ctx, `DELETE FROM events`+expired+drop, args...)
+	if err != nil {
+		return 0, 0, fmt.Errorf("delete expired events: %w", err)
+	}
+	deleted, _ = res.RowsAffected()
+
+	if err := tx.Commit(); err != nil {
+		return 0, 0, fmt.Errorf("commit retention purge: %w", err)
+	}
+	return anonymised, deleted, nil
+}
+
 func (s *Store) EventsBySession(ctx context.Context, sessionID string) ([]Event, error) {
 	rows, err := s.db.QueryContext(ctx,
 		`SELECT id, session_id, type, payload, occurred_at FROM events WHERE session_id = ? ORDER BY id ASC`,
