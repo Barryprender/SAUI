@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="46%" r="82%" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#0d1728"/>
+      <stop offset="100%" stop-color="#050911"/>
+    </radialGradient>
+    <pattern id="dots" x="0" y="0" width="44" height="44" patternUnits="userSpaceOnUse">
+      <circle cx="22" cy="22" r="0.9" fill="#4b6480" opacity="0.32"/>
+    </pattern>
+    <filter id="f-warn" x="-120%" y="-120%" width="340%" height="340%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="f-soft" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#dots)"/>
+
+  <g fill="none" stroke="#1a3060" stroke-width="1.4" opacity="0.2">
+    <circle cx="120" cy="150" r="7"/>
+    <circle cx="90"  cy="470" r="5"/>
+    <circle cx="200" cy="760" r="8"/>
+    <circle cx="1420" cy="180" r="6"/>
+    <circle cx="1500" cy="520" r="5"/>
+    <circle cx="1360" cy="790" r="7"/>
+  </g>
+
+  <!-- Three concentric arcs: the three deadlines, each a further sweep of the same clock -->
+  <g transform="translate(560,430)" fill="none" stroke-linecap="round">
+    <circle r="292" stroke="#16233c" stroke-width="1.5"/>
+    <circle r="232" stroke="#16233c" stroke-width="1.5"/>
+    <circle r="172" stroke="#16233c" stroke-width="1.5"/>
+
+    <!-- 24 hours: a quarter sweep -->
+    <path d="M 0 -292 A 292 292 0 0 1 292 0" stroke="#e0563f" stroke-width="15" filter="url(#f-warn)"/>
+    <!-- 72 hours: three quarters -->
+    <path d="M 0 -232 A 232 232 0 1 1 -232 0" stroke="#e9b949" stroke-width="15" filter="url(#f-soft)"/>
+    <!-- 14 days: the full turn -->
+    <circle r="172" stroke="#4a90e2" stroke-width="15" stroke-dasharray="1075 5" filter="url(#f-soft)"/>
+
+    <!-- Discovery: where every one of the three starts -->
+    <line x1="0" y1="-320" x2="0" y2="-140" stroke="#8fa8c4" stroke-width="2" stroke-dasharray="6 6"/>
+    <circle cx="0" cy="-292" r="13" fill="#050911" stroke="#f2f5f9" stroke-width="4"/>
+  </g>
+
+  <g font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" fill="#f2f5f9">
+    <text x="560" y="86" font-size="27" text-anchor="middle" fill="#f2f5f9" letter-spacing="5">DISCOVERY</text>
+    <text x="560" y="120" font-size="19" text-anchor="middle" fill="#8fa8c4">the clock starts here, not at triage</text>
+
+    <text x="560" y="420" font-size="72" text-anchor="middle" font-weight="700">24h</text>
+    <text x="560" y="462" font-size="21" text-anchor="middle" fill="#8fa8c4">early warning</text>
+    <text x="560" y="516" font-size="30" text-anchor="middle" fill="#e9b949" font-weight="600">72h</text>
+    <text x="560" y="556" font-size="30" text-anchor="middle" fill="#4a90e2" font-weight="600">14 days</text>
+  </g>
+
+  <!-- The ladder, spelled out -->
+  <g font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif">
+    <g transform="translate(1010,236)">
+      <rect x="0" y="0" width="480" height="118" rx="6" fill="#0b1524" stroke="#e0563f" stroke-width="2"/>
+      <text x="26" y="44" font-size="25" fill="#e0563f" font-weight="700">24 hours</text>
+      <text x="26" y="78" font-size="19" fill="#c8d6e6">Early warning to the CSIRT and ENISA</text>
+      <text x="26" y="103" font-size="17" fill="#7d93ad">Article 14(1)</text>
+    </g>
+    <g transform="translate(1010,392)">
+      <rect x="0" y="0" width="480" height="118" rx="6" fill="#0b1524" stroke="#e9b949" stroke-width="2"/>
+      <text x="26" y="44" font-size="25" fill="#e9b949" font-weight="700">72 hours</text>
+      <text x="26" y="78" font-size="19" fill="#c8d6e6">Notification: what it is, who is affected</text>
+      <text x="26" y="103" font-size="17" fill="#7d93ad">Article 14(2)(b)</text>
+    </g>
+    <g transform="translate(1010,548)">
+      <rect x="0" y="0" width="480" height="118" rx="6" fill="#0b1524" stroke="#4a90e2" stroke-width="2"/>
+      <text x="26" y="44" font-size="25" fill="#4a90e2" font-weight="700">14 days</text>
+      <text x="26" y="78" font-size="19" fill="#c8d6e6">Final report, once a fix is available</text>
+      <text x="26" y="103" font-size="17" fill="#7d93ad">Article 14(2)(c)</text>
+    </g>
+  </g>
+
+  <g font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif">
+    <line x1="110" y1="812" x2="1490" y2="812" stroke="#1a3060" stroke-width="2"/>
+    <circle cx="290" cy="812" r="7" fill="#4b6480"/>
+    <text x="290" y="856" font-size="18" fill="#7d93ad" text-anchor="middle">10 Dec 2024 · in force</text>
+    <circle cx="800" cy="812" r="10" fill="#e0563f"/>
+    <text x="800" y="856" font-size="19" fill="#e6ecf3" text-anchor="middle" font-weight="600">11 Sep 2026 · reporting applies</text>
+    <circle cx="1310" cy="812" r="7" fill="#4b6480"/>
+    <text x="1310" y="856" font-size="18" fill="#7d93ad" text-anchor="middle">11 Dec 2027 · full obligations</text>
+  </g>
+
+  <text x="110" y="122" font-family="ui-sans-serif, system-ui, sans-serif" font-size="20" fill="#4b6480" letter-spacing="3">REGULATION (EU) 2024/2847</text>
+</svg>

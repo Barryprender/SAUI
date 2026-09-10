@@ -57,7 +57,9 @@ step "templ generation is current"
 # The silent lie in this repository: edit a .templ file, forget to regenerate,
 # and the whole suite passes against the previous version of the markup.
 templ generate >/dev/null
-stale=$(git status --porcelain -- '*_templ.go')
+# Unstaged drift only: regenerating must not change what is already recorded.
+# git status would also flag a newly added file whose generated form is correct.
+stale=$(git diff --name-only -- '*_templ.go')
 [ -z "$stale" ] || fail "_templ.go is behind its .templ source:"$'\n'"$stale"$'\n'"run: templ generate"
 echo "ok"
 

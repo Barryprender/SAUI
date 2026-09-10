@@ -47,6 +47,26 @@ templ Blog(csrfToken string, lang locale.Lang) {
 		<article>
 			<ol class="blog-listing">
 				<li class="blog-listing__post">
+					<a class="blog-listing__thumb" href={ templ.URL(lang.Prefix() + "/blog/cra-clock") } tabindex="-1" aria-hidden="true">
+						<img
+							src="/static/img/blog-cra-clock.svg"
+							alt=""
+							width="320"
+							height="180"
+							loading="lazy"
+							decoding="async"
+						/>
+					</a>
+					<div class="blog-listing__body">
+						<time class="blog-listing__date" datetime="2026-09-10">{ lang.T("10 September 2026", "10 de septiembre de 2026") }</time>
+						<h2><a href={ templ.URL(lang.Prefix() + "/blog/cra-clock") }>{ lang.T("The clock starts at discovery", "El reloj empieza en el descubrimiento") }</a></h2>
+						<p>{ lang.T(
+							"From 11 September 2026 the Cyber Resilience Act gives manufacturers 24 hours to warn ENISA about an actively exploited vulnerability. Meeting that deadline is a question about where your application's state lives.",
+							"Desde el 11 de septiembre de 2026, la Ley de Ciberresiliencia concede a los fabricantes 24 horas para alertar a ENISA sobre una vulnerabilidad explotada activamente. Cumplir ese plazo es una cuestión sobre dónde reside el estado de tu aplicación.",
+						) }</p>
+					</div>
+				</li>
+				<li class="blog-listing__post">
 					<a class="blog-listing__thumb" href={ templ.URL(lang.Prefix() + "/blog/eu-compliance") } tabindex="-1" aria-hidden="true">
 						<img
 							src="/static/img/blog-eu-compliance.svg"

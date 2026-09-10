@@ -14,6 +14,9 @@
   <url><loc>https://saui.fly.dev/testing</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://saui.fly.dev/limits</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://saui.fly.dev/blog</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://saui.fly.dev/blog/cra-clock</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/blog/eu-compliance</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/blog/supply-chain</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://saui.fly.dev/blog/server-response-time</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://saui.fly.dev/code</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://saui.fly.dev/es/</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
@@ -30,6 +33,9 @@
   <url><loc>https://saui.fly.dev/es/testing</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://saui.fly.dev/es/limits</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://saui.fly.dev/es/blog</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://saui.fly.dev/es/blog/cra-clock</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/es/blog/eu-compliance</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saui.fly.dev/es/blog/supply-chain</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://saui.fly.dev/es/blog/server-response-time</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://saui.fly.dev/es/code</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
 </urlset>
