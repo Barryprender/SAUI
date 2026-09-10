@@ -60,7 +60,7 @@ templ generate >/dev/null
 # Unstaged drift only: regenerating must not change what is already recorded.
 # git status would also flag a newly added file whose generated form is correct.
 stale=$(git diff --name-only -- '*_templ.go')
-[ -z "$stale" ] || fail "_templ.go is behind its .templ source:"$'\n'"$stale"$'\n'"run: templ generate"
+[ -z "$stale" ] || fail "regenerating changed these, so the recorded markup is behind its source:"$'\n'"$stale"$'\n'"review the regenerated files and include them in the commit"
 echo "ok"
 
 step "tests"

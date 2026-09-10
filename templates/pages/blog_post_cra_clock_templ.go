@@ -120,8 +120,8 @@ func BlogPostCRAClock(csrfToken string, lang locale.Lang) templ.Component {
 			}
 			var templ_7745c5c3_Var8 string
 			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				"Tomorrow the Cyber Resilience Act's reporting obligations become enforceable. A manufacturer who learns that a vulnerability in a shipped product is being exploited has 24 hours to say so. The deadline is not the hard part. Knowing what happened, and to whom, is the hard part — and that is decided by architecture long before the clock starts.",
-				"Mañana entran en vigor las obligaciones de notificación de la Ley de Ciberresiliencia. Un fabricante que descubre que una vulnerabilidad de un producto ya distribuido está siendo explotada dispone de 24 horas para comunicarlo. El plazo no es lo difícil. Lo difícil es saber qué ocurrió y a quién, y eso lo decide la arquitectura mucho antes de que el reloj empiece a correr.",
+				"From 11 September 2026 the Cyber Resilience Act's reporting obligations are enforceable. A manufacturer who learns that a vulnerability in a shipped product is being exploited has 24 hours to say so. Writing the notice takes an afternoon. Knowing what happened, and to whom, is the part your architecture decided long before the clock started.",
+				"Desde el 11 de septiembre de 2026 son exigibles las obligaciones de notificación de la Ley de Ciberresiliencia. Un fabricante que descubre que una vulnerabilidad de un producto ya distribuido está siendo explotada dispone de 24 horas para comunicarlo. Redactar el aviso lleva una tarde. Saber qué ocurrió y a quién es la parte que tu arquitectura decidió mucho antes de que el reloj empezara a correr.",
 			))
 			if templ_7745c5c3_Err != nil {
 				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 42, Col: 5}
@@ -153,18 +153,17 @@ func BlogPostCRAClock(csrfToken string, lang locale.Lang) templ.Component {
 					10 December 2024, and most of the industry filed it under "2027 problem". That
 					filing was half right. The bulk of the essential requirements, the conformity
 					assessment, and the CE marking do apply from 11 December 2027. But the reporting
-					obligations in Article 14 were pulled forward deliberately, and they apply from
-					11 September 2026. That is tomorrow.`,
+					obligations in Article 14 were pulled forward deliberately, and they have applied
+					since 11 September 2026.`,
 				`El Reglamento (UE) 2024/2847 —la Ley de Ciberresiliencia— entró en vigor el
 					10 de diciembre de 2024, y buena parte del sector lo archivó como un "problema de
 					2027". Ese archivo era correcto a medias. El grueso de los requisitos esenciales,
 					la evaluación de la conformidad y el marcado CE se aplican, en efecto, desde el
 					11 de diciembre de 2027. Pero las obligaciones de notificación del artículo 14 se
-					adelantaron de forma deliberada y se aplican desde el 11 de septiembre de 2026.
-					Es decir, mañana.`,
+					adelantaron de forma deliberada y se aplican desde el 11 de septiembre de 2026.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 62, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 61, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
@@ -176,17 +175,17 @@ func BlogPostCRAClock(csrfToken string, lang locale.Lang) templ.Component {
 			}
 			var templ_7745c5c3_Var11 string
 			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				`The legislator's reasoning is not hard to reconstruct. The rest of the regulation
-					improves products that have not been built yet. Article 14 is about products
-					already in the field, being attacked today, whose users have no way of learning
-					that they are exposed. Waiting three years for that was not defensible.`,
-				`El razonamiento del legislador no es difícil de reconstruir. El resto del
-					reglamento mejora productos que aún no se han construido. El artículo 14 trata de
-					productos ya desplegados, atacados hoy, cuyos usuarios no tienen forma de saber
-					que están expuestos. Esperar tres años para eso no era defendible.`,
+				`The rest of the regulation improves products that have not been built yet.
+					Article 14 is about products already in the field, being attacked today, whose
+					users have no way of learning that they are exposed. Waiting three years to tell
+					those users was indefensible.`,
+				`El resto del reglamento mejora productos que aún no se han construido. El
+					artículo 14 trata de productos ya desplegados, atacados hoy, cuyos usuarios no
+					tienen forma de saber que están expuestos. Esperar tres años para avisar a esos
+					usuarios era indefendible.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 72, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 71, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
@@ -199,7 +198,7 @@ func BlogPostCRAClock(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var12 string
 			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("First: does it apply to you?", "Primero: ¿te aplica?"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 75, Col: 73}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 74, Col: 73}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -211,14 +210,21 @@ func BlogPostCRAClock(csrfToken string, lang locale.Lang) templ.Component {
 			}
 			var templ_7745c5c3_Var13 string
 			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				`This deserves a straight answer before anything else, because a great deal of
-					compliance commentary is vague about it in a way that is not accidental.`,
-				`Esto merece una respuesta directa antes que nada, porque buena parte de los
-					comentarios sobre cumplimiento son vagos al respecto de una forma que no es
-					casual.`,
+				`The Cyber Resilience Act regulates products with digital elements placed on the
+					EU market. Software you distribute is a product, and so are firmware and a
+					connected device. A website is not, and neither is a software-as-a-service
+					application in the ordinary case: services are governed by NIS2, not by the CRA.
+					If your entire delivery model is a URL your customers visit, Article 14 does not
+					reach you directly.`,
+				`La Ley de Ciberresiliencia regula los productos con elementos digitales
+					introducidos en el mercado de la UE. El software que distribuyes es un producto,
+					y también lo son el firmware y un dispositivo conectado. Un sitio web no lo es, y
+					tampoco lo es una aplicación de software como servicio en el caso ordinario: los
+					servicios se rigen por NIS2, no por la CRA. Si todo tu modelo de entrega es una
+					URL que tus clientes visitan, el artículo 14 no te alcanza directamente.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 82, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 88, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 			if templ_7745c5c3_Err != nil {
@@ -230,33 +236,6 @@ func BlogPostCRAClock(csrfToken string, lang locale.Lang) templ.Component {
 			}
 			var templ_7745c5c3_Var14 string
 			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				`The Cyber Resilience Act regulates products with digital elements placed on the
-					EU market. Software you distribute is a product. Firmware is a product. A
-					connected device is a product. A website is not, and neither is a
-					software-as-a-service application in the ordinary case: services are governed by
-					NIS2, not by the CRA. If your entire delivery model is a URL your customers
-					visit, Article 14 does not reach you directly.`,
-				`La Ley de Ciberresiliencia regula los productos con elementos digitales
-					introducidos en el mercado de la UE. El software que distribuyes es un producto.
-					El firmware es un producto. Un dispositivo conectado es un producto. Un sitio web
-					no lo es, y tampoco lo es una aplicación de software como servicio en el caso
-					ordinario: los servicios se rigen por NIS2, no por la CRA. Si todo tu modelo de
-					entrega es una URL que tus clientes visitan, el artículo 14 no te alcanza
-					directamente.`,
-			))
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 97, Col: 5}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</p><p>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var15 string
-			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
 				`There are two ways that comfortable conclusion stops being true. The first is the
 					remote data processing solution: where a hosted backend is necessary for a
 					distributed product to perform its function, that backend is pulled into the
@@ -278,18 +257,18 @@ func BlogPostCRAClock(csrfToken string, lang locale.Lang) templ.Component {
 					a sí mismo.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 118, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 109, Col: 5}
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var16 string
-			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+			var templ_7745c5c3_Var15 string
+			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
 				`Free and open-source software developed outside commercial activity is excluded.
 					Products already covered by sector regimes — medical devices, motor vehicles,
 					civil aviation — stay under those regimes. Everything else that ships as software
@@ -301,18 +280,18 @@ func BlogPostCRAClock(csrfToken string, lang locale.Lang) templ.Component {
 					dentro del alcance hasta que alguien lo haya comprobado en serio.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 129, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 120, Col: 5}
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</p><blockquote class=\"callout\"><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</p><blockquote class=\"callout\"><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var17 string
-			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+			var templ_7745c5c3_Var16 string
+			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
 				`If you are a pure web application, Article 14 is not your obligation — but the
 						question it asks is still your problem. NIS2 puts essential and important
 						entities on the same 24-hour and 72-hour clock for significant incidents. The
@@ -324,141 +303,143 @@ func BlogPostCRAClock(csrfToken string, lang locale.Lang) templ.Component {
 						es idéntico.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 141, Col: 6}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 132, Col: 6}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</p></blockquote></section><section><h2>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var17 string
+			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The three deadlines", "Los tres plazos"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 136, Col: 58}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</p></blockquote></section><section><h2>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var18 string
-			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The three deadlines", "Los tres plazos"))
+			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`Article 14 defines two reporting tracks, each with three stages. One is triggered
+					by a vulnerability in your product that is under active exploitation, rather than
+					merely disclosed. The other is triggered by a severe incident affecting the
+					security of the product. Both are reported through a single EU reporting platform
+					to the CSIRT designated as coordinator and to ENISA. The stages below are the
+					vulnerability track; the incident track runs to the same first two deadlines.`,
+				`El artículo 14 define dos vías de notificación, cada una con tres fases. Una se
+					activa por una vulnerabilidad de tu producto que está siendo explotada
+					activamente, y no solamente divulgada. La otra se activa por un incidente grave
+					que afecte a la seguridad del producto. Ambas se notifican a través de una única
+					plataforma de notificación de la UE al CSIRT designado como coordinador y a
+					ENISA. Las fases que siguen son las de la vía de vulnerabilidades; la vía de
+					incidentes comparte los dos primeros plazos.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 145, Col: 58}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 151, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</p><dl class=\"incident-log\"><dt>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var19 string
-			templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				`Article 14 defines two ladders. The first is triggered by an actively exploited
-					vulnerability in your product — not a theoretical vulnerability, an exploited one.
-					The second is triggered by a severe incident affecting the security of the
-					product. Both are reported through a single EU reporting platform to the CSIRT
-					designated as coordinator and to ENISA.`,
-				`El artículo 14 define dos escalas. La primera se activa por una vulnerabilidad
-					explotada activamente en tu producto: no una vulnerabilidad teórica, sino una
-					explotada. La segunda se activa por un incidente grave que afecte a la seguridad
-					del producto. Ambas se notifican a través de una única plataforma de notificación
-					de la UE al CSIRT designado como coordinador y a ENISA.`,
-			))
+			templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Within 24 hours — the early warning", "En 24 horas — la alerta temprana"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 157, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 153, Col: 96}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "</p><dl class=\"incident-log\"><dt>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "</dt><dd>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var20 string
-			templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Within 24 hours — the early warning", "En 24 horas — la alerta temprana"))
+			templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`A short notice that you are aware of an actively exploited vulnerability, and
+						whether you know the Member States in which the product has been made
+						available. It is deliberately small, because speed is the whole point of it.
+						Nobody expects root cause analysis on the first day.`,
+				`Un aviso breve de que tienes conocimiento de una vulnerabilidad explotada
+						activamente, e indicando si conoces los Estados miembros en los que se ha
+						comercializado el producto. Es deliberadamente escueto, porque la rapidez es
+						todo su propósito. Nadie espera un análisis de causa raíz el primer día.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 159, Col: 96}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 163, Col: 6}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "</dt><dd>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "</dd><dt>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var21 string
-			templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				`A short notice that you are aware of an actively exploited vulnerability, and
-						whether you know the Member States in which the product has been made
-						available. It is deliberately small: the point is speed, not completeness.
-						Nobody expects root cause analysis on the first day.`,
-				`Un aviso breve de que tienes conocimiento de una vulnerabilidad explotada
-						activamente, e indicando si conoces los Estados miembros en los que se ha
-						comercializado el producto. Es deliberadamente escueto: lo que importa es la
-						rapidez, no la exhaustividad. Nadie espera un análisis de causa raíz el primer
-						día.`,
-			))
+			templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Within 72 hours — the notification", "En 72 horas — la notificación"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 170, Col: 6}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 164, Col: 93}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</dd><dt>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</dt><dd>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var22 string
-			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Within 72 hours — the notification", "En 72 horas — la notificación"))
+			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`General information about the product and the vulnerability, the nature of the
+						exploitation, and any corrective or mitigating measure taken or that users can
+						take. This is where the question becomes technical: describing the nature of
+						the exploitation means reconstructing what the attacker did, from whatever
+						records you were already keeping.`,
+				`Información general sobre el producto y la vulnerabilidad, la naturaleza de la
+						explotación y cualquier medida correctora o mitigadora adoptada o que los
+						usuarios puedan adoptar. Aquí la cuestión se vuelve técnica: describir la
+						naturaleza de la explotación significa reconstruir lo que el atacante hizo, a
+						partir de los registros que ya estuvieras guardando.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 171, Col: 93}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 176, Col: 6}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "</dt><dd>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "</dd><dt>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var23 string
-			templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				`General information about the product and the vulnerability, the nature of the
-						exploitation, and any corrective or mitigating measure taken or that users can
-						take. This is where the question becomes technical: describing the nature of
-						the exploitation means reconstructing what the attacker actually did, from
-						records that either exist or do not.`,
-				`Información general sobre el producto y la vulnerabilidad, la naturaleza de la
-						explotación y cualquier medida correctora o mitigadora adoptada o que los
-						usuarios puedan adoptar. Aquí la cuestión se vuelve técnica: describir la
-						naturaleza de la explotación significa reconstruir lo que el atacante hizo
-						realmente, a partir de registros que existen o no existen.`,
-			))
+			templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Within 14 days — the final report", "En 14 días — el informe final"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 183, Col: 6}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 177, Col: 92}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "</dd><dt>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "</dt><dd>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var24 string
-			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Within 14 days — the final report", "En 14 días — el informe final"))
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 184, Col: 92}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "</dt><dd>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var25 string
-			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
 				`Due once a corrective or mitigating measure is available. It carries a
 						description of the vulnerability including its severity and impact,
 						information on any malicious actor identified, and the details of the fix. For
@@ -471,18 +452,18 @@ func BlogPostCRAClock(csrfToken string, lang locale.Lang) templ.Component {
 						el plazo de un mes desde la notificación.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 196, Col: 6}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 189, Col: 6}
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var25))
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "</dd></dl><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "</dd></dl><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var26 string
-			templ_7745c5c3_Var26, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+			var templ_7745c5c3_Var25 string
+			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
 				`Separately, and running alongside all of the above, the manufacturer must inform
 					the affected users about the vulnerability and, where appropriate, about the
 					corrective measures they should apply. Notifying the regulator does not discharge
@@ -493,107 +474,136 @@ func BlogPostCRAClock(csrfToken string, lang locale.Lang) templ.Component {
 					tus clientes.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 207, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 200, Col: 5}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var25))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "</p></section><section><h2>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var26 string
+			templ_7745c5c3_Var26, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Discovery, not triage", "Descubrimiento, no clasificación"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 203, Col: 78}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var26))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "</p></section><section><h2>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var27 string
-			templ_7745c5c3_Var27, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Discovery, not triage", "Descubrimiento, no clasificación"))
+			templ_7745c5c3_Var27, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`The single most expensive misreading of Article 14 is about when the 24 hours
+					begin. They begin when the manufacturer becomes aware of the active exploitation,
+					which is earlier than every internal milestone you might mistake for the start:
+					the security team's confirmation, a reproduction on a test system, the formal
+					opening of an incident. Awareness is the trigger, and awareness includes the
+					support ticket nobody escalated and the researcher email that sat in a shared
+					inbox over a weekend.`,
+				`La lectura errónea más cara del artículo 14 tiene que ver con cuándo empiezan las
+					24 horas. Empiezan cuando el fabricante tiene conocimiento de la explotación
+					activa, un momento anterior a todos los hitos internos que podrías confundir con
+					el inicio: la confirmación del equipo de seguridad, la reproducción en un sistema
+					de pruebas, la apertura formal del incidente. El desencadenante es el
+					conocimiento, y ese conocimiento incluye el ticket de soporte que nadie escaló y
+					el correo del investigador que pasó un fin de semana en un buzón compartido.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 210, Col: 78}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 219, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var27))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var28 string
 			templ_7745c5c3_Var28, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				`The single most expensive misreading of Article 14 is about when the 24 hours
-					begin. They begin when the manufacturer becomes aware of the active exploitation.
-					Not when the security team confirms it. Not when it is reproduced on a test
-					system. Not when the incident is formally opened. Awareness is the trigger, and
-					awareness includes the support ticket nobody escalated and the researcher email
-					that sat in a shared inbox over a weekend.`,
-				`La lectura errónea más cara del artículo 14 tiene que ver con cuándo empiezan las
-					24 horas. Empiezan cuando el fabricante tiene conocimiento de la explotación
-					activa. No cuando el equipo de seguridad lo confirma. No cuando se reproduce en un
-					sistema de pruebas. No cuando el incidente se abre formalmente. El desencadenante
-					es el conocimiento, y ese conocimiento incluye el ticket de soporte que nadie
-					escaló y el correo del investigador que pasó un fin de semana en un buzón
-					compartido.`,
+				`This has a mundane consequence that matters more than most of the regulation:
+					your intake path is part of your compliance posture. A published, monitored
+					reporting channel with a stated acknowledgement window earns its place here: it
+					puts a timestamp on "when did you become aware?", which is otherwise a matter of
+					argument.`,
+				`Esto tiene una consecuencia mundana que importa más que buena parte del
+					reglamento: tu vía de entrada forma parte de tu postura de cumplimiento. Un canal
+					de notificación publicado y vigilado, con una ventana de acuse de recibo
+					declarada, se gana aquí su sitio: pone una marca de tiempo a "¿cuándo tuviste
+					conocimiento?", que de otro modo queda a merced de la discusión.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 225, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 231, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var28))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "</p></section><section><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var29 string
-			templ_7745c5c3_Var29, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				`This has a mundane consequence that matters more than most of the regulation:
-					your intake path is part of your compliance posture. A published, monitored
-					reporting channel with a stated acknowledgement window is not documentation
-					theatre. It is the mechanism that makes "when did you become aware?" a question
-					you can answer with a timestamp instead of an argument.`,
-				`Esto tiene una consecuencia mundana que importa más que buena parte del
-					reglamento: tu vía de entrada forma parte de tu postura de cumplimiento. Un canal
-					de notificación publicado y vigilado, con una ventana de acuse de recibo
-					declarada, no es teatro documental. Es el mecanismo que convierte "¿cuándo tuviste
-					conocimiento?" en una pregunta que puedes responder con una marca de tiempo en
-					lugar de con un argumento.`,
-			))
+			templ_7745c5c3_Var29, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Why this is an architecture question", "Por qué esto es una cuestión de arquitectura"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 238, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 234, Col: 106}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var29))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 28, "</p></section><section><h2>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 28, "</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var30 string
-			templ_7745c5c3_Var30, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Why this is an architecture question", "Por qué esto es una cuestión de arquitectura"))
+			templ_7745c5c3_Var30, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`Twenty-four hours is enough time to write a paragraph, and far too little to
+					build an evidence pipeline. Whatever you can say at hour 23 is whatever your
+					system was already recording at hour zero, and the shape of that recording is
+					decided by where state lives.`,
+				`Veinticuatro horas bastan para escribir un párrafo, y son muy pocas para
+					construir una cadena de evidencias. Lo que puedas afirmar en la hora 23 será lo
+					que tu sistema ya estuviera registrando en la hora cero, y la forma de ese
+					registro la decide dónde reside el estado.`,
+			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 241, Col: 106}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 244, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var30))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 29, "</h2><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 29, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var31 string
 			templ_7745c5c3_Var31, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				`Twenty-four hours is enough time to write a paragraph. It is not enough time to
-					build an evidence pipeline. Whatever you can say at hour 23 is whatever your
-					system was already recording at hour zero, and the shape of that recording is
-					decided by where state lives.`,
-				`Veinticuatro horas bastan para escribir un párrafo. No bastan para construir una
-					cadena de evidencias. Lo que puedas afirmar en la hora 23 será lo que tu sistema
-					ya estuviera registrando en la hora cero, y la forma de ese registro la decide
-					dónde reside el estado.`,
+				`The 72-hour notification asks three things: what the vulnerability is, how it
+					was exploited, and who was affected. In an architecture where the client
+					holds state and the server accepts whatever the client asserts, those questions
+					are answered from logs of the requests that arrived — which record the assertions,
+					not the reasoning behind them. A tampered client sends a well-formed request. The
+					log shows a well-formed request. Reconstructing intent from that means inference,
+					and inference is slow.`,
+				`La notificación de 72 horas pide tres cosas: qué es la vulnerabilidad, cómo se
+					explotó y a quién afectó. En una arquitectura donde el
+					cliente mantiene el estado y el servidor acepta lo que el cliente afirma, esas
+					preguntas se responden desde los registros de las solicitudes que llegaron, que
+					registran las afirmaciones, no el razonamiento que hay detrás. Un cliente
+					manipulado envía una solicitud bien formada. El registro muestra una solicitud
+					bien formada. Reconstruir la intención a partir de eso exige inferir, e inferir es
+					lento.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 251, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 261, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var31))
 			if templ_7745c5c3_Err != nil {
@@ -605,59 +615,32 @@ func BlogPostCRAClock(csrfToken string, lang locale.Lang) templ.Component {
 			}
 			var templ_7745c5c3_Var32 string
 			templ_7745c5c3_Var32, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				`Consider what the 72-hour notification actually asks: what the vulnerability is,
-					how it was exploited, and who was affected. In an architecture where the client
-					holds state and the server accepts whatever the client asserts, those questions
-					are answered from logs of the requests that arrived — which record the assertions,
-					not the reasoning behind them. A tampered client sends a well-formed request. The
-					log shows a well-formed request. Reconstructing intent from that means inference,
-					and inference is slow.`,
-				`Considera lo que pide realmente la notificación de 72 horas: qué es la
-					vulnerabilidad, cómo se explotó y a quién afectó. En una arquitectura donde el
-					cliente mantiene el estado y el servidor acepta lo que el cliente afirma, esas
-					preguntas se responden desde los registros de las solicitudes que llegaron, que
-					registran las afirmaciones, no el razonamiento que hay detrás. Un cliente
-					manipulado envía una solicitud bien formada. El registro muestra una solicitud
-					bien formada. Reconstruir la intención a partir de eso exige inferir, e inferir es
-					lento.`,
+				`In a server-authoritative system the same questions are queries. Every change to
+					application state passes through the server, is validated there, and is appended
+					to one log before it takes effect. That makes the audit trail the storage model
+					rather than a feature somebody remembered to add, and it turns "which sessions
+					performed this action, in this window" into a WHERE clause over a table that
+					already exists.`,
+				`En un sistema autorizado por el servidor, esas mismas preguntas son consultas.
+					Todo cambio del estado de la aplicación pasa por el servidor, se valida allí y se
+					añade a un único registro antes de surtir efecto. Eso convierte el rastro de
+					auditoría en el modelo de almacenamiento, y no en una funcionalidad que alguien
+					se acordó de añadir, y convierte "qué sesiones realizaron esta acción, en esta
+					ventana" en una cláusula WHERE sobre una tabla que ya existe.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 268, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 275, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var32))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 31, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 31, "</p><pre><code>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var33 string
 			templ_7745c5c3_Var33, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				`In a server-authoritative system the same questions are queries. Every change to
-					application state passes through the server, is validated there, and is appended
-					to one log before it takes effect. The audit trail is not a feature somebody
-					remembered to add; it is the storage model. Which sessions performed this action,
-					in this window, is a WHERE clause.`,
-				`En un sistema autorizado por el servidor, esas mismas preguntas son consultas.
-					Todo cambio del estado de la aplicación pasa por el servidor, se valida allí y se
-					añade a un único registro antes de surtir efecto. El rastro de auditoría no es una
-					funcionalidad que alguien se acordó de añadir: es el modelo de almacenamiento. Qué
-					sesiones realizaron esta acción, en esta ventana, es una cláusula WHERE.`,
-			))
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 280, Col: 5}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var33))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 32, "</p><pre><code>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var34 string
-			templ_7745c5c3_Var34, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
 				`-- Hour 2 of the 24: the blast radius, as a query.
 SELECT session_id, type, occurred_at
 FROM   events
@@ -672,40 +655,39 @@ AND    occurred_at BETWEEN ? AND ?
 ORDER  BY occurred_at;`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 294, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 289, Col: 5}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var33))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 32, "</code></pre><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var34 string
+			templ_7745c5c3_Var34, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`That is this site's own event table, unchanged. It is what an append-only
+					server-owned log makes available by default. The 14-day final report asks for
+					severity and impact; impact is a count over the same table.`,
+				`Esa es la propia tabla de eventos de este sitio, sin cambios. Es lo que un
+					registro de solo anexado, propiedad del servidor, ofrece por defecto. El informe
+					final de 14 días pide gravedad e impacto; el impacto es un recuento sobre esa
+					misma tabla.`,
+			))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 298, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var34))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 33, "</code></pre><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 33, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var35 string
 			templ_7745c5c3_Var35, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				`That is this site's own event table, and the query is not a simplification for
-					the sake of the argument. It is what an append-only server-owned log makes
-					available by default. The 14-day final report asks for severity and impact;
-					impact is a count over the same table.`,
-				`Esa es la propia tabla de eventos de este sitio, y la consulta no es una
-					simplificación al servicio del argumento. Es lo que un registro de solo anexado,
-					propiedad del servidor, ofrece por defecto. El informe final de 14 días pide
-					gravedad e impacto; el impacto es un recuento sobre esa misma tabla.`,
-			))
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 304, Col: 5}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var35))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 34, "</p><p>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var36 string
-			templ_7745c5c3_Var36, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
 				`The second architectural dividend is narrower but shows up in the same window:
 					the size of the thing you must reason about. A product with no client-held state
 					and two direct dependencies has a defect surface one engineer can hold in their
@@ -723,53 +705,51 @@ ORDER  BY occurred_at;`,
 					paquetes transitivos.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 321, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 315, Col: 5}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var35))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 34, "</p><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var36 string
+			templ_7745c5c3_Var36, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`Both of those are available before the clock starts, or they are not available
+					at all. A property you want under pressure has to be a structural fact, because
+					there is no time to acquire one once the pressure arrives.`,
+				`Ambos están disponibles antes de que el reloj empiece a correr, o no lo están en
+					absoluto. Una propiedad que quieres tener bajo presión debe ser un hecho
+					estructural, porque no hay tiempo de adquirirla una vez que la presión llega.`,
+			))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 323, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var36))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 35, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 35, "</p></section><section><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var37 string
-			templ_7745c5c3_Var37, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				`Both of those are available before the clock starts, or they are not available
-					at all. This is the recurring shape of the argument on this site: the property you
-					want under pressure has to be a structural fact, because there is no time to
-					acquire it once the pressure arrives.`,
-				`Ambos están disponibles antes de que el reloj empiece a correr, o no lo están en
-					absoluto. Esta es la forma recurrente del argumento en este sitio: la propiedad
-					que quieres tener bajo presión debe ser un hecho estructural, porque no hay tiempo
-					de adquirirla una vez que la presión llega.`,
-			))
+			templ_7745c5c3_Var37, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("What the architecture does not do", "Lo que la arquitectura no hace"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 331, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 326, Col: 87}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var37))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 36, "</p></section><section><h2>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 36, "</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var38 string
-			templ_7745c5c3_Var38, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("What the architecture does not do", "Lo que la arquitectura no hace"))
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 334, Col: 87}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var38))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 37, "</h2><p>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var39 string
-			templ_7745c5c3_Var39, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+			templ_7745c5c3_Var38, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
 				`It does not decide that a vulnerability is being actively exploited. That is a
 					judgement made by people, from evidence, and getting it wrong in either direction
 					is costly: notify everything and the signal is worthless, notify nothing and the
@@ -781,18 +761,18 @@ ORDER  BY occurred_at;`,
 					almacenamiento decide eso.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 345, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 337, Col: 5}
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var39))
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var38))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 38, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 37, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var40 string
-			templ_7745c5c3_Var40, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+			var templ_7745c5c3_Var39 string
+			templ_7745c5c3_Var39, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
 				`It does not file the notification, maintain the software bill of materials the
 					regulation requires, run the conformity assessment, or affix the CE marking. It
 					does not give you a coordinated disclosure policy, a support period, or a
@@ -809,7 +789,31 @@ ORDER  BY occurred_at;`,
 					trimestre no responde nada sobre una intrusión descubierta en el quinto mes.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 361, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 353, Col: 5}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var39))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 38, "</p><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var40 string
+			templ_7745c5c3_Var40, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`What it does is remove the worst failure mode from the list of things that can
+					happen to you on the first day: discovering that the answer does not exist. The
+					deadline is short enough that querying a fact and reconstructing one land on
+					opposite sides of the obligation. Where state lives decides which of the two you
+					will be doing.`,
+				`Lo que sí hace es eliminar el peor modo de fallo de la lista de cosas que pueden
+					ocurrirte el primer día: descubrir que la respuesta no existe. El plazo es lo
+					bastante breve como para que consultar un hecho y reconstruirlo caigan a lados
+					opuestos de la obligación. Dónde reside el estado decide cuál de las dos cosas
+					estarás haciendo.`,
+			))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 365, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var40))
 			if templ_7745c5c3_Err != nil {
@@ -821,72 +825,49 @@ ORDER  BY occurred_at;`,
 			}
 			var templ_7745c5c3_Var41 string
 			templ_7745c5c3_Var41, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				`What it does is remove the worst failure mode from the list of things that can
-					happen to you on the first day: discovering that the answer does not exist. The
-					deadline is short enough that the difference between querying a fact and
-					reconstructing one is the difference between compliance and a missed obligation.
-					Choosing where state lives is choosing which of those two you will be doing.`,
-				`Lo que sí hace es eliminar el peor modo de fallo de la lista de cosas que pueden
-					ocurrirte el primer día: descubrir que la respuesta no existe. El plazo es lo
-					bastante breve como para que la diferencia entre consultar un hecho y
-					reconstruirlo sea la diferencia entre cumplir e incumplir una obligación. Elegir
-					dónde reside el estado es elegir cuál de las dos cosas estarás haciendo.`,
+				`Penalties for breaching the essential requirements reach €15 million or 2.5% of
+					worldwide annual turnover, which is the figure that gets the regulation read at
+					all. The 24 hours is the part that sends people to look at their own logs, and
+					that is the harder thing to arrange after the fact.`,
+				`Las sanciones por incumplir los requisitos esenciales alcanzan los 15 millones de
+					euros o el 2,5 % de la facturación anual mundial, que es la cifra que consigue
+					que el reglamento se lea siquiera. Las 24 horas son la parte que lleva a la gente
+					a mirar sus propios registros, y eso es lo más difícil de organizar a posteriori.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 373, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 375, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var41))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 40, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 40, "</p><p><a href=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var42 string
-			templ_7745c5c3_Var42, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				`Penalties for breaching the essential requirements reach €15 million or 2.5% of
-					worldwide annual turnover. That number is what makes people read the regulation.
-					The 24 hours is what makes them read their own logs.`,
-				`Las sanciones por incumplir los requisitos esenciales alcanzan los 15 millones de
-					euros o el 2,5 % de la facturación anual mundial. Esa cifra es lo que hace que la
-					gente lea el reglamento. Las 24 horas son lo que hace que lea sus propios
-					registros.`,
-			))
+			var templ_7745c5c3_Var42 templ.SafeURL
+			templ_7745c5c3_Var42, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/blog/eu-compliance"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 382, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 376, Col: 65}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var42))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 41, "</p><p><a href=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 41, "\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var43 templ.SafeURL
-			templ_7745c5c3_Var43, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/blog/eu-compliance"))
+			var templ_7745c5c3_Var43 string
+			templ_7745c5c3_Var43, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("How the wider EU regime maps onto architecture", "Cómo se relaciona el régimen europeo más amplio con la arquitectura"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 383, Col: 65}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 376, Col: 200}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var43))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 42, "\">")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var44 string
-			templ_7745c5c3_Var44, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("How the wider EU regime maps onto architecture", "Cómo se relaciona el régimen europeo más amplio con la arquitectura"))
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_cra_clock.templ`, Line: 383, Col: 200}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var44))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 43, "</a></p></section></article>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 42, "</a></p></section></article>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
