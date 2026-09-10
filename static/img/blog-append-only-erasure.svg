@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="46%" r="82%" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#0d1728"/>
+      <stop offset="100%" stop-color="#050911"/>
+    </radialGradient>
+    <pattern id="dots" x="0" y="0" width="44" height="44" patternUnits="userSpaceOnUse">
+      <circle cx="22" cy="22" r="0.9" fill="#4b6480" opacity="0.32"/>
+    </pattern>
+    <filter id="f-soft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#dots)"/>
+
+  <text x="96" y="92" font-family="ui-sans-serif, system-ui, sans-serif" font-size="20" fill="#4b6480" letter-spacing="3">EVENTS · APPEND-ONLY</text>
+
+  <!-- The retention boundary -->
+  <line x1="800" y1="140" x2="800" y2="800" stroke="#e0563f" stroke-width="2" stroke-dasharray="9 7"/>
+  <text x="800" y="128" font-family="ui-sans-serif, system-ui, sans-serif" font-size="23" fill="#e0563f" text-anchor="middle" font-weight="600">30 days</text>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <!-- Within the window: rows keep their session -->
+    <text x="96" y="186" font-family="ui-sans-serif, system-ui, sans-serif" font-size="21" fill="#8fa8c4" letter-spacing="2">WITHIN THE WINDOW</text>
+    <g>
+      <rect x="96" y="216" width="640" height="72" rx="5" fill="#0b1524" stroke="#22375c" stroke-width="1.5"/>
+      <rect x="112" y="234" width="216" height="36" rx="4" fill="#14304f" stroke="#4a90e2" stroke-width="1.5"/>
+      <text x="128" y="259" font-size="19" fill="#8ec1f5">sess_9f3c1a7d</text>
+      <text x="352" y="259" font-size="19" fill="#c8d6e6">demo.cart.item.added</text>
+    </g>
+    <g>
+      <rect x="96" y="304" width="640" height="72" rx="5" fill="#0b1524" stroke="#22375c" stroke-width="1.5"/>
+      <rect x="112" y="322" width="216" height="36" rx="4" fill="#14304f" stroke="#4a90e2" stroke-width="1.5"/>
+      <text x="128" y="347" font-size="19" fill="#8ec1f5">sess_9f3c1a7d</text>
+      <text x="352" y="347" font-size="19" fill="#c8d6e6">feedback.submitted</text>
+    </g>
+    <g>
+      <rect x="96" y="392" width="640" height="72" rx="5" fill="#0b1524" stroke="#22375c" stroke-width="1.5"/>
+      <rect x="112" y="410" width="216" height="36" rx="4" fill="#14304f" stroke="#4a90e2" stroke-width="1.5"/>
+      <text x="128" y="435" font-size="19" fill="#8ec1f5">sess_2b70e4c8</text>
+      <text x="352" y="435" font-size="19" fill="#c8d6e6">demo.slot.booked</text>
+    </g>
+    <g>
+      <rect x="96" y="480" width="640" height="72" rx="5" fill="#0b1524" stroke="#22375c" stroke-width="1.5"/>
+      <rect x="112" y="498" width="216" height="36" rx="4" fill="#1b2436" stroke="#4b6480" stroke-width="1.5"/>
+      <text x="128" y="523" font-size="19" fill="#7d93ad">__preseed__</text>
+      <text x="352" y="523" font-size="19" fill="#c8d6e6">demo.slot.booked</text>
+    </g>
+
+    <!-- Past the window -->
+    <text x="864" y="186" font-family="ui-sans-serif, system-ui, sans-serif" font-size="21" fill="#8fa8c4" letter-spacing="2">PAST THE WINDOW</text>
+    <g opacity="0.34">
+      <rect x="864" y="216" width="640" height="72" rx="5" fill="#0b1524" stroke="#22375c" stroke-width="1.5" stroke-dasharray="7 6"/>
+      <text x="880" y="259" font-size="19" fill="#7d93ad">demo.cart.item.added</text>
+      <line x1="880" y1="252" x2="1400" y2="252" stroke="#e0563f" stroke-width="2"/>
+    </g>
+    <g>
+      <rect x="864" y="304" width="640" height="72" rx="5" fill="#0b1524" stroke="#22375c" stroke-width="1.5"/>
+      <rect x="880" y="322" width="216" height="36" rx="4" fill="#160f14" stroke="#e0563f" stroke-width="1.5" stroke-dasharray="5 4"/>
+      <text x="978" y="349" font-size="24" fill="#e0563f" text-anchor="middle">∅</text>
+      <text x="1120" y="347" font-size="19" fill="#c8d6e6">feedback.submitted</text>
+    </g>
+    <g opacity="0.34">
+      <rect x="864" y="392" width="640" height="72" rx="5" fill="#0b1524" stroke="#22375c" stroke-width="1.5" stroke-dasharray="7 6"/>
+      <text x="880" y="435" font-size="19" fill="#7d93ad">demo.slot.booked</text>
+      <line x1="880" y1="428" x2="1400" y2="428" stroke="#e0563f" stroke-width="2"/>
+    </g>
+    <g>
+      <rect x="864" y="480" width="640" height="72" rx="5" fill="#0b1524" stroke="#22375c" stroke-width="1.5"/>
+      <rect x="880" y="498" width="216" height="36" rx="4" fill="#1b2436" stroke="#4b6480" stroke-width="1.5"/>
+      <text x="896" y="523" font-size="19" fill="#7d93ad">__preseed__</text>
+      <text x="1120" y="523" font-size="19" fill="#c8d6e6">demo.slot.booked</text>
+    </g>
+  </g>
+
+  <!-- Outcomes -->
+  <g font-family="ui-sans-serif, system-ui, sans-serif">
+    <g transform="translate(96,636)">
+      <rect x="0" y="0" width="440" height="104" rx="6" fill="#0b1524" stroke="#e0563f" stroke-width="2"/>
+      <text x="26" y="42" font-size="22" fill="#e0563f" font-weight="700">Demo events</text>
+      <text x="26" y="76" font-size="19" fill="#c8d6e6">deleted outright</text>
+    </g>
+    <g transform="translate(580,636)">
+      <rect x="0" y="0" width="440" height="104" rx="6" fill="#0b1524" stroke="#4a90e2" stroke-width="2"/>
+      <text x="26" y="42" font-size="22" fill="#4a90e2" font-weight="700">Feedback</text>
+      <text x="26" y="76" font-size="19" fill="#c8d6e6">kept, session cleared</text>
+    </g>
+    <g transform="translate(1064,636)">
+      <rect x="0" y="0" width="440" height="104" rx="6" fill="#0b1524" stroke="#4b6480" stroke-width="2"/>
+      <text x="26" y="42" font-size="22" fill="#8fa8c4" font-weight="700">Fixtures</text>
+      <text x="26" y="76" font-size="19" fill="#c8d6e6">no personal data, untouched</text>
+    </g>
+  </g>
+
+  <text x="800" y="812" font-family="ui-sans-serif, system-ui, sans-serif" font-size="21" fill="#7d93ad" text-anchor="middle">GDPR Art. 5(1)(e) storage limitation · Art. 17 erasure · Recital 26 anonymisation</text>
+</svg>

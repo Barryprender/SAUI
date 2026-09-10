@@ -47,6 +47,26 @@ templ Blog(csrfToken string, lang locale.Lang) {
 		<article>
 			<ol class="blog-listing">
 				<li class="blog-listing__post">
+					<a class="blog-listing__thumb" href={ templ.URL(lang.Prefix() + "/blog/append-only-erasure") } tabindex="-1" aria-hidden="true">
+						<img
+							src="/static/img/blog-append-only-erasure.svg"
+							alt=""
+							width="320"
+							height="180"
+							loading="lazy"
+							decoding="async"
+						/>
+					</a>
+					<div class="blog-listing__body">
+						<time class="blog-listing__date" datetime="2026-09-10">{ lang.T("10 September 2026", "10 de septiembre de 2026") }</time>
+						<h2><a href={ templ.URL(lang.Prefix() + "/blog/append-only-erasure") }>{ lang.T("The log that cannot forget", "El registro que no puede olvidar") }</a></h2>
+						<p>{ lang.T(
+							"An append-only event log is the strongest audit trail a web application can have, and it runs straight into the GDPR right to erasure. The tension is real. It is also smaller than it looks.",
+							"Un registro de eventos de solo anexado es el mejor rastro de auditoría que puede tener una aplicación web, y choca de frente con el derecho de supresión del RGPD. La tensión es real. También es menor de lo que parece.",
+						) }</p>
+					</div>
+				</li>
+				<li class="blog-listing__post">
 					<a class="blog-listing__thumb" href={ templ.URL(lang.Prefix() + "/blog/cra-clock") } tabindex="-1" aria-hidden="true">
 						<img
 							src="/static/img/blog-cra-clock.svg"

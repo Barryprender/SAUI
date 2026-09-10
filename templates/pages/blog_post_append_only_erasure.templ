@@ -1,0 +1,323 @@
+package pages
+
+import (
+	"saui/locale"
+	"saui/templates/layout"
+)
+
+templ BlogPostAppendOnlyErasure(csrfToken string, lang locale.Lang) {
+	@layout.Base(
+		lang.T("The log that cannot forget", "El registro que no puede olvidar"),
+		lang.T(
+			"An append-only event log is the strongest audit trail a web application can have, and it runs straight into the GDPR right to erasure. The tension is real. It is also smaller than it looks.",
+			"Un registro de eventos de solo anexado es el mejor rastro de auditoría que puede tener una aplicación web, y choca de frente con el derecho de supresión del RGPD. La tensión es real. También es menor de lo que parece.",
+		),
+		csrfToken,
+		lang.Prefix()+"/blog/append-only-erasure",
+		"/static/css/blog.css",
+		lang,
+	) {
+		<div class="blog-post-hero">
+			<div class="blog-post-hero__image">
+				<img
+					src="/static/img/blog-append-only-erasure.svg"
+					alt={ lang.T(
+						"Two columns of event rows either side of a dashed thirty-day boundary. Rows within the window keep a session identifier; past it, demo events are struck through, a feedback row has its session identifier replaced by an empty-set symbol, and a demo fixture row is unchanged.",
+						"Dos columnas de filas de eventos a ambos lados de un límite discontinuo de treinta días. Las filas dentro de la ventana conservan un identificador de sesión; pasado el límite, los eventos de demostración aparecen tachados, una fila de comentarios tiene su identificador de sesión sustituido por el símbolo de conjunto vacío y una fila de datos de ejemplo permanece intacta.",
+					) }
+					loading="eager"
+					decoding="async"
+					width="1600"
+					height="900"
+				/>
+			</div>
+			<div class="blog-post-hero__header">
+				<nav class="page-hero__breadcrumb" aria-label={ lang.T("Breadcrumb", "Ruta de navegación") }>
+					<a href={ templ.URL(lang.Prefix() + "/blog") }>Blog</a>{ lang.T(` / Post`, ` / Publicación`) }
+				</nav>
+				<h1>{ lang.T("The log that cannot forget", "El registro que no puede olvidar") }</h1>
+				<p class="lead">{ lang.T(
+					"A server-authoritative system keeps an append-only log because that is what makes every state change reconstructable. European data protection law requires personal data to be erased when its purpose ends, and again on request. Those two commitments are usually presented as irreconcilable. They can be reconciled, and the reason repays a careful reading.",
+					"Un sistema autorizado por el servidor mantiene un registro de solo anexado porque es lo que permite reconstruir cada cambio de estado. La normativa europea de protección de datos exige suprimir los datos personales cuando su finalidad termina, y de nuevo cuando alguien lo solicita. Ambos compromisos suelen presentarse como irreconciliables. Sí pueden reconciliarse, y el motivo compensa una lectura atenta.",
+				) }</p>
+				<time class="blog-post-hero__date" datetime="2026-09-10">{ lang.T("10 September 2026", "10 de septiembre de 2026") }</time>
+			</div>
+		</div>
+		<article class="blog-post">
+			<section>
+				<p>{ lang.T(
+					`The append-only log is the load-bearing part of this architecture. It is what
+					lets a server-authoritative system answer "what happened, in what order, to
+					whom" as a query rather than an investigation, and every argument on this site
+					about incident response, audit and processing integrity rests on it. Removing
+					rows from it is removing the thing that made those arguments true.`,
+					`El registro de solo anexado es la pieza que sostiene esta arquitectura. Es lo que
+					permite a un sistema autorizado por el servidor responder a "qué pasó, en qué
+					orden y a quién" mediante una consulta y no una investigación, y todos los
+					argumentos de este sitio sobre respuesta a incidentes, auditoría e integridad del
+					tratamiento se apoyan en él. Quitarle filas es quitar aquello que hacía ciertos
+					esos argumentos.`,
+				) }</p>
+				<p>{ lang.T(
+					`Meanwhile the GDPR says two things that sound fatal to it. Article 17 gives a
+					data subject the right to have their personal data erased. Article 5(1)(e) says
+					personal data must be kept in identifiable form no longer than is necessary for
+					the purpose it was collected for. The first is a request you receive. The second
+					applies whether or not anyone ever asks.`,
+					`Entretanto, el RGPD dice dos cosas que suenan letales para él. El artículo 17
+					otorga al interesado el derecho a la supresión de sus datos personales. El
+					artículo 5(1)(e) exige que los datos personales no se conserven en forma
+					identificable más tiempo del necesario para la finalidad con la que se
+					recogieron. Lo primero es una solicitud que recibes. Lo segundo se aplica sin que
+					nadie pregunte nunca.`,
+				) }</p>
+			</section>
+			<section>
+				<h2>{ lang.T("The second one is the sharp one", "El afilado es el segundo") }</h2>
+				<p>{ lang.T(
+					`Most discussion of this topic fixes on the right to erasure, which is the wrong
+					place to worry. Article 17 is qualified: paragraph 3 carves out processing
+					necessary for compliance with a legal obligation, for the establishment or
+					defence of legal claims, and for freedom of expression. A controller with a
+					genuine, documented reason to keep a record has room to keep it, and an audit
+					trail required by another regulation is a reasonable example of one.`,
+					`Casi todo el debate sobre este asunto se centra en el derecho de supresión, que
+					es el lugar equivocado para preocuparse. El artículo 17 está matizado: su
+					apartado 3 exceptúa el tratamiento necesario para cumplir una obligación legal,
+					para formular o defender reclamaciones y para el ejercicio de la libertad de
+					expresión. Un responsable con un motivo real y documentado para conservar un
+					registro tiene margen para conservarlo, y un rastro de auditoría exigido por otra
+					norma es un ejemplo razonable.`,
+				) }</p>
+				<p>{ lang.T(
+					`Storage limitation has no such escape hatch, and it needs no trigger. If the
+					purpose has ended and the data is still identifiable, you are already in breach,
+					on a Tuesday, with no complaint filed and nobody looking. That is the principle
+					an append-only log violates by default, because "append-only" and "forever" get
+					treated as the same word.`,
+					`La limitación del plazo de conservación no tiene esa salida, y no necesita
+					desencadenante. Si la finalidad ha terminado y los datos siguen siendo
+					identificables, ya estás incumpliendo, un martes cualquiera, sin ninguna
+					reclamación presentada y sin que nadie mire. Ese es el principio que un registro
+					de solo anexado incumple por defecto, porque "solo anexado" y "para siempre" se
+					tratan como la misma palabra.`,
+				) }</p>
+			</section>
+			<section>
+				<h2>{ lang.T("What in a log is personal data", "Qué es dato personal dentro de un registro") }</h2>
+				<p>{ lang.T(
+					`This is where most of the tension dissolves, and it dissolves because of a
+					distinction people skip past. A row in an event log has two parts that matter
+					here: an identifier that ties it to a person, and a payload describing what
+					happened. Recital 30 is explicit that an online identifier — a cookie value, a
+					session token — is personal data. So the row is personal data because of the
+					identifier, before anyone has looked at the payload.`,
+					`Aquí es donde se disuelve casi toda la tensión, y se disuelve por una distinción
+					que la gente suele pasar por alto. Una fila de un registro de eventos tiene dos
+					partes que importan aquí: un identificador que la vincula a una persona y una
+					carga útil que describe lo que ocurrió. El considerando 30 es explícito en que un
+					identificador en línea —el valor de una cookie, un testigo de sesión— es un dato
+					personal. Así que la fila es un dato personal por el identificador, antes de que
+					nadie haya mirado la carga útil.`,
+				) }</p>
+				<p>{ lang.T(
+					`In a system that minimises properly, the payload on its own is frequently not
+					personal data at all. "An item was added to a cart", "a slot was booked",
+					"a workspace was created" describe events, not people. Strip the identifier and
+					what remains is a statement about the system rather than about a data subject.
+					Article 5(1)(e) asks for data to stop being kept in a form which permits
+					identification, and that is a lower bar than deleting the row.`,
+					`En un sistema que minimiza correctamente, la carga útil por sí sola a menudo no
+					es un dato personal en absoluto. "Se añadió un artículo al carrito", "se reservó
+					una cita", "se creó un espacio de trabajo" describen sucesos, no personas. Quita
+					el identificador y lo que queda es una afirmación sobre el sistema, no sobre un
+					interesado. El artículo 5(1)(e) pide que los datos dejen de conservarse de forma
+					que permita la identificación, y eso es un listón más bajo que borrar la fila.`,
+				) }</p>
+				<blockquote class="callout">
+					<p>{ lang.T(
+						`The append-only property that carries the weight is that history is never rewritten.
+						That is a promise about revision, not about retention. A log can refuse to
+						change what it recorded and still stop keeping the part that names someone.`,
+						`La propiedad de solo anexado que de verdad necesitas es que la historia nunca
+						se reescriba. Esa es una promesa sobre la revisión, no sobre la conservación.
+						Un registro puede negarse a cambiar lo que anotó y aun así dejar de guardar la
+						parte que nombra a alguien.`,
+					) }</p>
+				</blockquote>
+			</section>
+			<section>
+				<h2>{ lang.T("Three ways to reconcile them", "Tres formas de reconciliarlos") }</h2>
+				<dl class="incident-log">
+					<dt>{ lang.T("A retention window", "Una ventana de conservación") }</dt>
+					<dd>{ lang.T(
+						`Delete or de-identify rows once they pass an age you can defend. It is the
+						least clever option and it addresses the principle that binds without a
+						request. The work is choosing a period you can justify from the purpose rather
+						than from convenience, and then actually running the job, on a schedule, in
+						production. A retention policy nobody has automated is a document, not a
+						control.`,
+						`Borra o desidentifica las filas cuando superen una antigüedad que puedas
+						defender. Es la opción menos ingeniosa y aborda el principio que obliga sin que
+						nadie lo solicite. El trabajo consiste en elegir un plazo que puedas justificar
+						desde la finalidad y no desde la comodidad, y después ejecutar realmente la
+						tarea, de forma programada, en producción. Una política de conservación que
+						nadie ha automatizado es un documento, no un control.`,
+					) }</dd>
+					<dt>{ lang.T("Tombstones and a projection rebuild", "Lápidas y reconstrucción de proyecciones") }</dt>
+					<dd>{ lang.T(
+						`Append an erasure event and rebuild the read models so the subject disappears
+						from everything a user or an operator can see. This is the option most often
+						recommended in event-sourcing circles, and it deserves a warning: rebuilding
+						projections removes the person from the views, and leaves every original row
+						sitting in the log. The regulator's question is about the data you hold, not
+						the data you display. Use tombstones for ordering and causality, and pair them
+						with something that reaches the log itself.`,
+						`Añade un evento de supresión y reconstruye los modelos de lectura para que el
+						interesado desaparezca de todo lo que un usuario o un operador pueda ver. Es la
+						opción más recomendada en los círculos del abastecimiento de eventos, y merece
+						una advertencia: reconstruir las proyecciones elimina a la persona de las
+						vistas y deja intacta cada fila original en el registro. La pregunta del
+						regulador es sobre los datos que conservas, no sobre los que muestras. Usa las
+						lápidas para el orden y la causalidad, y acompáñalas de algo que alcance al
+						propio registro.`,
+					) }</dd>
+					<dt>{ lang.T("Crypto-shredding", "Destrucción criptográfica") }</dt>
+					<dd>{ lang.T(
+						`Encrypt each subject's payloads under a key held separately, and destroy the
+						key to make the data unreadable while the rows stay physically in place. It is
+						a real technique with a real cost: a key store to run, key loss to survive,
+						and an argument to make about whether encrypted data whose key is gone counts
+						as erased. Reach for it when the log genuinely must keep every row — a
+						financial ledger, a regulated audit trail — rather than as a default.`,
+						`Cifra las cargas útiles de cada interesado con una clave guardada aparte y
+						destruye la clave para volver los datos ilegibles mientras las filas siguen
+						físicamente en su sitio. Es una técnica real con un coste real: un almacén de
+						claves que operar, una pérdida de claves que sobrevivir y un argumento que
+						sostener sobre si unos datos cifrados cuya clave ha desaparecido cuentan como
+						suprimidos. Recúrrela cuando el registro deba conservar de verdad cada fila
+						—un libro contable, un rastro de auditoría regulado— y no por defecto.`,
+					) }</dd>
+				</dl>
+			</section>
+			<section>
+				<h2>{ lang.T("What this site does", "Qué hace este sitio") }</h2>
+				<p>{ lang.T(
+					`This site took the first option, because its log records demo interactions and
+					written feedback rather than anything a regulator or a court will ask for later.
+					A pass runs at start-up and every six hours. Events older than thirty days lose
+					their session identifier or their row, depending on which they are.`,
+					`Este sitio eligió la primera opción, porque su registro anota interacciones de
+					demostración y comentarios escritos, y no algo que un regulador o un tribunal vaya
+					a pedir más adelante. Una pasada se ejecuta al arrancar y cada seis horas. Los
+					eventos de más de treinta días pierden su identificador de sesión o su fila, según
+					cuál sean.`,
+				) }</p>
+				<pre><code>{ lang.T(
+					`-- Feedback survives; the part that named someone does not.
+UPDATE events SET session_id = ''
+WHERE  occurred_at < ? AND session_id NOT IN ('', ?) AND type IN (?);
+
+-- Everything else past the window goes.
+DELETE FROM events
+WHERE  occurred_at < ? AND session_id NOT IN ('', ?) AND type NOT IN (?);`,
+					`-- Los comentarios sobreviven; lo que nombraba a alguien, no.
+UPDATE events SET session_id = ''
+WHERE  occurred_at < ? AND session_id NOT IN ('', ?) AND type IN (?);
+
+-- Todo lo demás pasada la ventana desaparece.
+DELETE FROM events
+WHERE  occurred_at < ? AND session_id NOT IN ('', ?) AND type NOT IN (?);`,
+				) }</code></pre>
+				<p>{ lang.T(
+					`Thirty days is defensible here because the session cookie expires after
+					twenty-four hours. Past that, the visitor cannot reach their own rows and neither
+					can anyone else on their behalf, so the identifier has outlived every purpose it
+					was issued for. Feedback keeps its text because the argument someone took the
+					trouble to write is the reason the form exists, and detaching it from a session
+					costs that argument nothing.`,
+					`Treinta días es defendible aquí porque la cookie de sesión caduca a las
+					veinticuatro horas. Pasado ese punto, el visitante no puede alcanzar sus propias
+					filas y nadie puede hacerlo en su nombre, de modo que el identificador ha
+					sobrevivido a todas las finalidades para las que se emitió. Los comentarios
+					conservan su texto porque el argumento que alguien se molestó en escribir es la
+					razón de ser del formulario, y separarlo de una sesión no le cuesta nada a ese
+					argumento.`,
+				) }</p>
+				<p>{ lang.T(
+					`The second clause in each statement excludes two things. Rows already detached
+					are skipped, which makes the pass idempotent. Demo fixture rows are skipped too:
+					the healthcare demo preseeds booked slots into the same table, and those describe
+					no visitor at all. Finding that out was the useful part of writing the job — a
+					retention pass built without looking would have quietly emptied a working demo
+					thirty days after launch.`,
+					`La segunda cláusula de cada sentencia excluye dos cosas. Las filas ya separadas
+					se omiten, lo que hace la pasada idempotente. Las filas de datos de ejemplo
+					también se omiten: la demostración sanitaria presiembra citas reservadas en esa
+					misma tabla, y no describen a ningún visitante. Descubrir eso fue la parte útil de
+					escribir la tarea: una pasada de conservación hecha sin mirar habría vaciado en
+					silencio una demostración en funcionamiento treinta días después del lanzamiento.`,
+				) }</p>
+			</section>
+			<section>
+				<h2>{ lang.T("Where this still does not work", "Dónde esto sigue sin funcionar") }</h2>
+				<p>{ lang.T(
+					`Clearing an identifier is not anonymisation. Recital 26 sets the bar at whether
+					re-identification is reasonably likely by any means, and a free-text field
+					clears that bar whenever somebody types their own name into it. This site's
+					feedback box is exactly such a field. The honest description of what the pass
+					achieves is that it removes the identifier the system attached, and leaves
+					whatever the visitor attached themselves.`,
+					`Borrar un identificador no es anonimizar. El considerando 26 sitúa el listón en
+					si la reidentificación es razonablemente probable por cualquier medio, y un campo
+					de texto libre supera ese listón en cuanto alguien escribe en él su propio
+					nombre. La caja de comentarios de este sitio es exactamente ese campo. La
+					descripción honesta de lo que consigue la pasada es que elimina el identificador
+					que puso el sistema y deja lo que el visitante puso por su cuenta.`,
+				) }</p>
+				<p>{ lang.T(
+					`Backups are the second gap, and the one most often missed. A row deleted from
+					the live database is still in last night's snapshot, and in the one before that,
+					for as long as the backup retention says. A controller who answers an erasure
+					request by running a DELETE has answered it for the primary copy only. The usual
+					resolution is to document that backups are restored-then-re-erased rather than
+					edited in place, which is a policy, not a query.`,
+					`Las copias de seguridad son la segunda brecha, y la que más se pasa por alto. Una
+					fila borrada de la base de datos activa sigue estando en la instantánea de anoche,
+					y en la anterior, durante todo el plazo que diga la política de copias. Un
+					responsable que atiende una solicitud de supresión ejecutando un DELETE la ha
+					atendido solo para la copia primaria. La resolución habitual es documentar que las
+					copias se restauran y se vuelven a depurar en lugar de editarse en su sitio, lo
+					cual es una política, no una consulta.`,
+				) }</p>
+				<p>{ lang.T(
+					`And the architecture decides none of the surrounding questions. It does not
+					establish your lawful basis, set your retention period, or judge whether an
+					Article 17(3) exception applies to a record you would rather keep. Those are
+					decisions someone has to make and write down, and an event log is only ever the
+					place they get enforced.`,
+					`Y la arquitectura no decide ninguna de las preguntas que rodean a esto. No
+					establece tu base jurídica, no fija tu plazo de conservación ni juzga si una
+					excepción del artículo 17(3) se aplica a un registro que preferirías conservar.
+					Son decisiones que alguien debe tomar y poner por escrito, y un registro de
+					eventos nunca es más que el lugar donde se hacen cumplir.`,
+				) }</p>
+				<p>{ lang.T(
+					`What survives all of this is a smaller claim than the one usually made for
+					append-only storage. Never rewriting history is a property worth defending. Never removing anything is a habit that grew up next to it, and the
+					two get confused because the same word covers both. A log that expires its
+					identifiers on a schedule is still an audit trail. A log that keeps them because
+					nobody wrote the job is a compliance finding with good intentions.`,
+					`Lo que merece la pena conservar de todo esto es una afirmación más modesta que la
+					que suele hacerse sobre el almacenamiento de solo anexado. No reescribir nunca la
+					historia es una propiedad que vale la pena defender. No eliminar nunca nada es una
+					costumbre que creció a su lado, y ambas se confunden porque la misma palabra
+					cubre las dos. Un registro que caduca sus identificadores de forma programada
+					sigue siendo un rastro de auditoría. Un registro que los conserva porque nadie
+					escribió la tarea es un hallazgo de cumplimiento con buenas intenciones.`,
+				) }</p>
+				<p><a href={ templ.URL(lang.Prefix() + "/blog/eu-compliance") }>{ lang.T("How the wider EU regime maps onto architecture", "Cómo se relaciona el régimen europeo más amplio con la arquitectura") }</a></p>
+			</section>
+		</article>
+	}
+}

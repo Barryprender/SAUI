@@ -220,6 +220,18 @@ func (h *Handler) BlogPostEUComplianceES(w http.ResponseWriter, r *http.Request)
 	}
 }
 
+func (h *Handler) BlogPostAppendOnlyErasure(w http.ResponseWriter, r *http.Request) {
+	if err := pages.BlogPostAppendOnlyErasure(middleware.CSRFToken(r), locale.EN).Render(r.Context(), w); err != nil {
+		h.logger.Error("render blog post", "err", err)
+	}
+}
+
+func (h *Handler) BlogPostAppendOnlyErasureES(w http.ResponseWriter, r *http.Request) {
+	if err := pages.BlogPostAppendOnlyErasure(middleware.CSRFToken(r), locale.ES).Render(r.Context(), w); err != nil {
+		h.logger.Error("render blog post es", "err", err)
+	}
+}
+
 func (h *Handler) BlogPostCRAClock(w http.ResponseWriter, r *http.Request) {
 	if err := pages.BlogPostCRAClock(middleware.CSRFToken(r), locale.EN).Render(r.Context(), w); err != nil {
 		h.logger.Error("render blog post", "err", err)
