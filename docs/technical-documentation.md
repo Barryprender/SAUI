@@ -7,7 +7,7 @@ dependency set, the data held, or the risk assessment is material.
 - **Product:** SAUI — Server-Authoritative UI
 - **Version:** tracked by the deployed git commit; see `sbom.json`
 - **Manufacturer:** Barry Prendergast
-- **Document revised:** 10 September 2026
+- **Document revised:** 17 September 2026
 
 ## 1. Product description
 
@@ -74,7 +74,8 @@ addresses them and the residual exposure that remains.
 | Vulnerable components | `govulncheck` gate on every push; Go toolchain floor pinned at 1.25.14 across `go.mod`, CI and the Dockerfile | Database lag between disclosure and publication |
 | Security misconfiguration | Security-header middleware; container runs as a non-root user; no debug endpoints | None known |
 | Denial of service | Rate-limiting middleware; 2000-character cap on feedback | Single instance, no autoscaling — availability is best-effort and stated as such |
-| Logging failures | Structured JSON logs of requests and errors; message bodies are not logged | Logs are not shipped off-host or retained centrally |
+| Logging failures | Structured JSON logs of requests and errors; message bodies are not logged | Logs stay on the host, so an attacker who reached it could delete the only record of what they did |
+| Persistence after a compromise | The container is immutable and runs as a non-root user; a deploy replaces the machine rather than patching it, so anything written to a running instance is discarded | Nothing detects a compromise while it is happening — the control limits how long an intruder lasts, not whether they are noticed |
 | Storage limitation — identifiers kept past their purpose | Scheduled retention pass: demo events deleted after 30 days, feedback detached from its session | Free-text a visitor typed about themselves survives the detachment |
 | Server-side request forgery | The server makes no outbound requests on behalf of a visitor | Not applicable |
 
@@ -90,6 +91,34 @@ automated decision-making.
   default credentials, no known exploitable vulnerabilities at release
 - Regulation (EU) 2024/2847 Annex I Part II — coordinated disclosure policy and
   SBOM, see [SECURITY.md](../SECURITY.md)
+
+### SOC 2 alignment, and what that phrase may not be taken to mean
+
+SOC 2 is not held and is not claimed. It is an attestation a licensed CPA firm
+issues after auditing controls over a period — six to twelve months of evidence
+for a Type II report. Without an issued report, "SOC 2 compliant" or "SOC 2
+certified" would be a false statement, and neither appears on the site.
+
+What is true is that the controls already built here are the ones an auditor
+tests. The mapping is recorded so it does not have to be reconstructed later.
+
+| Criterion | What an auditor looks for | Where it already is |
+| --- | --- | --- |
+| CC1 — control environment | A stated security policy with named ownership | [SECURITY.md](../SECURITY.md); manufacturer named at the head of this document |
+| CC3 — risk assessment | A repeatable method for identifying and rating risks | Section 4, worked against the OWASP Top 10 |
+| CC6 — logical access | Access control, encryption in transit, no privilege-escalation path | Server-held session scoping, CSRF double-submit, security-header middleware, TLS terminated by Fly.io with `force_https` |
+| CC7 — system operations | Vulnerability detection and a documented incident response | `govulncheck` gate (section 6); response windows and the ENISA clock in SECURITY.md |
+| CC8 — change management | Controlled, reviewed deploys | `./verify.sh` gates every push and cannot be downgraded to a warning; the deployed version is a commit, built by CI from a pinned toolchain |
+| CC9 — risk mitigation | Business continuity and vendor concentration | Availability is best-effort and section 4 says so; the single vendor is Fly.io |
+
+Two criteria are unmet and stay unmet at this scope, because both assume an
+organisation rather than one maintainer: CC2, internal communication of security
+commitments, and CC4, monitoring of the controls themselves by someone other
+than the person who built them.
+
+The honest residual is CC7. Detection here is a vulnerability gate in CI, not
+runtime monitoring, and section 4 records why: logs stay on the host. Shipping
+them off-box is the single change that would most improve this row.
 
 ## 6. Verification
 
