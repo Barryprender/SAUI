@@ -9,28 +9,6 @@
         "vendor": "CycloneDX",
         "name": "cyclonedx-gomod",
         "version": "v1.9.0",
-        "hashes": [
-          {
-            "alg": "MD5",
-            "content": "6891a6413cf9c7447c065c78018cf128"
-          },
-          {
-            "alg": "SHA-1",
-            "content": "64cb51b8e1d16bc9eef6c4c0dc17140e3587f466"
-          },
-          {
-            "alg": "SHA-256",
-            "content": "5d518cbce312f271d593f91ea6f879245d6b5add4fc24d6c1ac9c408ec8511c2"
-          },
-          {
-            "alg": "SHA-384",
-            "content": "b26d642d0f4a2f1f984bf69bb247ab0d1097e2f3888ed3eb6755fe6e8d9c0b938093d326ac004977621082d53c6856a4"
-          },
-          {
-            "alg": "SHA-512",
-            "content": "c5982fd8c22050081afa721777780a38bcc8f03c96ece1ff4062526d5945e77f266a48381b96a5d183a8a04a4d38a8d07b9b9cddd157252cdb1d2edc09111c0d"
-          }
-        ],
         "externalReferences": [
           {
             "url": "https://github.com/CycloneDX/cyclonedx-gomod",

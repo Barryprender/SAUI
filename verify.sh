@@ -19,10 +19,19 @@ fail() { echo "FAIL: $*" >&2; exit 1; }
 step() { echo; echo "== $* =="; }
 
 # Drop the fields that change on every run without the software changing:
-# the generation timestamp, and the main module's git-derived pseudo-version.
-# Dependency versions and hashes are left alone — those are the point.
+# the generation timestamp, the main module's git-derived pseudo-version, and
+# the hashes cyclonedx-gomod records of its own binary. That last one is not
+# cosmetic: the generator is installed with `go install`, so its binary differs
+# between a Windows developer machine and the Linux runner, and the gate could
+# never pass on both at once. Those hashes describe the machine that ran the
+# tool, not the software being described.
+#
+# Dependency versions and hashes are left alone — those are the point. The
+# eight-space anchor below matches only the tools entry; component hashes sit
+# one level shallower, at six spaces, and are untouched.
 normalise_sbom() {
   sed -e '/"timestamp"/d' \
+      -e '/^        "hashes": \[$/,/^        \],$/d' \
       -e '/"metadata"/,/"components"/ s/v0\.0\.0-[0-9]\{14\}-[0-9a-f]\{12\}/v0.0.0-devel/g' \
       -e 's#golang/saui@v0\.0\.0-[0-9]\{14\}-[0-9a-f]\{12\}#golang/saui@v0.0.0-devel#g' \
       "$1"
