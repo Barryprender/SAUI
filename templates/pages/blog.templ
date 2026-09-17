@@ -47,6 +47,26 @@ templ Blog(csrfToken string, lang locale.Lang) {
 		<article>
 			<ol class="blog-listing">
 				<li class="blog-listing__post">
+					<a class="blog-listing__thumb" href={ templ.URL(lang.Prefix() + "/blog/soc2-architecture") } tabindex="-1" aria-hidden="true">
+						<img
+							src="/static/img/blog-soc2-architecture.svg"
+							alt=""
+							width="320"
+							height="180"
+							loading="lazy"
+							decoding="async"
+						/>
+					</a>
+					<div class="blog-listing__body">
+						<time class="blog-listing__date" datetime="2026-09-17">{ lang.T("17 September 2026", "17 de septiembre de 2026") }</time>
+						<h2><a href={ templ.URL(lang.Prefix() + "/blog/soc2-architecture") }>{ lang.T("What SOC 2 asks for, and what an architecture can answer", "Lo que exige SOC 2 y lo que puede responder una arquitectura") }</a></h2>
+						<p>{ lang.T(
+							"No architecture makes an organisation SOC 2 compliant. What it decides is how expensive the evidence will be to produce — and three of the nine Common Criteria are settled by where application state lives.",
+							"Ninguna arquitectura hace que una organización cumpla con SOC 2. Lo que sí decide es cuán cara será la producción de evidencias, y tres de los nueve Criterios Comunes se resuelven según dónde resida el estado de la aplicación.",
+						) }</p>
+					</div>
+				</li>
+				<li class="blog-listing__post">
 					<a class="blog-listing__thumb" href={ templ.URL(lang.Prefix() + "/blog/append-only-erasure") } tabindex="-1" aria-hidden="true">
 						<img
 							src="/static/img/blog-append-only-erasure.svg"

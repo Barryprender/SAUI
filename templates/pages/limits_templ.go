@@ -371,9 +371,9 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var21 string
-			templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The honest boundary", "El límite honesto"))
+			templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Compliance, and what an architecture cannot certify", "Cumplimiento, y lo que una arquitectura no puede certificar"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 173, Col: 61}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 173, Col: 134}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
 			if templ_7745c5c3_Err != nil {
@@ -385,16 +385,23 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 			}
 			var templ_7745c5c3_Var22 string
 			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				`If your application is a food ordering site, a banking dashboard, a booking system,
-					a CMS, an admin panel, a SaaS product, or most of what is built for the web -
-					SAUI is appropriate and the complexity of the SPA model is not justified.`,
-				`Si tu aplicación es un sitio de pedido de comida, un panel bancario, un sistema de
-					reservas, un CMS, un panel de administración, un producto SaaS o la mayoría de lo
-					que se construye para la web, SAUI es apropiado y la complejidad del modelo SPA
-					no está justificada.`,
+				`This site argues that a server-authoritative design answers several regulatory
+					and audit requirements structurally rather than on paper. That argument has a
+					firm ceiling, and it is worth stating here rather than only in the posts that
+					make it. An architecture is not a compliance programme. GDPR, NIS2, the Cyber
+					Resilience Act and SOC 2 all examine an organisation - its policies, its people,
+					its records and its behaviour over time - and a system is only one of the things
+					they look at.`,
+				`Este sitio sostiene que un diseño autorizado por el servidor responde
+					estructuralmente, y no sobre el papel, a varios requisitos regulatorios y de
+					auditoría. Ese argumento tiene un techo firme, y conviene enunciarlo aquí y no
+					solo en las publicaciones que lo defienden. Una arquitectura no es un programa de
+					cumplimiento. El RGPD, NIS2, la Ley de Ciberresiliencia y SOC 2 examinan todos
+					una organización (sus políticas, sus personas, sus registros y su conducta a lo
+					largo del tiempo) y un sistema es solo una de las cosas que miran.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 182, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 189, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
 			if templ_7745c5c3_Err != nil {
@@ -406,16 +413,20 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 			}
 			var templ_7745c5c3_Var23 string
 			templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				`If your application is a real-time collaborative editor, a creative tool, an
-					offline-first mobile web app, or a high-frequency data display - evaluate carefully.
-					SAUI may still apply partially, or may not be the right fit.`,
-				`Si tu aplicación es un editor colaborativo en tiempo real, una herramienta creativa,
-					una aplicación web móvil offline-first o una visualización de datos de alta frecuencia,
-					evalúa cuidadosamente. SAUI puede seguir siendo aplicable parcialmente, o puede
-					no ser la opción adecuada.`,
+				`The practical consequence is a wording rule, not a design rule. A system built
+					to a standard's controls is architected to those controls. It is not compliant,
+					and it is certainly not certified, until an auditor with the standing to say so
+					has said it. Any vendor claim that an architecture alone delivers a certification
+					is false, and that includes claims made on behalf of this one.`,
+				`La consecuencia práctica es una regla de redacción, no de diseño. Un sistema
+					construido según los controles de una norma tiene una arquitectura alineada con
+					esos controles. No es conforme, y desde luego no está certificado, hasta que un
+					auditor con potestad para afirmarlo lo haya afirmado. Cualquier afirmación
+					comercial de que una arquitectura por sí sola entrega una certificación es falsa,
+					y eso incluye las afirmaciones hechas en nombre de esta.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 191, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 202, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
 			if templ_7745c5c3_Err != nil {
@@ -426,9 +437,9 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var24 templ.SafeURL
-			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/cases"))
+			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/blog/soc2-architecture"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 192, Col: 52}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 203, Col: 69}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
 			if templ_7745c5c3_Err != nil {
@@ -439,15 +450,96 @@ func Limits(csrfToken string, lang locale.Lang) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var25 string
-			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("See the pattern applied to common domains", "Ver el patrón aplicado a dominios comunes"))
+			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Where the line falls for SOC 2", "Dónde cae la línea en el caso de SOC 2"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 192, Col: 154}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 203, Col: 158}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var25))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "</a></p></section></article>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "</a></p></section><section><h2>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var26 string
+			templ_7745c5c3_Var26, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("The honest boundary", "El límite honesto"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 206, Col: 61}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var26))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "</h2><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var27 string
+			templ_7745c5c3_Var27, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`If your application is a food ordering site, a banking dashboard, a booking system,
+					a CMS, an admin panel, a SaaS product, or most of what is built for the web -
+					SAUI is appropriate and the complexity of the SPA model is not justified.`,
+				`Si tu aplicación es un sitio de pedido de comida, un panel bancario, un sistema de
+					reservas, un CMS, un panel de administración, un producto SaaS o la mayoría de lo
+					que se construye para la web, SAUI es apropiado y la complejidad del modelo SPA
+					no está justificada.`,
+			))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 215, Col: 5}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var27))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "</p><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var28 string
+			templ_7745c5c3_Var28, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
+				`If your application is a real-time collaborative editor, a creative tool, an
+					offline-first mobile web app, or a high-frequency data display - evaluate carefully.
+					SAUI may still apply partially, or may not be the right fit.`,
+				`Si tu aplicación es un editor colaborativo en tiempo real, una herramienta creativa,
+					una aplicación web móvil offline-first o una visualización de datos de alta frecuencia,
+					evalúa cuidadosamente. SAUI puede seguir siendo aplicable parcialmente, o puede
+					no ser la opción adecuada.`,
+			))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 224, Col: 5}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var28))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "</p><p><a href=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var29 templ.SafeURL
+			templ_7745c5c3_Var29, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/cases"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 225, Col: 52}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var29))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 28, "\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var30 string
+			templ_7745c5c3_Var30, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("See the pattern applied to common domains", "Ver el patrón aplicado a dominios comunes"))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/limits.templ`, Line: 225, Col: 154}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var30))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 29, "</a></p></section></article>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

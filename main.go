@@ -72,6 +72,7 @@ func main() {
 	mux.Handle("GET /blog/supply-chain", page(h.BlogPostSupplyChain))
 	mux.Handle("GET /blog/server-response-time", page(h.BlogPostServerResponseTime))
 	mux.Handle("GET /blog/eu-compliance", page(h.BlogPostEUCompliance))
+	mux.Handle("GET /blog/soc2-architecture", page(h.BlogPostSOC2))
 	mux.Handle("GET /code", page(h.Code))
 
 	mux.Handle("GET /es/{$}", page(h.HomeES))
@@ -93,6 +94,7 @@ func main() {
 	mux.Handle("GET /es/blog/supply-chain", page(h.BlogPostSupplyChainES))
 	mux.Handle("GET /es/blog/server-response-time", page(h.BlogPostServerResponseTimeES))
 	mux.Handle("GET /es/blog/eu-compliance", page(h.BlogPostEUComplianceES))
+	mux.Handle("GET /es/blog/soc2-architecture", page(h.BlogPostSOC2ES))
 	mux.Handle("GET /es/code", page(h.CodeES))
 
 	mux.Handle("POST /feedback", page(h.SubmitFeedback))

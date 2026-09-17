@@ -244,6 +244,18 @@ func (h *Handler) BlogPostCRAClockES(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func (h *Handler) BlogPostSOC2(w http.ResponseWriter, r *http.Request) {
+	if err := pages.BlogPostSOC2(middleware.CSRFToken(r), locale.EN).Render(r.Context(), w); err != nil {
+		h.logger.Error("render blog post", "err", err)
+	}
+}
+
+func (h *Handler) BlogPostSOC2ES(w http.ResponseWriter, r *http.Request) {
+	if err := pages.BlogPostSOC2(middleware.CSRFToken(r), locale.ES).Render(r.Context(), w); err != nil {
+		h.logger.Error("render blog post es", "err", err)
+	}
+}
+
 func (h *Handler) Code(w http.ResponseWriter, r *http.Request) {
 	if err := pages.Code(middleware.CSRFToken(r), locale.EN).Render(r.Context(), w); err != nil {
 		h.logger.Error("render code", "err", err)

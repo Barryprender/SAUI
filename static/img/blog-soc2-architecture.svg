@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="46%" r="82%" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#0d1728"/>
+      <stop offset="100%" stop-color="#050911"/>
+    </radialGradient>
+    <pattern id="dots" x="0" y="0" width="44" height="44" patternUnits="userSpaceOnUse">
+      <circle cx="22" cy="22" r="0.9" fill="#4b6480" opacity="0.32"/>
+    </pattern>
+    <filter id="f-soft" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#dots)"/>
+
+  <g fill="none" stroke="#1a3060" stroke-width="1.4" opacity="0.2">
+    <circle cx="86"  cy="150" r="7"/>
+    <circle cx="70"  cy="470" r="5"/>
+    <circle cx="96"  cy="800" r="8"/>
+    <circle cx="1470" cy="180" r="6"/>
+    <circle cx="1530" cy="520" r="5"/>
+    <circle cx="1440" cy="820" r="7"/>
+  </g>
+
+  <!-- Heading -->
+  <text x="140" y="96" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#60a5fa" letter-spacing="0.22em" opacity="0.9">SOC 2 · TRUST SERVICES CRITERIA</text>
+  <text x="140" y="132" font-family="ui-sans-serif, system-ui, sans-serif" font-size="21" fill="#94a3b8" font-weight="600">Which criteria an architecture can answer, and which it cannot</text>
+
+  <!-- Legend -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" letter-spacing="0.1em">
+    <rect x="1128" y="80" width="11" height="11" rx="2" fill="#091e3e" stroke="#3b82f6" stroke-width="1.4"/>
+    <text x="1150" y="90" fill="#7dd3fc" opacity="0.86">STRUCTURAL</text>
+    <rect x="1128" y="106" width="11" height="11" rx="2" fill="#0a1224" stroke="#16233c" stroke-width="1.4"/>
+    <text x="1150" y="116" fill="#64748b" opacity="0.86">ORGANISATIONAL</text>
+  </g>
+
+  <!-- The nine Common Criteria, as a ledger -->
+  <g font-family="ui-sans-serif, system-ui, sans-serif">
+
+    <!-- CC1 -->
+    <rect x="140" y="186" width="520" height="56" rx="9" fill="#0a1224" stroke="#16233c" stroke-width="1.4"/>
+    <text x="168" y="211" font-size="15" fill="#64748b" font-weight="600">CC1 · Control environment</text>
+    <text x="168" y="230" font-size="11.5" fill="#475569">A written policy, and someone who owns it</text>
+
+    <!-- CC2 -->
+    <rect x="140" y="252" width="520" height="56" rx="9" fill="#0a1224" stroke="#16233c" stroke-width="1.4"/>
+    <text x="168" y="277" font-size="15" fill="#64748b" font-weight="600">CC2 · Communication</text>
+    <text x="168" y="296" font-size="11.5" fill="#475569">Commitments told to the people who must keep them</text>
+
+    <!-- CC3 -->
+    <rect x="140" y="318" width="520" height="56" rx="9" fill="#0a1224" stroke="#16233c" stroke-width="1.4"/>
+    <text x="168" y="343" font-size="15" fill="#64748b" font-weight="600">CC3 · Risk assessment</text>
+    <text x="168" y="362" font-size="11.5" fill="#475569">A repeatable method, applied more than once</text>
+
+    <!-- CC4 -->
+    <rect x="140" y="384" width="520" height="56" rx="9" fill="#0a1224" stroke="#16233c" stroke-width="1.4"/>
+    <text x="168" y="409" font-size="15" fill="#64748b" font-weight="600">CC4 · Monitoring</text>
+    <text x="168" y="428" font-size="11.5" fill="#475569">Someone checks that the controls still run</text>
+
+    <!-- CC5 -->
+    <rect x="140" y="450" width="520" height="56" rx="9" fill="#0a1224" stroke="#16233c" stroke-width="1.4"/>
+    <text x="168" y="475" font-size="15" fill="#64748b" font-weight="600">CC5 · Control activities</text>
+    <text x="168" y="494" font-size="11.5" fill="#475569">Controls chosen deliberately, not inherited</text>
+
+    <!-- CC6 — structural -->
+    <rect x="140" y="516" width="520" height="56" rx="9" fill="#091e3e" stroke="#3b82f6" stroke-width="1.6"/>
+    <rect x="140" y="516" width="6" height="56" rx="3" fill="#60a5fa"/>
+    <text x="168" y="541" font-size="15" fill="#e2e8f0" font-weight="600">CC6 · Logical access</text>
+    <text x="168" y="560" font-size="11.5" fill="#7dd3fc">No client state to escalate · one enforcement point</text>
+
+    <!-- CC7 — structural -->
+    <rect x="140" y="582" width="520" height="56" rx="9" fill="#091e3e" stroke="#3b82f6" stroke-width="1.6"/>
+    <rect x="140" y="582" width="6" height="56" rx="3" fill="#60a5fa"/>
+    <text x="168" y="607" font-size="15" fill="#e2e8f0" font-weight="600">CC7 · System operations</text>
+    <text x="168" y="626" font-size="11.5" fill="#7dd3fc">The audit trail is the storage model</text>
+
+    <!-- CC8 — structural -->
+    <rect x="140" y="648" width="520" height="56" rx="9" fill="#091e3e" stroke="#3b82f6" stroke-width="1.6"/>
+    <rect x="140" y="648" width="6" height="56" rx="3" fill="#60a5fa"/>
+    <text x="168" y="673" font-size="15" fill="#e2e8f0" font-weight="600">CC8 · Change management</text>
+    <text x="168" y="692" font-size="11.5" fill="#7dd3fc">One gate, and it fails rather than warns</text>
+
+    <!-- CC9 -->
+    <rect x="140" y="714" width="520" height="56" rx="9" fill="#0a1224" stroke="#16233c" stroke-width="1.4"/>
+    <text x="168" y="739" font-size="15" fill="#64748b" font-weight="600">CC9 · Risk mitigation</text>
+    <text x="168" y="758" font-size="11.5" fill="#475569">Continuity, backups, vendor concentration</text>
+  </g>
+
+  <!-- Three structural criteria converge on one place -->
+  <g fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.62">
+    <path d="M 660 544 C 800 544, 850 610, 986 610"/>
+    <path d="M 660 610 L 986 610"/>
+    <path d="M 660 676 C 800 676, 850 610, 986 610"/>
+  </g>
+  <g fill="#60a5fa">
+    <circle cx="660" cy="544" r="4"/>
+    <circle cx="660" cy="610" r="4"/>
+    <circle cx="660" cy="676" r="4"/>
+  </g>
+
+  <!-- The gateway: the single place all three are enforced -->
+  <rect x="990" y="515" width="380" height="190" rx="14" fill="#091e3e" stroke="#60a5fa" stroke-width="2" filter="url(#f-soft)"/>
+  <text x="1180" y="575" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#60a5fa" letter-spacing="0.18em">ONE GATEWAY</text>
+  <text x="1180" y="614" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="17" fill="#e2e8f0" font-weight="600">The server owns the state</text>
+  <text x="1180" y="646" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12.5" fill="#7dd3fc" opacity="0.88">Every read projected · every write validated</text>
+  <text x="1180" y="672" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12.5" fill="#7dd3fc" opacity="0.88">and logged exactly once</text>
+
+  <!-- What the architecture cannot do -->
+  <rect x="990" y="750" width="380" height="104" rx="12" fill="none" stroke="#e9b949" stroke-width="1.8" stroke-dasharray="7 6" opacity="0.8"/>
+  <text x="1180" y="784" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#e9b949" letter-spacing="0.16em" opacity="0.92">THE ATTESTATION</text>
+  <text x="1180" y="812" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#cbd5e1">Issued by a licensed CPA firm,</text>
+  <text x="1180" y="833" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#cbd5e1">about an organisation, over time.</text>
+
+  <!-- Tie the two together -->
+  <text x="1180" y="440" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13.5" fill="#64748b">An architecture can make evidence cheap.</text>
+  <text x="1180" y="464" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13.5" fill="#64748b">It cannot issue the report.</text>
+</svg>

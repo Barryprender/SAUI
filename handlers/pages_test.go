@@ -45,6 +45,7 @@ func newTestServer(t *testing.T) http.Handler {
 	mux.Handle("GET /blog/append-only-erasure", page(h.BlogPostAppendOnlyErasure))
 	mux.Handle("GET /blog/cra-clock", page(h.BlogPostCRAClock))
 	mux.Handle("GET /blog/eu-compliance", page(h.BlogPostEUCompliance))
+	mux.Handle("GET /blog/soc2-architecture", page(h.BlogPostSOC2))
 	mux.Handle("GET /code", page(h.Code))
 	return mux
 }
@@ -80,7 +81,7 @@ func TestAllRoutes_Return200(t *testing.T) {
 		"/cases", "/cases/food-ordering", "/cases/banking",
 		"/cases/healthcare", "/cases/saas-dashboard",
 		"/cases/distributed-systems", "/cases/micro-frontends",
-		"/testing", "/limits", "/blog", "/blog/append-only-erasure", "/blog/cra-clock", "/blog/eu-compliance", "/code",
+		"/testing", "/limits", "/blog", "/blog/append-only-erasure", "/blog/cra-clock", "/blog/eu-compliance", "/blog/soc2-architecture", "/code",
 	}
 	for _, route := range routes {
 		t.Run(route, func(t *testing.T) {
