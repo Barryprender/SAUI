@@ -152,15 +152,15 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 				`SOC 2 arrives the same way for almost everyone. A deal reaches procurement, a
 					security questionnaire lands, and somewhere in it is a question that is not
 					really a question: do you have a SOC 2 report. The team then discovers that the
-					answer is a six-to-twelve month project, and that most of the cost is not
-					writing policies. It is producing evidence for controls that were never
-					designed to produce any.`,
+					answer is a six-to-twelve month project, and that most of the cost lands somewhere they did not expect. Writing the policies
+					takes a few weeks. Producing evidence for controls that were never designed to produce
+					any takes the rest of the year.`,
 				`SOC 2 llega de la misma forma para casi todo el mundo. Un acuerdo llega a
 					compras, aparece un cuestionario de seguridad y en algún punto hay una pregunta
 					que en realidad no lo es: ¿tenéis un informe SOC 2? El equipo descubre entonces
-					que la respuesta es un proyecto de seis a doce meses, y que la mayor parte del
-					coste no es redactar políticas. Es producir evidencias de controles que nunca se
-					diseñaron para producir ninguna.`,
+					que la respuesta es un proyecto de seis a doce meses, y que la mayor parte del coste cae donde no lo esperaban. Redactar las políticas lleva
+					unas semanas. Producir evidencias de controles que nunca se diseñaron para producir
+					ninguna lleva el resto del año.`,
 			))
 			if templ_7745c5c3_Err != nil {
 				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 61, Col: 5}
@@ -175,14 +175,14 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 			}
 			var templ_7745c5c3_Var11 string
 			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				`That second sentence is the whole of this post. An auditor does not accept a
+				`That last sentence is what this post is about. An auditor does not accept a
 					description of a control; they sample it and ask you to show that it operated,
 					on specific dates, over the audit window. A control that depends on someone
 					remembering leaves gaps. A control that is a property of the system leaves a
 					record whether anyone remembered or not. Where you put application state turns
 					out to decide which of those you have, for three of the nine criteria an
 					auditor works through.`,
-				`Esa segunda frase resume toda esta publicación. Un auditor no acepta la
+				`Esa última frase es de lo que trata esta publicación. Un auditor no acepta la
 					descripción de un control; lo muestrea y te pide demostrar que operó, en fechas
 					concretas, a lo largo de la ventana de auditoría. Un control que depende de que
 					alguien se acuerde deja huecos. Un control que es una propiedad del sistema deja
@@ -435,19 +435,17 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 					surface. There is a user object in memory, a role in a token the client can
 					read, a price in a cart, an identifier in a URL, a flag in local storage. Each
 					of them is a claim the client makes, and every one of them must be independently
-					disbelieved by the server. The control is not one control. It is a habit applied
-					correctly at every endpoint, and an auditor samples endpoints precisely because
+					disbelieved by the server. What looks like one control is really a habit, applied at every endpoint, and an auditor samples endpoints precisely because
 					habits are applied unevenly.`,
 				`En una aplicación que mantiene estado en el cliente, ese experimento tiene una
 					superficie amplia. Hay un objeto de usuario en memoria, un rol en un token que el
 					cliente puede leer, un precio en un carrito, un identificador en una URL, una
 					bandera en el almacenamiento local. Cada uno es una afirmación que hace el
-					cliente, y el servidor debe descreer de todas ellas por separado. El control no
-					es un control. Es un hábito aplicado correctamente en cada endpoint, y un auditor
+					cliente, y el servidor debe descreer de todas ellas por separado. Lo que parece un control es en realidad un hábito, aplicado en cada endpoint, y un auditor
 					muestrea endpoints precisamente porque los hábitos se aplican de forma desigual.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 183, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 181, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
 			if templ_7745c5c3_Err != nil {
@@ -475,7 +473,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 					se juzga, no una afirmación en la que se confía.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 199, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 197, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var25))
 			if templ_7745c5c3_Err != nil {
@@ -501,7 +499,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 					forma exhaustiva en lugar de muestrear.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 213, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 211, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var26))
 			if templ_7745c5c3_Err != nil {
@@ -513,17 +511,17 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 			}
 			var templ_7745c5c3_Var27 string
 			templ_7745c5c3_Var27, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				`This is not a claim that the gateway is correct. It is a claim about how many
-					things have to be correct. One place to get right, one place to test, and one
-					place where a mistake is visible — against a habit spread across a codebase,
-					where a mistake is visible only on the endpoint nobody sampled.`,
-				`Esto no afirma que la pasarela sea correcta. Afirma algo sobre cuántas cosas
-					tienen que serlo. Un lugar que acertar, un lugar que probar y un lugar donde un
-					error es visible, frente a un hábito repartido por toda una base de código, donde
-					el error solo es visible en el endpoint que nadie muestreó.`,
+				`The gateway can of course be wrong. What changes is how many things have to be right at
+					once: one place to get right, one place to test, one place where a mistake shows. Spread
+					the same logic across a codebase and the mistake shows only on the endpoint nobody
+					sampled.`,
+				`La pasarela puede equivocarse, por supuesto. Lo que cambia es cuántas cosas tienen que
+					acertar a la vez: un lugar que acertar, un lugar que probar, un lugar donde el error se
+					ve. Reparte la misma lógica por toda una base de código y el error solo se ve en el
+					endpoint que nadie muestreó.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 223, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 221, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var27))
 			if templ_7745c5c3_Err != nil {
@@ -536,7 +534,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var28 string
 			templ_7745c5c3_Var28, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("CC7 — evidence nobody had to remember to collect", "CC7 — evidencias que nadie tuvo que acordarse de recoger"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 226, Col: 132}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 224, Col: 132}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var28))
 			if templ_7745c5c3_Err != nil {
@@ -560,7 +558,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 					subestiman de forma sistemática.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 238, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 236, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var29))
 			if templ_7745c5c3_Err != nil {
@@ -588,7 +586,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 					evidencia.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 254, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 252, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var30))
 			if templ_7745c5c3_Err != nil {
@@ -600,21 +598,18 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 			}
 			var templ_7745c5c3_Var31 string
 			templ_7745c5c3_Var31, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				`A server-authoritative system does not have this problem, and does not have it
-					for an unglamorous reason: the audit trail is the storage model. State changes
-					are events appended to a log, in order, at one gateway. The log is not a feature
-					that was added for compliance and could therefore have been forgotten. It is how
-					the application stores anything at all. Turning it off would not reduce the
-					evidence; it would stop the product working.`,
-				`Un sistema autorizado por el servidor no tiene este problema, y no lo tiene por
-					un motivo nada glamuroso: el rastro de auditoría es el modelo de almacenamiento.
+				`A server-authoritative system does not have this problem, and does not have it because the audit trail is the storage model. State changes
+					are events appended to a log, in order, at one gateway. Nobody added that log for compliance, so nobody could have forgotten to; it is how the
+					application stores anything at all. Turning it off would not reduce the evidence, it
+					would stop the product working.`,
+				`Un sistema autorizado por el servidor no tiene este problema, porque el rastro de auditoría es el modelo de almacenamiento.
 					Los cambios de estado son eventos anexados a un registro, en orden, en una única
-					pasarela. El registro no es una función añadida para el cumplimiento y que, por
-					tanto, se pudiera haber olvidado. Es la forma en que la aplicación almacena
-					cualquier cosa. Desactivarlo no reduciría las evidencias; detendría el producto.`,
+					pasarela. Nadie añadió ese registro por cumplimiento, así que nadie pudo olvidarse de hacerlo; es
+					la forma en que la aplicación almacena cualquier cosa. Desactivarlo no reduciría las
+					evidencias, detendría el producto.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 268, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 263, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var31))
 			if templ_7745c5c3_Err != nil {
@@ -627,7 +622,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var32 string
 			templ_7745c5c3_Var32, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("of nine criteria", "de nueve criterios"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 272, Col: 87}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 267, Col: 87}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var32))
 			if templ_7745c5c3_Err != nil {
@@ -640,7 +635,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var33 string
 			templ_7745c5c3_Var33, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("answered structurally", "respondidos de forma estructural"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 273, Col: 109}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 268, Col: 109}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var33))
 			if templ_7745c5c3_Err != nil {
@@ -653,7 +648,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var34 string
 			templ_7745c5c3_Var34, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("still people and paper", "aún personas y papel"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 277, Col: 96}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 272, Col: 96}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var34))
 			if templ_7745c5c3_Err != nil {
@@ -666,7 +661,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var35 string
 			templ_7745c5c3_Var35, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("no architecture writes these", "ninguna arquitectura los redacta"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 278, Col: 116}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 273, Col: 116}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var35))
 			if templ_7745c5c3_Err != nil {
@@ -679,7 +674,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var36 string
 			templ_7745c5c3_Var36, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("months of evidence", "meses de evidencias"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 282, Col: 90}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 277, Col: 90}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var36))
 			if templ_7745c5c3_Err != nil {
@@ -692,7 +687,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var37 string
 			templ_7745c5c3_Var37, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Type II window, not backfillable", "ventana de Tipo II, no retroactiva"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 283, Col: 122}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 278, Col: 122}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var37))
 			if templ_7745c5c3_Err != nil {
@@ -705,7 +700,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var38 string
 			templ_7745c5c3_Var38, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("CC8 — a gate, not a promise", "CC8 — una puerta, no una promesa"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 288, Col: 87}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 283, Col: 87}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var38))
 			if templ_7745c5c3_Err != nil {
@@ -718,16 +713,14 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var39 string
 			templ_7745c5c3_Var39, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
 				`CC8 covers change management: that changes reaching production were authorised,
-					reviewed and tested. The evidence an auditor wants is not the policy describing
-					your process. It is proof that the process ran, including the times it stopped
-					something.`,
+					reviewed and tested. An auditor will read the policy describing your process, then ask for proof that the
+					process actually ran — including the times it stopped something.`,
 				`CC8 cubre la gestión de cambios: que los cambios que llegan a producción fueron
-					autorizados, revisados y probados. La evidencia que quiere un auditor no es la
-					política que describe tu proceso. Es la prueba de que el proceso se ejecutó,
-					incluidas las veces en que detuvo algo.`,
+					autorizados, revisados y probados. Un auditor leerá la política que describe tu proceso y después pedirá la prueba de que
+					el proceso se ejecutó de verdad, incluidas las veces en que detuvo algo.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 298, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 291, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var39))
 			if templ_7745c5c3_Err != nil {
@@ -754,7 +747,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 					atravesaron.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 313, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 306, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var40))
 			if templ_7745c5c3_Err != nil {
@@ -766,13 +759,13 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 			}
 			var templ_7745c5c3_Var41 string
 			templ_7745c5c3_Var41, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T(
-				`The honest version is not sophisticated. One script defines what a passing build
+				`There is nothing clever in the honest version. One script defines what a passing build
 					means, continuous integration runs that same script rather than a copy of it, and
 					it fails rather than warns. Every deployed version is then a commit that a gate
 					with teeth allowed through, and the record is a by-product. None of this is
 					specific to server-authoritative design, and it is included here only because
 					it is the criterion a small team can satisfy this week.`,
-				`La versión honesta no es sofisticada. Un único script define qué significa una
+				`No hay nada ingenioso en la versión honesta. Un único script define qué significa una
 					compilación correcta, la integración continua ejecuta ese mismo script en lugar
 					de una copia, y falla en vez de advertir. Cada versión desplegada es entonces un
 					commit que una puerta con dientes dejó pasar, y el registro es un subproducto.
@@ -781,7 +774,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 					semana.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 328, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 321, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var41))
 			if templ_7745c5c3_Err != nil {
@@ -805,7 +798,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 						disperso entre clientes tiene que salir a buscarla.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 341, Col: 6}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 334, Col: 6}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var42))
 			if templ_7745c5c3_Err != nil {
@@ -818,7 +811,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var43 string
 			templ_7745c5c3_Var43, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("What the architecture does not do", "Lo que la arquitectura no hace"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 345, Col: 87}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 338, Col: 87}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var43))
 			if templ_7745c5c3_Err != nil {
@@ -852,7 +845,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 					y CC8 a la perfección mientras ignora el resto suspende la auditoría.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 367, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 360, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var44))
 			if templ_7745c5c3_Err != nil {
@@ -878,7 +871,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 					describir la autorrevisión con un lenguaje que insinúe independencia.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 381, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 374, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var45))
 			if templ_7745c5c3_Err != nil {
@@ -908,7 +901,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 					primer día, no al mes anterior a que se abra la ventana de auditoría.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 399, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 392, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var46))
 			if templ_7745c5c3_Err != nil {
@@ -937,7 +930,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 					cuenta.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 416, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 409, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var47))
 			if templ_7745c5c3_Err != nil {
@@ -950,7 +943,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var48 string
 			templ_7745c5c3_Var48, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("Practical advice, in the order it pays off", "Consejos prácticos, en el orden en que compensan"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 419, Col: 115}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 412, Col: 115}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var48))
 			if templ_7745c5c3_Err != nil {
@@ -966,7 +959,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 				"Nada de lo siguiente requiere un encargo, un consultor ni un presupuesto. Todo ello abarata una auditoría posterior, y la mayor parte merece la pena tanto si llega a haber auditoría como si no.",
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 423, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 416, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var49))
 			if templ_7745c5c3_Err != nil {
@@ -989,7 +982,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 						solicitó.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 435, Col: 6}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 428, Col: 6}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var50))
 			if templ_7745c5c3_Err != nil {
@@ -1012,7 +1005,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 						leído el informe.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 446, Col: 6}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 439, Col: 6}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var51))
 			if templ_7745c5c3_Err != nil {
@@ -1037,7 +1030,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 						ha leído.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 459, Col: 6}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 452, Col: 6}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var52))
 			if templ_7745c5c3_Err != nil {
@@ -1060,7 +1053,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 						Un registro de solo anexado, también.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 470, Col: 6}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 463, Col: 6}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var53))
 			if templ_7745c5c3_Err != nil {
@@ -1080,7 +1073,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 						de verdad no se puede producir de forma retrospectiva.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 478, Col: 6}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 471, Col: 6}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var54))
 			if templ_7745c5c3_Err != nil {
@@ -1102,7 +1095,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 						que decides hoy es el aspecto que tendrán esas evidencias dentro de un año.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 488, Col: 6}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 481, Col: 6}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var55))
 			if templ_7745c5c3_Err != nil {
@@ -1124,7 +1117,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 						falsa ante un cliente, y es de las que se comprueban.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 498, Col: 6}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 491, Col: 6}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var56))
 			if templ_7745c5c3_Err != nil {
@@ -1152,7 +1145,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 					verde se convierte en una falsa sensación de estar preparado.`,
 			))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 515, Col: 5}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 508, Col: 5}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var57))
 			if templ_7745c5c3_Err != nil {
@@ -1165,7 +1158,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var58 templ.SafeURL
 			templ_7745c5c3_Var58, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(lang.Prefix() + "/architecture"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 516, Col: 59}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 509, Col: 59}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var58))
 			if templ_7745c5c3_Err != nil {
@@ -1178,7 +1171,7 @@ func BlogPostSOC2(csrfToken string, lang locale.Lang) templ.Component {
 			var templ_7745c5c3_Var59 string
 			templ_7745c5c3_Var59, templ_7745c5c3_Err = templ.JoinStringErrs(lang.T("See how the gateway works", "Ver cómo funciona la pasarela"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 516, Col: 133}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/pages/blog_post_soc2.templ`, Line: 509, Col: 133}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var59))
 			if templ_7745c5c3_Err != nil {

@@ -49,25 +49,25 @@ templ BlogPostSOC2(csrfToken string, lang locale.Lang) {
 					`SOC 2 arrives the same way for almost everyone. A deal reaches procurement, a
 					security questionnaire lands, and somewhere in it is a question that is not
 					really a question: do you have a SOC 2 report. The team then discovers that the
-					answer is a six-to-twelve month project, and that most of the cost is not
-					writing policies. It is producing evidence for controls that were never
-					designed to produce any.`,
+					answer is a six-to-twelve month project, and that most of the cost lands somewhere they did not expect. Writing the policies
+					takes a few weeks. Producing evidence for controls that were never designed to produce
+					any takes the rest of the year.`,
 					`SOC 2 llega de la misma forma para casi todo el mundo. Un acuerdo llega a
 					compras, aparece un cuestionario de seguridad y en algún punto hay una pregunta
 					que en realidad no lo es: ¿tenéis un informe SOC 2? El equipo descubre entonces
-					que la respuesta es un proyecto de seis a doce meses, y que la mayor parte del
-					coste no es redactar políticas. Es producir evidencias de controles que nunca se
-					diseñaron para producir ninguna.`,
+					que la respuesta es un proyecto de seis a doce meses, y que la mayor parte del coste cae donde no lo esperaban. Redactar las políticas lleva
+					unas semanas. Producir evidencias de controles que nunca se diseñaron para producir
+					ninguna lleva el resto del año.`,
 				) }</p>
 				<p>{ lang.T(
-					`That second sentence is the whole of this post. An auditor does not accept a
+					`That last sentence is what this post is about. An auditor does not accept a
 					description of a control; they sample it and ask you to show that it operated,
 					on specific dates, over the audit window. A control that depends on someone
 					remembering leaves gaps. A control that is a property of the system leaves a
 					record whether anyone remembered or not. Where you put application state turns
 					out to decide which of those you have, for three of the nine criteria an
 					auditor works through.`,
-					`Esa segunda frase resume toda esta publicación. Un auditor no acepta la
+					`Esa última frase es de lo que trata esta publicación. Un auditor no acepta la
 					descripción de un control; lo muestrea y te pide demostrar que operó, en fechas
 					concretas, a lo largo de la ventana de auditoría. Un control que depende de que
 					alguien se acuerde deja huecos. Un control que es una propiedad del sistema deja
@@ -170,15 +170,13 @@ templ BlogPostSOC2(csrfToken string, lang locale.Lang) {
 					surface. There is a user object in memory, a role in a token the client can
 					read, a price in a cart, an identifier in a URL, a flag in local storage. Each
 					of them is a claim the client makes, and every one of them must be independently
-					disbelieved by the server. The control is not one control. It is a habit applied
-					correctly at every endpoint, and an auditor samples endpoints precisely because
+					disbelieved by the server. What looks like one control is really a habit, applied at every endpoint, and an auditor samples endpoints precisely because
 					habits are applied unevenly.`,
 					`En una aplicación que mantiene estado en el cliente, ese experimento tiene una
 					superficie amplia. Hay un objeto de usuario en memoria, un rol en un token que el
 					cliente puede leer, un precio en un carrito, un identificador en una URL, una
 					bandera en el almacenamiento local. Cada uno es una afirmación que hace el
-					cliente, y el servidor debe descreer de todas ellas por separado. El control no
-					es un control. Es un hábito aplicado correctamente en cada endpoint, y un auditor
+					cliente, y el servidor debe descreer de todas ellas por separado. Lo que parece un control es en realidad un hábito, aplicado en cada endpoint, y un auditor
 					muestrea endpoints precisamente porque los hábitos se aplican de forma desigual.`,
 				) }</p>
 				<p>{ lang.T(
@@ -212,14 +210,14 @@ templ BlogPostSOC2(csrfToken string, lang locale.Lang) {
 					forma exhaustiva en lugar de muestrear.`,
 				) }</p>
 				<p>{ lang.T(
-					`This is not a claim that the gateway is correct. It is a claim about how many
-					things have to be correct. One place to get right, one place to test, and one
-					place where a mistake is visible — against a habit spread across a codebase,
-					where a mistake is visible only on the endpoint nobody sampled.`,
-					`Esto no afirma que la pasarela sea correcta. Afirma algo sobre cuántas cosas
-					tienen que serlo. Un lugar que acertar, un lugar que probar y un lugar donde un
-					error es visible, frente a un hábito repartido por toda una base de código, donde
-					el error solo es visible en el endpoint que nadie muestreó.`,
+					`The gateway can of course be wrong. What changes is how many things have to be right at
+					once: one place to get right, one place to test, one place where a mistake shows. Spread
+					the same logic across a codebase and the mistake shows only on the endpoint nobody
+					sampled.`,
+					`La pasarela puede equivocarse, por supuesto. Lo que cambia es cuántas cosas tienen que
+					acertar a la vez: un lugar que acertar, un lugar que probar, un lugar donde el error se
+					ve. Reparte la misma lógica por toda una base de código y el error solo se ve en el
+					endpoint que nadie muestreó.`,
 				) }</p>
 			</section>
 			<section>
@@ -253,18 +251,15 @@ templ BlogPostSOC2(csrfToken string, lang locale.Lang) {
 					evidencia.`,
 				) }</p>
 				<p>{ lang.T(
-					`A server-authoritative system does not have this problem, and does not have it
-					for an unglamorous reason: the audit trail is the storage model. State changes
-					are events appended to a log, in order, at one gateway. The log is not a feature
-					that was added for compliance and could therefore have been forgotten. It is how
-					the application stores anything at all. Turning it off would not reduce the
-					evidence; it would stop the product working.`,
-					`Un sistema autorizado por el servidor no tiene este problema, y no lo tiene por
-					un motivo nada glamuroso: el rastro de auditoría es el modelo de almacenamiento.
+					`A server-authoritative system does not have this problem, and does not have it because the audit trail is the storage model. State changes
+					are events appended to a log, in order, at one gateway. Nobody added that log for compliance, so nobody could have forgotten to; it is how the
+					application stores anything at all. Turning it off would not reduce the evidence, it
+					would stop the product working.`,
+					`Un sistema autorizado por el servidor no tiene este problema, porque el rastro de auditoría es el modelo de almacenamiento.
 					Los cambios de estado son eventos anexados a un registro, en orden, en una única
-					pasarela. El registro no es una función añadida para el cumplimiento y que, por
-					tanto, se pudiera haber olvidado. Es la forma en que la aplicación almacena
-					cualquier cosa. Desactivarlo no reduciría las evidencias; detendría el producto.`,
+					pasarela. Nadie añadió ese registro por cumplimiento, así que nadie pudo olvidarse de hacerlo; es
+					la forma en que la aplicación almacena cualquier cosa. Desactivarlo no reduciría las
+					evidencias, detendría el producto.`,
 				) }</p>
 				<div class="blog-stat-row">
 					<div class="blog-stat blog-stat--safe">
@@ -288,13 +283,11 @@ templ BlogPostSOC2(csrfToken string, lang locale.Lang) {
 				<h2>{ lang.T("CC8 — a gate, not a promise", "CC8 — una puerta, no una promesa") }</h2>
 				<p>{ lang.T(
 					`CC8 covers change management: that changes reaching production were authorised,
-					reviewed and tested. The evidence an auditor wants is not the policy describing
-					your process. It is proof that the process ran, including the times it stopped
-					something.`,
+					reviewed and tested. An auditor will read the policy describing your process, then ask for proof that the
+					process actually ran — including the times it stopped something.`,
 					`CC8 cubre la gestión de cambios: que los cambios que llegan a producción fueron
-					autorizados, revisados y probados. La evidencia que quiere un auditor no es la
-					política que describe tu proceso. Es la prueba de que el proceso se ejecutó,
-					incluidas las veces en que detuvo algo.`,
+					autorizados, revisados y probados. Un auditor leerá la política que describe tu proceso y después pedirá la prueba de que
+					el proceso se ejecutó de verdad, incluidas las veces en que detuvo algo.`,
 				) }</p>
 				<p>{ lang.T(
 					`This criterion is unusual in that it is both the cheapest of the nine to satisfy
@@ -312,13 +305,13 @@ templ BlogPostSOC2(csrfToken string, lang locale.Lang) {
 					atravesaron.`,
 				) }</p>
 				<p>{ lang.T(
-					`The honest version is not sophisticated. One script defines what a passing build
+					`There is nothing clever in the honest version. One script defines what a passing build
 					means, continuous integration runs that same script rather than a copy of it, and
 					it fails rather than warns. Every deployed version is then a commit that a gate
 					with teeth allowed through, and the record is a by-product. None of this is
 					specific to server-authoritative design, and it is included here only because
 					it is the criterion a small team can satisfy this week.`,
-					`La versión honesta no es sofisticada. Un único script define qué significa una
+					`No hay nada ingenioso en la versión honesta. Un único script define qué significa una
 					compilación correcta, la integración continua ejecuta ese mismo script en lugar
 					de una copia, y falla en vez de advertir. Cada versión desplegada es entonces un
 					commit que una puerta con dientes dejó pasar, y el registro es un subproducto.
